@@ -1,0 +1,469 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/5 - S22/preamble.tex}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={PHY 310 - HW 6},
+	pdfpagemode=FullScreen,
+}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		{\textbf { \large PHY 310 --- Mathematical Methods in Physics}}
+		\vspace{0.4cm}
+	\end{center}
+	{\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 19 Apr 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 6 \\
+		\hrule	
+	
+	\section*{Problem 1: Classical Mechanics}
+	\subsection*{Bead Sliding on the External Surface of a Rough Sphere. Use of Acceleration Vector in Plane Polar Coordinates}
+	\boldmath
+		A bead is placed at the highest of a fixed sphere of radius $R$. The bead is then given a tiny kick, so that it essentially starts from rest and moves on the external surface of the sphere. The coefficient of kinetic friction between the bead and the sphere is $\mu_k$. The angular position of the bead at time $t$ is $\phi$. \\
+		
+		\begin{enumerate}
+			\item[(a)] Show that
+			\[
+				\dot{\phi}^2 = \frac{2g}{(4\mu^2_k + 1)R} \left\{ (2\mu^2_k - 1) \left[ \sin \phi - e^{\mu_k (\pi - 2\phi)} \right] - 3\mu_k \cos \phi \right\}
+			\]
+			\paragraph{Solution} Plane polar coordinates are used as there is no variation in the azimuthal angle, the ball does not deviate from a set longitude at the start because of azimuthal symmetry. Therefore, if we start from spherical coordinates, the conditions force it to mirror a polar coordinate system. Starting by finding the radial and tangential components of the force acting on the ball. \unboldmath  
+			\[
+				\orr{a} = \left( \ddot{\rho} - \rho \dot{\phi}^2 \right) \hat{\rho} + \left( \rho \ddot{\phi} + 2\dot{\rho} \dot{\phi} \right) \hat{\phi}
+			\]
+			\begin{equation*}
+				\begin{aligned}
+					\rho &= R & \dot{\rho} &= 0 & \ddot{\rho} &= 0 \\
+				\end{aligned}
+			\end{equation*}
+			\begin{equation*}
+				\begin{aligned}
+					\text{Radial Direction} \quad \hat{\rho} &: & m\left( -R \dot{\phi}^2 \right) &= -mg\sin \phi + N \\
+					\text{Tangential Direction} \quad \hat{\phi} &: & m\left( R \ddot{\phi} \right) &= \mu N - mg\cos \phi \\
+				\end{aligned}
+			\end{equation*}
+			\[
+				-mR \dot{\phi}^2 - \frac{mR \ddot{\phi}}{\mu_k} = -mg\sin \phi + N - N + \frac{mg\cos \phi}{\mu_k}
+			\]
+			\[
+				-mR\mu_k \dot{\phi}^2 - mR \ddot{\phi} = -\mu_k mg\sin \phi + mg\cos \phi
+			\]
+			\[
+				R\ddot{\phi} + R\mu_k \dot{\phi}^2 = \mu_k g\sin \phi - g\cos \phi
+			\]
+			\[
+				\ddot{\phi} + \mu_k \dot{\phi}^2 = \frac{g}{R} \left( \mu_k \sin \phi - \cos \phi \right)
+			\]
+			This is a second order, non-linear, nonhomogeneous differential equation. One way to solve these is to reduce the DE down to a first order by a convenient substitution. Let $z = \dot{\phi}^2$
+			\[
+				\frac{dz}{d\phi} = \frac{dz}{dt} \frac{dt}{d\phi} = \left( 2\dot{\phi}\frac{d \dot{\phi}}{dt} \right) \left( \frac{1}{\dot{\phi}} \right) = 2\ddot{\phi} \quad \Rightarrow \quad \ddot{\phi} = \frac{1}{2} \frac{dz}{d\phi}
+			\]
+			\[
+				\frac{1}{2} \frac{dz}{d\phi} + \mu_k z = \frac{g}{R} \left( \mu_k \sin \phi - \cos \phi \right)
+			\]
+			\[
+				\frac{dz}{d\phi} + 2\mu_k z = \frac{2g}{R} \left( \mu_k \sin \phi - \cos \phi \right)
+			\]
+			Using the integrating factor method to find the solution. $ \displaystyle e^{\int 2\mu_k d\phi} = e^{2\mu_k \phi} $
+			\[
+				e^{2\mu_k \phi}\frac{dz}{d\phi} + 2\mu_k e^{2\mu_k \phi} z = \frac{2g}{R} e^{2\mu_k \phi} \left( \mu_k \sin \phi - \cos \phi \right)
+			\]
+			\[
+				\frac{d}{d\phi} \left[ ze^{2\mu_k \phi} \right] = \frac{2g}{R} e^{2\mu_k \phi} \left( \mu_k \sin \phi - \cos \phi \right)
+			\]
+			\[
+				ze^{2\mu_k \phi} = \frac{2g}{R} \left[ \mu_k \int e^{2\mu_k \phi} \sin \phi \, d\phi - \int e^{2\mu_k \phi} \cos \phi \, d\phi \right]
+			\]
+			Using the following general formulas for integrals of products of trigonometric functions and exponential.
+			\[
+				\int e^{bx} \sin ax \, dx = \frac{e^{bx}}{a^2 + b^2} \left( b \sin ax - a \cos ax \right) \quad \int e^{bx} \cos ax \, dx = \frac{e^{bx}}{a^2 + b^2} \left( a \sin ax + b \cos ax \right)
+			\]
+			\[
+				ze^{2\mu_k \phi} = \frac{2g}{R} \left[ \mu_k \left( \frac{e^{2\mu_k \phi}}{1^2 + 4\mu_k^2} \left( 2\mu_k \sin \phi - \cos \phi \right) \right) - \left( \frac{e^{2\mu_k \phi}}{1^2 + 4\mu_k^2} \left( \sin \phi + 2\mu_k \cos \phi \right) \right) \right] + C
+			\]
+			\[
+				ze^{2\mu_k \phi} = \frac{2g}{R} \left[ \frac{\mu e^{2\mu_k \phi}}{4\mu_k^2 + 1} \left( 2\mu_k \sin \phi - \cos \phi \right) - \frac{e^{2\mu_k \phi}}{4\mu_k^2 + 1} \left( \sin \phi + 2\mu_k \cos \phi \right) \right] + C
+			\]
+			\[
+				\dot{\phi}^2 = \frac{2g}{R\left( 4\mu_k^2 + 1 \right)} \left[ 2\mu_k^2 \sin \phi - \mu_k \cos \phi - \sin \phi - 2\mu_k \cos \phi \right] + Ce^{-2\mu_k \phi}
+			\]
+			\[
+				\dot{\phi}^2 = \frac{2g}{R\left( 4\mu_k^2 + 1 \right)} \left[ \left( 2\mu_k^2 - 1 \right) \sin \phi - 3\mu_k \cos \phi \right] + Ce^{-2\mu_k \phi}
+			\]
+			Applying initial conditions at the top of the sphere to find C: $\dot{\phi} = 0$, $\phi = \frac{\pi}{2}$.
+			\[
+				0 = \frac{2g}{R\left( 4\mu_k^2 + 1 \right)} \left[ \left( 2\mu_k^2 - 1 \right) \right] + Ce^{-\mu_k \pi}
+			\]
+			\[
+				C = -\frac{2g \left( 2\mu_k^2 - 1 \right)}{R\left( 4\mu_k^2 + 1 \right)} e^{\mu_k \pi}
+			\]
+			\[
+				\dot{\phi}^2 = \frac{2g}{R\left( 4\mu_k^2 + 1 \right)} \left[ \left( 2\mu_k^2 - 1 \right) \sin \phi - 3\mu_k \cos \phi \right] - \frac{2g \left( 2\mu_k^2 - 1 \right)}{R\left( 4\mu_k^2 + 1 \right)} e^{\mu_k \pi} e^{-2\mu_k \phi}
+			\]
+			\[
+				\dot{\phi}^2 = \frac{2g}{R\left( 4\mu_k^2 + 1 \right)} \left[ \left( 2\mu_k^2 - 1 \right) \sin \phi - 3\mu_k \cos \phi - \left( 2\mu_k^2 - 1 \right) e^{\mu_k \left( \pi - 2\phi \right)} \right]
+			\]
+			\[
+				\dot{\phi}^2 = \frac{2g}{R\left( 4\mu_k^2 + 1 \right)} \left[ \left( 2\mu_k^2 - 1 \right) \left( \sin \phi - e^{\mu_k \left( \pi - 2\phi \right)} \right) - 3\mu_k \cos \phi \right]
+			\]
+			\boldmath
+			\item[(b)] \begin{enumerate}
+				\item[i.] Show that the bead will leave the surface of the sphere, when $\phi = \alpha$, where $\alpha$ is determined from
+				\[
+					3( \sin \alpha + 2\mu_k \cos \alpha ) = 2( 1 - 2\mu^2_k ) e^{\mu_k (\pi - 2\alpha)}.
+				\]
+				\paragraph{Solution} When the bead leaves the surface of the sphere at $\phi = \alpha$, it is no longer in contact and so the normal force $N = 0$. \unboldmath
+				\[
+					-mR \dot{\phi}^2 = -mg\sin \alpha
+				\]
+				\[
+					\dot{\phi}^2 = \frac{g}{R} \sin \alpha
+				\]
+				\begin{equation*}
+					\begin{split}
+						\frac{g}{R} \sin \alpha &= \frac{2g}{R\left( 4\mu_k^2 + 1 \right)} \left[ \left( 2\mu_k^2 - 1 \right) \left( \sin \alpha - e^{\mu_k \left( \pi - 2\alpha \right)} \right) - 3\mu_k \cos \alpha \right] \\
+						\sin \alpha &= \frac{2}{4\mu_k^2 + 1} \left[ \left( 2\mu_k^2 - 1 \right)\sin \alpha - \left( 2\mu_k^2 - 1 \right)e^{\mu_k \left( \pi - 2\alpha \right)} - 3\mu_k \cos \alpha \right] \\
+						\left( 4\mu_k^2 + 1 \right) \sin \alpha &= 2\left( 2\mu_k^2 - 1 \right)\sin \alpha - 2\left( 2\mu_k^2 - 1 \right)e^{\mu_k \left( \pi - 2\alpha \right)} - 6\mu_k \cos \alpha \\
+						3\sin \alpha &= - 2\left( 2\mu_k^2 - 1 \right)e^{\mu_k \left( \pi - 2\alpha \right)} - 6\mu_k \cos \alpha \\
+						3( \sin \alpha + 2\mu_k \cos \alpha ) &= 2( 1 - 2\mu^2_k ) e^{\mu_k (\pi - 2\alpha)} \\
+					\end{split}
+				\end{equation*} \boldmath
+				\item[ii.] Take $\mu_k = 0.35$. Solve the transcendental equation for $\alpha$ in part (b)i.
+				\paragraph{Solution} Using \href{https://www.desmos.com/calculator/pkcbf2ms6s}{\underline{desmos.com/calculator}} to plot the graph. \\ \unboldmath
+				\[
+					3( \sin \alpha + 0.7 \cos \alpha ) = \frac{151}{100} e^{\frac{7}{20} (\pi - 2\alpha)} \\
+				\]
+				\begin{figure}[!h]
+					\centering
+					\includegraphics[scale= 0.2]{Graph.png}
+				\end{figure}
+				\boldmath
+				\item[iii.] What is $\alpha$ for a perfectly smooth sphere?
+				\paragraph{Solution} For a perfectly smooth sphere, $\mu_k = 0$. \unboldmath
+				\[
+					3 \sin \alpha = 2
+				\]
+				\[
+					\alpha = \arcsin(\frac{3}{2}) \approx 41.8^{\circ}
+				\] \boldmath
+			\end{enumerate}
+		\end{enumerate}
+	
+	\unboldmath
+	
+%	\section*{Problem 2: Electromagnetism}
+%	\subsection*{The Magnetron. Use of Acceleration Vector in Cylindrical Polar Coordinates}
+%	\boldmath
+%		Particles of mass $m$ and charge $-q$ leave the surface of a very long solid conducting cylinder of radius $a$ with negligible initial velocity. They are accelerated towards the surface of a coaxial conducting cylinder of radius $b$ by means of a constant potential difference $V_0$ between the cylinders. The inner cylinder carries a constant current $I$ distributed uniformly over its cross-section. Additionally, the entire assembly is immersed in a magnetic field $B_0 \widehat{k}$ (parallel to the axis of the cylinders). \\
+%		
+%		\begin{enumerate}
+%			\item[(a)] Show that in the region defined by $a \leq \rho \leq b$, the \begin{enumerate}
+%				\item[i.] electric field is $\displaystyle -\frac{V_0}{\ln \left( \frac{b}{a} \right)} \frac{1}{\rho} \widehat{\rho}$,
+%				\item[ii.] magnetic field due to the current $I$ is $\displaystyle \frac{\mu_0 I}{2\pi} \frac{1}{\rho} \widehat{\phi}$.
+%			\end{enumerate}
+%			\item[(b)] Find \begin{enumerate}
+%				\item[i.] $\dot{\phi}$,
+%				\item[ii.] $\dot{z}$,
+%				\item[iii.] $\dot{\rho}$,
+%			\end{enumerate}
+%			as a function of the distance $\rho$ from the origin.
+%			\item[(c)] Show that, if the particles on their arrival at the outer cylinder, simply graze over its surface, then
+%			\[
+%				V_0 = \frac{1}{8} \frac{q}{m} \left\{ \left[ \frac{B_0}{b} (b^2 - a^2) \right]^2 + \left[ \frac{\mu_0 I}{\pi} \ln \left( \frac{b}{a} \right) \right]^2 \right\}.
+%			\]
+% 		\end{enumerate}
+% 	
+%	\unboldmath
+
+	\clearpage
+	\section*{Problem 3: Electromagnetism}
+	\subsection*{Derivation of Continuity Equation and Wave Equations for the Electric \& Magnetic Field from Maxwell's Equation}
+	\boldmath
+		\begin{enumerate}
+			\item[(a)] Using only Kronecker delta $\delta_{ij}$ and Levi-Civita tensor $\epsilon_{ijk}$, show that \\
+			\begin{enumerate}
+				\item[i.] $ \orr{\nabla} \cdot \left( \orr{\nabla} \cross \orr{V} \right) = 0 $
+				\paragraph{Solution} Using the property that the Levi-Civita Tensor is anti symmetric and the symmetry of partial derivatives. $\epsilon_{ijk} = -\epsilon_{jik}$ and $\partial_i \partial_j = \partial_j \partial_i$ \unboldmath  
+				\begin{equation*}
+					\begin{split}
+						\orr{\nabla} \cdot \left( \orr{\nabla} \cross \orr{V} \right) &= \orr{\nabla}_i \left( \orr{\nabla} \cross \orr{V} \right)_i = \partial_i \epsilon_{ijk} \partial_j A_k \\
+						&= \epsilon_{ijk} \partial_i \partial_j A_k \\
+						&= \frac{1}{2} \epsilon_{ijk} \partial_i \partial_j A_k + \frac{1}{2} \epsilon_{ijk} \partial_i \partial_j A_k \\
+						&= \frac{1}{2} \epsilon_{ijk} \partial_i \partial_j A_k + \frac{1}{2} \epsilon_{jik} \partial_j \partial_i A_k \\
+						&= \frac{1}{2} \epsilon_{ijk} \partial_i \partial_j A_k - \frac{1}{2} \epsilon_{ijk} \partial_i \partial_j A_k \\
+						&= 0 
+					\end{split}
+				\end{equation*} \boldmath
+				\item[ii.] $ \orr{\nabla} \cross \left( \orr{\nabla} \cross \orr{V} \right) = \orr{\nabla} \left( \orr{\nabla} \cdot \orr{V} \right) -\nabla^2 \orr{V} $
+				\paragraph{Solution} \unboldmath  
+				\begin{equation*}
+					\begin{split}
+						\left[ \orr{\nabla} \cross \left( \orr{\nabla} \cross \orr{V} \right) \right]_i &= \epsilon_{ijk} \partial_j \left( \orr{\nabla} \cross \orr{V} \right)_k = \epsilon_{ijk} \partial_j \epsilon_{klm} \partial_l V_m \\
+						&= \epsilon_{ijk} \epsilon_{klm} \partial_j \partial_l V_m = \left( \delta{il} \delta_{jm} - \delta_{im} \delta_{jl} \right) \partial_j \partial_l V_m \\
+						&= \partial_i \partial_j V_j - \partial_j \partial_j V_i = \nabla_i \left( \orr{\nabla} \cdot \orr{V} \right) - \orr{\nabla} \cdot \orr{\nabla} V_i \\
+						&= \orr{\nabla} \left( \orr{\nabla} \cdot \orr{V} \right) - \nabla^2 \orr{V}
+					\end{split}
+				\end{equation*} \boldmath
+			\end{enumerate}
+			\item[(b)] Maxwell's equations describe the spatial $\left( \orr{r} \right)$ and temporal $\left( t \right)$ variation of electric field $\orr{E}\left( \orr{r},t \right)$ and magnetic field $\orr{B}\left( \orr{r},t \right)$ arising from the electric charge $\rho\left( \orr{r},t \right)$ and current $\orr{J}\left( \orr{r},t \right)$ distributions. They take the form
+			\begin{equation*}
+				\begin{split}
+					\orr{\nabla} \cdot \orr{E} &= \frac{4\pi \rho}{\epsilon}, \\
+					\orr{\nabla} \cdot \orr{B} &= 0, \\
+					\orr{\nabla} \cross \orr{E} &= -\frac{1}{c} \frac{\partial \orr{B}}{\partial t}, \\
+					\orr{\nabla} \cross \orr{B} &= \frac{4\pi \mu}{c} \orr{J} + \frac{\mu \epsilon}{c} \frac{\partial \orr{E}}{\partial t},
+				\end{split}
+			\end{equation*}
+			where $\epsilon$, $\mu$ are dielectric and permittivity constants of the medium, while $c$ is the speed of light. \\
+			\begin{enumerate}
+				\item[i.] Show that the 'continuity equation' $\displaystyle \orr{\nabla} \cdot \orr{J} + \frac{\partial \rho}{\partial t} = 0$ follows directly from Maxwell's equations.
+				\paragraph{Solution} \unboldmath  
+				\begin{equation*}
+					\begin{split}
+						\orr{\nabla} \cdot \left( \orr{\nabla} \cross \orr{B} \right) &= \frac{4\pi \mu}{c} \orr{\nabla} \cdot \orr{J} + \frac{\mu \epsilon}{c} \frac{\partial}{\partial t}\left( \orr{\nabla} \cdot \orr{E} \right) \\
+						0 &= \frac{4\pi \mu}{c} \orr{\nabla} \cdot \orr{J} + \frac{\mu \epsilon}{c} \frac{\partial}{\partial t}\left( \frac{4\pi \rho}{\epsilon} \right) \\
+						0 &= \frac{4\pi \mu}{c} \orr{\nabla} \cdot \orr{J} + \frac{4\pi \mu}{c} \frac{\partial \rho}{\partial t} \\
+						\orr{\nabla} \cdot \orr{J} + \frac{\partial \rho}{\partial t} &= 0 
+					\end{split}
+				\end{equation*} \boldmath
+	\clearpage
+				\item[ii.] Derive the wave equation for the electric \& magnetic fields:
+				\begin{equation*}
+					\begin{aligned}
+						\nabla^2 \orr{E} - \frac{\mu \epsilon}{c^2} \frac{\partial^2 \orr{E}}{\partial t^2} &= \frac{4\pi \mu}{c^2} \frac{\partial \orr{J}}{\partial t} + \frac{4\pi}{\epsilon} \orr{\nabla} \rho, & \quad \quad \nabla^2 \orr{B} - \frac{\mu \epsilon}{c^2} \frac{\partial^2 \orr{B}}{\partial t^2} &= -\frac{4\pi \mu}{c} \orr{\nabla} \cross J.
+					\end{aligned}
+				\end{equation*}
+				\paragraph{Solution} \unboldmath  
+				\begin{equation*}
+					\begin{split}
+						\orr{\nabla} \cross \left( \orr{\nabla} \cross \orr{E} \right) &= -\frac{1}{c} \frac{\partial}{\partial t} \left( \orr{\nabla} \cross \orr{B} \right) \\
+						\orr{\nabla} \left( \orr{\nabla} \cdot \orr{E} \right) - \nabla^2 \orr{E} &= -\frac{1}{c} \frac{\partial}{\partial t} \left( \frac{4\pi \mu}{c} \orr{J} + \frac{\mu \epsilon}{c} \frac{\partial \orr{E}}{\partial t} \right) \\
+						\nabla^2 \orr{E} - \orr{\nabla} \left( \frac{4\pi \rho}{\epsilon} \right) &= \frac{1}{c} \frac{\partial}{\partial t} \left( \frac{4\pi \mu}{c} \orr{J} + \frac{\mu \epsilon}{c} \frac{\partial \orr{E}}{\partial t} \right) \\
+						\nabla^2 \orr{E} - \frac{4\pi}{\epsilon} \orr{\nabla} \rho  &= \frac{4\pi \mu}{c^2} \frac{\partial \orr{J}}{\partial t} + \frac{\mu \epsilon}{c^2} \frac{\partial^2 \orr{E}}{\partial t^2} \\
+						\nabla^2 \orr{E} - \frac{\mu \epsilon}{c^2} \frac{\partial^2 \orr{E}}{\partial t^2} &= \frac{4\pi \mu}{c^2} \frac{\partial \orr{J}}{\partial t} + \frac{4\pi}{\epsilon} \orr{\nabla} \rho
+					\end{split}
+				\end{equation*} \\
+				\begin{equation*}
+					\begin{split}
+						\orr{\nabla} \cross \left( \orr{\nabla} \cross \orr{B} \right) &= \frac{4\pi \mu}{c} \left( \orr{\nabla} \cross \orr{J} \right) + \frac{\mu \epsilon}{c} \frac{\partial}{\partial t} \left( \orr{\nabla} \cross \orr{E} \right) \\
+						\orr{\nabla} \left( \orr{\nabla} \cdot \orr{B} \right) -\nabla^2 \orr{B} &= \frac{4\pi \mu}{c} \left( \orr{\nabla} \cross \orr{J} \right) + \frac{\mu \epsilon}{c} \frac{\partial}{\partial t} \left( -\frac{1}{c} \frac{\partial \orr{B}}{\partial t} \right) \\
+						-\nabla^2 \orr{B} &= \frac{4\pi \mu}{c} \left( \orr{\nabla} \cross \orr{J} \right) - \frac{\mu \epsilon}{c^2} \frac{\partial^2 \orr{B}}{\partial t^2} \\
+						\nabla^2 \orr{B} - \frac{\mu \epsilon}{c^2} \frac{\partial^2 \orr{B}}{\partial t^2} &= -\frac{4\pi \mu}{c} \orr{\nabla} \cross J
+					\end{split}
+				\end{equation*} \boldmath
+			\end{enumerate}
+		\end{enumerate}
+	\unboldmath	
+%	\section*{Problem 5: Electromagnetism}
+%	\subsection*{Multipole Expansion of Electrostatic Potential in Cartesian Coordinates}
+%	\boldmath
+%		\begin{enumerate}
+%			\item[(a)] Define $\orr{r} = x\widehat{i} + y\widehat{j} + z\widehat{k}$, $\orr{r}' = x' \; \widehat{i} + y' \; \widehat{j} + z' \; \widehat{k}$ and $\orr{\nabla}' = \frac{\partial}{\partial r'_i} \widehat{e}_i$. Show that \begin{enumerate}
+%				\item[i.] $ \displaystyle \nabla'_i \left( \frac{1}{\left| \orr{r} - \orr{r}' \right|} \right) = \frac{r_i - r'_i}{\abs{\orr{r} - \orr{r}'}^3}$,
+%				\item[ii.] $ \displaystyle \nabla'_j \nabla'_i \left( \frac{1}{\left| \orr{r} - \orr{r}' \right|} \right) = \frac{ 3(r_i - r'_i)(r_j - r'_j) - \delta_{ij} \abs{\orr{r} - \orr{r'}}^2  }{\abs{\orr{r} - \orr{r'}}^5}$,
+%				\item[iii.] $ \nabla'_k \nabla'_j \nabla'_i \left( \frac{1}{\left| \orr{r} - \orr{r}' \right|} \right) = 3 \left\{ \frac{5(r_i - r'_i)(r_j - r'_j)(r_k - r'_k) - \left[ \delta_{ij}(r_k - r'_k) + \delta_{ik}(r_j - r'_j) + \delta_{jk}(r_i - r'_i) \right] \abs{\orr{r} - \orr{r}'}^2 }{\abs{\orr{r} - \orr{r}'}^7} \right\}$. \\
+%			\end{enumerate}
+%			\item[(b)] Consider an arbitrary volume charge distribution $\rho(\orr{r}')$. Using the Taylor series expansion for a vector-valued scalar function, show that the first four terms of the scalar potential $\displaystyle \Phi(\orr{r}) = \int_{V}^{} \frac{ \rho(\orr{r}') }{\abs{\orr{r} - \orr{r}'}} dv'$ are
+%			\[
+%				\Phi(\orr{r}) = A(r)Q + A_i(r)Q_i + A_{ij}(r)Q_{ij} + A_{ijk}Q_{ijk} + \dots,
+%			\]
+%			where
+%			\begin{equation*}
+%				\begin{aligned}
+%					Q &= \int_{V}^{} \rho(\orr{r}') dv' & &(\text{Electric Monopole Moment \underline{Scalar}}), \\
+%					Q_i &= \int_{V}^{} r'_i \; \rho(\orr{r}') dv' & &(\text{Electric Dipole Moment \underline{Scalar}}), \\
+%					Q_{ij} &= \int_{V}^{} r'_i r'_j \; \rho(\orr{r}') dv' & &(\text{Electric Quadrupole Moment \underline{Tensor}}), \\
+%					Q_{ijk} &= \int_{V}^{} r'_i r'_j r'_k \; \rho(\orr{r}') dv' & &(\text{Electric Octupole Moment \underline{Tensor}}). \\
+%				\end{aligned}
+%			\end{equation*}
+%			Now precisely identify the coefficients $A$, $A_i$, $A_{ij}$, and $A_{ijk}$.
+%		\end{enumerate}
+%	
+%	\unboldmath
+%		
+%		\paragraph{Solution}
+	
+	\section*{Problem 6: Quantum Mechanics}
+	\subsection*{Important Commutators of Quantum Vector Operators}
+	\boldmath
+		\begin{enumerate}
+			\item[(a)] For any two vector operators $\orr{A}$ and $\orr{B}$ that do not commute, show that \\ \begin{enumerate}
+				\item[i.] $ \orr{\mathbb{A}} \cdot \orr{\mathbb{B}} = \orr{\mathbb{B}} \cdot \orr{\mathbb{A}} + \left[ \mathbb{A}_j , \mathbb{B}_i \right] $
+				\paragraph{Solution} \unboldmath  
+				\begin{equation*}
+					\begin{split}
+						\orr{A} \cdot \orr{B} &= A_i B_i = A_i B_i - B_i A_i + B_i A_i = \left[ A_i , B_i \right] + B_i A_i \\
+						&= \orr{A} \cdot \orr{B} + \left[ A_i , B_i \right]
+					\end{split}
+				\end{equation*} \boldmath
+				\item[ii.] $ \left( \orr{\mathbb{A}} \cross \orr{\mathbb{B}} \right)_i = - \left( \orr{\mathbb{B}} \cross \orr{\mathbb{A}} \right)_i + \epsilon_{ijk} \left[ \mathbb{A}_j , \mathbb{B}_k \right] $
+				\paragraph{Solution} \unboldmath Adding $ - B_k A_j + B_k A_j $ does nothing to the overall equation as it is essentially zero.
+				\begin{equation*}
+					\begin{split}
+						\left( \orr{A} \cross \orr{B} \right)_i &= \epsilon_{ijk} A_j B_k = \epsilon_{ijk} \left( A_j B_k - B_k A_j + B_k A_j \right) \\
+						&= \epsilon_{ijk} \left[ A_j , B_k \right] + \epsilon_{ijk} B_k A_j \\
+						&= -\epsilon_{ikj} B_k A_j + \epsilon_{ijk} \left[ A_j , B_k \right] \\
+						&= -\left( \orr{B} \cross \orr{A} \right)_i + \epsilon_{ijk} \left[ A_j , B_k \right]
+					\end{split}
+				\end{equation*} \boldmath
+			\end{enumerate}
+			\item[(a)] Define linear and angular momentum vector operators, respectively as $ \orr{\mathbb{p}} \equiv -i\hbar \orr{\nabla} $ and $ \orr{\mathbb{L}} = \orr{\mathbb{r}} \cross \orr{\mathbb{p}} $. Show that 
+			\begin{enumerate}
+				\item[i.] $ \left[ \mathbb{r}_i , \mathbb{p}_j \right] = i\hbar \delta_{ij} $,
+				\paragraph{Solution} It is important to note that $\partial_i r_j = \delta_{ij}$ because the derivative of $r_j$ is either $1$ or $0$ depending on the index of the partial derivative operator and $r$. \unboldmath
+					\begin{equation*}
+						\begin{split}
+							\left[ \mathbb{r}_i , \mathbb{p}_j \right] \psi(r) &= r_i p_j \psi - p_j r_i \psi = r_i \left( -i\hbar \partial_j \right) \psi - \left( -i\hbar \partial_j \right) r_i \psi = -i\hbar \left[ r_i \partial_j \psi - \partial_j \left( r_i \psi \right) \right] \\
+							&= -i\hbar \left[ r_i \partial_j \psi - r_i \partial_j \psi + \psi \partial_i r_j  \right] = -i\hbar \left[ \psi \partial_i r_j  \right] \\
+							\left[ \mathbb{r}_i , \mathbb{p}_j \right] \psi(r) &= -i\hbar \psi \delta_{ij} \\
+							\left[ \mathbb{r}_i , \mathbb{p}_j \right] &= -i\hbar \delta_{ij}
+						\end{split}
+					\end{equation*} \boldmath
+				\item[ii.] $ \left[ \mathbb{L}_i , \mathbb{p}_j \right] = i\hbar \epsilon_{ijk} \mathbb{p}_k $,
+				\paragraph{Solution} A common trick is to flip the commutator to make use of the $\left[ A , BC \right]$ formula. $\left[ r_i , r_j \right] = 0$, $\left[ p_i , p_j \right] = 0$. \unboldmath
+				\begin{equation*}
+					\begin{split}
+						\left[ \mathbb{L}_i , \mathbb{p}_j \right] &= \left[ \epsilon_{ilm} \, r_l \, p_m , p_j \right] = \epsilon_{ilm}\left[ r_l \, p_m , p_j \right] = -\epsilon_{ilm}\left[ p_j , r_l \, p_m \right] \\
+						&= -\epsilon_{ilm} \left( \left[ p_j , r_l \right] p_m + r_l \left[ p_j , p_m \right] \right) = -\epsilon_{ilm} \left( -i\hbar \delta_{lj} \right) p_m \\
+						&= i\hbar \epsilon_{ijm} p_m = i\hbar \epsilon_{ijk} p_k
+					\end{split}
+				\end{equation*} \boldmath
+				\item[iii.] $ \left[ \mathbb{L}_i , \mathbb{L}_j \right] = i\hbar \epsilon_{ijk} \mathbb{L}_k $,
+				\paragraph{Solution}  \unboldmath
+				\begin{equation*}
+					\begin{split}
+						\left[ \mathbb{L}_i , \mathbb{L}_j \right] &=  \left[ \epsilon_{ixy} \, r_x \, p_y , \epsilon_{jlm} \, r_l \, p_m \right] = \epsilon_{ixy} \epsilon_{jlm}\left[ r_x \, p_y , r_l \, p_m  \right] \\
+						&= \epsilon_{ixy} \epsilon_{jlm} \left( \left[ r_x \, p_y , r_l \right] p_m + r_l \left[ r_x \, p_y , p_m \right] \right) \\
+						&= -\epsilon_{ixy} \epsilon_{jlm} \left( \left[ r_l , r_x \, p_y \right] p_m + r_l \left[ p_m , r_x \, p_y \right] \right) \\
+						&= -\epsilon_{ixy} \epsilon_{jlm} \left\{ \left( \left[ r_l , r_x \right]p_y + r_x\left[ r_l , p_y \right] \right) p_m + r_l \left( \left[ p_m , r_x \right]p_y + r_x\left[ p_m , p_y \right] \right) \right\} \\
+						&= -\epsilon_{ixy} \epsilon_{jlm} \left\{ i\hbar \delta_{ly} r_x p_m - i\hbar \delta_{mx} r_l p_y \right\} \\
+						&= -i\hbar \left\{ \epsilon_{ixy} \epsilon_{jlm} \delta_{ly} r_x p_m - \epsilon_{ixy} \epsilon_{jlm} \delta_{mx} r_l p_y \right\} \\
+						&= -i\hbar \left\{ \epsilon_{ixy} \epsilon_{jym} r_x p_m - \epsilon_{ixy} \epsilon_{jlx} r_l p_y \right\} \\
+						&= i\hbar \left\{ \epsilon_{yix} \epsilon_{yjm} r_x p_m - \epsilon_{xiy} \epsilon_{xjl} r_l p_y \right\} \\
+						&= i\hbar \left\{ \left( \delta_{ij} \delta_{xm} - \delta_{im} \delta_{xj} \right) r_x p_m - \left( \delta_{ij} \delta_{yl} - \delta_{il} \delta_{yj} \right) r_l p_y \right\} \\
+						&= i\hbar \left\{  \delta_{ij} r_x p_x - r_j p_i - \delta_{ij} r_l p_l + r_i p_j \right\} \\
+						&= i\hbar \left( r_i p_j - r_j p_i \right) \\
+						&= i\hbar \epsilon_{ijk} L_k \\
+						\epsilon_{ijk} L_k &= \epsilon_{ijk} \left( \epsilon_{kmn} r_m p_n \right) = \epsilon_{kij} \epsilon_{kmn} r_m p_n \\
+						&= \left( \delta_{im} \delta_{jn} - \delta_{in} \delta_{jm} \right) r_m p_n = r_i p_j - r_j p_i
+					\end{split}
+				\end{equation*} \boldmath
+				\item[iv.] $ \mathbb{L}^2 = \mathbb{r}^2 \mathbb{p}^2 - \left( \orr{\mathbb{r}} \cdot \orr{\mathbb{p}} \right)^2 + i\hbar \orr{\mathbb{r}} \cdot \orr{\mathbb{p}} $,
+				\paragraph{Solution}  \unboldmath
+				\begin{equation*}
+					\begin{split}
+						\mathbb{L}^2 &= \left( \orr{r} \cross \orr{p} \right) \cdot \left( \orr{r} \cross \orr{p} \right) = \left( \orr{r} \cross \orr{p} \right)_i \left( \orr{r} \cross \orr{p} \right)_i = \left( \epsilon_{ijk} r_j p_k \right) \left( \epsilon_{ilm} r_l p_m \right) \\
+						&= \epsilon_{ijk} \epsilon_{ilm} r_j p_k r_l p_m = \left( \delta_{jl} \delta_{km} - \delta_{jm} \delta_{kl} \right) r_j p_k r_l p_m \\
+						&= r_j p_k r_j p_k - r_j p_k r_k p_j = r_j p_k r_j p_k - r_j p_k r_k p_j \\
+						&= r_j \left( -i\hbar \delta_{jk} + r_j p_k \right) p_k - r_j p_k \left( i\hbar \delta_{jk} + p_j r_k \right) \\
+						&= -i\hbar r_j \delta_{jk} p_k + r_j r_j p_k p_k - i\hbar r_j \delta_{jk} p_k - r_j p_k p_j r_k \\
+						&= -i\hbar r_j p_j + r^2 p^2 - i\hbar r_j p_j - r_j p_k p_j r_k \\
+						&= -2i\hbar \orr{r} \cdot \orr{p} + r^2 p^2 - r_j p_j r_k p_k \\
+						&= -2i\hbar \orr{r} \cdot \orr{p} + r^2 p^2 - \orr{r} \cdot \orr{p} \left( i\hbar \delta_{kk} + r_k p_k \right) \\
+						&= -2i\hbar \orr{r} \cdot \orr{p} + r^2 p^2 - 3i\hbar \orr{r} \cdot \orr{p} - \orr{r} \cdot \orr{p} r_k p_k \\
+						&= i\hbar \orr{r} \cdot \orr{p} + r^2 p^2 - \left( \orr{r} \cdot \orr{p} \right) \left( \orr{r} \cdot \orr{p} \right) \\
+						&= i\hbar \orr{r} \cdot \orr{p} + r^2 p^2 - \left( \orr{r} \cdot \orr{p} \right)^2 \\
+					\end{split}
+				\end{equation*} \boldmath
+				\item[v.] $ \orr{\mathbb{r}} \cdot \orr{\mathbb{p}} = \orr{\mathbb{p}} \cdot \orr{\mathbb{r}} + 3i\hbar $,
+				\paragraph{Solution} \unboldmath
+				\begin{equation*}
+					\begin{split}
+						\orr{\mathbb{r}} \cdot \orr{\mathbb{p}} &= \left( \orr{p} \cdot \orr{r} \right) + \left[ r_i , p_i \right] \\
+						&= \orr{p} \cdot \orr{r} + i\hbar \delta_{ii} \\
+						&= \orr{p} \cdot \orr{r} + 3i\hbar \\
+					\end{split}
+				\end{equation*} \boldmath
+				\item[vi.] $ \orr{\mathbb{L}} \cross \orr{\mathbb{L}} = i\hbar \orr{\mathbb{L}} $,
+				\paragraph{Solution} \unboldmath
+				\begin{equation*}
+					\begin{split}
+						\orr{\mathbb{L}} \cross \orr{\mathbb{L}} &= -\left( \orr{L} \cross \orr{L} \right) + \epsilon_{ijk} \left[ L_j , L_k \right] \\
+						\left( \orr{L} \cross \orr{L} \right)_i &= -\left( \orr{L} \cross \orr{L} \right)_i + \epsilon_{ijk} \left( i\hbar \epsilon_{jkl} L_l \right) \\
+						2\left( \orr{L} \cross \orr{L} \right)_i &= i\hbar 2\delta_{il} L_l \\
+						\left( \orr{L} \cross \orr{L} \right)_i &= i\hbar L_i \\
+						\orr{L} \cross \orr{L} &= i\hbar \orr{L} \\
+					\end{split}
+				\end{equation*} \boldmath
+				\item[vii.] $ \orr{\mathbb{p}} \cross \orr{\mathbb{L}} + \orr{\mathbb{L}} \cross \orr{\mathbb{p}} = 2i\hbar \orr{\mathbb{p}} $.
+				\paragraph{Solution} \unboldmath
+				\begin{equation*}
+					\begin{split}
+						\left( \orr{p} \cross \orr{L} \right)_i + \left( \orr{L} \cross \orr{p} \right)_i &= \left[ -\left( \orr{L} \cross \orr{p} \right)_i + \epsilon_{ijk} \left[ p_j , L_k \right] \right] + \left[ -\left( \orr{p} \cross \orr{L} \right)_i + \epsilon_{ilm} \left[ L_l , p_m \right] \right] \\
+						2\left[ \left( \orr{p} \cross \orr{L} \right)_i + \left( \orr{L} \cross \orr{p} \right)_i \right] &= \epsilon_{ijk} \left[ p_j , L_k \right] + \epsilon_{ilm} \left[ L_l , p_m \right] \\
+						&= -\epsilon_{ijk} \left[ L_k , p_j \right] + \epsilon_{ilm} \left[ L_l , p_m \right] \\
+						&= \epsilon_{ikj} \left( i\hbar \epsilon_{kjx} p_x \right) + \epsilon_{ilm} \left( i\hbar \epsilon_{lmy} p_y \right) \\
+						&= \epsilon_{kji} \epsilon_{kjx} \left( i\hbar p_x \right) + \epsilon_{lmi} \epsilon_{lmy} \left( i\hbar p_y \right) \\
+						&= 2 i\hbar \delta_{ix} p_x + 2 i\hbar \delta_{iy} p_y \\
+						&= 2 i\hbar p_i + 2 i\hbar p_i \\
+						2\left[ \left( \orr{p} \cross \orr{L} \right)_i + \left( \orr{L} \cross \orr{p} \right)_i \right] &= 4 i\hbar p_i \\
+						\left( \orr{p} \cross \orr{L} \right)_i + \left( \orr{L} \cross \orr{p} \right)_i &= 2 i\hbar p_i \\
+						\left( \orr{p} \cross \orr{L} \right) + \left( \orr{L} \cross \orr{p} \right) &= 2 i\hbar \orr{p} \\
+					\end{split}
+				\end{equation*}
+			\end{enumerate}
+		\end{enumerate}
+	\unboldmath
+	\subsection*{Formulas and identities}
+	
+	\[
+		\delta_{ij} = \begin{cases}
+			1 &; \quad i = j \\
+			0 &; \quad i \neq j 
+		\end{cases}
+	\]
+	\[
+		\epsilon_{ijk} = \begin{cases}
+			+1 &; \quad \text{if ijk is cyclic when read from left to right} \\
+			-1 &; \quad \text{if ijk is not cyclic when read from left to right} \\
+			0 &; \quad \text{otherwise} \\
+		\end{cases}
+	\]
+	\[
+		\orr{A} \cdot \orr{B} = \orr{B} \cdot \orr{A} + \left[ A_j , B_i \right]
+	\]
+	\[
+		\left( \orr{A} \cross \orr{B} \right)_i = - \left( \orr{B} \cross \orr{A} \right)_i + \epsilon_{ijk} \left[ A_j , B_k \right]
+	\]
+	\[
+		\left[ A , B \right] = AB - BA \neq 0
+	\]
+	\[
+		\left[ A , B \right] = -\left[ B , A \right]
+	\]
+	\[
+		\left[ A , kB \right] = k\left[ A , B \right]
+	\]
+	\[
+		\left[ A , BC \right] = A(BC) - (BC)A
+	\]
+	\[
+		V_k \delta_{kj} = V_j
+	\]
+	\[
+		\left( \orr{A} \cross \orr{B} \right)_i = \epsilon_{ijk} A_j B_k
+	\]
+	\[
+		\left( \orr{\nabla} \cross \orr{A} \right)_i = \epsilon_{ijk} \partial_j A_k
+	\]
+	\[
+		\orr{A} \cdot \orr{B} = A_k B_k
+	\]
+	\[
+		\epsilon_{ijk} \epsilon_{lmk} = \delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}
+	\]
+	\[
+		\epsilon_{ijk} \epsilon_{ljk} = 2\delta_{il}
+	\]
+	\[
+		\epsilon_{ijk} \epsilon_{ijk} = 3
+	\]
+	
+	
+
+\end{document}

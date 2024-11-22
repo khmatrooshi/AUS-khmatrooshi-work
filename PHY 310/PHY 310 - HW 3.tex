@@ -1,0 +1,548 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/5 - S22/preamble.tex}
+
+\begin{document}
+
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		{\textbf { \large PHY 310 --- Mathematical Methods in Physics}}
+		\vspace{0.4cm}
+	\end{center}
+	{\bd{Name:}\ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 28 Feb 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 3 \\
+		\hrule	
+	
+	\section*{Problem 1: Electromagnetism}
+	\paragraph{Parallel Plate Capacitor} 
+	\begin{enumerate}
+		\item[(a)] Consider a general nonhomogeneous BVP for a $\bm{2^{nd}}$ order ODE:
+		\begin{equation*}
+			\begin{split}
+				\frac{d^2 y(x)}{dx^2} = f(x), \quad \quad y(a) = \alpha, \; y(b) = \beta, \; \text{and} \; x \in \left[a,b\right].
+			\end{split}
+		\end{equation*}
+		Show that the solution to this BVP is
+		\begin{equation*}
+			\begin{split}
+				y(x) = \alpha + \frac{\beta - \alpha}{b - a} + \int_{a}^{b} G(x,x') f(x') \, dx',
+			\end{split}
+		\end{equation*}
+		where the Green's function of the differential operator is given by,
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{1}{b - a}
+				\begin{cases}
+					(x' - a)(x - b) & \text{for} \; x' \leq x, \\
+					(x - a)(x' - b) & \text{for} \; x \leq x'.
+				\end{cases}
+			\end{split}
+		\end{equation*}
+		\paragraph{Solution} A nonhomogeneous BVP with nonhomogeneous BC's is generally solved in the following way: the solution is the sum of the nonhomogeneous BVP with homogeneous BCs and the homogeneous BVP with nonhomogeneous BC s. In this case:
+		\begin{equation*}
+			\begin{split}
+				y = y_c + y_p \quad
+				\text{where} \quad
+				y_c'' = 0 \;
+				\begin{cases}
+					y_c(a) = \alpha \\
+					y_c(b) = \beta
+				\end{cases}
+				\text{and} \quad
+				y_p'' = f(x) \;
+				\begin{cases}
+					y_p(a) = 0 \\
+					y_p(b) = 0 
+				\end{cases}
+			\end{split}
+		\end{equation*}
+		Starting with $y_p$. Solving for the homogeneous BVP to find the Green's function. Where the Green's function is defined as
+		\begin{equation*}
+			\begin{split}
+				G(x,x') =
+				\begin{dcases}
+					\frac{y_1 (x') y_2 (x)}{W(y_1 , y_2)(x')} \; ; \; a \leq x' \leq x \\
+					\frac{y_1 (x) y_2 (x')}{W(y_1 , y_2)(x')} \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				\text{Simple integration} \quad y_p'' = 0 \quad y_p' = c_1 \quad y_p = c_1 x + c_2 \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				y_p(a) &= c_1 a + c_2 = 0 \quad c_2 = -c_1 a \\
+				y_p(x) &= c_1 x - c_1 a = c_1(x-a) \quad c_1 \, \text{is arbitrary, choose} \, c_1 = 1 \\
+				y_{p_1}(x) &= x - a \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				y_p(b) &= c_1 b + c_2 = 0 \quad c_2 = -c_1 b \\
+				y_p(x) &= c_1 x - c_1 b = c_1(x-b) \quad c_1 \, \text{is arbitrary, choose} \, c_1 = 1 \\
+				y_{p_2}(x) &= x - b \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				W(y_{p_1} , y_{p_2})(x') =
+				\mqty| x'-a & x'-b \\ 
+						1   & 1 |
+				&= (x'-a)(1) - (x'-b)(1) \\
+				&= b - a \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				G(x,x') =
+				&\begin{dcases}
+					\frac{(x' - a) (x - b)}{b - a} \; ; \; a \leq x' \leq x \\
+					\frac{(x - a) (x' - b)}{b - a} \; ; \; x \leq x' \leq b
+				\end{dcases} \\
+				G(x,x') = \frac{1}{b - a}
+				&\begin{dcases}
+					(x' - a) (x - b) \; ; \; a \leq x' \leq x \\
+					(x - a) (x' - b) \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+	
+		Solving for $y_c$. Similar start to $y_p$.
+		\begin{equation*}
+			\begin{split}
+				\text{Simple integration} \quad y_p'' = 0 \quad y_p' = c_1 \quad y_p = c_1 x + c_2 \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{aligned}
+				y_p(a) &= c_1 a + c_2 = \alpha \\
+				y_p(b) &= c_1 b + c_2 = \beta
+			\end{aligned}
+			\quad \Rightarrow \quad
+			\begin{aligned}
+				-c_1 a - c_2 &= -\alpha \\
+				c_1 b + c_2 &= \beta
+			\end{aligned}
+			\quad \Rightarrow \quad
+			\begin{aligned}
+				c_1 (b - a) &= \beta - \alpha \\
+				c_1 &= \frac{\beta - \alpha}{b - a} \\
+				c_2 &= \alpha - \left( \frac{\beta - \alpha}{b - a} \right) a
+			\end{aligned}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				y_c(x) &= \left( \frac{\beta - \alpha}{b - a} \right) x + \alpha - \left( \frac{\beta - \alpha}{b - a} \right) a \\
+				&= \alpha - \left( \frac{\beta - \alpha}{b - a} \right) (x - a) \\
+			\end{split}
+		\end{equation*}
+		Finally.
+		\begin{equation*}
+			\begin{split}
+				y &= y_c + y_p \\
+				y &= \alpha - \left( \frac{\beta - \alpha}{b - a} \right) (x - a) + \int_{a}^{b} G(x,x') f(x') \, dx' \\
+				\text{where} \; G(x,x') = \frac{1}{b - a}
+				&\begin{dcases}
+					(x' - a) (x - b) \; ; \; a \leq x' \leq x \\
+					(x - a) (x' - b) \; ; \; x \leq x' \leq b
+				\end{dcases}
+				\quad \text{and} \; f(x') = f(x)
+			\end{split}
+		\end{equation*}
+			
+		\item[(b)] Two very large parallel conducting plates are separated by a distance $\bm{d}$ and maintained at potentials $\bm{0}$ and $\bm{V_0}$. The region between the plates is filled with a continuous distribution of electrons having a volume charge density $\bm{p_c (z) = -\frac{\rho_0}{d}z}$ ($\bm{p_0}$ constant). Assume negligible fringing effect at the edges. Using only the result of part (a), determine the electrostatic potential $\bm{\Phi (z)}$ at any point between the plates, where $\bm{\Phi (z)}$, in the Cartesian coordinate system, satisfies the one-dimensional Poisson's equation
+		\begin{equation*}
+			\begin{split}
+				\frac{d^2 \Phi(z)}{dz^2} = -\frac{p_c (z)}{\epsilon_0} = \frac{\rho_0}{\epsilon_0 d}z
+			\end{split}
+		\end{equation*}
+		\paragraph{Solution} The solution found in part a is the general solution to any system that satisfies the one-dimensional Poisson's equation. BCs are $\Phi(0) = 0$ and $\Phi(d) = V_0$
+		\begin{equation}
+			\begin{split}
+				y &= \alpha - \left( \frac{\beta - \alpha}{b - a} \right) (x - a) + \int_{a}^{b} G(x,x') f(x') \, dx' \\
+				\Phi(z) &= 0 - \left( \frac{V_0 - 0}{d - 0} \right) (z - 0) + \int_{0}^{d} G(z,z') \left( \frac{\rho_0}{\epsilon_0 d}z' \right) \, dz' \\
+				\Phi(z) &= -\frac{V_0 }{d}z + \frac{\rho_0}{\epsilon_0 d} \int_{0}^{d} G(z,z') z' \, dz' \\
+			\end{split}
+		\end{equation}
+		\begin{equation*}
+			\begin{split}
+				G(z,z') = \frac{1}{d}
+				&\begin{dcases}
+					z'(z - d) \; ; \; 0 \leq z' \leq z \\
+					z(z' - d) \; ; \; z \leq z' \leq d
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				\Phi_p(z) &= \frac{\rho_0}{\epsilon_0 d} \left[ \frac{1}{d} \int_{0}^{z} z'(z-d)z' \, dz' + \frac{1}{d} \int_{z}^{d} z(z'-d)z' \, dz' \right] = \frac{\rho_0}{\epsilon_0 d^2} \left[ \int_{0}^{z} z'^2z - z'^2d \, dz' + \int_{z}^{d} z'^2z- zz'd \, dz' \right] \\
+				\Phi_p(z) &= \frac{\rho_0}{\epsilon_0 d^2} \left[ \left[ \frac{z'^3 z}{3} \right]^z_0 - \left[ \frac{z'^3 d}{3} \right]^z_0 + \left[ \frac{z'^3 z}{3} \right]^d_z - \left[ \frac{zz'^2d}{2} \right]^d_z \right] = \frac{\rho_0}{\epsilon_0 d^2} \left[ \frac{z^4}{3} - \frac{z^3 d}{3} + \left[ \frac{d^3 z}{3} - \frac{z^4}{3} \right] - \left[ \frac{z d^3}{2} - \frac{z^3 d}{2} \right] \right] \\
+				\Phi_p(z) &= \frac{\rho_0}{\epsilon_0 d^2} \left[ \frac{z^3 d}{6} - \frac{d^3 z}{6} \right] = \frac{\rho_0}{\epsilon_0 d} \left[ \frac{z^3}{6} - \frac{d^2 z}{6} \right]  \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				\Phi(z) &= -\frac{V_0 }{d}z + \frac{\rho_0}{\epsilon_0 d}z \left[ \frac{z^2 - d^2}{6} \right]  \\
+			\end{split}
+		\end{equation*}
+	\end{enumerate}
+	
+	\section*{Problem 2: Electromagnetism}
+	\paragraph{Conical Capacitor} Two coaxial conducting cones of semi-vertical angles $\bm{\alpha_1}$ and $\bm{\alpha_2}$ and of large extent have their vertices separated by an infinitesimal gap. The inner cone is grounded while the outer is maintained at potential $\bm{V_0}$. In the spherical polar coordinate system, the electrostatic potential $\bm{\Phi}$ in between the cones depends only on a single spatial coordinate, namely, the polar angle $\bm{\theta}$ which satisfies the Poisson's equation
+		\begin{equation*}
+			\begin{split}
+				\frac{1}{r^2 \sin \theta} \frac{d}{d\theta} \left[ \sin \theta \frac{d \Phi(\theta)}{d\theta} \right] = -\frac{p_c(\theta)}{\epsilon_0},
+			\end{split}
+		\end{equation*}
+		Where $p_c(\theta)$ is volume charge density in the region between the cones. Show that
+		\begin{equation*}
+			\begin{split}
+				\Phi(\theta) = V_0 \frac{ \ln \left[ \frac{\tan \tfrac{\theta}{2}} {\tan \tfrac{\alpha_1}{2}} \right] }{ \ln \left[ \frac{\tan \tfrac{\alpha_2}{2}} {\tan \tfrac{\alpha_1}{2}} \right] } - \frac{r^2}{\epsilon_0} \int_{\alpha_1}^{\alpha_2} G(\theta, \theta') \rho_c (\theta') \sin \theta' \, d\theta' 
+			\end{split}
+		\end{equation*}
+		and precisely identity the Green's function $\bm{G(\theta, \theta')}$ for the given BVP.
+		\paragraph{Solution} Following a similar process as in problem 1, splitting the final solution into two manageable BVPs. The BCs are given in the statement of the problem. The $\tfrac{1}{r^2 \sin \theta}$ is taken to the RHS.
+		\begin{equation*}
+			\begin{split}
+				\Phi(\theta) &= \Phi_c(\theta) + \Phi_p(\theta) \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{aligned}
+				\frac{d}{d\theta} \left[ \sin \theta \frac{d \Phi_c(\theta)}{d\theta} \right] &= 0 \;
+				\begin{cases}
+					\Phi_c(\alpha_1) = 0 \\
+					\Phi_c(\alpha_2) = V_0
+				\end{cases} & &\text{and} \; &
+				\frac{d}{d\theta} \left[ \sin \theta \frac{d \Phi_p(\theta)}{d\theta} \right] &= -\frac{p_c(\theta) r^2 \sin \theta}{\epsilon_0} \;
+				\begin{cases}
+					\Phi_p(\alpha_1) = 0 \\
+					\Phi_p(\alpha_2) = 0
+				\end{cases} 
+			\end{aligned}
+		\end{equation*}
+		Starting with $\Phi_c(\theta)$.
+		\begin{equation*}
+			\begin{split}
+				\int \frac{d}{d\theta} \left[ \sin \theta \frac{d \Phi_c(\theta)}{d\theta} \right] \, d\theta &= \int 0 \, d\theta \\
+				\sin \theta \frac{d \Phi_c(\theta)}{d\theta} &= c_1 \\
+				\int d\Phi_c(\theta) &= c_1 \int \frac{d\theta}{\sin \theta} \\
+				\Phi_c(\theta) &= c_1 \ln(\tan \tfrac{\theta}{2}) + c_2 \\
+			\end{split}
+		\end{equation*}
+		Applying initial conditions to find $c_1$ and $c_2$.
+		\begin{equation*}
+			\begin{aligned}
+				\Phi_c(\alpha_1) &= c_1 \ln(\tan \tfrac{\alpha_1}{2}) + c_2 = 0 \\
+				\Phi_c(\alpha_2) &= c_1 \ln(\tan \tfrac{\alpha_2}{2}) + c_2 = V_0
+			\end{aligned}
+			\Rightarrow \Phi_c(\alpha_2) - \Phi_c(\alpha_1) \Rightarrow
+			c_1 \left[ \ln(\tan \tfrac{\alpha_2}{2}) - \ln(\tan \tfrac{\alpha_1}{2}) \right] = V_0
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				c_1 = \frac{V_0}{\ln\left[ \frac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\alpha_1}{2}} \right]} \quad
+				c_2 = -\frac{V_0}{\ln\left[ \frac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\alpha_1}{2}} \right]} \ln\left[ \tan \tfrac{\alpha_1}{2} \right]
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				\Phi_c(\theta) &= \left( \frac{V_0}{\ln\left[ \frac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\alpha_1}{2}} \right]} \right) \ln\left[ \tan \tfrac{\theta}{2} \right] + \left( -\frac{V_0}{\ln\left[ \frac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\alpha_1}{2}} \right]} \ln\left[ \tan \tfrac{\alpha_1}{2} \right] \right)
+			\end{split}
+		\end{equation*}
+		Factor $V_0$, take denominator as common factor, apply log rule to numerator.
+		\begin{equation*}
+			\begin{split}
+				\Phi_c(\theta) &= V_0 \frac{ \ln \left[ \frac{\tan \tfrac{\theta}{2}} {\tan \tfrac{\alpha_1}{2}} \right] }{ \ln \left[ \frac{\tan \tfrac{\alpha_2}{2}} {\tan \tfrac{\alpha_1}{2}} \right] }
+			\end{split}
+		\end{equation*}
+	
+		Now for $\Phi_p(\theta)$.
+		\begin{equation*}
+			\begin{split}
+				\frac{d}{d\theta} \left[ \sin \theta \frac{d \Phi(\theta)}{d\theta} \right] =  -\frac{r^2}{\epsilon_0} p_c(\theta) \sin (\theta) = f(\theta),
+			\end{split}
+		\end{equation*}
+		The Green's function is defined as
+		\begin{equation*}
+			\begin{split}
+				\Phi_p(\theta) &= \int_{a}^{b} G(\theta, \theta') f(\theta') \, d\theta' \\
+				&= \int_{\alpha_1}^{\alpha_2} G(\theta, \theta') \left( -\frac{r^2}{\epsilon_0} p_c(\theta') \sin (\theta') \right) \, d\theta' \\
+				&= - \frac{r^2}{\epsilon_0} \int_{\alpha_1}^{\alpha_2} G(\theta, \theta') p_c(\theta') \sin (\theta') \, d\theta' \\
+				G(\theta,\theta') &=
+				\begin{dcases}
+					\frac{\Phi_1 (\theta') \Phi_2 (\theta)}{W(\Phi_1, \Phi_2)(\theta')} \; ; \; \alpha_1 \leq \theta' \leq \theta \\
+					\frac{\Phi_1 (\theta) \Phi_2 (\theta')}{W(\Phi_1, \Phi_2)(\theta')} \; ; \; \theta \leq \theta' \leq \alpha_2
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		To find the Green's function, the homogeneous BVP has already been solved in the previous part.
+		\begin{equation*}
+			\begin{split}
+				\Phi_p(\alpha_1) &= c_1 \ln(\tan \tfrac{\alpha_1}{2}) + c_2 = 0, \quad c_2 = -c_1 \ln(\tan \tfrac{\alpha_1}{2}) \\
+				&c_1 \, \text{is arbitrary, choose } c_1 = -1, \, \text{then } c_2 = \ln(\tan \tfrac{\alpha_1}{2}) \\
+				\Phi_{p_1}(\theta) &= -\ln(\tan \tfrac{\theta}{2}) + \ln(\tan \tfrac{\alpha_1}{2}) = ln\left[ \tfrac{\tan \tfrac{\alpha_1}{2}}{\tan \tfrac{\theta}{2}} \right] \\
+				\\
+				\Phi_p(\alpha_2) &= c_1 \ln(\tan \tfrac{\alpha_2}{2}) + c_2 = 0, \quad c_2 = -c_1 \ln(\tan \tfrac{\alpha_2}{2}) \\
+				&c_1 \, \text{is arbitrary, choose } c_1 = -1, \, \text{then } c_2 = \ln(\tan \tfrac{\alpha_2}{2}) \\
+				\Phi_{p_2}(\theta) &= -\ln(\tan \tfrac{\theta}{2}) + \ln(\tan \tfrac{\alpha_2}{2}) = ln\left[ \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\theta}{2}} \right] \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				W(\Phi_1, \Phi_2)(\theta') &= 
+				\mqty| ln \tfrac{\tan \tfrac{\alpha_1}{2}}{\tan \tfrac{\theta'}{2}} & ln \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\theta'}{2}} \\\\ 
+				-\tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}}   & -\tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} | \\
+				&= ln\left[ \tfrac{\tan \tfrac{\alpha_1}{2}}{\tan \tfrac{\theta'}{2}} \right] \left[ -\tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} \right] - ln\left[ \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\theta'}{2}} \right] \left[ -\tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} \right] \\
+				&= \left[ -\tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} \right] \left[ln\left[ \tfrac{\tan \tfrac{\alpha_1}{2}}{\tan \tfrac{\theta'}{2}} \right] - ln\left[ \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\theta'}{2}} \right]\right] \\
+				&= \left[ \tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} \right] \left[ln\left[ \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\alpha_1}{2}} \right]\right] \\
+			\end{split}
+		\end{equation*}
+		Finally.
+		\begin{equation*}
+			\begin{split}
+				G(\theta,\theta') =
+				&\begin{dcases}
+					\frac{\left[ln \tfrac{\tan \tfrac{\alpha_1}{2}}{\tan \tfrac{\theta'}{2}}\right] \left[ln \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\theta}{2}}\right] }{\left[ \tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} \right] \left[ln \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\alpha_1}{2}}\right]} \; ; \; \alpha_1 \leq \theta' \leq \theta \\
+					\frac{\left[ln \tfrac{\tan \tfrac{\alpha_1}{2}}{\tan \tfrac{\theta}{2}}\right] \left[ln \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\theta'}{2}}\right] }{\left[ \tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} \right] \left[ln \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\alpha_1}{2}} \right]} \; ; \; \theta \leq \theta' \leq \alpha_2
+				\end{dcases} \\
+				G(\theta,\theta') = \frac{1}{\left[ln \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\alpha_1}{2}} \right]}
+				&\begin{dcases}
+					\frac{\left[ln \tfrac{\tan \tfrac{\alpha_1}{2}}{\tan \tfrac{\theta'}{2}}\right] \left[ln \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\theta}{2}}\right] }{\left[ \tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} \right] } \; ; \; \alpha_1 \leq \theta' \leq \theta \\
+					\frac{\left[ln \tfrac{\tan \tfrac{\alpha_1}{2}}{\tan \tfrac{\theta}{2}}\right] \left[ln \tfrac{\tan \tfrac{\alpha_2}{2}}{\tan \tfrac{\theta'}{2}}\right] }{\left[ \tfrac{\tan \tfrac{\theta'}{2}}{2\sin^2 \tfrac{\theta'}{2}} \right] } \; ; \; \theta \leq \theta' \leq \alpha_2
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		This will satisfy the final expression. Combining $\Phi_c$ and $\Phi_p$.
+		\begin{equation*}
+			\Phi(\theta) = V_0 \frac{ \ln \left[ \frac{\tan \tfrac{\theta}{2}} {\tan \tfrac{\alpha_1}{2}} \right] }{ \ln \left[ \frac{\tan \tfrac{\alpha_2}{2}} {\tan \tfrac{\alpha_1}{2}} \right] } - \frac{r^2}{\epsilon_0} \int_{\alpha_1}^{\alpha_2} G(\theta, \theta') \rho_c (\theta') \sin \theta' \, d\theta' \\
+		\end{equation*}
+	\clearpage
+	\section*{Problem 5: Quantum Mechanics}
+	\paragraph{Particle Trapped in a One-Dimensional Potential Well of Infinite Depth} A particle of mass $\bm{m}$ with potential energy
+	\begin{equation*}
+		V(x) =
+		\begin{cases}
+			0 & \text{for} \; a \leq x \leq b, \\
+			\infty & \text{otherwise}, \\
+		\end{cases}
+	\end{equation*}
+	satisfies the BVP for the Schrodinger equation:
+	\begin{equation*}
+		\begin{split}
+			\left[ -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x) \right] \phi(x) = E\phi(x), \quad \phi(a) = 0, \; \phi(b) = 0,
+		\end{split}
+	\end{equation*}
+	where $\bm{\hbar}$, $\bm{E}$ and $\bm{\phi(x)}$ are the reduced Planck's constant, energy eigenvalues and the wavefunction, respectively.
+	\\
+	\begin{enumerate}
+		\item[(a)] Show that the Green's function for the given BVP is
+		\begin{equation*}
+			G(x,x') = \frac{1}{k_E \sin \left[ k_E (b - a) \right]}
+			\begin{cases}
+				\sin \left[ k_E (b - a) \right] \sin \left[ k_E (x' - b) \right] & \text{for} \; x < x' \\
+				\sin \left[ k_E (b - a) \right] \sin \left[ k_E (x' - a) \right] & \text{for} \; x > x' \\
+			\end{cases}
+		\end{equation*}
+		where $k_E \equiv \sqrt{\dfrac{2mE}{\hbar^2}}$.
+		\paragraph{Solution} The Green's function is the particular solution $\phi_p$, which is the nonhomogenous BVP with homogenous BCs. Solving for the homogeneous DE to find the Green's function. Where the Green's function is defined as
+		\begin{equation*}
+			\begin{split}
+				G(x,x') =
+				\begin{dcases}
+					\frac{\phi_1 (x') \phi_2 (x)}{W(\phi_1 , \phi_2)(x')} \; ; \; a \leq x' \leq x \\
+					\frac{\phi_1 (x) \phi_2 (x')}{W(\phi_1 , \phi_2)(x')} \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				-\frac{\hbar^2}{2m} \phi'' + \left[ V - E \right]\phi = 0
+			\end{split}
+		\end{equation*}
+		Take $V(x) = 0$, a provided condition between $a$ and $b$, and reverse the signs.
+		\begin{equation*}
+			\begin{split}
+				\phi'' + \frac{2mE}{\hbar^2}\phi &= 0 \\
+				\phi'' + k^2_E\phi &= 0 \quad \text{where} \; k_E = \sqrt{\dfrac{2mE}{\hbar^2}} \\
+			\end{split}
+		\end{equation*}
+		This is a homogeneous second order DE that governs the simple harmonic oscillator, with a known general solution.
+		\begin{equation*}
+			\begin{split}
+				\phi(x) = c_1 \sin (k_E x) + c_2 \cos (k_E x) \\
+			\end{split}
+		\end{equation*}
+		Following the same steps as in problem 1.
+		\begin{equation*}
+			\begin{split}
+				\phi(a) &= c_1 \sin (k_E a) + c_2 \cos (k_E a) = 0, \quad c_1 = -\frac{c_2 \cos (k_E a)}{\sin (k_E a)} \\
+				&c_2 \, \text{is arbitrary, choose } c_2 = -\sin (k_E a), \text{then } c_1 = \cos (k_E a) \\
+				\phi_1(x) &= \cos (k_E a) \sin (k_E x) - \sin (k_E a) \cos (k_E x) \\
+				\phi_1(x) &= \sin(k_E x - k_E a) = \sin(k_E (x - a)) \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				\phi(b) &= c_1 \sin (k_E b) + c_2 \cos (k_E b) = 0, \quad c_1 = -\frac{c_2 \cos (k_E b)}{\sin (k_E b)} \\
+				&c_2 \, \text{is arbitrary, choose } c_2 = -\sin (k_E b), \text{then } c_1 = \cos (k_E b) \\
+				\phi_2(x) &= \cos (k_E b) \sin (k_E x) - \sin (k_E b) \cos (k_E x) \\
+				\phi_2(x) &= \sin(k_E x - k_E b) = \sin(k_E (x - b)) \\
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				W(\phi_1 , \phi_2)(x') &=
+				\mqty| \sin(k_E (x - a)) & \sin(k_E (x - b)) \\ 
+				k_E \cos(k_E (x - a))    & k_E \cos(k_E (x - b)) | \\
+				&= (\sin(k_E (x - a)))(k_E \cos(k_E (x - b))) - (\sin(k_E (x - b)))(k_E \cos(k_E (x - a))) \\
+				&= k_E \left[ (\sin(k_E (x - a)))(\cos(k_E (x - b))) - (\sin(k_E (x - b)))(\cos(k_E (x - a))) \right] \\
+				&= k_E \sin((k_E (x - a))-(k_E (x - b))) \\
+				&= k_E \sin( k_E (b - a) )
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				G(x,x') =
+				&\begin{dcases}
+					\frac{\sin(k_E (x' - a)) \sin(k_E (x - b))}{k_E \sin( k_E (b - a) )} \; ; \; a \leq x' \leq x \\
+					\frac{\sin(k_E (x - a)) \sin(k_E (x' - b))}{k_E \sin( k_E (b - a) )} \; ; \; x \leq x' \leq b 
+				\end{dcases} \\
+			G(x,x') = \frac{1}{k_E \sin( k_E (b - a) )}
+				&\begin{dcases}
+					\sin(k_E (x' - a)) \sin(k_E (x - b)) \; ; \; a \leq x' \leq x \\
+					\sin(k_E (x - a)) \sin(k_E (x' - b)) \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		
+		\item[(b)] Specialize the answer to part (a) for a potential well with infinite width $\bm{(b - a) \to \infty}$. This result is known as the free-particle propagator.
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{1}{k_E \left[ \dfrac{e^{ik_E(b - a)} - e^{-ik_E(b - a)}}{2i} \right]}
+				&\begin{dcases}
+					\left[ \dfrac{e^{ik_E(x' - a)} - e^{-ik_E(x' - a)}}{2i} \right] \left[ \dfrac{e^{ik_E(x - b)}  - e^{-ik_E(x - b)}}{2i} \right] \; ; \; a \leq x' \leq x \\
+					\left[ \dfrac{e^{ik_E(x - a)}  - e^{-ik_E(x - a)}}{2i} \right] \left[ \dfrac{e^{ik_E(x' - b)}  - e^{-ik_E(x' - b)}}{2i} \right] \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		We want to drop the outgoing waves traveling to the "infinite" walls: for $\bm{a}$ we drop waves going from right to left, generally $e^{-ikx}$. For $\bm{b}$ we drop waves going left to right, generally $e^{ikx}$.
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{1}{k_E \left[ \dfrac{e^{ik_E(b - a)} - e^{-ik_E(b - a)}}{2i} \right]}
+				&\begin{dcases}
+					\left[ \frac{e^{ik_E(x' - a)}}{2i} \right] \left[ \frac{-e^{-ik_E(x - b)}}{2i} \right] \; ; \; a \leq x' \leq x \\
+					\left[ \frac{e^{ik_E(x - a)}}{2i} \right] \left[ \frac{-e^{-ik_E(x' - b)}}{2i} \right] \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{1}{4k_E \left[ \dfrac{e^{ik_E(b - a)} - e^{-ik_E(b - a)}}{2i} \right]}
+				&\begin{dcases}
+					\left[ e^{ik_E(x' - a)} \right] \left[ e^{-ik_E(x - b)} \right] \; ; \; a \leq x' \leq x \\
+					\left[ e^{ik_E(x - a)} \right] \left[ e^{-ik_E(x' - b)} \right] \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{i}{2k_E \left[ e^{ik_E(b - a)} - e^{-ik_E(b - a)} \right]}
+				&\begin{dcases}
+					\left[ e^{ik_E(x' - a - x + b)} \right]  \; ; \; a \leq x' \leq x \\
+					\left[ e^{ik_E(x - a - x' + b)} \right]  \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{i}{2k_E \left[ e^{ik_E(b - a)} - e^{-ik_E(b - a)} \right]}
+				&\begin{dcases}
+					\left[ e^{ik_E(x' - x)} \right] \left[ e^{ik_E(b - a)} \right] \; ; \; a \leq x' \leq x \\
+					\left[ e^{ik_E(x - x')} \right] \left[ e^{ik_E(b - a)} \right] \; ; \; x \leq x' \leq b
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{i}{2k_E}\frac{\left[ e^{ik_E(b - a)} \right]}{\left[ e^{ik_E(b - a)} - e^{-ik_E(b - a)} \right]}
+				&\begin{dcases}
+					\left[ e^{ik_E(x' - x)} \right] \; ; \; x \geq x' \\
+					\left[ e^{ik_E(x - x')} \right] \; ; \; x \leq x'
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		Now to take the limit as $\bm{(b - a) \to \infty}$. Let $x = b-a$
+		\begin{equation*}
+			\begin{split}
+				\lim_{x\to\infty} \left[ \frac{ e^{ik_E x} }{ e^{ik_E x} - e^{-ik_E x} } \right] = \lim_{x\to\infty} \left[ \frac{ 1 }{ 1 - \dfrac{1}{e^{2ik_E x}} } \right] = \frac{1}{1 - \frac{1}{e^{\infty}}} = 1
+			\end{split}
+		\end{equation*}
+		Finally.
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{i}{2k_E}
+				&\begin{dcases}
+					\left[ e^{ik_E(x' - x)} \right] \; ; \; x \geq x' \\
+					\left[ e^{ik_E(x - x')} \right] \; ; \; x \leq x'
+				\end{dcases}
+			\end{split}
+		\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				G(x,x') = \frac{i}{2k_E} e^{ik_E\abs{x - x'}}
+			\end{split}
+		\end{equation*}
+%		\begin{equation*}
+%			\begin{split}
+%				G(x,x') = \frac{1}{k_E \left[ \dfrac{e^{ik_E(b - a)}}{2i} \right]}
+%				&\begin{dcases}
+%					\left[ \frac{e^{ik_E(x' - a)}}{2i} \right] \left[ \frac{-e^{-ik_E(x - b)}}{2i} \right] \; ; \; a \leq x' \leq x \\
+%					\left[ \frac{e^{ik_E(x - a)}}{2i} \right] \left[ \frac{-e^{-ik_E(x' - b)}}{2i} \right] \; ; \; x \leq x' \leq b
+%				\end{dcases}
+%			\end{split}
+%		\end{equation*}
+%		\begin{equation*}
+%			\begin{split}
+%				G(x,x') = \frac{1}{4k_E \left[ \dfrac{e^{ik_E(b - a)}}{2i} \right]}
+%				&\begin{dcases}
+%					\left[ e^{ik_E(x' - a)} \right] \left[ e^{-ik_E(x - b)} \right] \; ; \; a \leq x' \leq x \\
+%					\left[ e^{ik_E(x - a)} \right] \left[ e^{-ik_E(x' - b)} \right] \; ; \; x \leq x' \leq b
+%				\end{dcases}
+%			\end{split}
+%		\end{equation*}
+%		\begin{equation*}
+%			\begin{split}
+%				G(x,x') = \frac{1}{4k_E \left[ \dfrac{e^{ik_E(b - a)}}{2i} \right]}
+%				&\begin{dcases}
+%					\left[ e^{ik_E(x' - a - x + b)} \right]  \; ; \; a \leq x' \leq x \\
+%					\left[ e^{ik_E(x - a - x' + b)} \right]  \; ; \; x \leq x' \leq b
+%				\end{dcases}
+%			\end{split}
+%		\end{equation*}
+%		\begin{equation*}
+%			\begin{split}
+%				G(x,x') = \frac{1}{4k_E \left[ \dfrac{e^{ik_E(b - a)}}{2i} \right]}
+%				&\begin{dcases}
+%					\left[ e^{ik_E(x' - x)} \right] \left[ e^{ik_E(b - a)} \right] \; ; \; a \leq x' \leq x \\
+%					\left[ e^{ik_E(x - x')} \right] \left[ e^{ik_E(b - a)} \right] \; ; \; x \leq x' \leq b
+%				\end{dcases}
+%			\end{split}
+%		\end{equation*}
+%		\begin{equation*}
+%			\begin{split}
+%				G(x,x') = \frac{i}{2k_E}
+%				&\begin{dcases}
+%					\left[ e^{ik_E(x' - x)} \right] \; ; \; x \geq x' \\
+%					\left[ e^{ik_E(x - x')} \right] \; ; \; x \leq x' \\
+%				\end{dcases}
+%			\end{split}
+%		\end{equation*}
+		
+
+	
+	\end{enumerate}		
+	
+\end{document}

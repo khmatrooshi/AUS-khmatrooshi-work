@@ -1,0 +1,252 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/5 - S22/preamble.tex}
+
+\begin{document}
+
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		{\textbf { \large PHY 310 --- Mathematical Methods in Physics}}
+		\vspace{0.4cm}
+	\end{center}
+	{\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 20 Mar 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 5 \\
+		\hrule	
+	
+	\section*{Problem 1: Quantum Mechanics}
+	\subsection*{Particle Trapped Inside A Circular Well. Use Of Bessel Functions}
+	\begin{enumerate}
+	\boldmath
+		\item[(a)] In quantum mechanics, a particle of mass $M$ that can move in $x$, $y$ and $z$ directions with potential energy $V(x, y, z)$ is
+		described by a wavefunction $\Psi(x, y, z, t)$ that satisfies the Schrodinger equation
+		\[
+			i\hbar \frac{\partial}{\partial t} \Psi(x, y, z, t) = \left[ -\frac{\bm{\hbar^2}}{2M} \nabla^2 + V(x, y, z) \right] \Psi(x, y, z, t) 
+		\]
+		Using separation of variables, show that
+		\[
+			\Psi(x, y, z, t) = \text{(Constant)} e^{-\dfrac{iE}{\bm{\hbar}}t} \; \Phi(x,y,z)
+		\]
+		where $E$ is the separation constant and that the spatial wavefunction $\Phi(x,y,z)$ satisfies
+		\[
+			\left[ -\frac{\bm{\hbar^2}}{2M} \nabla^2 + V(x, y, z) \right] \Phi(x,y,z) = E \Phi(x,y,z)
+		\]
+	\unboldmath
+		\paragraph{Solution} Using separation of variables on $\Psi$.
+		%\[
+		%	\Psi(x, y, z, t) = \psi(x) \cdot \psi(y) \cdot \psi(z) \cdot \phi(t)
+		%\]
+		%\[
+		%	\text{The Laplacian } \nabla^2 \text{ in three dimensional Cartesian coordinates is } \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}
+		%\]
+		%\[
+		%	i\hbar \frac{\partial}{\partial t} \left( \psi_x \psi_y \psi_z \phi \right) = \left[ -\frac{\hbar^2}{2M} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \right) + V(x, y, z) \right] \left( \psi_x \psi_y \psi_z \phi \right)
+		%\]
+		%\[
+		%	i\hbar \psi_x \psi_y \psi_z  \frac{\partial \phi}{\partial t} = \left[ -\frac{\hbar^2}{2M} \left( \psi_y \psi_z \frac{\partial^2 \psi_x}{\partial x^2} + \psi_x \psi_z \frac{\partial^2 \psi_y}{\partial y^2} + \psi_x \psi_y \frac{\partial^2 \psi_z}{\partial z^2}  \right) + V(x, y, z)\psi_x \psi_y \psi_z \right] \phi
+		%\]
+		%Dividing through by $\psi_x \psi_y \psi_z \phi$.
+		%\[
+		%	i\hbar \frac{1}{\phi} \frac{\partial \phi}{\partial t} = \left[ -\frac{\hbar^2}{2M} \left( \frac{1}{\psi_x} \frac{\partial^2 \psi_x}{\partial x^2} + \frac{1}{\psi_y} \frac{\partial^2 \psi_y}{\partial y^2} + \frac{1}{\psi_z} \frac{\partial^2 \psi_z}{\partial z^2}  \right) + V(x, y, z) \right]
+		%\]
+		%Now the left side is a function of $t$ alone, and the right side is a function of the spatial coordinates alone. In general, this situation means that both sides are constant. This is where $E$, the separation constant, comes in.
+		%\[
+		%	\left[ -\frac{\hbar^2}{2M} \left( \frac{1}{\psi_x} \frac{\partial^2 \psi_x}{\partial x^2} + \frac{1}{\psi_y} \frac{\partial^2 \psi_y}{\partial y^2} + \frac{1}{\psi_z} \frac{\partial^2 \psi_z}{\partial z^2}  \right) + V(x, y, z) \right] = E	
+		%\]
+		%\[
+		%	i\hbar \frac{1}{\phi} \frac{\partial \phi}{\partial t} = E
+		%\]
+		%\[
+		%	\frac{d \phi}{d t} = -\frac{iE}{\hbar} \phi
+		%\]
+		\[
+			\Psi(x, y, z, t) = \Phi(x, y, z) \cdot \phi(t)
+		\]
+		\[
+			i\hbar \frac{\partial}{\partial t} \left( \Phi \phi \right) = \left[ -\frac{\hbar^2}{2M} \nabla^2 + V(x, y, z) \right] \left( \Phi \phi \right)
+		\]
+		\[
+			i\hbar \Phi \frac{\partial \phi}{\partial t} = \left[ -\frac{\hbar^2}{2M} \nabla^2 \Phi + V(x, y, z) \Phi \right] \phi
+		\]
+		Dividing through by $\Phi \phi$. The $\Phi$ inside the square brackets is already operated on by the Laplacian $\nabla^2$.
+		\[
+			i\hbar \frac{1}{\phi} \frac{\partial \phi}{\partial t} = \frac{1}{\Phi}\left[ -\frac{\hbar^2}{2M} \nabla^2 \Phi + V(x, y, z) \Phi \right]
+		\]
+		Now the left side is a function of $t$ alone, and the right side is a function of the spatial coordinates alone. In general, this situation means that both sides are constant. This is where $E$, the separation constant, comes in.
+		\[
+			\frac{1}{\Phi}\left[ -\frac{\hbar^2}{2M} \nabla^2 \Phi + V(x, y, z) \Phi \right] = E	
+		\]
+		\[
+			\left[ -\frac{\hbar^2}{2M} \nabla^2 + V(x, y, z)  \right] \Phi(x, y, z) = E\Phi(x, y, z)
+		\]
+		\[
+			i\hbar \frac{1}{\phi} \frac{\partial \phi}{\partial t} = E
+		\]
+		\[
+			\frac{d \phi}{dt} = -\frac{iE}{\hbar} \phi
+		\]
+		\[
+			\int \frac{d\phi}{\phi} =  \int -\frac{iE}{\hbar} \, dt
+		\]
+		\[
+			\phi(t) = C e^{-\dfrac{iE}{\hbar} t}
+		\]
+		Finally, with the condition of separation of variables,
+		\[
+			\Psi(x, y, z, t) = C e^{-\dfrac{iE}{\hbar} t} \Phi(x, y, z)	
+		\]
+	\boldmath
+		\item[(b)] The particle is now allowed to move freely inside a ring of radius $a$, however, constrained by the impenetrable rim of the ring. This translates to
+		\[
+			\Phi(a, \phi) = 0 \quad \text{and} \quad V(\rho, \phi) = \begin{cases}
+				\; 0 & \text{for} \; \rho \leq a, \\
+				\; \infty & \text{for} \; \rho > a.
+			\end{cases}
+		\]
+		The Laplacian $\nabla^2$ in plane polar coordinates is $\dfrac{\partial^2}{\partial \rho^2} + \dfrac{1}{\rho} \dfrac{\partial}{\partial \rho} + \dfrac{1}{\rho^2} \dfrac{\partial^2}{\partial \phi^2}$ \\\\
+		Use separation of variables again along with Fourier-Bessel Series to show that
+		\[
+			\Phi_{mn}(\rho, \phi) = \frac{1}{\sqrt{\pi} a J_{n+1} \left( \alpha_{mn} \right)} e^{in\phi} J_n\left( \alpha_{mn} \frac{\rho}{a} \right) \quad \text{and} \quad E_{mn} = \frac{\bm{\hbar^2} \alpha_{mn}}{2 M a^2},
+		\]
+		where $\alpha_{mn}$ is the $m^{th} \left( m = 1,2,3,\ldots \right)$ root/zero of the $n^{th} \left( n=0,1,2,3,\ldots \right)$ order Bessel function of the first kind.
+	\unboldmath
+		\paragraph{Solution} This is similar to a particle in an infinite potential well in 2D, but now in an infinite potential ring in plane polar coordinates. First to use separation of variables to find the time independent Schrodinger equation in this case.
+		\[
+			i\hbar \frac{\partial}{\partial t} \Psi(\rho, \phi, t) = \left[ -\frac{\hbar^2}{2M} \nabla^2 + V(\rho, \phi) \right] \Psi(\rho, \phi, t)	
+		\]
+		\[
+			\Psi(\rho, \phi, t) = \Phi(\rho, \phi) \cdot \Omega(t)
+		\]
+		\[
+			i\hbar \frac{\partial}{\partial t} \Phi \Omega = \left[ -\frac{\hbar^2}{2M} \nabla^2 + V(\rho, \phi) \right] \Phi \Omega
+		\]
+		\[
+			i\hbar \Phi \frac{\partial \Omega}{\partial t} = \left[ -\frac{\hbar^2}{2M} \nabla^2 \Phi + V(\rho, \phi) \Phi \right] \Omega
+		\]
+		Dividing through by $\Phi \Omega$. The $\Phi$ inside the square brackets is already operated on by the Laplacian $\nabla^2$.
+		\[
+			i\hbar \frac{1}{\Omega} \frac{\partial \Omega}{\partial t} = \frac{1}{\Phi} \left[ -\frac{\hbar^2}{2M} \nabla^2 \Phi + V(\rho, \phi) \Phi \right]
+		\]
+		Now the left side is a function of $t$ alone, and the right side is a function of the spatial coordinates alone. In general, this situation means that both sides are constant. This is where $E$, the separation constant, comes in.
+		\[
+			\frac{1}{\Phi} \left[ -\frac{\hbar^2}{2M} \nabla^2 \Phi + V(\rho, \phi) \Phi \right] = E	
+		\]
+		\[
+			\left[ -\frac{\hbar^2}{2M} \nabla^2 + V(\rho, \phi) \right] \Phi(\rho, \phi) = E\Phi(\rho, \phi)
+		\]
+		\[
+			i\hbar \frac{1}{\Omega} \frac{\partial \Omega}{\partial t} = E
+		\]
+		\[
+			\Omega(t) = C e^{-\dfrac{iE}{\hbar} t}
+		\]
+		Finally, with the condition of separation of variables.
+		\[
+			\Psi(\rho, \phi, t) = C e^{-\dfrac{iE}{\hbar} t} \Phi(\rho, \phi)	
+		\]
+		Using the time independent Schrodinger equation.
+		\[
+			\left[ -\frac{\hbar^2}{2M} \nabla^2 + V(\rho, \phi) \right] \Phi(\rho, \phi) = E\Phi(\rho, \phi)
+		\]
+		Focusing on inside the well, where $V(\rho, \phi) = 0$. This includes the boundary, which simplifies the boundary conditions.
+		\[
+			-\frac{\hbar^2}{2M} \nabla^2 \Phi(\rho, \phi) = E\Phi(\rho, \phi)
+		\]
+		\[
+			\nabla^2 \Phi + k^2 \Phi = 0 \quad k = \sqrt{ \frac{2ME}{\hbar^2} }
+		\]
+		Using separation of variables again.
+		\[
+			\Phi(\rho, \phi) = R(\rho) \cdot \Theta(\phi)	
+		\]
+		\[
+			\left( \frac{\partial^2}{\partial \rho^2} + \frac{1}{\rho} \frac{\partial}{\partial \rho} + \frac{1}{\rho^2} \frac{\partial^2}{\partial \phi^2} \right) R \Theta + k^2 R \Theta = 0
+		\]
+		\[
+			\Theta \frac{\partial^2 R}{\partial \rho^2} + \frac{\Theta}{\rho} \frac{\partial R}{\partial \rho} + \frac{R}{\rho^2} \frac{\partial^2 \Theta}{\partial \phi^2} + k^2 R \Theta = 0
+		\]
+		Multiplying by $\dfrac{\rho^2}{R \Theta}$.
+		\[
+			\frac{\rho^2}{R} \frac{\partial^2 R}{\partial \rho^2} + \frac{\rho}{R} \frac{\partial R}{\partial \rho} + \frac{1}{\Theta} \frac{\partial^2 \Theta}{\partial \phi^2} + \rho^2 k^2 = 0
+		\]
+		\[
+			\frac{\rho^2}{R} \frac{\partial^2 R}{\partial \rho^2} + \frac{\rho}{R} \frac{\partial R}{\partial \rho} + \rho^2 k^2 = -\frac{1}{\Theta} \frac{\partial^2 \Theta}{\partial \phi^2}
+		\]
+		Now the left side is a function of $\rho$ alone, and the right side is a function of $\phi$ alone. In general, this situation means that both sides are constant. According to our reference text this constant is set as $n^2$ "for later convenience".
+		\[
+			-\frac{1}{\Theta} \frac{d^2 \Theta}{d \phi^2} = n^2
+		\]
+		\[
+			\frac{d^2 \Theta}{d \phi^2} + n^2 \Theta = 0
+		\]
+		\[
+			\Theta(\phi) = A \sin (n \Theta) + B \cos (n \Theta) = Ae^{in\phi} + Be^{-in\phi}
+		\]
+		\[
+			\frac{\rho^2}{R} \frac{d^2 R}{d \rho^2} + \frac{\rho}{R} \frac{d R}{d \rho} + \rho^2 k^2 = n^2
+		\]
+		\[
+			\rho^2 \frac{d^2 R}{d \rho^2} + \rho \frac{d R}{d \rho} + \left(\rho^2 k^2 - n^2\right)R = 0
+		\]
+		Using lecture notes to reduce this equation to Bessel's DE. Let $t = \rho k$.
+		\[
+			\frac{dR}{d\rho} = \frac{dR}{dt} \frac{dt}{d\rho} = k \frac{dR}{dt}
+		\]
+		\[
+			\frac{d^2R}{d\rho^2} = \frac{d}{d\rho} \left( \frac{dR}{d\rho} \right) = \frac{d}{dt} \frac{dt}{d\rho} \left( k \frac{dR}{dt} \right) = \frac{d}{dt} k \left( k \frac{dR}{dt} \right) = k^2 \frac{d^2R}{dt^2}
+		\]
+		\[
+			\rho^2 k^2 \frac{d^2 R}{dt^2} + \rho k \frac{d R}{dt} + \left(t^2 - n^2\right)R = 0
+		\]
+		\[
+			t^2 \frac{d^2 R}{dt^2} + t \frac{d R}{dt} + \left(t^2 - n^2\right)R = 0
+		\]
+		\[
+			R(t) = J_n(\rho k)
+		\]
+		Finally, with the condition of separation of variables.
+		\[
+			\Phi(\rho, \phi) = J_n(\rho k) \Theta_n(\phi)
+		\]
+		Now to find $\Theta_n(\phi)$.
+		\[
+			\Theta(\phi) = A \sin (n \Theta) + B \cos (n \Theta) = Ae^{in\phi} + Be^{-in\phi}
+		\]
+		
+		
+
+	\end{enumerate}
+	\unboldmath
+
+	\section*{Problem 2: Thermodynamics/Engineering}
+	\subsection*{Temperature Variation Inside A Cylinder In Steady State. The Heat Equation}
+	\boldmath
+	In steady state and with azimuthal symmetry, variation of temperature $T (p, z)$ across a cylinder of radius $a$ and height $h$ is governed by the heat equation in cylindrical polar coordinates and is given by
+	\[
+		\frac{\partial^2 T}{\partial \rho^2} + \frac{1}{\rho} \frac{\partial T}{\partial \rho} + \frac{\partial^2 T}{\partial z^2} = 0
+	\]
+	\[
+		\text{subjected to } \quad \begin{cases}
+			\; T(a, z) = 0 						      & \text{for} \; 0 < z < h \\
+			\; T(\rho, 0) = 0, \quad T(\rho, h) = T_0 & \text{for} \; 0 \leq \rho \leq a.
+		\end{cases}
+	\]
+	\begin{enumerate}
+		\item[(a)] Apply separation of variables: $T(\rho, z) = R(\rho) \cdot Z(z)$ and show that
+		\begin{equation*}
+			\begin{split}
+				&\rho R'' + R' + \lambda^2 \rho R = 0, \\
+				&Z'' - \lambda^2 Z = 0,
+			\end{split}
+		\end{equation*}
+		where $\bm{-\lambda^2}$ is the separation constant.
+		\item[(b)] Using Fourier-Bessel series, show that
+		
+		\[
+			T(\rho, z) = 2T_0 \sum_{n=1}^{\infty} \frac{1}{x_n \sinh \left( x_n \frac{h}{a} \right) J_1(x_n)} \sinh \left( x_n \frac{z}{a} \right) J_0 \left( x_n \frac{\rho}{a} \right)
+		\]
+	\unboldmath
+		
+		
+	\end{enumerate}
+
+\end{document}

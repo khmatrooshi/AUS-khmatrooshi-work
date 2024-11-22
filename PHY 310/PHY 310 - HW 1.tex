@@ -1,0 +1,272 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{systeme}
+
+\setlength{\droptitle}{-6.5cm}
+\setlength{\parindent}{24pt}
+
+\setlist[itemize]{leftmargin=\parindent,labelindent=\parindent,itemsep=0mm}
+\setlist[enumerate]{leftmargin=\parindent,labelindent=\parindent,itemsep=0mm}
+
+\title{}
+\date{}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ita}{\textit}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+\newcommand\sep[1]{%
+	\leavevmode\unskip\unskip 
+	\nobreak % optional
+	\hspace{#1}\ignorespaces
+}
+
+\begin{document}
+	\maketitle
+	\begin{center}
+		\hrule
+		\vspace{.4cm}
+		{\textbf { \large PHY 310 --- Mathematical Methods in Physics}}
+	\end{center}
+	{\bd{Name:}\ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 15 Feb 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 1 \\
+		\hrule
+		
+		
+	\section*{Problem 1}
+		\paragraph{Planet-Star Collision Model} A planet with a time period $\bm{\tau}$ is orbiting in a circular path around a star under the influence of gravitational force. The planet is suddenly stopped in its orbit.
+		\begin{enumerate}
+			\item[(a)] Using only Newton's $2^{nd}$ Law, show that the planet will collide with the star in time $\bm{\frac{\tau}{4\sqrt{2}}}$
+				\begin{equation*}
+					\begin{split}
+						m\ddot{r} &= -\frac{GmM}{r^2} \\
+						\frac{d\dot{r}}{dr} \frac{dr}{dt} &= -\frac{GM}{r^2} \\
+						\int_{0}^{\dot{r}} \dot{r} \, d\dot{r} &= \int_{r_0}^{r} -\frac{GM}{r^2} \, dr \\
+						\frac{\dot{r}^2}{2} &= -GM \left( - \frac{1}{r} + \frac{1}{r_0} \right) \\
+						\dot{r} &= \sqrt{2GM} \left( \frac{1}{r} - \frac{1}{r_0} \right)^{\frac{1}{2}} \\
+						\frac{dr}{dt} &= \sqrt{2GM} \left( \frac{r_0 - r}{r_0 r} \right)^{\frac{1}{2}} \\
+						\int_{0}^{t_c} dt &= \int_{r_0}^{0} \frac{1}{\sqrt{2GM}} \left( \frac{r_0 r}{r_0 - r} \right)^{\frac{1}{2}} \, dr \\
+						t_c &= \left( \frac{r_0}{2GM} \right)^{\frac{1}{2}} \int_{r_0}^{0}  \left( \frac{r}{r_0 - r} \right)^{\frac{1}{2}} \, dr \\
+						t_c &= \left( \frac{r_0}{2GM} \right)^{\frac{1}{2}} \left( \frac{\pi r_0}{2} \right) = \left( \frac{\pi^2 r_0^3}{8GM} \right)^{\frac{1}{2}} \\
+						\frac{\tau}{4\sqrt{2}} &= \left( \frac{\pi^2 r_0^3}{8GM} \right)^{\frac{1}{2}} \\ 
+						\tau^2 &= \left( \frac{4\pi^2}{GM} \right) r_0^3
+					\end{split}
+				\end{equation*}
+				Using Kepler's $3^{rd}$ Law: $\tau^2 = \left( \frac{4\pi^2}{GM} \right) r_0^3$.
+				\begin{equation*}
+					\begin{split}
+						t_c^2 &= \frac{\pi^2 r_0^3}{8GM} \\
+						32 t_c^2 &= \frac{4\pi^2}{GM} r_0^3 = \tau^2 \\
+						t_c &= \frac{\tau}{4 \sqrt{2}} \\
+					\end{split}
+				\end{equation*}
+			
+			\item[(b)] If this model is applied to the Earth-Sun system, how many days will it take for them to collide?
+				\begin{equation*}
+					\begin{split}
+						t_c &= \frac{365}{4 \sqrt{2}} \, days \approx 65 \, days  \\
+					\end{split}
+				\end{equation*}
+		\end{enumerate}
+	
+	\clearpage
+	
+	\section*{Problem 2}
+		\paragraph{Raindrop Model} At time $\bm{t=0}$, a spherical raindrop of initial radius $\bm{a}$ falls vertically from rest from a cloud with constant gravitational acceleration $\bm{g}$ and immediately begins to evaporate (i.e. loses its mass through evaporation). Assume that the rate of evaporation is proportional to its surface area. The proportionality constant and density of water are $\bm{k}$ and $\bm{\rho}$, respectively. Neglect air resistance and take the downward direction to be positive.
+		\begin{enumerate}
+			\item[(a)]
+				\begin{enumerate}
+					\item[i.] Show that the radius of the raindrop decreases linearly with time.
+						\begin{equation*}
+							\begin{aligned}
+								\text{Evaporation} &\to \text{Loss of mass} &\to dm \\
+								\text{Rate of Evaporation} &\to \text{Loss of mass w.r.t time} &\to \frac{dm}{dt} \\
+							\end{aligned}
+						\end{equation*}
+						\begin{equation*}
+							\begin{split}
+								\frac{dm}{dt} &= k(4\pi r^2) \\
+								 k(4\pi r^2) &= \frac{d}{dt}(\rho V) =  \frac{d}{dt}(\rho \frac{4}{3} \pi r^3) = \frac{dr}{dt}(\rho 4 \pi r^2) \\
+								 k(4\pi r^2) &= \frac{dr}{dt}(\rho 4 \pi r^2) \\
+								 \frac{dr}{dt} &= \frac{k}{\rho} = (negative) \, constant
+							\end{split}
+						\end{equation*}
+					For later parts, it is beneficial to find how the radius of the raindrop changes with time.
+						\begin{equation*}
+							\begin{split}
+								\int_{a}^{r} \, dr &= \int_{0}^{t} \frac{k}{\rho} \, dt \\
+								r - a &= \frac{k}{\rho} t \\
+								r(t) &= a + \frac{k}{\rho} t \\
+							\end{split}
+						\end{equation*}
+					\item[ii.] If $\bm{a=3.05 \, mm}$ and the radius is 2.14 mm 10 seconds after the raindrop falls from a cloud, determine the time  which the raindrop has evaporated completely.
+						\begin{equation*}
+							\begin{split}
+								\frac{2.14 - 3.05}{10 - 0} &= -0.091 \\\\
+								\frac{0 - 3.05}{t} &= -0.091 \\
+								t &= \frac{-3.05}{-0.091} = 33.5 \, s 
+							\end{split}
+						\end{equation*}
+				\end{enumerate}
+			\item[(b)]
+				\begin{enumerate}
+					\item[i.] Show that the velocity $\bm{v(t)}$ of the raindrop satisfies the differential equation.
+					\begin{equation*}
+						\begin{split}
+							\frac{dv}{dt} + \frac{3 \left( \frac{k}{\rho} \right)}{a + \left( \frac{k}{\rho} \right)t}v = g
+						\end{split}
+					\end{equation*}
+						\paragraph{} It is given that the raindrop start falling from rest at time $\bm{t=0}$. Therefore, as an initial condition, $\bm{v(0) = 0}$. The second term disappears.
+						\begin{equation*}
+							\begin{split}
+								 g = \frac{dv}{dt} = a
+							\end{split}
+						\end{equation*}
+						\paragraph{} Which is true as the only force acting on the raindrop is acceleration due to gravity, $\bm{ma = mg}$. \\
+	\clearpage
+					\item[ii.] Find $\bm{v(t)}$.
+						\paragraph{} A linear first order differential equation can easily be solved using the integrating factor method. Let $\bm{\alpha = \frac{k}{\rho}}$
+						\begin{equation*}
+							\begin{split}
+								\mu(t)\frac{dv}{dt} + \mu(t)\left[ \frac{3 \alpha}{a + \alpha t} \right] v &= g\mu(t) \\
+								\mu(t) &= e^{\int \left[ \frac{3 \alpha}{a + \alpha t} \right] dt} 
+								= e^{3 \ln \left( a + \alpha t \right)} 
+								= \left( a + \alpha t \right)^3 \\
+								\left( a + \alpha t \right)^3 \frac{dv}{dt} + 3 \alpha\left( a + \alpha t \right)^2 v &= g \left( a + \alpha t \right)^3 \\
+								\int \frac{d}{dt} \left[ \left( a + \alpha t \right)^3 v \right]' dt &= \int g \left( a + \alpha t \right)^3 dt \\
+								\left( a + \alpha t \right)^3 v &= \frac{g}{4\alpha} \left( a + \alpha t \right)^4 + C \\
+								v(t) &= \frac{g}{4\alpha} \left( a + \alpha t \right) + \frac{C}{\left( a + \alpha t \right)^3 } \\
+								\text{Applying initial conditions} \quad v(0) &= \frac{ga}{4\alpha} + \frac{C}{a^3} = 0 \\
+								C &= -\frac{ga^4}{4\alpha} \\
+								\text{Finally} \quad v(t) &= \frac{g}{4\alpha} \left( a + \alpha t \right) - \frac{ga^4}{4\alpha} \frac{1}{\left( a + \alpha t \right)^3 } \\
+								v(t) &= \frac{g}{4\alpha} \left[ \left( a + \alpha t \right) - \frac{a^4}{\left( a + \alpha t \right)^3 } \right]
+								= \frac{g}{4\alpha} \left[ \frac{ \left( a + \alpha t \right)^4 - a^4}{\left( a + \alpha t \right)^3 } \right] \\
+								v(t) &= \frac{g}{4\left( \frac{k}{\rho} \right)} \left[ \frac{ \left( a + \left( \frac{k}{\rho} \right) t \right)^4 - a^4}{\left( a + \left( \frac{k}{\rho} \right) t \right)^3 } \right] \\
+							\end{split}
+						\end{equation*} \\
+						
+					\item[iii.] Explain why this model is physically meaningful only if $\bm{0 \leq t \le -\frac{a\rho}{k}}$
+						\paragraph{} Examining $r = a + \frac{k}{\rho} t$. If $t < 0$, the raindrop would increase in radius from its initial radius $a$ because of the negative constant, which is physically impossible in our case. If $t > \frac{-a\rho}{k}$, this would give a negative radius, which is also physically impossible. \\
+				\end{enumerate}
+	\clearpage
+			\item[(c)] Show that the vertical distance traveled by the raindrop as a function of its radius $\bm{r}$ is given by
+			\begin{equation*}
+				\begin{split}
+					\frac{1}{2} g \left[ \frac{\rho}{2k} \left( \frac{r^2 - a^2}{r} \right) \right]^2
+				\end{split}
+			\end{equation*}
+			Continuing on from the part (b), utilizing the chain rule and that $\bm{\frac{dr}{dt} = \frac{k}{\rho}}$ and $\bm{r = a + \frac{k}{\rho}t}$ from part (a)i..
+				\begin{equation*}
+					\begin{split}
+						\frac{dh}{dr} \frac{dr}{dt} &= \frac{g \rho}{4k} \left[ \frac{r^4 - a^4}{r^3} \right] \\
+						\int_{0}^{h} dh &= \frac{g \rho^2}{4k^2} \left[ \int_{a}^{r} r \, dr - \int_{a}^{r} \frac{a^4}{r^3} \, dr \right]
+						= \frac{g \rho^2}{4k^2} \left[ \left( \frac{r^2 - a^2}{2} \right) + \left( \frac{2a^4-2a^2 r^2}{4r^2} \right) \right] \\
+						h &= \frac{g \rho^2}{8k^2} \left[ \frac{r^4 -2r^2 a^2 + a^4}{r^2}\right]
+						= \frac{1}{2} g \left[ \frac{\rho^2}{4k^2} \left( \frac{(r^2 - a^2)^2}{r^2} \right) \right] \\
+						h(r) &= \frac{1}{2} g \left[ \frac{\rho}{2k} \left( \frac{r^2 - a^2}{r} \right) \right]^2 \\
+					\end{split}
+				\end{equation*}
+			
+		\end{enumerate}
+		
+	\section*{Problem 3}
+		\paragraph{Charged Particle Motion} Two charged particles each of mass $\bm{m}$ and carrying charges $\bm{-q}$ and $\bm{+q}$ are released from rest at coordinates $\bm{(-d,0,0)}$ and $\bm{(+d,0,0)}$, respectively. Neglect gravity.
+		\begin{enumerate}
+			\item[(a)] Find the speed of the point charge $\bm{+q}$ as a function of its position.
+				\begin{equation*}
+					\begin{split}
+						m\ddot{x} &= -k_e\frac{q^2}{x^2} \\
+						\frac{d\dot{x}}{dx} \frac{dx}{dt} &= -k_e\frac{q^2}{mx^2} \\
+						\int_{0}^{\dot{x}} \dot{x} \, d\dot{x} &= \int_{2d}^{x} -k_e\frac{q^2}{mx^2} \, dx \\
+						\frac{\dot{x}^2}{2} &= -\frac{k_e q^2}{m} \left( - \frac{1}{x} + \frac{1}{2d} \right) \\
+						\dot{x}(x) &= \sqrt{\frac{2k_e q^2}{m}} \left( \frac{1}{x} - \frac{1}{2d} \right)^{\frac{1}{2}} \\
+					\end{split}
+				\end{equation*}
+			\item[(b)] Show that the time taken for the point charges $\bm{+q}$ and $\bm{-q}$ to collide is $\bm{\frac{\pi d}{q} \sqrt{2\pi \epsilon_0 m d}}$, where $\bm{\epsilon_0}$ is permittivity of free space.
+				\begin{equation*}
+					\begin{split}
+						\frac{dx}{dt} &= \sqrt{\frac{2k_e q^2}{m}} \left( \frac{2d - x}{2dx} \right)^{\frac{1}{2}} \\
+						\int_{0}^{t_c} dt &= \int_{2d}^{0}  \sqrt{\frac{m}{2k_e q^2}} \left( \frac{2dx}{2d - x} \right)^{\frac{1}{2}} dx \\
+						t_c &= \sqrt{\frac{md}{k_e q^2}} \int_{2d}^{0} \left( \frac{x}{2d - x} \right)^{\frac{1}{2}} dx \\
+						t_c &= \sqrt{\frac{md}{k_e q^2}} \left( \frac{\pi (2d)}{2} \right) \\
+						t_c &= \frac{\pi d}{q}\sqrt{4\pi \epsilon_0 md} \\
+					\end{split}
+				\end{equation*}
+		\end{enumerate}
+	
+	\section*{Problem 4}
+		\paragraph{Power of Faraday's Law of Electromagnetic Induction} A conducting bar of mass $\bm{m}$ and resistance $\bm{R}$ is pulled horizontally across two frictionless parallel rails, a distance $\bm{l}$ apart, by a massless string that passes over an ideal pulley and is attached to a freely suspended block of mass $\bm{M}$. A uniform magnetic field $\bm{B}$ is applied vertically upward. The suspended block is released with the bar at rest at time $\bm{t=0}$ and at time $\bm{t}$ it has acquired an unknown speed $\bm{v}$. Acceleration due to gravity $\bm{g}$ acts downwards.
+		\begin{enumerate}
+			\item[(a)] Does the current flow from $\bm{a}$ to $\bm{b}$ or from $\bm{b}$ to $\bm{a}$?
+				\paragraph{} From a top-down view, the magnetic field is directed outside of the page perpendicular to the plane of the circuit ($\bm{+\hat{k}}$). As the bar is pulled to the right by the block($\bm{+\hat{j}}$), the electrons in the bar experience a magnetic force. According to the Lorentz force equation $\bm{\vec{F}_B = q\vec{v}} \cross \bm{\vec{B}}$, the magnetic force on each electron is in the positive x direction ($\bm{+\hat{i}}$). The magnetic force causes electrons to accumulate at $\bm{b}$, leaving a net positive charge at $\bm{b}$. Therefore the \textit{current} flows from $\bm{b}$ to $\bm{a}$. \\
+			\item[(b)] Show that
+			\begin{equation*}
+				\begin{split}
+					v(t) = \frac{MgR}{B^2 l^2} \left\{ 1 - e^{-\left[ \frac{B^2 l^2}{R(m+m)} \right]t} \right\}
+				\end{split}
+			\end{equation*}
+				\begin{equation*}
+					\begin{split}
+						ma_y &= T - BIl \\
+						Ma_z &= Mg - T \\
+						a_y &= a_z \\
+						(m+M)a &= Mg + \frac{B^2l^2}{R}v \\
+						\frac{dv}{dt} &= \frac{Mg}{m+M} - \frac{B^2 l^2}{R(m+M)}v
+							\quad
+							\begin{cases}
+								\alpha &= \frac{Mg}{m+M} \\
+								\beta &= \frac{B^2 l^2}{R(m+M)} \\
+							\end{cases} \\
+						\int_{0}^{t} dt &= \int_{0}^{v} \frac{dv}{\alpha - \beta v}
+							\quad
+							\begin{cases}
+								u &= \alpha - \beta v \\
+								du &= -\beta \, dv \\
+							\end{cases} \\
+						t &= -\frac{1}{\beta} \int_{\alpha}^{\alpha - \beta v} \frac{du}{u}
+						= -\frac{1}{\beta} \left( \ln\left| \alpha - \beta v \right| - \ln\left| \alpha \right| \right) \\
+						\ln\left| \frac{\alpha - \beta v}{\alpha} \right| &= -\beta t \\
+						\alpha - \beta v &= \alpha e^{-\beta t} \\
+						v(t) &= \frac{\alpha}{\beta}\left( 1 - e^{-\beta t} \right) \\
+						v(t) &= \frac{MgR}{B^2 l^2} \left\{ 1 - e^{-\left[ \frac{B^2 l^2}{R(m+m)} \right]t} \right\} \\
+					\end{split}
+				\end{equation*}
+	\clearpage
+			\item[(c)] Find the power dissipated in the resistor after the bar has attained its terminal speed. \\
+				The bar attains its terminal velocity as $\bm{t \to \infty}$, $\bm{e^{-\beta t}} \to 0$.
+				\begin{equation*}
+					\begin{split}
+						\lim_{t \to \infty} v(t) &= \lim_{t \to \infty} \frac{MgR}{B^2 l^2} \left\{ 1 - e^{-\left[ \frac{B^2 l^2}{R(m+m)} \right]t} \right\} \\
+						v_T &= \frac{MgR}{B^2 l^2} \left\{ 1 - \lim_{t \to \infty} e^{-\left[ \frac{B^2 l^2}{R(m+m)} \right]t} \right\} \\
+						v_T &= \frac{MgR}{B^2 l^2} \\\\
+						\text{Can also be found by} \quad F_{app} &= F_B \quad \text{similar to an object in free fall} \\
+						Mg &= \frac{B^2 l^2}{R}v_T \\
+						v_T &= \frac{MgR}{B^2 l^2}
+					\end{split}
+				\end{equation*}
+				\paragraph{} It is known that the power applied by the block moving the bar is equal to the power transferred from the bar to the resistor by electricity.
+				\begin{equation*}
+					\begin{split}
+						P = F_{app} v = F_B v &= I^2 R \\
+						P &= \left( \frac{Blv_T}{R} \right)^2 R \\
+						P &= \frac{B^2 l^2}{R} \frac{M^2 g^2 R^2}{B^4 l^4} \\
+						P &=\left(  \frac{Mg}{Bl} \right)^2 R \\
+					\end{split}
+				\end{equation*}
+		\end{enumerate}
+		
+\end{document}

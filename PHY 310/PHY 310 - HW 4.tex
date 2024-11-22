@@ -1,0 +1,480 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/5 - S22/preamble.tex}
+
+\begin{document}
+
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		{\textbf { \large PHY 310 --- Mathematical Methods in Physics}}
+		\vspace{0.4cm}
+	\end{center}
+	{\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 13 Mar 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 4 \\
+		\hrule	
+	
+	%\section*{Problem 1: Quantum Mechanics}
+	%\subsection*{Important Integral used in Problems Related to Harmonic Oscillator}
+	%Prove the following result for Hermite Polynomials $\bm{H_n(x)}$:
+	%\begin{equation*}
+	%	\begin{split}
+	%		\bm{\int_{-\infty}^{\infty} x^2 e^{-x^2} H_m(x) H_n(x) \, dx = \sqrt{\pi} 2^n n! \left[ \frac{1}{4} \delta_{m,n-2} + \left( n + \frac{1}{2} \right) \delta_{mn} + \left( n + 1 \right) \left( n + 2 \right) \delta_{m,n+2} \right],}
+	%	\end{split}
+	%\end{equation*}
+	%where the Kronecker delta is defined as
+	%\begin{equation*}
+	%	\begin{split}
+	%		\delta_{ij} =
+	%		\begin{cases}
+	%			1 & \text{for } i = j, \\
+	%			0 & \text{for } i \neq j. \\
+	%		\end{cases}
+	%	\end{split}
+	%\end{equation*}
+
+	\section*{Problem 2: Mathematical Physics}
+	\subsection*{Fourier-Hermite Expansion of a Function}
+	A function $\bm{f(x)}$ is expanded in a Hermite series:
+	\begin{equation*}
+		\begin{split}
+			\bm{f(x) = \sum_{n=0}^{\infty} a_n H_n(x).}
+		\end{split}
+	\end{equation*}
+	\begin{enumerate}
+		\item[(a)] Show that the coefficients $\bm{a_n}$ are given by
+		\begin{equation*}
+			\begin{split}
+				\bm{\frac{1}{\sqrt{\pi} 2^n n!} \int_{-\infty}^{\infty} f(t) H_n(t) e^{-t^2} \, dt.}
+			\end{split}
+		\end{equation*}
+		\paragraph{Solution} The Hermite polynomials are known to be orthonormal from the following equation
+		\[
+			\int_{-\infty}^{\infty} e^{-x^2} H_n(x) H_m(x) =
+			\begin{cases}
+				0 & if \; n \neq m \\
+				2^n n! \sqrt{\pi} & if \; n = m
+			\end{cases}
+		\]
+		Clearly the fraction in the question resembles the case when $n=m$, therefore transforming the question to one where the integral exists by multiplying by $H_n(x)$ and $e^{-x^2}$.
+		\[
+			f(x) H_n(x) e^{-x^2} = \sum_{n=0}^{\infty} a_n e^{-x^2} H_n(x) H_n(x) 
+		\]
+		Multiplying by an integral from $-\infty$ to $\infty$, and adding a dummy variable $t$ to differentiate the equality.
+		\[
+			\int_{-\infty}^{\infty} f(t) H_n(t) e^{-t^2} \, dt = \sum_{n=0}^{\infty} a_n \int_{-\infty}^{\infty} e^{-x^2} H_n(x) H_n(x) \, dx 
+		\]
+		Finally.
+		\[
+			a_n = \frac{1}{\sqrt{\pi} 2^n n!} \int_{-\infty}^{\infty} f(t) H_n(t) e^{-t^2} \, dt
+		\]
+		%Trying power series solution.
+		%\[
+		%	f''(x) - 2xf'(x) + 2\lambda f(x) = 0
+		%\]
+		%\[
+		%	\sum_{n=0}^{\infty} a_n H''_n(x) - 2x\sum_{n=0}^{\infty} a_n H'_n(x) + 2\lambda \sum_{n=0}^{\infty} a_n H_n(x) = 0
+		%\]
+		%\[
+		%	\sum_{n=1}^{\infty} a_n \frac{d}{dx} \left[2nH_{n-1}(x)\right] - 2x\sum_{n=1}^{\infty} a_n 2nH_{n-1}(x) + 2\lambda \sum_{n=0}^{\infty} a_n H_n(x) = 0
+		%\]
+		%First summation: $n-1 = k$, second summation: $n-1=k$
+		%\[
+		%\sum_{k=0}^{\infty} a_{k+1} \frac{d}{dx} \left[2(k+1)H_{k}(x)\right] - 2x\sum_{k=0}^{\infty} a_{k+1} 2(k+1)H_{k}(x) + 2\lambda \sum_{n=0}^{\infty} a_n H_n(x) = 0
+		%\]
+		%\[
+		%\sum_{k=0}^{\infty} a_{k+1} \left[2(k+1)H'_{k}(x)\right] - 2x\sum_{k=0}^{\infty} a_{k+1} 2(k+1)H_{k}(x) + 2\lambda \sum_{n=0}^{\infty} a_n H_n(x) = 0
+		%\]
+		%\[
+		%\sum_{k=1}^{\infty} a_{k+1} \left[2(k+1)\left[2kH_{k-1}(x)\right]\right] - 2x\sum_{k=0}^{\infty} a_{k+1} 2(k+1)H_{k}(x) + 2\lambda \sum_{n=0}^{\infty} a_n H_n(x) = 0
+		%\]
+		%First summation: $k-1 = v$
+		%\[
+		%\sum_{v=0}^{\infty} a_{v} \left[2(v)\left[2(v+1)H_{v}(x)\right]\right] - 2x\sum_{k=0}^{\infty} a_{k+1} 2(k+1)H_{k}(x) + 2\lambda \sum_{n=0}^{\infty} a_n H_n(x) = 0
+		%\]
+		%\[
+		%\sum_{n=0}^{\infty} a_{n} \left[2(n)\left[2(n+1)H_{n}(x)\right]\right] - 2x\sum_{n=0}^{\infty} a_{n+1} 2(n+1)H_{n}(x) + 2\lambda \sum_{n=0}^{\infty} a_n H_n(x) = 0
+		%\]
+		%\[
+		%\sum_{n=0}^{\infty} a_{n} \left[4n(n+1)H_{n}(x)\right] - 2x a_{n+1} 2(n+1)H_{n}(x) + 2\lambda a_n H_n(x) = 0
+		%\]
+		\item[(b)]
+		\begin{enumerate}
+			\item[i.] Expand the function
+			\begin{equation*}
+				\begin{split}
+					\bm{f(x) = e^{2bx}}
+				\end{split}
+			\end{equation*}
+			in a Hermite series.
+			\paragraph{Solution} Using the generating function.
+			\[
+				e^{2tx - t^2} = \sum_{n=0}^{\infty} \frac{H_n(x)}{n!} t^n 
+			\]
+			%Multiplying by $e^{2bx}$.
+			%\[
+			%	e^{2tx - t^2} e^{2bx} = \sum_{n=0}^{\infty} \frac{H_n(x)}{n!} t^n e^{2bx}
+			%\]
+			%Expanding the exponential $e^{2bx}$ by using $e^y = \sum_{n=0}^{\infty} \frac{y^n}{n!}$.
+			%\[
+			%	e^{2tx - t^2 + 2bx} = \sum_{n=0}^{\infty} \frac{H_n(x)}{n!} t^n \left( \frac{(2bx)^n}{n!} \right)
+			%\]
+			$t$ can be any real number. Set $t=b$.
+			\[
+				e^{2bx} e^{-b^2} = \sum_{n=0}^{\infty} \frac{H_n(x)}{n!} b^n
+			\]
+			\[
+				f(x) = e^{2bx}  = e^{b^2} \sum_{n=0}^{\infty} \frac{H_n(x)}{n!} b^n
+			\]
+			\item[ii.] Use the result of part(b)i to deduce
+			\[
+				\int_{-\infty}^{\infty} e^{-x^2 + 2bx} H_n(x) \, dx = \sqrt{\pi} (2b)^n e^{b^2}
+			\]
+			\paragraph{Solution}
+			\[
+				\int_{-\infty}^{\infty} e^{-x^2 + 2bx} H_n(x) \, dx = \int_{-\infty}^{\infty} e^{-x^2} e^{2bx} H_n(x) \, dx = \int_{-\infty}^{\infty} f(x) H_n(x) e^{-x^2} \, dx
+			\]
+			\begin{equation*}
+				\begin{split}
+					\int_{-\infty}^{\infty} f(x) H_n(x) e^{-x^2} \, dx &= \int_{-\infty}^{\infty} e^{b^2} \sum_{n=0}^{\infty} \frac{H_n(x)}{n!} b^n H_n(x) e^{-x^2} \, dx \\
+					&= \sum_{n=0}^{\infty} \frac{e^{b^2} b^n}{n!} \int_{-\infty}^{\infty} H_n(x) H_n(x) e^{-x^2} \, dx \\
+				\end{split}
+			\end{equation*}
+			Applying the orthonormality condition.
+			\begin{equation*}
+				\begin{split}
+					&= \sum_{n=0}^{\infty} \frac{e^{b^2} b^n}{n!} 2^n n! \sqrt{\pi} = \sum_{n=0}^{\infty} e^{b^2} b^n 2^n \sqrt{\pi} = \sqrt{\pi} (2b)^n e^{b^2} \\
+				\end{split}
+			\end{equation*}
+		\end{enumerate}
+	\end{enumerate}
+
+	\section*{Problem 3: Quantum Mechanics}
+	\subsection*{Raising and Lowering Operators of Quantum Harmonic Oscillator}
+	An operator $\bm{\hat{a} = \sqrt{\frac{m\omega}{2\hbar}} \left( x + \frac{i}{m\omega} \hat{p} \right)}$ and its adjoint $\bm{\hat{a}^{\dagger} = \sqrt{\frac{m\omega}{2\hbar}} \left( x - \frac{i}{m\omega} \hat{p} \right)}$, with $\bm{\hat{p} = -i\hbar \frac{d}{dx}}$, act on a harmonic oscillator wavefunction,
+	\[
+		\bm{\phi_n(x) = \frac{1}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{m\omega x^2}{2\hbar}} H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right) }.
+	\]
+	Using the transformation $\bm{\xi \equiv \sqrt{\frac{m\omega}{\hbar}}x }$ so that,
+	\begin{equation*}
+		\begin{aligned}
+			\bm{\hat{a}} &\bm{= \frac{1}{\sqrt{2}} \left( \xi + \frac{d}{d\xi} \right),} & \bm{\hat{a}^\dagger} &\bm{= \frac{1}{\sqrt{2}} \left( \xi - \frac{d}{d\xi} \right)} & &\text{and} & \bm{\phi_n(\xi)} &\bm{= \frac{1}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_n(\xi) ,}
+		\end{aligned}
+	\end{equation*}
+	show that \\
+	\begin{enumerate}
+		\item[(a)] $\bm{ \hat{a} \, \phi_n(\xi) = \sqrt{n} \,\phi_{n-1}(\xi), }$
+		
+		\[
+			\left[ \frac{1}{\sqrt{2}} \left( \xi + \frac{d}{d\xi} \right) \right]\left[ \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_n(\xi) \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}} \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} \left[ \left( \xi e^{-\frac{1}{2}\xi^2} H_n(\xi) + \frac{d}{d\xi} \left( e^{-\frac{1}{2}\xi^2} H_n(\xi) \right) \right) \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}} \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} \left[ \left( \xi e^{-\frac{1}{2}\xi^2} H_n(\xi) + \left( -\xi e^{-\frac{1}{2}\xi^2} H_n(\xi) + e^{-\frac{1}{2}\xi^2} H'_n(\xi) \right) \right) \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}} \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[  H'_n(\xi)  \right]
+		\]
+		Using the recurrence relation $H'_n(x) = 2nH_{n-1}(x)$
+		\[
+			\frac{1}{\sqrt{2}} \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[  2nH_{n-1}(\xi)  \right]
+		\]
+		\[
+			\frac{2}{\sqrt{2}\sqrt{2^n}} \frac{n}{\sqrt{n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[  H_{n-1}(\xi)  \right]
+		\]
+		Utilizing properties of $\bm{n!}$, $\bm{\frac{1}{n!} = \frac{1}{n(n-1)!}}$.
+		\[
+			\frac{\sqrt{2}}{\sqrt{2^n}} \frac{n}{\sqrt{n(n-1)!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[  H_{n-1}(\xi)  \right]
+		\]
+		\[
+			\frac{\sqrt{n}}{\sqrt{2^{n-1}(n-1)!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[  H_{n-1}(\xi)  \right]
+		\]
+		\[
+			\sqrt{n} \, \phi_{n-1}(\xi) = \frac{\sqrt{n}}{\sqrt{2^{n-1}(n-1)!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n-1}(\xi)
+		\]
+		
+		\item[(b)] $\bm{ \hat{a}^{\dagger} \, \phi_n(\xi) = \sqrt{n+1} \, \phi_{n+1}(\xi), }$
+		
+		\[
+			\left[ \frac{1}{\sqrt{2}} \left( \xi - \frac{d}{d\xi} \right) \right]\left[ \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_n(\xi) \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}} \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} \left[ \left( \xi e^{-\frac{1}{2}\xi^2} H_n(\xi) - \frac{d}{d\xi} \left( e^{-\frac{1}{2}\xi^2} H_n(\xi) \right) \right) \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}} \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} \left[ \left( \xi e^{-\frac{1}{2}\xi^2} H_n(\xi) - \left( -\xi e^{-\frac{1}{2}\xi^2} H_n(\xi) + e^{-\frac{1}{2}\xi^2} H'_n(\xi) \right) \right) \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}} \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[ 2\xi H_n(\xi) - H'_n(\xi) \right]
+		\] \\
+		Using the recurrence relation $H'_n(x) = 2nH_{n-1}(x)$
+		\[
+			\frac{1}{\sqrt{2}} \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[ 2\xi H_n(\xi) - 2nH_{n-1}(\xi) \right]
+		\] \\
+		Using the recurrence relation $H_{n+1}(x) = 2x H_n(x) - 2nH_{n-1}(x)$
+		\[
+			\frac{1}{\sqrt{2^{n+1} n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(\xi)
+		\]
+		\[
+			\frac{\sqrt{n+1}}{\sqrt{2^{n+1} (n+1)n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(\xi)
+		\]
+		Utilizing properties of $\bm{n!}$, $\bm{\frac{1}{(n+1)n!} = \frac{1}{(n+1)!}}$.
+		\[
+			\sqrt{n+1} \, \phi_{n+1}(\xi) = \frac{\sqrt{n+1}}{\sqrt{2^{n+1} (n+1)!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(\xi)
+		\]
+		
+		\item[(c)] $\bm{ \left[\hat{a},\hat{a}^{\dagger}\right]\phi_n(\xi) \equiv \left( \hat{a}\hat{a}^{\dagger} - \hat{a}^{\dagger}\hat{a} \right) \phi_n(\xi) = \phi_n(\xi), }$
+		
+		\[
+			\left[\frac{1}{\sqrt{2}} \left( \xi + \frac{d}{d\xi} \right)\frac{1}{\sqrt{2}} \left( \xi - \frac{d}{d\xi} \right) - \frac{1}{\sqrt{2}} \left( \xi - \frac{d}{d\xi} \right)\frac{1}{\sqrt{2}} \left( \xi + \frac{d}{d\xi} \right) \right] \phi_n(\xi)
+		\]
+		\[
+			\frac{1}{2} \left[ \left( \xi + \frac{d}{d\xi} \right) \left( \xi - \frac{d}{d\xi} \right) -  \left( \xi - \frac{d}{d\xi} \right) \left( \xi + \frac{d}{d\xi} \right) \right] \phi_n(\xi)
+		\]
+		An important property of operators is that they do not necessarily commute. $\hat{a}\hat{a}^{\dagger} \neq \hat{a}^{\dagger}\hat{a}$.
+		\[
+		\frac{1}{2} \left[ \left( \xi + \frac{d}{d\xi} \right) \left( \xi - \frac{d}{d\xi} \right) -  \left( \xi - \frac{d}{d\xi} \right) \left( \xi + \frac{d}{d\xi} \right) \right] \phi_n(\xi)
+		\]
+		\[
+			\frac{1}{2} \left[ \left( \xi + 1 - \frac{d^2}{d\xi^2} \right) -  \left( \xi - 1 - \frac{d^2}{d\xi^2} \right) \right] \phi_n(\xi)
+		\]
+		\[
+		\frac{1}{2} \left[  \xi + 1 - \frac{d^2}{d\xi^2} - \xi + 1 + \frac{d^2}{d\xi^2} \right] \phi_n(\xi)
+		\]
+		\[
+			\phi_n(\xi)
+		\]
+		
+		\item[(d)] $\bm{ \phi_n(\xi) = \frac{(\hat{a}^{\dagger})^n}{\sqrt{n!}} \phi_0(\xi) = \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} \left( \xi - \frac{d}{d\xi} \right)^n e^{-\frac{1}{2}\xi^2}, }$
+		
+		\[
+			\frac{1}{\sqrt{n!}} \left( \frac{1}{\sqrt{2}} \left( \xi - \frac{d}{d\xi} \right) \right)^n \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_0(\xi)
+		\]
+		\[
+			H_0(\xi) = 1
+		\]
+		\[
+			\phi_n(\xi) = \frac{1}{\sqrt{2^n n!}} \left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} \left( \xi - \frac{d}{d\xi} \right)^n  e^{-\frac{1}{2}\xi^2}	
+		\]
+		
+		\item[(e)] $\bm{ \xi \, \phi_n(\xi) = \frac{1}{\sqrt{2}} \left[ \sqrt{n+1} \, \phi_{n+1}(\xi) + \sqrt{n} \, \phi_{n-1}(\xi) \right], }$
+		
+		\[
+			\frac{\xi}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_n(\xi)
+		\]
+		Using the recurrence relation $H_n(x) = \frac{1}{2x}\left[ H_{n+1}(x) + 2nH_{n-1}(x) \right]$
+		\[
+			\frac{\xi}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[ \frac{1}{2\xi} \left[ H_{n+1}(\xi) + 2nH_{n-1}(\xi) \right] \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}}\frac{1}{\sqrt{2^{n+1} n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[ H_{n+1}(\xi) + 2nH_{n-1}(\xi) \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}}\frac{1}{\sqrt{2^{n+1} n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(\xi) + \frac{1}{\sqrt{2}}\frac{2n}{\sqrt{2^{n+1} n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n-1}(\xi)
+		\]
+		\[
+			\frac{1}{\sqrt{2}} \left[ \frac{\sqrt{n+1}}{\sqrt{2^{n+1} (n+1)n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(\xi) + \frac{2n}{\sqrt{2^{n+1} n(n-1)!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n-1}(\xi) \right]
+		\]
+		\[
+			\frac{1}{\sqrt{2}} \left[ \frac{\sqrt{n+1}}{\sqrt{2^{n+1} (n+1)!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(\xi) + \frac{\sqrt{n}}{\sqrt{2^{n-1} (n-1)!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n-1}(\xi) \right]
+		\]
+		\[
+			\xi \, \phi_n(\xi) = \frac{1}{\sqrt{2}} \left[ \sqrt{n+1} \, \phi_{n+1}(\xi) + \sqrt{n} \, \phi_{n-1}(\xi) \right]
+		\]
+		
+		\item[(f)] $\bm{ \hat{P} \, \phi_n(\xi) = \frac{i}{\sqrt{2}} \left[ \sqrt{n+1} \, \phi_{n+1}(\xi) - \sqrt{n} \, \phi_{n-1}(\xi) \right], \quad \hat{P} \equiv \frac{\hat{p}}{\sqrt{m\omega\hbar}} .}$
+		
+		\[
+			-\frac{i\hbar}{\sqrt{m\omega\hbar}} \sqrt{\frac{m\omega}{\hbar}} \frac{d}{d\xi} \left[\frac{1}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_n(\xi)\right]
+		\]
+		\[
+			-\frac{i}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} \left[ -\xi e^{-\frac{1}{2}\xi^2} H_n(\xi) + e^{-\frac{1}{2}\xi^2} H'_n(\xi) \right]
+		\]
+		Using the recurrence relations $H'_n(x) = 2nH_{n-1}(x)$ and $H_n(x) = \frac{1}{2x}\left[ H_{n+1}(x) + 2nH_{n-1}(x) \right]$.
+		\[
+			-\frac{i}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[ -\xi\left( \frac{1}{2\xi}\left[ H_{n+1}(x) + 2nH_{n-1}(x) \right] \right) + \left( 2nH_{n-1}(x) \right) \right]
+		\]
+		\[
+			\frac{i}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} \left[ \frac{1}{2} H_{n+1}(x) - nH_{n-1}(x) \right]
+		\]
+		\[
+			i \left[ \frac{1}{\sqrt{2^{n+2} n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(x) - \frac{n}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n-1}(x) \right]
+		\]
+		\[
+			\frac{i}{\sqrt{2}} \left[ \frac{\sqrt{n+1}}{\sqrt{2^{n+1} (n+1)n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(x) - \frac{n}{\sqrt{2^{n-1} n(n-1)!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n-1}(x) \right]
+		\]
+		\[
+			\frac{i}{\sqrt{2}} \left[ \frac{\sqrt{n+1}}{\sqrt{2^{n+1} (n+1)!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n+1}(x) - \frac{\sqrt{n}}{\sqrt{2^{n-1} (n-1)!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{1}{2}\xi^2} H_{n-1}(x) \right]
+		\]
+		\[
+			\hat{P} \, \phi_n(\xi) = \frac{i}{\sqrt{2}} \left[ \sqrt{n+1} \, \phi_{n+1}(\xi) - \sqrt{n} \, \phi_{n-1}(\xi) \right]
+		\]
+		
+	\end{enumerate}
+	\clearpage
+	\section*{Problem 5: Quantum Mechanics}
+	\subsection*{Coupled Harmonic Oscillators II. Separation of Center of Mass and Relative Motions}
+	Particles with mass $\bm{m_1}$ and $\bm{m_2}$ are each bound in a one-dimensional harmonic oscillator potential $\bm{\frac{1}{2} m_i \omega^2_0 x^2_i \; (i=1,2)}$ and interact with each other via the potential $\bm{\frac{1}{2} \lambda(x_1 - x_2)^2}$. Thus the Hamiltonian of the system takes the form
+	\[
+		\bm{\hat{H} = -\frac{\hbar^2}{2m_1} \frac{\partial^2}{\partial x_1^2} + \frac{1}{2} m_1 \omega^2_0 x_1^2 - \frac{\hbar^2}{2m_2} \frac{\partial^2}{\partial x_2^2} + \frac{1}{2} m_2 \omega^2_0 x_2^2 + \frac{1}{2} \lambda (x_1 - x_2)^2. }
+	\]
+	\begin{enumerate}
+		\item[(a)] Introduce COM and relative coordinates, $\bm{R = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2}, r = x_1 - x_2,}$ respectively, and show that
+		\begin{equation*}
+			\begin{aligned}
+				\bm{\hat{H} = -\frac{\hbar^2}{2M} \frac{\partial^2}{\partial R^2} + \frac{1}{2} M \omega^2_0 R^2 - \frac{\hbar^2}{2\mu} \frac{\partial^2}{\partial r^2} + \frac{1}{2} \mu \Omega^2 r^2,}
+				\quad \text{where,} \quad
+				\bm{ M \equiv m_1 + m_2, \mu \equiv \frac{m_1 m_2}{m_1 + m_2}, \Omega^2 \equiv \omega_0^2 + \frac{\lambda}{\mu}. }
+			\end{aligned}
+		\end{equation*}
+		\paragraph{Solution}
+		\[
+			-\frac{\hbar^2}{2m_1} \frac{\partial^2}{\partial x_1^2} + \frac{1}{2} m_1 \omega^2_0 x_1^2 - \frac{\hbar^2}{2m_2} \frac{\partial^2}{\partial x_2^2} + \frac{1}{2} m_2 \omega^2_0 x_2^2 + \frac{1}{2} \lambda (x_1 - x_2)^2
+		\]
+		\[
+			-\frac{\hbar^2}{2m_1} \frac{\partial^2}{\partial x_1^2} - \frac{\hbar^2}{2m_2} \frac{\partial^2}{\partial x_2^2} + \frac{1}{2} m_1 \omega^2_0 x_1^2 + \frac{1}{2} m_2 \omega^2_0 x_2^2 + \frac{1}{2} \lambda r^2
+		\]
+		\[
+			-\frac{\hbar^2}{2} \left[ \frac{1}{m_1} \frac{\partial^2}{\partial x_1^2} + \frac{1}{m_2} \frac{\partial^2}{\partial x_2^2} \right] + \frac{1}{2} \omega^2_0 \left[m_1 x_1^2 + m_2 x_2^2\right] + \frac{1}{2} \lambda r^2
+		\]
+		Taking it step by step converting each term.
+		%\[
+		%	\frac{\partial}{\partial x_1} = \frac{\partial}{\partial R} \frac{\partial R}{\partial x_1} + \frac{\partial}{\partial r} \frac{\partial r}{\partial x_1} = \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 + m_2 \frac{\partial x_2 }{\partial x_1} \right) \right] + \frac{\partial}{\partial r} \left[ 1 - \frac{\partial x_2}{\partial x_1} \right]
+		%\]
+		%\begin{equation*}
+		%	\begin{split}
+		%		\frac{\partial^2}{\partial x^2_1} &= \frac{\partial}{\partial x_1} \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 + m_2 \frac{\partial x_2 }{\partial x_1} \right) \right] + \frac{\partial}{\partial r} \left[ 1 - \frac{\partial x_2}{\partial x_1} \right] \right] \\
+		%		&= \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 + m_2 \frac{\partial x_2 }{\partial x_1} \right) \right] + \frac{\partial}{\partial r} \left[ 1 - \frac{\partial x_2}{\partial x_1} \right] \right] \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 + m_2 \frac{\partial x_2 }{\partial x_1} \right) \right] + \frac{\partial}{\partial r} \left[ 1 - \frac{\partial x_2}{\partial x_1} \right] \right] \\
+		%		&= \frac{\partial^2}{\partial R^2} \left[ \frac{1}{M} \left( m_1 + m_2 \frac{\partial x_2 }{\partial x_1} \right) \right]^2 + 2 \frac{\partial^2}{\partial R \partial r} \left[\left( m_1 + m_2 \frac{\partial x_2 }{\partial x_1} \right) \left( 1 - \frac{\partial x_2}{\partial x_1} \right)\right] + \frac{\partial^2}{\partial r^2} \left[ 1 - \frac{\partial x_2}{\partial x_1} \right]^2
+		%	\end{split}
+		%\end{equation*}
+		%\\
+		%\[
+		%	\frac{\partial}{\partial x_2} = \frac{\partial}{\partial R} \frac{\partial R}{\partial x_2} + \frac{\partial}{\partial r} \frac{\partial r}{\partial x_2} = \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 \frac{\partial x_1}{\partial x_2} + m_2 \right) \right] + \frac{\partial}{\partial r} \left[ \frac{\partial x_1}{\partial x_2} - 1 \right]
+		%\]
+		%\begin{equation*}
+		%	\begin{split}
+		%		\frac{\partial^2}{\partial x^2_2} &= \frac{\partial}{\partial x_2} \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 \frac{\partial x_1}{\partial x_2} + m_2 \right) \right] + \frac{\partial}{\partial r} \left[ \frac{\partial x_1}{\partial x_2} - 1 \right] \right] \\
+		%		&= \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 \frac{\partial x_1}{\partial x_2} + m_2 \right) \right] + \frac{\partial}{\partial r} \left[ \frac{\partial x_1}{\partial x_2} - 1 \right] \right] \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 \frac{\partial x_1}{\partial x_2} + m_2 \right) \right] + \frac{\partial}{\partial r} \left[ \frac{\partial x_1}{\partial x_2} - 1 \right] \right] \\
+		%		&= \frac{\partial^2}{\partial R^2} \left[ \frac{1}{M} \left( m_1 \frac{\partial x_1}{\partial x_2} + m_2 \right) \right]^2 + 2 \frac{\partial^2}{\partial R \partial r} \left[\left( m_1 \frac{\partial x_1}{\partial x_2} + m_2 \right) \left( \frac{\partial x_1}{\partial x_2} - 1 \right)\right] + \frac{\partial^2}{\partial r^2} \left[ \frac{\partial x_1}{\partial x_2} - 1 \right]^2
+		%	\end{split}
+		%\end{equation*}
+		\[
+			\frac{\partial}{\partial x_1} = \frac{\partial}{\partial R} \frac{\partial R}{\partial x_1} + \frac{\partial}{\partial r} \frac{\partial r}{\partial x_1} = \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 \right) \right] + \frac{\partial}{\partial r} \left[ 1 \right]
+		\]
+		\begin{equation*}
+			\begin{split}
+				\frac{\partial^2}{\partial x^2_1} &= \frac{\partial}{\partial x_1} \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 \right) \right] + \frac{\partial}{\partial r} \left[ 1 \right] \right] \\
+				&= \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 \right) \right] + \frac{\partial}{\partial r} \left[ 1 \right] \right] \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_1 \right) \right] + \frac{\partial}{\partial r} \left[ 1 \right] \right] \\
+				&= \frac{\partial^2}{\partial R^2} \left[ \frac{1}{M} \left( m_1 \right) \right]^2 + 2 \frac{\partial^2}{\partial R \partial r} \left[\left( \frac{1}{M} \left( m_1 \right) \right) \left( 1 \right)\right] + \frac{\partial^2}{\partial r^2} \left[ 1 \right]^2 \\
+				\frac{1}{m_1} \frac{\partial^2}{\partial x^2_1} &= \frac{\partial^2}{\partial R^2} \left[ \frac{m_1}{M^2} \right] + 2 \frac{\partial^2}{\partial R \partial r} \left[ \frac{1}{M}\right] + \frac{1}{m_1} \frac{\partial^2}{\partial r^2}
+			\end{split}
+		\end{equation*}
+		\\
+		\[
+			\frac{\partial}{\partial x_2} = \frac{\partial}{\partial R} \frac{\partial R}{\partial x_2} + \frac{\partial}{\partial r} \frac{\partial r}{\partial x_2} = \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_2 \right) \right] + \frac{\partial}{\partial r} \left[ -1 \right]
+		\]
+		\begin{equation*}
+			\begin{split}
+				\frac{\partial^2}{\partial x^2_2} &= \frac{\partial}{\partial x_2} \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_2 \right) \right] + \frac{\partial}{\partial r} \left[ -1 \right] \right] \\
+				&= \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_2 \right) \right] + \frac{\partial}{\partial r} \left[ -1 \right] \right] \left[ \frac{\partial}{\partial R} \left[ \frac{1}{M} \left( m_2 \right) \right] + \frac{\partial}{\partial r} \left[ -1 \right] \right] \\
+				&= \frac{\partial^2}{\partial R^2} \left[ \frac{1}{M} \left( m_2 \right) \right]^2 + 2 \frac{\partial^2}{\partial R \partial r} \left[\left( \frac{1}{M} \left( m_2 \right) \right) \left( -1 \right)\right] + \frac{\partial^2}{\partial r^2} \left[ -1 \right]^2 \\
+				\frac{1}{m_2} \frac{\partial^2}{\partial x^2_2} &= \frac{\partial^2}{\partial R^2} \left[ \frac{m_2}{M^2} \right] - 2 \frac{\partial^2}{\partial R \partial r} \left[ \frac{1}{M} \right] + \frac{1}{m_2} \frac{\partial^2}{\partial r^2}
+			\end{split}
+		\end{equation*}
+		\[
+			 \frac{\partial^2}{\partial R^2} \left[ \frac{m_1}{M^2} \right] + 2 \frac{\partial^2}{\partial R \partial r} \left[ \frac{1}{M}\right] + \frac{1}{m_1} \frac{\partial^2}{\partial r^2} + \frac{\partial^2}{\partial R^2} \left[ \frac{m_2}{M^2} \right] - 2 \frac{\partial^2}{\partial R \partial r} \left[ \frac{1}{M} \right] + \frac{1}{m_2} \frac{\partial^2}{\partial r^2}
+		\]
+		\[
+			\frac{\partial^2}{\partial R^2} \left[ \frac{m_1}{M^2} \right] + \frac{1}{m_1} \frac{\partial^2}{\partial r^2} + \frac{\partial^2}{\partial R^2} \left[ \frac{m_2}{M^2} \right] + \frac{1}{m_2} \frac{\partial^2}{\partial r^2}
+		\]
+		\[
+			\frac{\partial^2}{\partial R^2} \left[ \frac{m_1}{M^2} + \frac{m_2}{M^2} \right] + \frac{\partial^2}{\partial r^2} \left[ \frac{1}{m_1} + \frac{1}{m_2} \right]
+		\]
+		\[
+			\frac{\partial^2}{\partial R^2} \left[ \frac{m_1 + m_2}{M^2} \right] + \frac{\partial^2}{\partial r^2} \left[ \frac{m_2 + m_1}{m_1 m_2} \right]
+		\]
+		\[
+			\frac{1}{M} \frac{\partial^2}{\partial R^2} + \frac{1}{\mu} \frac{\partial^2}{\partial r^2}
+		\]
+		\clearpage
+		\[
+			m_1 x_1^2 + m_2 x_2^2
+		\]
+		\[
+			x_1(m_1 x_1) + x_2(m_2 x_2)
+		\]
+		\[
+			x_1\left(M\mu \frac{x_1}{m_2}\right) + x_2\left(M\mu \frac{x_2}{m_1}\right)
+		\]
+		\[
+			M\mu \left[\frac{x^2_1}{m_2} + \frac{x^2_2}{m_1}\right]
+		\]
+		\[
+			M\mu \left[\frac{x^2_1}{m_2} + \frac{x^2_2}{m_1}\right]
+		\]
+		\[
+			M\mu \left[\frac{m_1 x^2_1 + m_2 x_2 ^2}{m_1 m_2}\right]
+		\]
+		\item [(b)] With $\bm{\hat{H}}$ given in part (a), show that the Schrodinger equation for the whole system
+		\[
+			\bm{\hat{H} \phi(R,r) = E \phi(R,r)} \quad \text{can be decoupled into}
+		\]
+		\[
+			\bm{\left[-\frac{\hbar^2}{2M} \frac{\partial^2}{\partial R^2} + \frac{1}{2} M \omega^2_0 R^2\right] \phi_R(R) = E_R \phi_R(R)}
+			\quad \text{and} \quad
+			\bm{\left[-\frac{\hbar^2}{2\mu} \frac{\partial^2}{\partial r^2} + \frac{1}{2} \mu \Omega^2 r^2\right] \phi_r(r) = E_r \phi_r(r) }
+		\]
+		\[
+			\text{if} \quad \bm{\phi(R,r) = \phi_R(R) \cdot \phi_r(r)} \quad \text{and} \quad \bm{E=E_R + E_r}
+		\]
+		\paragraph{Solution} Following posted solution.
+		\[
+			\hat{H}\phi(R,r) = E\phi(R,r)
+		\]
+		\[
+			\left[-\frac{\hbar^2}{2M} \frac{\partial^2}{\partial R^2} + \frac{1}{2} M \omega^2_0 R^2 - \frac{\hbar^2}{2\mu} \frac{\partial^2}{\partial r^2} + \frac{1}{2} \mu \Omega^2 r^2\right] \phi(R,r)  = E\phi(R,r)
+		\]
+		\[
+			\left[-\frac{\hbar^2}{2M} \phi_r \frac{\partial^2\phi_R}{\partial R^2} + \frac{1}{2} M \omega^2_0 R^2 \phi_R \phi_r - \frac{\hbar^2}{2\mu} \phi_R \frac{\partial^2\phi_r}{\partial r^2} + \frac{1}{2} \mu \Omega^2 r^2 \phi_R \phi_r \right]  = E\phi_R \phi_r
+		\]
+		\[
+			\left[-\frac{\hbar^2}{2M} \frac{1}{\phi_R} \frac{\partial^2\phi_R}{\partial R^2} + \frac{1}{2} M \omega^2_0 R^2 - \frac{\hbar^2}{2\mu} \frac{1}{\phi_r} \frac{\partial^2\phi_r}{\partial r^2} + \frac{1}{2} \mu \Omega^2 r^2 \right]  = E = E_R + E_r
+		\]
+		Because of the imposed separable condition, the solution can be decoupled.
+		\[
+			\left[-\frac{\hbar^2}{2M} \frac{\partial^2}{\partial R^2} + \frac{1}{2} M \omega^2_0 R^2\right] \phi_R(R) = E_R \phi_R(R)
+			\quad \text{and} \quad
+			\left[-\frac{\hbar^2}{2\mu} \frac{\partial^2}{\partial r^2} + \frac{1}{2} \mu \Omega^2 r^2\right] \phi_r(r) = E_r \phi_r(r)
+		\]
+		\item[(c)] Write down explicit expressions for the quantized $\bm{\phi_{n_R}(R), \phi_{n_r}(r), \phi_{n_R n_r}(R,r), E_{n_R}, E_{n_r}, \text{and } E_{n_R n_r}}$
+		\paragraph{Solution} Following posted solution.
+		For a harmonic oscillator:
+		\[
+			\text{If } \hat{H} = -\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{1}{2} m \omega^2 x^2
+		\]
+		\[
+			\text{Then } \phi_n(x) = \frac{1}{\sqrt{2^n n!}}\left( \frac{m\omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{m\omega x^2}{2\hbar}} H_n\left(\sqrt{\frac{m\omega}{\hbar}}x\right) 
+		\]
+		\[
+			E_n = \left( n + \frac{1}{2} \right) \hbar \omega , \quad n=0,1,2,\ldots
+		\]
+		Applying this to part (b) solution.
+		\[
+			\phi_{n_R}(R) = \frac{1}{\sqrt{2^{n_R} n_R!}} \left( \frac{M\omega_0}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{M\omega_0 R^2}{2\hbar}} H_{n_R}\left(\sqrt{\frac{M\omega_0}{\hbar}}R\right) 
+		\]
+		\[
+			\phi_{n_r}(r) = \frac{1}{\sqrt{2^{n_r} n_r!}} \left( \frac{\mu\Omega}{\pi \hbar} \right)^{\frac{1}{4}} e^{-\frac{\mu\Omega r^2}{2\hbar}} H_{n_r}\left(\sqrt{\frac{\mu\Omega}{\hbar}}r\right) 
+		\]
+		\begin{equation*}
+			\begin{split}
+				\phi_{n_R n_r}(R,r) &= \left( \frac{M\omega_0}{\pi \hbar} \right)^{\frac{1}{4}} \left( \frac{\mu\Omega}{\pi \hbar} \right)^{\frac{1}{4}} \frac{1}{\sqrt{2^{n_R} n_R!}} \frac{1}{\sqrt{2^{n_r} n_r!}} e^{-\frac{M\omega_0 R^2}{2\hbar}} e^{-\frac{\mu\Omega r^2}{2\hbar}} H_{n_R}\left(\sqrt{\frac{M\omega_0}{\hbar}}R\right) H_{n_r}\left(\sqrt{\frac{\mu\Omega}{\hbar}}r\right) \\
+				&= \left( M\omega_0 \mu\Omega \right)^{\frac{1}{4}} \frac{1}{\sqrt{\pi \hbar 2^{n_R + n_r} n_R! n_r!}} e^{-\frac{1}{2\hbar}\left( M\omega_0 R^2 + \mu\Omega r^2 \right) } H_{n_R}\left(\sqrt{\frac{M\omega_0}{\hbar}}R\right) H_{n_r}\left(\sqrt{\frac{\mu\Omega}{\hbar}}r\right)
+			\end{split}
+		\end{equation*}
+		\[
+			E_{n_R} = \left( n_r + \frac{1}{2} \right) \hbar \omega_0 , \quad E_{n_R} = \left( n_R + \frac{1}{2} \right) \hbar \Omega, \quad E_{n_R n_r} = E_{n_R} + E_{n_r} = \left( n_r + \frac{1}{2} \right) \hbar \omega_0 + \left( n_R + \frac{1}{2} \right) \hbar \Omega
+		\]
+	\end{enumerate}
+\end{document}

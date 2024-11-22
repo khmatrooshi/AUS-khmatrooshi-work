@@ -1,0 +1,916 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{systeme}
+
+\setlength{\droptitle}{-6.5cm}
+\setlength{\parindent}{24pt}
+
+\setlist[itemize]{leftmargin=\parindent,labelindent=\parindent,itemsep=0mm}
+\setlist[enumerate]{leftmargin=\parindent,labelindent=\parindent,itemsep=0mm}
+
+\title{}
+\date{}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ita}{\textit}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+\newcommand\sep[1]{%
+	\leavevmode\unskip\unskip 
+	\nobreak % optional
+	\hspace{#1}\ignorespaces
+}
+
+\begin{document}
+	\maketitle
+	\begin{center}
+		\hrule
+		\vspace{.4cm}
+		{\textbf { \large PHY 310 --- Mathematical Methods in Physics}}
+	\end{center}
+	{\bd{Name:}\ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 8 Feb 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 0A \\
+		\hrule
+	
+	
+	\section*{Problem 1}
+	
+		\paragraph{} Find the SI units for the following physical quantities:			
+			\begin{equation*}
+				\begin{aligned}
+					(a) & \, Speed = \dfrac{2}{\pi} \dfrac{(Circumference)^2}{(Time)(Height)}  & &\left[ s \right] = \frac{ m^2 }{ s^1 m^1 } = m^1 s^{-1}
+					\\
+					(b) & \, Acceleration = \dfrac{(Speed)^2 (Time)}{(Distance)^2} & &\left[ a \right] = \frac{ (m^1 s^{-1})^3 s^1 }{ m^2 } = m^1 s^{-2}
+					\\
+					(c) & \, Force = (Mass)(Acceleration) & &\left[ F \right] = kg^1 m^1 s^{-2}
+					\\
+					(d) & \, Gravitational \, Constant = \dfrac{1}{2} \dfrac{(Speed)^2 (Radius)}{Mass}  & &\left[ G \right] = \frac{ (m^1 s^{-1})^2 (m^1) }{ kg^1 } = m^3 kg^{-1} s^{-2}
+					\\
+					(e) & \, Viscosity = \dfrac{(Mass) (Speed)}{(Diameter)^2} & &\left[ \mu \right] = \frac{ kg^1 m^1 s^{-1} }{ m^2 } = kg^1 m^{-1} s^{-1}
+					\\
+					(f) & \, Power = \dfrac{(Gravitational Constant) (Mass)^2}{(Length) (Time)} & &\left[ P \right] = \frac{ (m^3 kg^{-1} s^{-2}) (kg^2) }{ m^1 s^1 } = kg^1 m^2 s^{-3}
+					\\
+					(g) & \, Planck \, Constant = (Power)(Time)^2 & &\left[ h \right] = (kg^1 m^2 s^{-3})(s^2) = kg^1 m^2 s^{-1}
+					\\
+					(h) & \, Moment \, of \, Intertia = \dfrac{1}{2} (Mass)(Radius)^2 & &\left[ I \right] = kg^1 m^2
+					\\
+					(i) & \, Energy = \dfrac{(Moment \, of \, Intertia) (Speed)^2}{(Distance)^2}  & &\left[ E \right] = \frac{ (kg^1 m^2) (m^1 s^{-1})^2 }{ m^2 } = kg^1 m^2 s^{-2}
+					\\
+					(j) & \, Momentum = \sqrt{2(Mass)(Energy)} & &\left[ p \right] = (kg^1)^{\frac{1}{2}} (kg^1 m^2 s^{-2})^{\frac{1}{2}} = kg^1 m^1 s^{-1}
+					\\
+					(k) & \, Intensity = \dfrac{Power}{Area} & &\left[ I \right] = \frac{ kg^1 m^2 s^{-3} }{ m^2 } = kg^1 s^{-3}
+				\end{aligned}
+			\end{equation*}
+
+	\section*{Problem 2}
+
+		\paragraph{} Using only dimensional analysis, express the following Planck quantities in terms of \bd{G}, \bd{h}, and \bd{c}:
+			\begin{equation*}
+				\begin{aligned}
+					\left[ G \right] &= M^{-1} L^3 T^{-2} & \left[ h \right] &= M^1 L^2 T^{-1}  & \left[ c \right] &= M^0 L^1 T^{-1} 
+				\end{aligned}
+			\end{equation*}
+			\begin{equation*}
+				\begin{aligned}
+					(a) & \, Planck \, length, \, l_P = \kappa G^{\alpha} h^{\beta} c^{\gamma}  & M^0 L^1 T^0 &= (M^{-1} L^3 T^{-2})^{\alpha} (M^1 L^2 T^{-1})^{\beta} (M^0 L^1 T^{-1})^{\gamma}
+					\\
+				\end{aligned}
+			\end{equation*}
+				
+				\begin{equation*}
+					\sysdelim..\systeme[\alpha\beta\gamma]{
+						-\alpha + \beta = 0, 
+						3\alpha + 2\beta + \gamma = 1,
+						-2\alpha - \beta - \gamma = 0
+					}
+					\Rightarrow
+					\begin{cases}
+						\alpha = \frac{1}{2} \\
+						\beta = \frac{1}{2} \\
+						\gamma = -\frac{3}{2}
+					\end{cases}
+					\quad
+					l_P = \kappa G^{\frac{1}{2}} h^{\frac{1}{2}} c^{-\frac{3}{2}} = \kappa \left( \frac{Gh}{c^3} \right)^\frac{1}{2}
+				\end{equation*}
+			
+			
+			\begin{equation*}
+				\begin{aligned}
+					(b) & \, Planck \, mass, \, m_P = \kappa G^{\alpha} h^{\beta} c^{\gamma}  & M^1 L^0 T^0 &= \dots
+					\\
+				\end{aligned}
+			\end{equation*}
+				\begin{equation*}
+					\sysdelim..\systeme[\alpha\beta\gamma]{
+						-\alpha + \beta = 1, 
+						3\alpha + 2\beta + \gamma = 0,
+						-2\alpha - \beta - \gamma = 0
+					} \Rightarrow
+					\begin{cases}
+						\alpha = -\frac{1}{2} \\ 
+						\beta = \frac{1}{2} \\
+						\gamma = \frac{1}{2}
+					\end{cases}
+					\quad
+					m_P = \kappa G^{-\frac{1}{2}} h^{\frac{1}{2}} c^{\frac{1}{2}} = \kappa \left( \frac{hc}{G} \right)^\frac{1}{2}
+				\end{equation*}
+			
+		\clearpage	
+						
+			\begin{equation*}
+				\begin{aligned}
+					(c) & \, Planck \, time, \, t_P = \kappa G^{\alpha} h^{\beta} c^{\gamma}  & M^0 L^0 T^1 &= (M^{-1} L^3 T^{-2})^{\alpha} (M^1 L^2 T^{-1})^{\beta} (M^0 L^1 T^{-1})^{\gamma}
+					\\
+				\end{aligned}
+			\end{equation*}
+				\begin{equation*}
+					\sysdelim..\systeme[\alpha\beta\gamma]{
+						-\alpha + \beta = 0, 
+						3\alpha + 2\beta + \gamma = 0,
+						-2\alpha - \beta - \gamma = 1
+					} \Rightarrow
+					\begin{cases}
+						\alpha = \frac{1}{2} \\
+						\beta = \frac{1}{2} \\
+						\gamma = -\frac{5}{2}
+					\end{cases}
+					\quad
+					t_P = \kappa G^{\frac{1}{2}} h^{\frac{1}{2}} c^{\frac{5}{2}} = \kappa \left( \frac{Gh}{c^5} \right)^\frac{1}{2}
+				\end{equation*}
+			
+			\begin{equation*}	
+				\begin{aligned}
+					(d) & \, Planck \, acceleration, \, a_P = \kappa G^{\alpha} h^{\beta} c^{\gamma}  & M^0 L^1 T^{-2} &= \dots
+					\\
+				\end{aligned}
+			\end{equation*}
+				\begin{equation*}
+					\sysdelim..\systeme[\alpha\beta\gamma]{
+						-\alpha + \beta = 0, 
+						3\alpha + 2\beta + \gamma = 1,
+						-2\alpha - \beta - \gamma = -2
+					} \Rightarrow
+					\begin{cases}
+						\alpha = -\frac{1}{2} \\
+						\beta = -\frac{1}{2} \\
+						\gamma = \frac{7}{2}
+					\end{cases}
+					\quad
+					a_P = \kappa G^{-\frac{1}{2}} h^{-\frac{1}{2}} c^{\frac{7}{2}} = \kappa \left( \frac{c^7}{Gh} \right)^\frac{1}{2}
+				\end{equation*}
+			
+			\begin{equation*}	
+				\begin{aligned}
+					(e) & \, Planck \, energy, \, E_P = \kappa G^{\alpha} h^{\beta} c^{\gamma}  & M^1 L^2 T^{-2} &= \dots
+					\\
+				\end{aligned}
+			\end{equation*}
+				\begin{equation*}
+					\sysdelim..\systeme[\alpha\beta\gamma]{
+						-\alpha + \beta = 1, 
+						3\alpha + 2\beta + \gamma = 2,
+						-2\alpha - \beta - \gamma = -2
+					} \Rightarrow
+					\begin{cases}
+						\alpha = -\frac{1}{2} \\ 
+						\beta = \frac{1}{2} \\
+						\gamma = \frac{5}{2}
+					\end{cases}
+					\quad
+					E_P = \kappa G^{-\frac{1}{2}} h^{\frac{1}{2}} c^{\frac{5}{2}} = \kappa \left( \frac{hc^5}{G} \right)^\frac{1}{2}
+				\end{equation*}
+			
+			\begin{equation*}	
+				\begin{aligned}
+					(f) & \, Planck \, viscosity, \, \eta_P = \kappa G^{\alpha} h^{\beta} c^{\gamma}  & M^1 L^{-1} T^{-1} &= \dots
+					\\
+				\end{aligned}
+			\end{equation*}
+				\begin{equation*}
+					\sysdelim..\systeme[\alpha\beta\gamma]{
+						-\alpha + \beta = 1, 
+						3\alpha + 2\beta + \gamma = -1,
+						-2\alpha - \beta - \gamma = -1
+					} \Rightarrow
+					\begin{cases}
+						\alpha = -\frac{1}{2} \\
+						\beta = -\frac{1}{2} \\
+						\gamma = \frac{5}{2}
+					\end{cases}
+					\quad
+					\eta_P = \kappa G^{-\frac{3}{2}} h^{-\frac{1}{2}} c^{\frac{9}{2}} = \kappa \left( \frac{c^9}{G^3h} \right)^\frac{1}{2}
+				\end{equation*}
+			
+			\begin{equation*}	
+				\begin{aligned}
+					(g) & \, Planck \, momentum, \, p_P = \kappa G^{\alpha} h^{\beta} c^{\gamma}  & M^1 L^1 T^{-1} &= \dots 
+					\\
+				\end{aligned}
+			\end{equation*}
+				\begin{equation*}
+					\sysdelim..\systeme[\alpha\beta\gamma]{
+						-\alpha + \beta = 1, 
+						3\alpha + 2\beta + \gamma = 1,
+						-2\alpha - \beta - \gamma = -1
+					} \Rightarrow
+					\begin{cases}
+						\alpha = -\frac{1}{2} \\ 
+						\beta = \frac{1}{2} \\
+						\gamma = \frac{3}{2}
+					\end{cases}
+					\quad
+					p_P = \kappa G^{-\frac{1}{2}} h^{\frac{1}{2}} c^{\frac{3}{2}} = \kappa \left( \frac{hc^3}{G} \right)^\frac{1}{2}
+				\end{equation*}
+			
+			
+	\section*{Problem 3}
+
+		\paragraph{} In addition to the familiar notation $\bm{M}$, $\bm{L}$ and $\bm{T}$ for the dimensions of mass, length and time, respectively, introduce a notation $\bm{Q}$ for the dimension of a new fundamental quantity called the electric charge.
+		
+		\paragraph*{(a)} The Coulomb force $\bm{F}$ acting on an electric charge $\bm{e_1}$ as a result of the presence of a second electric charge $\bm{e_1}$ at a distance $\bm{r}$ is given by $\bm{F = \frac{e_1 e_2}{4\pi \epsilon_0 r^2}}$. Find the dimensions of permittivity of free space $\bm{\epsilon_0}$.
+			\begin{equation*}
+				\begin{aligned}
+					\left[ F \right] &= M^1 L^1 T^{-2} Q^0 & \left[ e \right] &= M^0 L^0 T^0 Q^1  & \left[ r \right] &= M^0 L^1 T^0 Q^0
+				\end{aligned}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					M^1 L^1 T^{-2} &= Q^2 L^{-2} \left[ \frac{1}{\epsilon_0} \right] \\
+					[\epsilon_0] &= M^{-1} L^{-3} T^2 Q^2
+				\end{split}
+			\end{equation*}
+		
+		\paragraph*{(b)} According to quantum theory, the radius $\bm{R}$ of the hydrogen atom should be controlled by the electric charge $\bm{e}$, permittivity of
+		space $\bm{\epsilon_0}$, Planck constant $\bm{h}$ and mass of the electron $\bm{m_e}$. Use only dimensional analysis to find a relationship between the five parameters.
+			\begin{equation*}
+				\begin{aligned}
+					R &= \kappa e^{\alpha} \epsilon_0^{\beta} h^{\gamma} m_e^{\delta} & M^0 L^1 T^0 Q^0 &= (Q^1)^{\alpha} (M^{-1} L^{-3} T^2 Q^2)^{\beta} (M^1 L^2 T^{-1})^{\gamma} (M^1)^{\delta}
+					\\
+				\end{aligned}
+			\end{equation*}
+			\begin{equation*}
+				\sysdelim..\systeme[\alpha\beta\gamma\delta]{
+					-\beta + \gamma + \delta= 0, 
+					-3\beta + 2\gamma = 1,
+					2\beta - \gamma = 0,
+					\alpha + 2\beta = 0
+				} \Rightarrow
+				\begin{cases}
+					\alpha = -2 \\ 
+					\beta = 1 \\
+					\gamma = 2 \\
+					\delta = -1
+				\end{cases}
+				\quad
+				R = \kappa e^{-2} \epsilon_0^1 h^{2} m_e^{-1} = \kappa\frac{\epsilon_0 h^2}{e^2 m_e}
+			\end{equation*}
+		
+		\paragraph*{(c)} Similarly, according to Bohr's theory of the hydrogen atom, the ionization energy $\bm{E}$ depends on the mass of the electron $\bm{m_e}$, charge of the electron $\bm{e}$, permittivity of free space $\bm{\epsilon_0}$ and Planck constant $\bm{h}$. Use only dimensional analysis to find a relationship between the five parameters.
+			\begin{equation*}
+				\begin{aligned}
+					E &= \kappa m_e^{\alpha} e^{\beta} \epsilon_0^{\gamma} h^{\delta} & M^1 L^2 T^{-2} Q^0 &= (M^1)^{\alpha} (Q^1)^{\beta} (M^{-1} L^{-3} T^2 Q^2)^{\gamma} (M^1 L^2 T^{-1})^{\delta}
+					\\
+				\end{aligned}
+			\end{equation*}
+			\begin{equation*}
+				\sysdelim..\systeme[\alpha\beta\gamma\delta]{
+					\alpha - \gamma + \delta= 1, 
+					-3\gamma + 2\delta = 2,
+					2\gamma - \delta = -2,
+					\beta + 2\gamma = 0
+				} \Rightarrow
+				\begin{cases}
+					\alpha = 1 \\
+					\beta = 4 \\
+					\gamma = -2 \\
+					\delta = -2
+				\end{cases}
+				\quad
+				E = \kappa m_e^{1} e^{4} \epsilon_0^{-2} h^{-2} = \kappa \frac{m_e e^4}{\epsilon_0^2 h^2}
+			\end{equation*}
+			
+				
+	\section*{Problem 4}
+
+		\paragraph{} In addition to the familiar notation $\bm{M}$, $\bm{L}$ and $\bm{T}$ for the dimensions of mass, length and time, respectively, introduce a notation $\bm{\Theta}$ for the dimension of a new fundamental quantity called the temperature.
+		
+		\paragraph*{(a)} The ideal gas law states that the pressure $\bm{P}$, volume $\bm{V}$ and the absolute temperature $\bm{T}$ of an ideal gas are related through the
+		equation $\bm{PV = kT}$, where $\bm{k}$ is called the Boltzmann constant. Find the dimensions of $\bm{k}$.
+			\begin{equation*}
+				\begin{aligned}
+					\left[ P \right] &= \frac{[Force]}{[Area]} = \frac{M^1 L^1 T^{-2}}{L^2} =  M^1 L^{-1} T^{-2} & \left[ V \right] &= L^3  & \left[ T \right] &= \Theta^1 
+				\end{aligned}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					[k] = \frac{[P][V]}{[T]} = \frac{(M^1 L^{-1} T^{-2})(L^3)}{\Theta^1} = M^1 L^2 T^{-2} \Theta^{-1}
+				\end{split}
+			\end{equation*}
+		
+		\paragraph*{(b)} The intensity $\bm{I}$ emitted by a 'black body' at temperature $\bm{T}$ is given by $\bm{I = \sigma T^4}$, where $\bm{\sigma}$ is called the Stefan constant. Find the dimensions of $\bm{\sigma}$.
+			\begin{equation*}
+				\begin{split}
+					[\sigma] = \frac{[I]}{[T^4]} = \frac{M^1 T^{-3}}{\Theta^4} = M^1 T^{-3} \Theta^{-4}
+				\end{split}
+			\end{equation*}
+		
+		\paragraph*{(c)} The Stefan constant $\bm{\sigma}$ depends on the Boltzmann constant $\bm{k}$, Planck constant $\bm{h}$, and the speed of light $\bm{c}$.
+			\begin{enumerate}[label=\roman*,topsep=0pt]
+				\item[i.] Use only dimensional analysis to find a relationship between the four parameters.
+					\begin{equation*}
+						\begin{aligned}
+							\sigma &= \kappa k^{\alpha} h^{\beta} c^{\gamma} & M^1 T^{-3} \Theta^{-4} &= (M^1 L^2 T^{-2} \Theta^{-1})^{\alpha} (M^1 L^2 T^{-1})^{\beta} (L^1 T^{-1})^{\gamma}
+							\\
+						\end{aligned}
+					\end{equation*}
+					\begin{equation*}
+						\sysdelim..\systeme[\alpha\beta\gamma]{
+							\alpha + \beta = 1, 
+							2\alpha + 2\beta + \gamma = 0,
+							-2\alpha - \beta - \gamma = -3,
+							-\alpha = -4
+						} \Rightarrow
+						\begin{cases}
+							\alpha = 4 \\
+							\beta = -3 \\
+							\gamma = -2
+						\end{cases}
+						\quad
+						\sigma = \kappa k^{4} h^{-3} c^{-2} = \kappa \frac{k^4}{h^3 c^2}
+					\end{equation*}
+				
+				\item[ii.] The actual physical values of the quantities involved in the previous part are $ \bm{k} = 1.38 \cross 10^{-23} J/K $, $\bm{c} = 3 \cross 10^8 m/s $, $\bm{h} = 6.6 \cross 10^{-34} Js $, $\bm{\sigma} = 5.7 \cross 10^{-8} J/m^2 s^{-1} K^4$. Evaluate the arbitrary multiplicative constant.
+					\begin{equation*}
+						\begin{split}
+							\kappa = \sigma h^3 c^2 k^{-4} &= (5.7 \cross 10^{-8} \tfrac{J}{m^2 s^1 K^4}) (6.6 \cross 10^{-34} Js)^3 (3 \cross 10^8 \tfrac{m}{s})^2 (1.38 \cross 10^{-23} \tfrac{J}{K})^{-4} \\
+							&= (5.7 \cross 10^{-8} \tfrac{J}{m^2 s^1 K^4}) (2.9 \cross 10^{-100} Js) (9 \cross 10^{16} \tfrac{m}{s}) (2.76 \cross 10^{91} \tfrac{J}{K}) \\
+							&= (5.7 \cross 2.9 \cross 9 \cross 2.76)(10^{-8} \cross 10^{-100} \cross 10^{16} \cross 10^{91}) (\frac{J^3 m^1 s^1}{m^2 s^2 K^5}) \\
+							&= (411)(10^{-1})(\frac{J^3}{m^1 s^1 K^5}) \\
+							&= 41.1 \; J^3 m^{-1} s^{-1} K^{-5} 
+						\end{split}
+					\end{equation*}
+			\end{enumerate}
+		
+
+	\section*{Problem 5}
+
+		\paragraph{} A conducting sphere A of radius $\bm{a}$ is attached to an insulating handle. Another conducting sphere B of radius $\bm{b} \left( < \bm{a} \right)$  is mounted on an insulating stand. B is initially uncharged and A initially carries charge $\bm{Q}$. A is brought into contact with B and then separated. A is then recharged such that the charge on it is again $\bm{Q}$; and it is again brought into contact with B and as before separated. This procedure is repeated $\bm{n}$ times.
+		
+		\paragraph*{(a)} After $\bm{n}$ contacts with A, find the
+			\begin{enumerate}[label=\roman*,topsep=0pt]
+				\item[i.] charge on sphere B \\
+				\\
+					At first contact, the total charge in the system $\bm{Q}$ is distributed equally. Assuming that the potential on both spheres are equal.
+						\begin{equation*}
+							\begin{split}
+								\frac{k(Q - q_1)}{a} &= \frac{kq_1}{b} \\
+								bQ - bq_1 &= aq_1 \\
+								aq_1 + bq_1 &= bQ \\
+								q_1 &= Q \left( \frac{b}{a + b} \right)
+							\end{split}
+						\end{equation*}
+					After separation, the total charge in the system becomes $\bm{Q_{T} = Q + q_1}$. At second contact, a different amount of charge is equally distributed.
+						\begin{equation*}
+							\begin{split}
+								\frac{k( (Q + q_1) - q_2 )}{a} &= \frac{kq_2}{b} \\
+								bQ + bq_1 - bq_2 &= aq_2 \\
+								aq_2 + bq_2 &= bQ + bq_1 \\
+								q_2 &= Q + q_1 \left( \frac{b}{a + b} \right) \\
+								q_2 &= Q + Q \left( \frac{b}{a + b} \right) \left( \frac{b}{a + b} \right) \\
+								q_2 &= Q \left( \frac{b}{a + b} + \left( \frac{b}{a + b} \right)^2 \right) \\
+							\end{split}
+						\end{equation*}
+					Similarly, after separation, the total charge in the system becomes $\bm{Q_{T} = Q + q_2}$. At third contact, a different amount of charge is equally distributed.
+						\begin{equation*}
+							\begin{split}
+								\frac{k( (Q + q_2) - q_3 )}{a} &= \frac{kq_3}{b} \\
+								q_3 &= Q \left( \frac{b}{a + b} + \left( \frac{b}{a + b} \right)^2 + \left( \frac{b}{a + b} \right)^3 \right) \\
+							\end{split}
+						\end{equation*}
+					Clearly, a geometric series for $\bm{q_n}$ start to form with common ratio $\bm{r} = \frac{b}{a + b}$
+						\begin{equation*}
+							\begin{split}
+								q_n &= Q \left[ \frac{b}{a + b} + \left( \frac{b}{a + b} \right)^2 + \dots + \left( \frac{b}{a + b} \right)^n \right] \\
+								&= Q \left[ \frac{b}{a + b} \left( \frac{1 - \left( \frac{b}{a + b} \right)^n }{1 - \frac{b}{a + b} } \right) \right] =
+								\frac{Qb}{a} \left[ 1 - \left( \frac{b}{a + b} \right)^n \right]  \\
+							\end{split}
+						\end{equation*}
+		\clearpage
+				\item[ii.] electrostatic potential energy of B \\
+				\\
+					The energy stored by a capacitor is $ \bm{U_E = \frac{Q^2}{2C}} $. So, for sphere B:
+						\begin{equation*}
+							\begin{split}
+								U_E = \frac{q_n^2}{2C}
+								= \frac{1}{8\pi \epsilon_0 b} \left( \frac{Qb}{a} \left[ 1 - \left( \frac{b}{a + b} \right)^n \right] \right)^2
+								= \frac{1}{8\pi \epsilon_0} \left( \frac{b}{a^2} \right) Q^2 \left[ 1 - \left( \frac{b}{a + b} \right)^n \right]^2
+							\end{split}
+						\end{equation*}
+				
+			\end{enumerate}
+		
+		\paragraph*{(b)} In the limit as $\bm{n \rightarrow \infty}$, show that the stored electrostatic potential energy is $ \bm{ \frac{1}{8\pi \epsilon_0} \left( \frac{b}{a^2} \right) Q^2 } $ and find the charge on B.
+			\begin{equation*}
+				\begin{split}
+					\lim_{n\to\infty} U_E = \lim_{n\to\infty} \left[ \frac{1}{8\pi \epsilon_0} \left( \frac{b}{a^2} \right) Q^2 \left[ 1 - \left( \frac{b}{a + b} \right)^n \right]^2 \right] \\
+				\end{split}
+			\end{equation*}
+			The only term affected is $ \left( \tfrac{b}{a + b} \right)^n $, where as n approaches infinity, the denominator gets larger than the numerator, therefore the term approaches zero.
+			\begin{equation*}
+				\begin{split}
+					U_E = \frac{1}{8\pi \epsilon_0} \left( \frac{b}{a^2} \right) Q^2 \\
+				\end{split}
+			\end{equation*}
+			Similarly, for charge on B.
+			\begin{equation*}
+				\begin{split}
+					\lim_{n\to\infty} q_n &= \lim_{n\to\infty} \frac{Qb}{a} \left[ 1 - \left( \frac{b}{a + b} \right)^n \right] \\
+					q_{\infty} &= \frac{Qb}{a}
+				\end{split}
+			\end{equation*}
+			
+
+	\section*{Problem 6}
+
+		\paragraph{} A ball is dropped from an initial height $\bm{h_0}$ above the ground. When it bounces, its rebound speed is $\bm{\epsilon} \left( < \bm{1} \right)$ times its impact speed. $\bm{\epsilon}$ is sometimes called the \ita{coefficient of restitution}.
+		
+		\paragraph{(a)} Find, at the end of the $\bm{n^{th}}$ bounce, the total
+		\begin{enumerate}[label=\roman*,topsep=0pt]
+			\item[i.] vertical distance traveled by the ball \\
+				\\
+				Generally, the coefficient of restitution $\bm{\epsilon}$ is defined as $\bm{\epsilon = \frac{separation}{approach}} = \frac{v'}{v}$. In our case, $ \bm{v = \sqrt{2gh}} $ for a falling object:
+				
+				\begin{equation*}
+					\begin{split}
+						\epsilon = \frac{v_1}{v_0} = \frac{\sqrt{2gh_1}}{\sqrt{2gh_0}} = \sqrt{\frac{h_1}{h_0}} \Rightarrow h_1 = \epsilon^2 h_0 \\
+					\end{split}
+				\end{equation*}
+				Similarly, for further bounces:
+				\begin{equation*}
+					\begin{split}
+						\epsilon = \frac{v_2}{v_1} = \sqrt{\frac{h_2}{h_1}} \Rightarrow h_2 &= \epsilon^2 h_1 = \epsilon^2(\epsilon^2 h_0) = \epsilon^4 h_0 \\
+						\epsilon = \frac{v_3}{v_2} = \sqrt{\frac{h_3}{h_2}} \Rightarrow h_3 &= \epsilon^2 h_2 = \epsilon^2(\epsilon^4 h_0) = \epsilon^6 h_0 \\
+						h_{n-1} &= \epsilon^2 h_{n-2} = \epsilon^2(\epsilon^{2n-4} h_0) = \epsilon^{2n-2} h_0 \\
+					\end{split}
+				\end{equation*}
+				Summing bounces up to $\bm{n-1}$, noting that each height, except the initial height, is traversed twice:
+				\begin{equation*}
+					\begin{split}
+						D_n &= h_0 + 2h_1 + 2h_2 + \dots + 2h_{n-1} \\
+						&= h_0 + 2\epsilon^2 h_0 + 2\epsilon^4 h_0 + \dots + 2\epsilon^{2n-2} h_0 \\
+						&= h_0 \left[ 1 + 2\epsilon^2 + 2\epsilon^4 + \dots + 2\epsilon^{2n-2} \right] \\
+						&= h_0 \left[ 1 + 2\epsilon^2 \left( 1 + \epsilon^2 + \dots + \epsilon^{2n-4} \right)  \right] \\
+						&= h_0 \left[ 1 + 2\epsilon^2 \left( \frac{1 - (\epsilon^{2(n + 1) - 4})}{1 - \epsilon^2} \right)  \right] 
+						= h_0 \left[ 1 + \left( \frac{2\epsilon^2 - 2\epsilon^{2n}}{1 - \epsilon^2} \right)  \right] \\
+						&= h_0 \left[ \frac{1 - \epsilon^2 + 2\epsilon^2 - 2\epsilon^{2n}}{1 - \epsilon^2} \right]
+						= h_0 \left[ \frac{1 + \epsilon^2 - 2\epsilon^{2n}}{1 - \epsilon^2} \right] \\
+					\end{split}
+				\end{equation*}		
+			\item[ii.] time elapsed \\
+			\\
+			Similar approach to find time elapsed. Using $\bm{s = ut + \frac{1}{2}at^2}$, in our case, $\bm{h = \frac{1}{2}gt^2}$
+			\begin{equation*}
+				\begin{aligned}
+					0 - h_0 &= \frac{1}{2}(-g)t_0^2 & \hspace{100pt} & t_1 = \sqrt{\frac{2h_1}{g}} = \sqrt{\frac{2\epsilon^2 h_0}{g}} = \epsilon \sqrt{\frac{2h_0}{g}} \\
+					t_0 &= \sqrt{\frac{2h_0}{g}} & \hspace{100pt} & t_2 = \sqrt{\frac{2h_2}{g}} = \sqrt{\frac{2\epsilon^4 h_0}{g}} = \epsilon^2 \sqrt{\frac{2h_0}{g}} \\
+				\end{aligned}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					t_{n-1} = \sqrt{\frac{2h_{n-1}}{g}} = \sqrt{\frac{2\epsilon^{2n-2} h_0}{g}} = \epsilon^{n-1} \sqrt{\frac{2h_0}{g}} \\
+				\end{split}
+			\end{equation*}
+			Now, summing bounces up to $\bm{n-1}$, noting that each height, except the initial height, is traversed twice:
+			\begin{equation*}
+				\begin{split}
+					T_n &= t_0 + 2t_1 + 2t_2 + \dots + 2t_{n-1} \\
+					&= t_0 + 2(t_1 + t_2 + \dots + t_{n-1}) \\
+					&= \sqrt{\frac{2h_0}{g}} + 2\left[ \epsilon \sqrt{\frac{2h_0}{g}} + \epsilon^2 \sqrt{\frac{2h_0}{g}} + \dots + \epsilon^{n-1} \sqrt{\frac{2h_0}{g}} \right] \\
+					&= \sqrt{\frac{2h_0}{g}} + 2\sqrt{\frac{2h_0}{g}} \left[ \epsilon + \epsilon^2 + \dots + \epsilon^{n-1} \right] \\
+					&= \sqrt{\frac{2h_0}{g}} \left[ 1 + 2\epsilon \left( 1 + \epsilon + \dots + \epsilon^{n-2} \right) \right] \\
+					&= \sqrt{\frac{2h_0}{g}} \left[ 1 + 2\epsilon \left( \frac{1 - \epsilon^{(n + 1) - 2}}{1 - \epsilon} \right) \right]
+					= \sqrt{\frac{2h_0}{g}} \left[ 1 + \left( \frac{2\epsilon - 2\epsilon^n}{1 - \epsilon} \right) \right] \\
+					&= \sqrt{\frac{2h_0}{g}} \left[ \frac{1 - \epsilon + 2\epsilon - 2\epsilon^n}{1 - \epsilon} \right] = \sqrt{\frac{2h_0}{g}} \left[ \frac{1 + \epsilon - 2\epsilon^n}{1 - \epsilon} \right] \\
+				\end{split}
+			\end{equation*}
+		\end{enumerate}
+	
+		\paragraph{(b)} What total	
+		\begin{enumerate}[label=\roman*,topsep=0pt]
+			\item[i.] vertical distance will the ball travel before it stops? \\
+				Noting that $\bm{\epsilon < 1}$ and that in $\bm{\epsilon^n}$ as $\bm{n\to\infty}$, $\bm{\epsilon^n}\to 0$.
+				\begin{equation*}
+					\begin{split}
+						\lim_{n\to\infty} D_n &= \lim_{n\to\infty} h_0 \left[ \frac{1 + \epsilon^2 - 2\epsilon^{2n}}{1 - \epsilon^2} \right]
+						= h_0 \left( \frac{1}{1 - \epsilon^2} \right) \lim_{n\to\infty} (1 + \epsilon^2 - 2\epsilon^{2n}) \\
+						D_{\infty} &= h_0 \left( \frac{1 + \epsilon^2}{1 - \epsilon^2} \right) \\
+					\end{split}
+				\end{equation*} 				
+			\item[ii.] time the ball is in motion? \\
+			\begin{equation*}
+				\begin{split}
+					\lim_{n\to\infty} T_n &= \lim_{n\to\infty} \sqrt{\frac{2h_0}{g}} \left[ \frac{1 + \epsilon - 2\epsilon^n}{1 - \epsilon} \right] 
+					= \sqrt{\frac{2h_0}{g}} \left( \frac{1}{1 - \epsilon} \right) \lim_{n\to\infty} (1 + \epsilon - 2\epsilon^n) \\
+					T_{\infty} &= \sqrt{\frac{2h_0}{g}} \left( \frac{1 + \epsilon}{1 - \epsilon} \right) \\
+				\end{split}
+			\end{equation*}
+		\end{enumerate}
+	
+		\paragraph{(c)} Show that, for between the $\bm{n^{th}}$ and the last bounce, the total
+		\begin{enumerate}[label=\roman*,topsep=0pt]
+			\item[i.] vertical distance traveled by the ball is  $\bm{ 2h_0 \left( \frac{\epsilon^{2n}}{1-\epsilon^2} \right) }$.
+			\begin{equation*}
+				\begin{split}
+					D_{\infty} - D_n &= h_0 \left( \frac{1 + \epsilon^2}{1 - \epsilon^2} \right) - h_0 \left( \frac{1 + \epsilon^2 - 2\epsilon^{2n}}{1 - \epsilon^2} \right) \\
+					&= h_0 \left[ \left( \frac{1 + \epsilon^2}{1 - \epsilon^2} \right) - \left( \frac{1 + \epsilon^2 - 2\epsilon^{2n}}{1 - \epsilon^2} \right) \right] \\
+					&= 2h_0 \left( \frac{\epsilon^{2n}}{1-\epsilon^2} \right)
+				\end{split}
+			\end{equation*} 				
+			\item[ii.] time elapsed is $\bm{ 2 \sqrt{\frac{2h_0}{g}} \left( \frac{\epsilon^{n}}{1-\epsilon} \right) }$
+			\begin{equation*}
+				\begin{split}
+					T_{\infty} - T_n &= \sqrt{\frac{2h_0}{g}} \left( \frac{1 + \epsilon}{1 - \epsilon} \right) - \sqrt{\frac{2h_0}{g}} \left( \frac{1 + \epsilon - 2\epsilon^n}{1 - \epsilon} \right) \\
+					&= \sqrt{\frac{2h_0}{g}} \left[ \left( \frac{1 + \epsilon}{1 - \epsilon} \right) - \left( \frac{1 + \epsilon - 2\epsilon^n}{1 - \epsilon} \right) \right] \\
+					&= 2 \sqrt{\frac{2h_0}{g}} \left( \frac{\epsilon^{n}}{1-\epsilon} \right) \\
+				\end{split}
+			\end{equation*}
+		\end{enumerate}
+		
+		\paragraph{(d)} Assume $\bm{ h_0 = 10 \, m, \; \epsilon = 0.7, \; g \approx 9.8 \, m/s^2 }$
+		\begin{enumerate}[label=\roman*]
+			\item[i.] Evaluate the result of parts
+				\begin{enumerate}[topsep=0pt]
+					\item[A.] a(i.) and c(i.) for $\bm{n = 5}$
+						\begin{equation*}
+							\begin{split}
+								D_5 &\approx 28.1 \, m \\
+								D_{\infty} - D_5 &\approx 1.11 \, m \\
+							\end{split}
+						\end{equation*}
+					\item[B.] b(i.) and b(ii.)
+						\begin{equation*}
+							\begin{split}
+								D_{\infty} &\approx 29.21 \, m \\
+								T_{\infty} &\approx 8.10 \, s \\
+							\end{split}
+						\end{equation*}
+				\end{enumerate}	
+			\item[ii.]
+				\begin{enumerate}[topsep=0pt]
+					\item[A.] What peak height will the ball reach between the seventh and eighth bounce? \\
+						The ball will peak for the seventh time between the seventh and eight bounce as the ball has already peaked six times before that.
+							\begin{equation*}
+								\begin{split}
+									h_{n-1} &= \epsilon^{2n-2} h_0 \\
+									h_{7} &\approx 0.0678 \, m \\
+								\end{split}
+							\end{equation*}
+					\item[B.] After how many bounces, the ball will not bounce higher than a height of $\bm{1 \, m}$?
+						\begin{equation*}
+							\begin{split}
+								h_{1} &\approx 4.90 \, m \\
+								h_{2} &\approx 2.40 \, m \\
+								h_{3} &\approx 1.18 \, m \\
+								h_{4} &\approx 0.576 \, m \\
+							\end{split}
+						\end{equation*}
+						The ball will not bounce higher than a height of $\bm{1 \, m}$ after $\bm{3}$ bounces.
+				\end{enumerate}	
+		\end{enumerate}
+		
+		
+	\section*{Problem 7}
+
+		\paragraph{} In quantum theory, a system of oscillators, each of fundamental frequency $\bm{\nu}$ and interacting at temperature $\bm{T}$, has an average energy $\bm{\overline{E}}$ given by
+			\begin{equation*}
+				\begin{split}
+					\bm{\overline{E} =  \frac{ \sum\limits_{n=0}^{\infty} E_n f_n }{ \sum\limits_{n=0}^{\infty} f_n }}
+				\end{split}
+			\end{equation*}
+		where $\bm{ E_n = nh\nu }$ are the possible values of energy for an oscillator and $\bm{ f_n = \frac{ e^{-\frac{E_n}{kT}} }{ kT } }$ represents the special form of the Boltzmann distribution.
+		
+		\paragraph{(a)} Show that both infinite series $\sum\limits_{n=0}^{\infty} E_n f_n$ and $\sum\limits_{n=0}^{\infty} f_n$ converge. \\
+		The ratio test can be used to determine if am infinite geometric series will converge.
+			\begin{equation*}
+				\begin{split}
+					\sum\limits_{n}^{\infty} a_n : \lim_{n\to\infty} \abs{ \frac{a_{n+1}}{a_n} } = L
+				\end{split}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					\sum\limits_{n}^{\infty} a_n : \lim_{n\to\infty} \abs{ \frac{a_{n+1}}{a_n} } = L
+				\end{split}
+				\Rightarrow
+				\begin{cases}
+					L > 1 & Divergent \\
+					L = 1 & Inconclusive \\
+					L < 1 & Convergent
+				\end{cases}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					\sum\limits_{n}^{\infty} f_n : \lim_{n\to\infty} \abs{ \frac{f_{n+1}}{f_n} }
+					= \frac{\frac{ e^{-\frac{E_{n+1}}{kT}} }{ kT }}{\frac{ e^{-\frac{E_n}{kT}} }{ kT }}
+					= \frac{ e^{-\frac{E_{n+1}}{kT}} }{ kT } \frac{ kT }{ e^{-\frac{E_n}{kT}} }
+					= \lim_{n\to\infty} \abs{ \frac{e^{\frac{E_{n}}{kT}}}{e^{\frac{E_{n+1}}{kT}}} } \\
+				\end{split}
+			\end{equation*}
+			Clearly, as $\bm{n\to\infty}$ the denominator gets larger than the numerator, meaning that the expression approaches 0. Therefore it is convergent.
+			\begin{equation*}
+				\begin{split}
+					\sum\limits_{n=0}^{\infty} E_n f_n : \lim_{n\to\infty} \abs{ \frac{E_{n+1} f_{n+1}}{E_n f_n} }
+					= \frac{ (n+1)h\nu \frac{e^{-\frac{E_{n+1}}{kT}}}{kT} }{nh\nu \frac{e^{-\frac{E_n}{kT}}}{kT}}
+					= h\nu \frac{\frac{e^{-\frac{E_{n+1}}{kT}}}{kT} }{\frac{e^{-\frac{E_n}{kT}}}{kT}}
+					= h\nu \lim_{n\to\infty} \abs{ \frac{e^{\frac{E_{n}}{kT}}}{e^{\frac{E_{n+1}}{kT}}} } \\
+				\end{split}
+			\end{equation*}
+			Similar to the previous series, as $\bm{n\to\infty}$ the denominator gets larger than the numerator, meaning that the expression approaches 0. Therefore it is also convergent.
+		\paragraph{(b)} Evaluate $\bm{\overline{E}}$.
+			\begin{equation*}
+				\begin{split}
+					\overline{E} =  \frac{ \sum\limits_{n=0}^{\infty} nh\nu \frac{ e^{-\frac{E_n}{kT}} }{ kT } }{ \sum\limits_{n=0}^{\infty} \frac{ e^{-\frac{E_n}{kT}} }{ kT } }
+					= h\nu \, \frac{ \sum\limits_{n=0}^{\infty} n e^{-\frac{h \nu}{kT}n}  }{ \sum\limits_{n=0}^{\infty} e^{-\frac{h \nu}{kT}n}  }
+				\end{split}
+			\end{equation*}
+			Let $x = e^{-\frac{h \nu}{kT}}$, and utilizing derivatives in manipulating geometric series.
+			\begin{equation*}
+				\begin{split}
+					\overline{E} = h \nu \, \frac{ \sum\limits_{n=0}^{\infty} n x^n  }{ \sum\limits_{n=0}^{\infty} x^n  }
+					= h \nu x \frac{ \sum\limits_{n=0}^{\infty} n x^{n-1}  }{ \sum\limits_{n=0}^{\infty} x^n  }
+					= h \nu x \frac{ \sum\limits_{n=0}^{\infty} \frac{d}{dx} (x^n)  }{ \sum\limits_{n=0}^{\infty} x^n  }
+					= h \nu x \frac{ \frac{d}{dx} \left( \frac{1}{1 - x} \right)  }{ \frac{1}{1 - x}  }
+				\end{split}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					\overline{E} = h \nu x \frac{  \frac{1}{(1-x)^2} }{ \frac{1}{1 - x}  }
+					= h \nu \, \left( \frac{x}{1-x} \right)
+					= h \nu \, \left( \frac{e^{-\beta}}{1 - e^{-\beta}} \right)
+					= h \nu \, \left( \frac{1}{e^{\beta} - 1} \right)
+				\end{split}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					\overline{E} = \frac{h \nu}{e^{\frac{h \nu}{kT}} - 1}
+				\end{split}
+			\end{equation*}
+		
+		
+		\paragraph{(c)} Show that at very
+			\begin{enumerate}
+				\item[i.] high temperatures, $\bm{\overline{E} \approx kT}$
+					\paragraph{} Utilizing the taylor series expansion $e^x = 1 + x + \frac{1}{2}x^2 + \dots$, and taking appropriate approximations.
+					\begin{equation*}
+						\begin{split}
+							\overline{E} = \frac{h \nu}{\left( 1 + \frac{h \nu}{kT} \right) - 1} = kT
+						\end{split}
+					\end{equation*}
+				\item[ii.] low temperatures, $\bm{\overline{E} \approx h\nu \, e^{-h\nu/kT}}$
+					\paragraph{} Since temperature is an absolute scale, as $\bm{T\to 0}$, $\bm{e^{\frac{h \nu}{kT}}} \to \infty$. Therefore it is appropriate to drop the $- 1$.
+					\begin{equation*}
+						\begin{split}
+							\overline{E} = h \nu e^{-\frac{h \nu}{kT}}
+						\end{split}
+					\end{equation*}
+			\end{enumerate}	
+			
+			
+	\section*{Problem 8}
+
+		\paragraph{} Two point particles carrying charges $\bm{+Q_1}$ and $\bm{-Q_2}$ are fixed on the $\bm{x-}$axis and are a distance $\bm{d}$ apart. Consider an unknown third point charge to be placed also on the $\bm{x-}$axis.
+	
+		\paragraph{(a)} If the third charge is placed in between the fixed charges,	find its precise location, so that the net force on it, due to the fixed charges, is minimum.
+		
+			\begin{equation*}
+				\begin{split}
+					\sum \vec{F}_{Q_3} &= \vec{F}_{Q_1Q_3} + \vec{F}_{Q_2Q_3} \\
+					\sum \vec{F}_{Q_3} &= k \frac{Q_1Q_3}{x^2} - k \frac{Q_2Q_3}{(d-x)^2} \\
+					\frac{d}{dx} \sum \vec{F}_{Q_3} &= k Q_1 Q_3 \frac{d}{dx} \left[ \frac{1}{x^2} \right] - k Q_2 Q_3 \frac{d}{dx} \left[  \frac{1}{(d-x)^2} \right] = 0 \\
+					0 &= k Q_1 Q_3 \frac{2}{x^3} - k Q_2 Q_3 \frac{2}{(d-x)^3} \\
+					0 &= \frac{2}{x^3} - \frac{2}{(d-x)^3} \\
+					x&= \frac{d}{2} \\
+				\end{split}
+			\end{equation*}
+
+		\paragraph{(b)} Assume $\bm{|Q_1|} > \bm{|Q_2|}$. Find the precise location of the third
+		charge, so that the net force on it, due to the fixed charges, vanishes.
+			
+			\begin{equation*}
+				\begin{split}
+					\frac{2k Q_1 Q_3}{x^3} &= \frac{2k Q_2 Q_3}{(d-x)^3} \\
+					\frac{Q_1}{Q_2} &= \frac{x^3}{(d-x)^3} \\
+				\end{split}
+			\end{equation*}
+		
+		Depends on the ratio of the charges.
+
+	\clearpage
+	
+	\section*{Problem 9}
+
+		\paragraph{} Fermat's principle states that when light travels between two points, it takes the path that requires least time.
+		
+		\paragraph{(a)} Law Of Reflection. A ray Of light leaves point S in medium l, strikes the interface at an unspecified B and reflects Off to point P in the same medium. Assuming the medium to be homogeneous and using the Fermat's principle, show that $\bm{\theta_i = \theta_r}$.
+		
+		\paragraph{} Using the provided figure to find the length of each path then divding each length by the speed of light to calculate the time taken for light to travel between two points.
+		
+			\begin{equation*}
+				\begin{split}
+					t &= \frac{\sqrt{x^2 + h^2}}{c} + \frac{\sqrt{(a-x)^2 + b^2}}{c} \\
+					\text{To minimize the time} \quad \frac{dt}{dx} &= 0 \\
+					\frac{dt}{dx} &= \frac{d}{dx} \left[ \frac{\sqrt{x^2 + h^2}}{c} \right] + \frac{d}{dx} \left[ \frac{\sqrt{(a-x)^2 + b^2}}{c} \right] = 0 \\
+					0 &= \frac{x}{c\sqrt{x^2 + h^2}} - \frac{a-x}{c\sqrt{(a-x)^2 + b^2}} \\
+					\frac{x}{\sqrt{x^2 + h^2}} &= \frac{a-x}{c\sqrt{(a-x)^2 + b^2}} \\
+					\text{Relating the lengths to the angles} \quad \sin \theta_i &= \sin \theta_r \\
+					\theta_i &= \theta_r \\
+				\end{split}
+			\end{equation*}
+		
+		\paragraph{(b)} Snell's Law. A ray of light leaves point S in medium 1, strikes the interface at an unspecified B and goes to point P in medium 2 via refraction. Assuming the media to be homogeneous and using the Fermat's principle, show that $\bm{n_1 \, sin \, \theta_i = n_2 \, sin \, \theta_r}$, where $\bm{n_i \, (i = 1, 2)}$ is	called the refractive index of the $\bm{i^{th}}$ medium and is defined as $\bm{n_i \equiv \frac{c}{v_i}}$. Here $\bm{c}$ and $\bm{v_i}$ are the speeds of light in vacuum and the $\bm{i^{th}}$ medium, respectively.
+		
+		\paragraph{} Similar approach to previous part with but now the speed of light is divided by each medium's refractive index to find it's actual speed in each medium.
+		
+			\begin{equation*}
+				\begin{split}
+					t &= \frac{\sqrt{x^2 + h^2}}{\frac{c}{n_1}} + \frac{\sqrt{(a-x)^2 + b^2}}{\frac{c}{n_2}} \\
+					\frac{d}{dx} t &= \frac{d}{dx} \left[ \frac{\sqrt{x^2 + h^2}}{\frac{c}{n_1}} \right] + \frac{d}{dx} \left[ \frac{\sqrt{(a-x)^2 + b^2}}{\frac{c}{n_2}} \right] = 0 \\
+					0 &= \frac{n_1x}{c\sqrt{x^2 + h^2}} - \frac{n_2(a-x)}{c\sqrt{(a-x)^2 + b^2}} \\
+					\frac{n_1x}{\sqrt{x^2 + h^2}} &= \frac{n_2(a-x)}{c\sqrt{(a-x)^2 + b^2}} \\
+					n_1 \sin \theta_1 &= n_2 \sin \theta_2 \\
+				\end{split}
+			\end{equation*}
+		
+	\clearpage
+
+	\section*{Problem 10}
+
+		\paragraph{} A particle of mass m is projected from a point O on the ground with speed $\bm{v_0}$ and at an unknown angle $\bm{\theta}$ with respect to the
+		horizontal. Find the angle $\bm{\theta}$ which maximizes the
+		\paragraph{(a)} area under the trajectory
+				\begin{equation*}
+					\begin{split}
+						x(t) &= v_{0x}t = v_0 \cos \theta \, t \\
+						y(t) &= v_{0y}t - \frac{1}{2}gt^2 = v_0 \sin \theta \, t - \frac{1}{2}gt^2 \\
+						A(\theta) &= \int_{0}^{x_L} y(x) \, dx = \int_{0}^{t_L} y(t) \frac{dx}{dt} \, dt \\
+					\end{split}
+				\end{equation*}
+				\begin{equation*}
+					\begin{split}
+						A(\theta) &= \int_{0}^{\frac{2v_0 \sin \theta}{g}} \left( v_0 \sin \theta \, t - \frac{1}{2}gt^2 \right)  v_0 \cos \theta \, dt \\
+						&= v_0 \cos \theta \left[ v_0 \sin \theta \frac{t^2}{2} - \frac{1}{6}gt^3 \right]_0^{\frac{2v_0 \sin \theta}{g}} \\
+						&= v_0 \cos \theta \left[ v_0 \sin \theta \frac{2v^2_0 \sin^2 \theta}{g^2} - \frac{1}{6}g\frac{8v^3_0 \sin^3 \theta}{g^3} \right] \\
+						&= \frac{v^4_0 \cos \theta \sin^3 \theta}{g^2} \left[ 2 - \frac{4}{3} \right] = \frac{2v^4_0 \cos \theta \sin^3 \theta}{3g^2} \\
+					\end{split}
+				\end{equation*}
+				\begin{equation*}
+					\begin{split}
+						\frac{dA}{d\theta} &= \frac{2v^4_0}{3g^2} \frac{d}{d\theta} \left[ \cos \theta \sin^3 \theta \right] = 0 \\
+						0 &= \left[ (-\sin \theta)(\sin^3 \theta) + (\cos \theta)(3\sin^2 \theta \cos \theta) \right] \\
+						\sin^2 \theta &= 3\cos^2 \theta \\
+						\theta &= \arctan \sqrt{3} = \frac{\pi}{3} = 60^o \\
+					\end{split}
+				\end{equation*}
+				
+		\paragraph{(b)} length of the trajectory.
+			\paragraph{} Using the arc length formula.
+			\begin{equation*}
+				\begin{split}
+					L(\theta) &= \int_{0}^{t_L} \left[ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 \right]^{\frac{1}{2}} dt \\
+					&= \int_{0}^{\frac{2v_0 \sin \theta}{g}} \left[ v_0^2 \cos^2 \theta + \left( v_0 \sin \theta - gt \right)^2 \right]^{\frac{1}{2}} dt \\
+				\end{split}
+			\end{equation*}
+			With an online integral calculator and solving graphically.
+			\begin{equation*}
+				\begin{split}
+					L(\theta) &= \frac{v_0^2 \cos^2 \theta}{g} \left( \frac{\sin \theta}{\cos^2 \theta} + \ln \frac{1 + \sin \theta}{\cos \theta} \right) \\
+					\frac{dL}{d\theta} &= \frac{v_0^2}{g} \frac{d}{d\theta} \left[ \sin \theta + \cos^2 \theta \ln \frac{1 + \sin \theta}{\cos \theta} \right] = 0 \\
+					1 &= \sin \theta \ln \left( \frac{1 + \sin \theta}{\cos \theta} \right) \\
+					\theta &\approx 56.5^o \\
+				\end{split}
+			\end{equation*}
+			
+	\clearpage
+
+	\section*{Problem 11}
+
+		\paragraph{(a)} Two-shell air-filled cylindrical capacitor: A charged capacitor consists of two conducting coaxial cylindrical shells of inner and outer radii $\bm{R_1}$ and $\bm{R_2}$ and length $\bm{L} \left( \gg R_2 \right) $.
+			\begin{enumerate}
+				\item[i.] 
+				\begin{enumerate}
+					\item[A.] Find the electrostatic potential difference, $\bm{V}$, between the surfaces of the shells in terms of only the electric field, $\bm{E_b}$ on the surface of the inner shell, $\bm{R_1}$, $\bm{R_2}$, $\bm{L}$, and any other constants.
+						\begin{equation*}
+							\begin{split}
+								V_{R_2} - V_{R_1} &= \int_{R_1}^{R_2} \vec{E}_b \cdot d\vec{s} = 2k_e \lambda \int_{R_1}^{R_2} \, \frac{dr}{r} \\
+								&=  2k_e \lambda \ln \left( \frac{R_2}{R_1} \right) = (E_b R_1) \ln \left( \frac{R_2}{R_1} \right)  \\
+							\end{split}
+						\end{equation*}
+					
+					\item[B.] What choice Of inner radius would maximize $\bm{V}$? What is the maximum value Of $\bm{V}$? \\
+						\begin{equation*}
+							\begin{split}
+								\frac{dV}{dR_1} &= \frac{d}{dR_1} \left[ (E_b R_1) \ln \left( \frac{R_2}{R_1} \right) \right] = 0 \\
+								1 &= \ln\left( \frac{R_2}{R_1} \right) \\
+								R_1 &= \frac{R_2}{e} \\
+								V &= (E_b \frac{R_2}{e}) \ln \left( \frac{R_2}{\frac{R_2}{e}} \right) = \frac{E_bR_2}{e}
+							\end{split}
+						\end{equation*}
+	
+				\end{enumerate}
+				\item[ii.]
+				\begin{enumerate}
+					\item[A.] Find the electrostatic potential energy, $\bm{U}$, stored in the capacitor in terms Of only the electric field, $\bm{E_b}$ on the surface of the inner shell, $\bm{R_1}$, $\bm{R_2}$, $\bm{L}$, and any other constants.
+						\begin{equation*}
+							\begin{split}
+								U &= \frac{Q^2}{2C} = \frac{1}{2} \left[ \frac{E_b^2 L^2 R_1^4}{4k_e^2} \frac{2k_e \ln(\frac{R_2}{R_1})}{L} \right] = \frac{E_b^2 L R_1^4}{4k_e} \ln(\frac{R_2}{R_1}) \\
+							\end{split}
+						\end{equation*}
+					
+					\item[B.] What choice of inner radius would maximize $\bm{U}$? What is the maximum value Of $\bm{U}$ and the corresponding value Of $\bm{V}$?
+						\begin{equation*}
+							\begin{split}
+								\frac{dU}{dR_1} &= \frac{E_b^2 L }{4k_e} \frac{d}{dR_1} \left[ R_1^4 \ln(\frac{R_2}{R_1}) \right] = 0 \\
+								R_1 &= \frac{R_2}{e^\frac{1}{4}} \\
+								V &= (E_b \frac{R_2}{e^\frac{1}{4}}) \ln \left( \frac{R_2}{\frac{R_2}{e^\frac{1}{4}}} \right) = \frac{E_bR_2}{4e^{\frac{1}{4}}} 
+							\end{split}
+						\end{equation*}
+					
+				\end{enumerate}
+				\item[iii.] Take $\bm{R_2 = 1 \, cm}$ and the breakdown field for air to be $\bm{E_b = 3} \cross \bm{10^8 \, Volts/m}$. Compute the numerical values of $\bm{V}$ in parts i. B. and ii. B..
+					\begin{equation*}
+						\begin{split}
+							V &= 1.10 \cross 10^6 \, V \\
+							V &= 5.84 \cross 10^5 \, V \\
+						\end{split}
+					\end{equation*}
+			\end{enumerate}
+		
+		\clearpage
+		
+		\paragraph{(b)} Two-shell air-filled spherical capacitor: A charged capacitor consists of two conducting concentric spherical shells of inner and outer radii $\bm{R_1}$ and $\bm{R_2}$. Repeat parts (a) i. through (a) iii. for this geometry of the capacitor.
+			\begin{enumerate}
+				\item[i.] 
+				\begin{enumerate}
+					\item[A.] 
+					\begin{equation*}
+						\begin{split}
+							V_{R_2} - V_{R_1} &= \int_{R_1}^{R_2} \vec{E}_b \cdot d\vec{s} = k_e Q \int_{R_1}^{R_2} \, \frac{dr}{r^2} \\
+							&=  k_e Q \left( \frac{1}{R_1} - \frac{1}{R_2} \right) = k_e Q \left( \frac{R_2 - R_1}{R_1 R_2} \right) = (E_b R_1^2) \left( \frac{R_2 - R_1}{R_1 R_2} \right) \\
+						\end{split}
+					\end{equation*}
+					\item[B.]
+					\begin{equation*}
+						\begin{split}
+							\frac{dV}{dR_1} &= \frac{d}{dR_1} \left[ (E_b R_1^2) \left( \frac{R_2 - R_1}{R_1 R_2} \right) \right] = 0 \\
+							1 &= \frac{2(R_2 - R_1)}{R_2} \\
+							R_1 &= \frac{R_2}{2} \\
+							V &= (E_b \frac{R^2_2}{4}) \left( \frac{R_2 - \frac{R_2}{2}}{\frac{R_2}{2} R_2} \right) = \frac{E_b R_2}{4} \\
+						\end{split}
+					\end{equation*}
+					
+				\end{enumerate}
+				\item[ii.]
+				\begin{enumerate}
+					\item[A.]
+						\begin{equation*}
+							\begin{split}
+								U &= \frac{Q^2}{2C} = \frac{1}{2} \left[ \frac{E_b^2 R_1^4}{k_e^2} \frac{k_e(R_2 - R_1)}{R_1 R_2} \right] = \frac{1}{2} \left[ \frac{E_b^2 R_1^3}{k_e} \frac{(R_2 - R_1)}{R_2} \right]  \\
+							\end{split}
+						\end{equation*}
+					
+					\item[B.] 
+						\begin{equation*}
+							\begin{split}
+								\frac{dU}{dR_1} &= \frac{E_b^2}{2k_e} \frac{d}{dR_1} \left[  \frac{R_1^3(R_2 - R_1)}{R_2} \right] = 0 \\
+								R_1 &= \frac{3}{4} R_2 \\
+								V &= (E_b \frac{9}{16} R^2_2) \left( \frac{R_2 - \frac{3}{4} R_2}{\frac{3}{4} R_2 R_2} \right) = (E_b \frac{9}{16} R_2) \left( \frac{\frac{1}{4}}{\frac{3}{4}} \right) = \frac{3E_b R_2}{16} \\
+							\end{split}
+						\end{equation*}
+					
+				\end{enumerate}
+				\item[iii.]
+					\begin{equation*}
+						\begin{split}
+							V &= 7.50 \cross 10^5 \, V \\
+							V &= 5.63 \cross 10^5 \, V \\
+						\end{split}
+					\end{equation*}
+			\end{enumerate}
+
+
+	
+	
+\end{document}

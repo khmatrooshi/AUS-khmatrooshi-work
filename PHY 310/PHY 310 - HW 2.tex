@@ -1,0 +1,457 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{enumitem}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{systeme}
+
+\setlength{\droptitle}{-6.5cm}
+\setlength{\parindent}{24pt}
+
+\setlist[itemize]{leftmargin=\parindent,labelindent=\parindent,itemsep=0mm}
+\setlist[enumerate]{leftmargin=\parindent,labelindent=\parindent,itemsep=0mm}
+
+\title{}
+\date{}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ita}{\textit}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+\newcommand\sep[1]{%
+	\leavevmode\unskip\unskip 
+	\nobreak % optional
+	\hspace{#1}\ignorespaces
+}
+
+\begin{document}
+	\maketitle
+	\begin{center}
+		\hrule
+		\vspace{.4cm}
+		{\textbf { \large PHY 310 --- Mathematical Methods in Physics}}
+	\end{center}
+	{\bd{Name:}\ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 22 Feb 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 2 \\
+		\hrule
+		
+		
+	\section*{Problem 1}
+	\begin{enumerate}
+		\item[(a)] \bd{Oscillating Piston In a Gas Chamber} A frictionless closed cylinder, fitted with a piston of mass $\bm{m}$ and containing an ideal gas, has cross-sectional area $\bm{A}$ and length $\bm{2L}$. At time $\bm{t = 0}$, when the piston is at the midpoint of the cylinder $\bm{x=0}$ and the pressure on either side of the piston is $\bm{p_0}$, the piston is displaced from this equilibrium position.
+			\begin{enumerate}
+				\item[i.] Assuming the process to be adiabatic, show that the position of the piston as a function of time, $\bm{x(t)}$ satisfies the
+				equation
+				\begin{equation*}
+					\begin{split}
+						\frac{d^2 x}{dt^2} + \frac{p_0 A L^{\gamma}}{m} \left[ \frac{1}{(L - x)^{\gamma}} - \frac{1}{(L + x)^{\gamma}} \right] = 0
+					\end{split}
+				\end{equation*}
+				Where $\bm{\gamma}$ is the ratio of specific heats at constant pressure and at constant volume for the gas. \\
+				Let $\alpha = \dfrac{p_0 A L^{\gamma}}{m}$
+					\begin{equation*}
+						\begin{split}
+							\text{Initially} \quad p_0 V^{\gamma} &= p_0 V^{\gamma} = k = p_0(AL)^{\gamma} \\
+							\text{After displacement} \quad p_1 V^{\gamma}_1 &= p_2 V^{\gamma}_2 = k = p_0(AL)^{\gamma} \\
+							\quad p_1 (A(L + x))^{\gamma} &= p_2 (A(L - x))^{\gamma} = p_0(AL)^{\gamma} \\
+							p_1 &= \frac{p_0(AL)^{\gamma}}{(A(L + x))^{\gamma}} = \frac{p_0L^{\gamma}}{(L + x)^{\gamma}} \\
+							p_2 &= \frac{p_0(AL)^{\gamma}}{(A(L - x))^{\gamma}} = \frac{p_0L^{\gamma}}{(L - x)^{\gamma}} \\
+						\end{split}
+					\end{equation*}
+					\begin{equation*}
+						\begin{split}
+							m\ddot{x} &=  F_1 - F_2 \\
+							m\ddot{x} &=  \frac{p_1}{A} - \frac{p_2}{A} \\
+							m\ddot{x} &=  \frac{\frac{p_0L^{\gamma}}{(L + x)^{\gamma}}}{A} - \frac{\frac{p_0L^{\gamma}}{(L - x)^{\gamma}}}{A} \\
+							m\ddot{x} &=  \frac{p_0AL^{\gamma}}{(L + x)^{\gamma}} - \frac{p_0AL^{\gamma}}{(L - x)^{\gamma}} \\
+							\frac{d^2 x}{dt^2} &+ \frac{p_0 A L^{\gamma}}{m} \left[ \frac{1}{(L - x)^{\gamma}} - \frac{1}{(L + x)^{\gamma}} \right] = 0
+						\end{split}
+					\end{equation*}
+					\begin{equation*}
+						\begin{split}
+							\text{At x = 0} \quad &\frac{d^2 x}{dt^2} = 0 \\
+							\text{At x = L} \quad &\frac{d^2 x}{dt^2} + \frac{p_0 A L^{\gamma}}{m} \left[ - \frac{1}{(2L)^{\gamma}} \right] = 0 \\
+							&m\frac{d^2 x}{dt^2} = \frac{p_0 A}{2^{\gamma}} \\
+						\end{split}
+					\end{equation*}
+				
+				\item[ii.] Show that in the limit $\bm{x \ll L}$, the piston oscillates harmonically and find its angular frequency of small oscillations.
+					\begin{equation*}
+						\begin{split}
+							\frac{d^2 x}{dt^2} &= \alpha \left[ (L + x)^{-\gamma} - (L - x)^{-\gamma} \right] = \alpha \left[ \frac{1}{L^{\gamma}}\left( 1 + \frac{x}{L} \right)^{-\gamma} - \frac{1}{L^{\gamma}}\left( 1 - \frac{x}{L} \right)^{-\gamma} \right] = \frac{\alpha}{L^{\gamma}} \left[ (1 - \frac{\gamma x}{L}) - (1 + \frac{\gamma x}{L}) \right] \\
+							&= -\frac{2\alpha \gamma x}{L^{\gamma} L} = -\frac{p_0 A L^{\gamma}}{m} \frac{2\gamma x}{L^{\gamma} L} = -\frac{2p_0 A \gamma x}{mL} \\
+						\end{split}
+					\end{equation*}
+					\begin{equation*}
+						\begin{split}
+							\frac{d^2 x}{dt^2} + \left( \frac{2p_0 A \gamma}{mL} \right)x &= 0 \\
+							\omega &= \sqrt{\frac{mL}{2p_0 A \gamma}} \\
+						\end{split}
+					\end{equation*}
+			\end{enumerate}
+		\item[(b)] \bd{Oscillating Charge in Electric and Gravitational Fields} A pendulum with a massless string of length $\bm{l}$ has on its end a small sphere with charge $\bm{+q}$ and mass $\bm{m}$. A distance $\bm{d}$ on either side of the pendulum are two fixed small spheres each carrying a charge $\bm{+Q}$. The pendulum is now given a tiny displacement $\bm{(\ll l,d)}$ from its equilibrium position. Show that the time period of small oscillations of the pendulum is
+			\begin{equation*}
+				\begin{split}
+					2 \pi \sqrt{ \frac{ \pi \epsilon_0 m l d^3 }{ qQl + \pi \epsilon_0 m g d^3 } }
+				\end{split}
+			\end{equation*}
+		where $\bm{\epsilon_0}$ is permittivity of free space.
+%			\begin{equation*}
+%				\begin{split}
+%					ma_t &= \frac{kQq}{(d+x)^2}\theta - \frac{kQq}{(d-x)^2}\theta - mg\theta \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ \frac{kQq}{(d+x)^2} - \frac{kQq}{(d-x)^2} - mg \right]\theta = 0 \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ kQq(1+\tfrac{x}{d})^{-2} - kQq(1-\tfrac{x}{d})^{-2} - mg \right]\theta = 0 \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ kQq(1-\tfrac{2x}{d}) - kQq(1+\tfrac{2x}{d}) - mg \right]\theta = 0 \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ -\tfrac{4kQqx}{d} - mg \right]\theta = 0 \\
+%					\frac{d^2 \theta}{dt^2} &+ \left[ \tfrac{Qqx}{\pi \epsilon_0 mld} + \frac{g}{l} \right]\theta = 0 \\
+%					\frac{d^2 \theta}{dt^2} &+ \left[ \tfrac{Qqxl + \pi \epsilon_0 mlgd}{\pi \epsilon_0 ml^2d} \right]\theta = 0 \\
+%					\frac{d^2 \theta}{dt^2} &+ \left[ \tfrac{Qqx + \pi \epsilon_0 mgd}{\pi \epsilon_0 mld} \right]\theta = 0 \\
+%				\end{split}
+%			\end{equation*}
+%			\begin{equation*}
+%				\begin{split}
+%					\omega^2 = \frac{Qqx + \pi \epsilon_0 mgd}{\pi \epsilon_0 mld} \\
+%					T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{\pi \epsilon_0 mld}{Qqx + \pi \epsilon_0 mgd}} \\
+%				\end{split}
+%			\end{equation*}
+%			\begin{equation*}
+%				\begin{split}
+%					ma_t &= \frac{kQq}{(d+l\theta)^2 + (l-l\theta)^2} - \frac{kQq}{(d-l\theta)^2 + (l-l\theta)^2} - mg\theta \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ \frac{kQq}{(1+\frac{l\theta}{d})^2 + (1-\theta)^2} - \frac{kQq}{(1-\frac{l\theta}{d})^2 + (1-\theta)^2} - mg\theta \right] = 0 \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ kQq\left( (1+\tfrac{l\theta}{d})^{-2} + (1-\theta)^{-2} \right) - kQq\left( (1-\tfrac{l\theta}{d})^{-2} - (1-\theta)^{-2} \right) - mg\theta \right] = 0 \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ kQq\left( (1-\tfrac{2l\theta}{d}) + (1+2\theta) \right) - kQq\left( (1+\tfrac{2l\theta}{d}) - (1+2\theta) \right) - mg\theta \right] = 0 \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ -\tfrac{4kQql\theta}{d} - mg\theta \right] = 0 \\
+%					\frac{d^2 \theta}{dt^2} &+ \left[ \tfrac{Qq}{\pi \epsilon_0 md} + \frac{g}{l} \right]\theta = 0 \\
+%					\frac{d^2 \theta}{dt^2} &+ \left[ \tfrac{Qql + \pi \epsilon_0 mgd}{\pi \epsilon_0 mld} \right]\theta = 0 \\
+%				\end{split}
+%			\end{equation*}
+%			\begin{equation*}
+%				\begin{split}
+%					\omega^2 = \frac{qQl + \pi \epsilon_0 mgd}{\pi \epsilon_0 mld} \\
+%					T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{\pi \epsilon_0 mld}{qQl + \pi \epsilon_0 mgd}} \\
+%				\end{split}
+%			\end{equation*}
+			\begin{figure}[!h]
+				\centering
+				\bd{\caption{Small angle approximation}}
+				\includegraphics[scale=0.1]{20230221_205923.jpg}
+			\end{figure}
+			\paragraph{} For small oscillations, the net force acting on the pendulum is nearly horizontal, as apparent by figure 1. Therefore, it is appropriate to only take the net force along the x axis.
+			\begin{equation*}
+				\begin{split}
+					m\ddot{y} &= mg \cos \theta - T \\
+					&= mg - T
+				\end{split}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					m\ddot{x} &= F_1 - F_2 - mg \sin \theta \\
+					m\ddot{x} &= \frac{kQq}{(d+x)^2} - \frac{kQq}{(d-x)^2} - mg\theta \\
+					m\ddot{x} &- \left[ \frac{kQq}{(d+x)^2} - \frac{kQq}{(d-x)^2} - \frac{mgx}{l} \right] = 0 \\
+					m\ddot{x} &- \left[ \frac{kQq}{d^2}(1+\tfrac{x}{d})^{-2} - \frac{kQq}{d^2}(1-\tfrac{x}{d})^{-2} - \frac{mgx}{l} \right] = 0 \\
+				\end{split}
+			\end{equation*}
+			Using binomial expansion $(1 + x)^n = 1 + nx + \dots $, and taking appropriate approximations.
+			\begin{equation*}
+				\begin{split}
+					m\ddot{x} &- \left[ \frac{kQq}{d^2}(1-\tfrac{2x}{d}) - \frac{kQq}{d^2}(1+\tfrac{2x}{d}) - \frac{mgx}{l} \right] = 0 \\
+					m\ddot{x} &- \left[ -\tfrac{4kQqx}{d^3} - \frac{mgx}{l} \right] = 0 \\
+					m\ddot{x} &+ \left[ \tfrac{Qq}{\pi \epsilon_0 d^3} + \frac{mg}{l} \right]x = 0 \\
+					\ddot{x} &+ \left[ \tfrac{Qql + \pi \epsilon_0 mgd^3}{\pi \epsilon_0 mld^3} \right]x = 0 \\
+				\end{split}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					\omega^2 = \frac{qQl + \pi \epsilon_0 mgd^3}{\pi \epsilon_0 mld^3} \\
+					T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{\pi \epsilon_0 mld^3}{qQl + \pi \epsilon_0 mgd^3}} \\
+				\end{split}
+			\end{equation*}
+%			\begin{equation*}
+%				\begin{split}
+%					ma_t &= \frac{kQq}{(d+l\theta)^2}  - \frac{kQq}{(d-l\theta)^2} - mg\theta \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ kQq\left( 1+\tfrac{l\theta}{d} \right)^{-2} - kQq\left( 1-\tfrac{l\theta}{d} \right)^{-2} - mg\theta \right] = 0 \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ kQq\left( 1-\tfrac{2l\theta}{d} \right) - kQq\left( 1+\tfrac{2l\theta}{d} \right) - mg\theta \right] = 0 \\
+%					ml \frac{d^2 \theta}{dt^2} &- \left[ -\tfrac{4kQql\theta}{d} - mg\theta \right] = 0 \\
+%					\frac{d^2 \theta}{dt^2} &+ \left[ \tfrac{Qq}{\pi \epsilon_0 md} + \frac{g}{l} \right]\theta = 0 \\
+%					\frac{d^2 \theta}{dt^2} &+ \left[ \tfrac{Qql + \pi \epsilon_0 mgd}{\pi \epsilon_0 mld} \right]\theta = 0 \\
+%				\end{split}
+%			\end{equation*}
+%			\begin{equation*}
+%				\begin{split}
+%					\omega^2 = \frac{qQl + \pi \epsilon_0 mgd}{\pi \epsilon_0 mld} \\
+%					T = \frac{2\pi}{\omega} = 2\pi \sqrt{\frac{\pi \epsilon_0 mld}{qQl + \pi \epsilon_0 mgd}} \\
+%				\end{split}
+%			\end{equation*}
+	
+	\end{enumerate}
+	
+	\section*{Problem 2}
+		\paragraph{An LCR Circuit with a Variable Potential Difference Source} The terminals of a generator producing a time varying voltage $\bm{V(t)}$ are connected through a capacitor of capacitance $\bm{C}$, a wire of resistance $\bm{R}$ and a coil of self-inductance $\bm{L}$ in series.
+			\begin{enumerate}
+				\item[(a)] Show that the charge $\bm{q(t)}$ on the capacitor satisfies the equation
+					\begin{equation*}
+						\begin{split}
+							LC \frac{d^2 q}{dt^2} + RC \frac{dq}{dt} + q = CV(t)
+						\end{split}
+					\end{equation*}
+					One way to show that the charge $\bm{q(t)}$ on the capacitor satisfies the differential equation is by using Kirchoff's Voltage Rule, starting clockwise from the positive terminal of the generator.
+						\begin{equation*}
+							\begin{split}
+								-V(t) + L \frac{dI}{dt} + RI + \frac{q}{C} &= 0 \quad \quad I = \frac{dq}{dt} \\
+								LC \frac{d^2 q}{dt^2} + RC\frac{dq}{dt} + q &= CV(t)
+							\end{split}
+						\end{equation*} 
+				\item[(b)] Assume that $\bm{L = \frac{1}{2} CR^2}$ and
+					\begin{equation*}
+						V(t) =
+						\begin{cases}
+							0   & \text{for} \; t < 0, \\
+							V_0 & \text{for} \; 0 < t < \pi RC \\
+							0   & \text{for} \; t > \pi RC \\
+						\end{cases}
+					\end{equation*}
+					where $\bm{V_0}$ is constant.
+					\begin{enumerate}
+						\item[i.] Show that the current flowing round the circuit is given by
+							\begin{equation*}
+								\begin{split}
+									\frac{2V_0}{R} \exp( -\frac{t}{RC} ) \sin( \frac{t}{RC} ) \quad \text{for} \; 0 < t < \pi RC
+								\end{split}
+							\end{equation*}
+							Since $I(t) = \frac{dq(t)}{dt}$, we have to first solve the differential equation.
+							\begin{equation*}
+								\begin{split}
+									LC \frac{d^2 q}{dt^2} + RC\frac{dq}{dt} + q &= CV(t)
+								\end{split}
+							\end{equation*}
+							A non-homogeneous differential equation with constant coefficients. This means that the final expression is in the form. 
+							\begin{equation*}
+								\begin{split}
+									q(t) = q_c(t) + q_p(t)
+								\end{split}
+								\quad \text{where} \;
+								\begin{cases}
+									q_c(t) & \text{complementary solution} \\
+									q_p(t) & \text{particular solution} \\
+								\end{cases}
+							\end{equation*}
+							To find $q_c(t)$.
+							\begin{equation*}
+								\begin{split}
+									LC q'' + RCq' + q &= 0 \quad L = \frac{1}{2} CR^2 \\
+									q'' + \frac{R}{L}q' + \frac{1}{LC} q &= 0 \\ 
+									q'' + \frac{2}{RC}q' + \frac{2}{(RC)^2} q &= 0 \quad k = \frac{1}{RC} \\
+									q'' + 2k q' + 2k^2 q &= 0 \\
+								\end{split}
+							\end{equation*}
+							Now the auxiliary polynomial.
+							\begin{equation*}
+								\begin{split}
+									a(m) &= m^2 + 2km + 2k^2 = 0 \\
+									m &= \frac{ -2k \pm \sqrt{ 4k^2 - 8k^2 } }{2}
+									= \frac{ -2k \pm \sqrt{ -4k^2 } }{2}
+									= -k \pm ki \\
+								\end{split}
+							\end{equation*}
+							\begin{equation*}
+								\begin{split}
+									q(t) &= e^{-kt} ( A \cos kt + B \sin kt ) \\
+									I(t) = q'(t) &= (-ke^{-kt})(A \cos kt + B \sin kt) + (e^{-kt})(-Ak \sin kt + Bk \cos kt) \\
+									&= ke^{-kt}(-A \cos kt - B \sin kt - A \sin kt + B \cos kt) \\
+									q'(t) &= ke^{-kt}((B - A) \cos kt - (B + A) \sin kt) \\
+								\end{split}
+							\end{equation*}
+							To find $q_p(t)$. Note that the RHS is just a constant in terms of $q$.
+							\begin{equation*}
+								\begin{split}
+									q'' + 2kq' + 2k^2 q &= \frac{2V}{CR^2} \\
+								\end{split}
+							\end{equation*}
+							\begin{equation*}
+								\begin{aligned}
+									q_p(t) &= \alpha & q'_p(t) &= 0 & q''_p(t) &= 0 \\
+								\end{aligned}
+							\end{equation*}
+							\begin{equation*}
+								\begin{split}
+									2k^2 \alpha &= \frac{2V}{CR^2} \\
+									\alpha &= \frac{V}{CR^2(\frac{1}{R^2C^2})} = CV(t) = q_p(t) \\
+								\end{split}
+							\end{equation*}
+							Assuming some initial conditions to find the constants A and B. $q(0) = Q_0$ and $q'(0) = 0$.
+							\begin{equation*}
+								\begin{split}
+									q(t) &= e^{-kt} ( A \cos kt + B \sin kt ) + CV(t) \\
+									q(0) &= A = Q_0 \\
+									A &= CV_0 \\
+									q'(t) &= ke^{-kt}((B - A) \cos kt - (B + A) \sin kt) \\
+									q'(0) &= kB - kA = 0 \\
+									B &= A = CV_0 \\
+								\end{split}
+							\end{equation*}
+							Finally.
+							\begin{equation*}
+								\begin{split}
+									q(t) &= e^{-kt} ( CV_0 \cos kt + CV_0 \sin kt ) + CV(t) \\
+									&= CV_0 e^{-\tfrac{t}{RC}} \left(\cos \left( \frac{t}{RC} \right) + \sin \left(\frac{t}{RC}\right)\right)  + CV(t) \\
+									I(t) = q'(t) &= ke^{-kt}((CV_0 - CV_0) \cos kt - (CV_0 + CV_0) \sin kt) \\
+									&= ke^{-kt}(-2CV_0 \sin kt) \\
+									&= -\frac{2V_0}{R} e^{-\frac{t}{RC}} \sin \frac{t}{RC}
+								\end{split}
+							\end{equation*}
+						\item[ii.] Find $\bm{q(t)}$ for $\bm{t > \pi RC}$.
+						\begin{equation*}
+							\begin{split}
+								q(\pi RC) &= CV_0 e^{-\tfrac{\pi RC}{RC}} \left(\cos \left( \frac{\pi RC}{RC} \right) + \sin \left(\frac{\pi RC}{RC}\right)\right)  + CV(\pi RC) \\
+								&= -CV_0 e^{-\pi} \\
+							\end{split}
+						\end{equation*}
+						\paragraph{} Because $V(t) = 0$ at $t > \pi RC$, the capacitor reaches a maximum charge that would oscillate as t approaches infinity.
+					\end{enumerate}
+			\end{enumerate}
+	\clearpage
+	\section*{Problem 3}
+		\paragraph{Platform on Rotation Rollers. Bounded vs. Unbounded Motion} Two rapidly counter-rotating identical cylindrical rollers have axes separated by a fixed distance $\bm{d}$. At time $\bm{t=0}$, a thin uniform bar of mass $\bm{m}$ is placed asymmetrically at rest across the top of the rollers, so that its center $\bm{C}$ is at a distance $\bm{x_0}$ from the left roller. Coefficient of kinetic friction between the bar and the rollers is $\bm{\mu_k}$ At time $\bm{t}$ the center $\bm{C}$ has made an unknown displacement $\bm{x(t)}$ from the left roller.
+		\begin{enumerate}
+			\item[(a)] Consider the situation where the wheels rotate inward to the center of the bar.
+			\begin{enumerate}
+				\item[i.] At time t,
+				\begin{enumerate}
+					\item[A.] draw the free-body diagram of the bar.
+						\begin{figure}[!h]
+							\centering
+							\bd{\caption{Platform on Rotating Rollers FBD}}
+							\includegraphics[scale=0.1]{20230222_005058.jpg}
+						\end{figure}
+					\item[B.] write down Newton's $\bm{2^{nd}}$ law for the bar in both horizontal and vertical directions.
+						\begin{equation*}
+							\begin{split}
+								m\ddot{y} &= mg - N_1 - N_2 = 0 \\
+								mg &= N_1 + N_2 \\
+							\end{split}
+						\end{equation*}
+						\begin{equation*}
+							\begin{split}
+								m\ddot{x} &= F_1 - F_2 = f_{k,1} - f_{k,2} \\
+								m \ddot{x} &= \mu_k N_1 - \mu_k N_2 \\
+								\frac{m\ddot{x}}{\mu_k} &= N_1 - N_2 \\
+							\end{split}
+						\end{equation*}
+					\item[C.] take the torque about a convenient point on the bar.
+						\paragraph{} A convenient point would be the center of the bar, as it takes into account $x(t)$ and removes torque from $mg$. Taking clockwise rotation as positive. $\alpha = 0$ as the bar is not rotating.
+						\begin{equation*}
+							\begin{split}
+								\sum \tau &= I\alpha = 0 \\
+								\tau_1 - \tau_2 &= 0 \\
+								N_1 \left( \tfrac{d}{2} + x \right) - N_2 \left( \tfrac{d}{2} - x \right) &= 0 \\
+								N_1\tfrac{d}{2} + N_1x - N_2\tfrac{d}{2} + N_2x  &= 0 \\
+								\frac{d}{2} (N_1 - N_2) + x(N_1 + N_2) &= 0 \\
+							\end{split}
+						\end{equation*}
+				\end{enumerate}
+				\item[ii.] Hence, find $\bm{x(t)}$ explicitly and show that the bar oscillates with an angular frequency $\bm{\sqrt{\frac{2\mu_k g}{d}}}$.
+					\begin{equation*}
+						\begin{split}
+							\frac{d}{2} \left(\frac{m\ddot{x}}{\mu_k}\right) + x(mg) &= 0 \\
+							\ddot{x} + \left( \frac{2 \mu_k g}{d} \right)x &= 0 \quad \quad \omega = \sqrt{\frac{2 \mu_k g}{d}} \\
+						\end{split}
+					\end{equation*}
+					This is a homogenous SHO differential equation, therefore we can assume a solution $x(t)$ of the form.
+					\begin{equation*}
+						\begin{split}
+							x(t) &= A\cos(\omega t) + B\sin(\omega t) \\
+							x'(t) &= -A\omega\sin(\omega t) + B\omega\cos(\omega t) \\
+						\end{split}
+					\end{equation*}
+					Applying initial conditions. $x(0) = x_0$, $x'(0) = 0$
+					\begin{equation*}
+						\begin{split}
+							x(0) &= A = x_0 \\
+							x'(0) &= B\omega = 0 \\
+						\end{split}
+					\end{equation*}
+					\begin{equation*}
+						\begin{split}
+							x(t) &= x_0\cos(\sqrt{\tfrac{2 \mu_k g}{d}} t) \\
+						\end{split}
+					\end{equation*}
+			\end{enumerate}
+
+			\item[(b)] Now, consider the situation where the wheels rotate outward to the ends of the bar. Repeat part $\bm{(a)}$ and show that in this case,
+			\begin{equation*}
+				\begin{split}
+					x(t) = \left( x_0 - \frac{d}{2} \right) \cosh( \sqrt{ \frac{2 \mu_k g}{d}t } ) + \frac{d}{2}
+				\end{split}
+			\end{equation*}
+			\paragraph{} In this case, the only difference is on the forces on the horizontal directions.
+					\begin{equation*}
+					\begin{split}
+						m\ddot{y} &= mg - N_1 - N_2 = 0 \\
+						mg &= N_1 + N_2 \\
+					\end{split}
+				\end{equation*}
+				\begin{equation*}
+					\begin{split}
+						m\ddot{x} &= F_2 - F_1 = f_{k,2} - f_{k,21} \\
+						m \ddot{x} &= \mu_k N_2 - \mu_k N_1 \\
+						-\frac{m\ddot{x}}{\mu_k} &= N_1 - N_2 \\
+					\end{split}
+				\end{equation*}
+				\begin{equation*}
+					\begin{split}
+						\sum \tau &= I\alpha = 0 \\
+						\tau_1 - \tau_2 &= 0 \\
+						N_1 \left( \tfrac{d}{2} + x \right) - N_2 \left( \tfrac{d}{2} - x \right) &= 0 \\
+						N_1\tfrac{d}{2} + N_1x - N_2\tfrac{d}{2} + N_2x  &= 0 \\
+						\frac{d}{2} (N_1 - N_2) + x(N_1 + N_2) &= 0 \\
+					\end{split}
+				\end{equation*}
+				\begin{equation*}
+				\begin{split}
+					\frac{d}{2} \left(-\frac{m\ddot{x}}{\mu_k}\right) + x(mg) &= 0 \\
+					\ddot{x} - \left( \frac{2 \mu_k g}{d} \right)x &= 0 \\
+				\end{split}
+				\end{equation*}
+				This is different from the previous DE in part a. Using auxiliary polynomial.
+				\begin{equation*}
+					\begin{split}
+						a(m) = m^2 - \frac{2 \mu_k g}{d} &= 0 \\
+						m &= \pm \sqrt{\frac{2 \mu_k g}{d}} = \pm \alpha
+					\end{split}
+				\end{equation*}
+				\begin{equation*}
+					\begin{split}
+						x(t) &= Ae^{\alpha t} + Be^{-\alpha t} \\
+						x'(t) &= A\alpha e^{\alpha t} - B\alpha e^{-\alpha t} \\
+					\end{split}
+				\end{equation*}
+				Applying initial conditions. $x(0) = x_0$, $x'(0) = 0$
+				\begin{equation*}
+					\begin{split}
+						x(0) &= A + B = x_0 \\
+						x'(0) &= A\alpha - B\alpha = 0 \\
+						A &= B = \frac{x_0}{2}
+					\end{split}
+				\end{equation*}
+				\begin{equation*}
+					\begin{split}
+						x(t) &= \frac{x_0}{2}e^{\alpha t} + \frac{x_0}{2}e^{-\alpha t} \\
+						&= x_0 \left( \frac{e^{\alpha t} + e^{-\alpha t}}{2} \right) \\
+						&= x_0 \cosh( \sqrt{\frac{2 \mu_k g}{d}} t ) \\
+					\end{split}
+				\end{equation*}
+				
+		\end{enumerate}
+		
+	\end{document}
