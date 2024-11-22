@@ -1,5 +1,5 @@
 # AUS-khmatrooshi-work
-This repository contains sample work and projects from various university courses, organized by semester.
+This repository contains sample work and projects from various university courses.
 ---
 
 ## Fall 2022
