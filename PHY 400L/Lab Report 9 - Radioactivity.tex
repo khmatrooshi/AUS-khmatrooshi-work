@@ -1,0 +1,1146 @@
+\documentclass[11pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{references.bib}
+
+\doublespacing
+
+\setlength{\parskip}{1em plus 0.1em minus 0.2em}
+
+\usepackage[shortconst]{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\setlist[itemize]{leftmargin=*, labelindent=\parindent, noitemsep, topsep=0pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt}
+
+\hypersetup{
+	pdftitle={Radioactivity},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{Radioactivity} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			This experiment was designed to explore the fundamental principles of radioactivity through a series of measurements and observations using a Geiger-Müller (GM) tube. The objectives included the investigation of the inverse square law for radiation intensity, the absorption of beta and gamma radiation, and the determination of the half-life of a radioactive isotope. The experiment underscored the stochastic nature of radioactive decay and provided insights into the practical applications of radioactivity in medical, industrial, and research settings. Significant findings were the confirmation of the inverse square law for beta/gamma radiation from a Cs-137 source and the calculation of the half-life of Ba-137m. Discrepancies in the expected and observed values were analyzed, attributing potential causes to experimental setup and measurement techniques. 
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{Radioactivity, Geiger-Müller tube, Inverse Square Law, Half-life.}
+	\end{titlepage}
+	
+\clearpage
+	
+	\section{Introduction}	
+
+	Radioactivity involves the spontaneous emission of particles or electromagnetic waves from the unstable nuclei of certain atoms. These emissions, known as radiation, are a natural byproduct of unstable isotopes seeking stability through processes such as alpha decay, beta decay, and gamma emission. Radiation can be detected and quantified using instruments such as the Geiger-Müller (GM) tube, a device designed to measure ionizing radiation types including alpha particles, beta particles, and gamma rays.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Intro_Radiation.jpg}
+		\caption{Radiation types}
+		\label{fig:Intro_Radiation}
+	\end{figure}
+	
+	Radioactivity is quantified in two principal units: the Becquerel ($\unit{\becquerel}$) and the Curie ($\unit{Ci}$) \cite{manual}.
+	\begin{itemize}
+		\item Becquerel ($\unit{\becquerel}$): The Becquerel is the SI unit of radioactivity. One Becquerel is defined as one disintegration per second. This unit directly measures the rate at which an unstable atomic nucleus transforms, emitting radiation in the process.
+		\item Curie ($\unit{Ci}$): The Curie is an older, non-SI unit of radioactivity, still commonly used in some contexts, particularly within the United States. One Curie is approximately equal to \(3.7 \times 10^{10}\) disintegrations per second, defined historically based on the activity of one gram of radium-226.
+	\end{itemize}
+	
+	The GM tube operates by using a gas-filled metal cylinder with a thin mica window that allows radiation to enter. Inside the tube, a high voltage is applied between the outer metal cylinder (cathode) and a central wire (anode). When radiation penetrates the tube, it ionizes the gas, creating ions and electrons. The electrons are attracted towards the anode, creating an ionization current that is detected as a count. This process is instrumental in understanding the intensity and type of radiation being measured. The efficiency of the GM tube is affected by factors such as the type of gas used, the pressure within the tube, and the voltage applied across the electrodes.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.6\textwidth]{Intro_GMTube_1.jpg}
+		\caption{\centering Schematic of gas-filled detector operated with a varying voltage applied between the chamber wall (cathode) and a central collecting electrode (anode) \cite{martin_physics_2006}}
+		\label{fig:Intro_GM_Tube}
+	\end{figure}
+	
+	The interaction of radiation with matter is fundamentally probabilistic, described by exponential decay laws. The activity \( A \) of a radioactive sample, measured in disintegrations per second (or Becquerels), follows the equation:
+	\begin{equation}
+		A = A_0 e^{-\lambda t}
+	\end{equation}
+	where: \( A_0 \) is the initial activity, \( \lambda \) is the decay constant, \( t \) is the time elapsed. This is also equivalent to the number of radioactive atoms \( N \).
+	
+	In this lab report, we explore several aspects of radioactivity and its detection:
+	\begin{enumerate}
+		\item[1.] \textbf{Background Radiation Measurement}: Understanding and measuring the omnipresent background radiation is crucial for accurate radiation measurement.
+		\item[2.] \textbf{Resolving Time}: This part examines the time after each detection during which the detector is 'blind' to further incoming radiation.
+		\item[3.] \textbf{Geiger Tube Efficiency}: We investigate how efficiently the GM tube detects different types of radiation.
+		\item[4.] \textbf{Inverse Square Law}: This part validates the principle that the intensity of radiation observed from a point source decreases inversely with the square of the distance from the source.
+		\item[5.] \textbf{Range and Absorption}: We explore how different materials absorb or attenuate different types of radiation, providing insights into shielding and radiation protection.
+	\end{enumerate}	
+	This lab report is vital for several reasons. First, it enhances understanding of the fundamental principles of radioactivity and the practical application of radiation detection methods, particularly through the use of the Geiger-Müller (GM) tube. Such knowledge is crucial for fields ranging from medical diagnostics, where radioactive tracers are used in imaging, to environmental science, which often involves monitoring natural and anthropogenic radioactive sources.
+	
+	Second, this report contributes to safety in handling and using radioactive materials. By measuring background radiation and understanding the behavior of different radioactive sources under various conditions, we can better manage and mitigate the risks associated with radiation exposure. The manual’s discussion on exposure to radiation highlights the omnipresent nature of background radiation and the importance of quantifying this exposure accurately, especially in occupational settings such as nuclear plants and hospitals.
+	
+	Third, the experiments detailed in this report serve as practical examples of the inverse square law and radiation absorption principles, which are not only foundational concepts in physics but also critical in designing shielding and safety protocols to protect against harmful radiation.
+	
+	To sum up, the insights provided by this report have profound implications for health, safety, and the practical use of radiation in various technological and medical applications.
+
+\clearpage
+
+	\section{Experimental Details}
+	
+	This section details the procedure for each method and the expected results according to the lab manuals and the relevant equations. We use Microsoft Excel for data analysis. Sources and absorber kit are in the appendix.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Apparatus.jpg}
+		\caption{Setup for ST360 with sources and absorber kit. \cite{manual}}
+		\label{fig:Apparatus}
+	\end{figure}
+	
+	\subsection{Plotting a GM Plateau}
+	
+	This subsection details the procedure for determining plateau and optimal operating voltage of a Geiger-Müller Counter.
+	\begin{itemize}
+		\item \textbf{Setup the GM Tube:}
+		\begin{enumerate}
+			\item Ensure the power supply is disconnected before setup.
+			\item Remove the protective end cap from the GM tube very carefully to avoid damaging the thin window.
+			\item Place the GM tube into the shelf stand with the window facing down and the BNC connector facing upwards.
+			\item Connect the BNC cable from the GM tube to the GM input on the control unit.
+		\end{enumerate}
+		
+		\item \textbf{Initial Configuration:}
+		\begin{enumerate}
+			\item Connect the power supply to the control unit and then to a standard electricity outlet.
+			\item Switch on the power at the back of the unit and observe any startup indications.
+		\end{enumerate}
+		
+		\item \textbf{Voltage Setup:}
+		\begin{enumerate}
+			\item Start with the initial voltage set to 700 Volts.
+			\item Incrementally increase the voltage in steps of 20 Volts up to a maximum as required by your experimental setup. Take note that the maximum allowable voltage should not exceed 1200 Volts for the tube.
+		\end{enumerate}
+		
+		\item \textbf{Manual Count Recording:}
+		\begin{enumerate}
+			\item Record counts manually for each voltage step.
+			\item Observe the count rate stabilization and identify the plateau region where the count rate changes minimally with increases in voltage.
+			\item Note the voltage where the plateau begins and where it ends, signifying the discharge region.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording:}
+		\begin{enumerate}
+			\item Document all readings and voltage settings.
+			\item Use the recorded data to plot the count rate against the voltage to visualize the Geiger plateau.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Determine the optimal operating voltage based on the mid-region of the plateau, favoring the lower half closer to the knee to prolong tube life and avoid continuous discharge.
+		\end{enumerate}
+		
+	\end{itemize}	
+	
+	\subsection{Background}
+	
+	This subsection outlines the procedure for investigating and measuring background radiation using a Geiger-Müller Counter.
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Follow steps in the \textit{Plotting a GM Plateau} subsection for the initial setup and configuration of the GM tube.
+			\item Set the GM tube to its optimal operating voltage as determined from the plateau experiment. This ensures that the tube is operating within its most efficient range.
+		\end{enumerate}
+		
+		\item \textbf{Background Radiation Counting:}
+		\begin{enumerate}
+			\item Ensure no radioactive source is placed near the GM tube to only measure ambient background radiation.
+			\item Record the count rate over a predetermined time interval to establish a baseline measurement of background radiation.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Document the background count rate along with environmental conditions that may affect it, such as electronic devices or building materials.
+			\item Analyze the significance of the background radiation level in relation to total radiation measurements performed in other experiments.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Evaluate the necessity of background radiation correction for subsequent experiments involving radioactive sources.
+			\item Assess any potential health risks or safety concerns based on the measured background radiation levels.
+		\end{enumerate}
+	\end{itemize}
+	
+	\subsection{Resolving Time}
+	
+	This subsection details the procedure for determining the resolving time of a Geiger-Müller Counter, which is crucial for understanding the temporal limitations of radiation detection by the GM tube.
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Follow steps in the \textit{Plotting a GM Plateau} subsection for the initial setup and configuration of the GM tube.
+			\item Set the GM tube to its optimal operating voltage as determined from the plateau experiment. This ensures that the tube is operating within its most efficient range.
+		\end{enumerate}
+		
+		\item \textbf{Voltage Setup:}
+		\begin{enumerate}
+			\item Set the GM tube to its optimal operating voltage as determined from the plateau experiment.
+		\end{enumerate}
+		
+		\item \textbf{Resolving Time Measurement:}
+		\begin{enumerate}
+			\item Prepare a test setup with two identical radioactive sources of known activity.
+			\item Place one source at a time in the detection range of the GM tube and record the count rates separately for each source as \( r_1 \) and \( r_2 \).
+			\item Place both sources simultaneously in the detection range and record the combined count rate as \( r_3 \).
+			\item Use these measurements to calculate the resolving time \( T \) of the GM tube using the formula: \[ T = \frac{r_1 + r_2 - r_3}{2 r_1 r_2} \]
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Document all individual and combined count rates.
+			\item Analyze the effect of coincidences on the count rates and calculate the GM tube's resolving time.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Determine the suitability of the GM tube's resolving time for various types of radiation experiments.
+			\item Assess how the resolving time might impact the accuracy and reliability of radiation measurements in high radiation fields.
+		\end{enumerate}
+	\end{itemize}
+	
+	\subsection{Geiger Tube Efficiency}
+	
+	This subsection outlines the procedure for determining the efficiency of a Geiger-Müller Counter in detecting various types of radiation to assess the performance characteristics of the GM tube.
+	
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Follow steps in the \textit{Plotting a GM Plateau} subsection for the initial setup and configuration of the GM tube.
+			\item Set the GM tube to its optimal operating voltage as determined from the plateau experiment. This ensures that the tube is operating within its most efficient range.
+		\end{enumerate}
+		
+		\item \textbf{Efficiency Measurement:}
+		\begin{enumerate}
+			\item Select radioactive sources with known activities and types of radiation (e.g., alpha, beta, gamma).
+			\item For each type of radiation, position the source at a fixed distance from the GM tube to ensure consistent measurement conditions.
+			\item Record the count rate for a set period, ensuring each type of radiation is measured under identical settings.
+			\item Calculate the efficiency of the GM tube for each type of radiation by comparing the observed count rates to the known activities of the sources.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Document the type of radiation, source activity, observed count rates, and calculated efficiencies.
+			\item Analyze how the GM tube's efficiency varies with different types of radiation, considering factors such as the energy and penetration power of each radiation type.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Assess the overall performance of the GM tube across different radiation types and identify any potential limitations.
+			\item Provide recommendations for the use of the GM tube in various practical applications based on its efficiency characteristics.
+		\end{enumerate}
+	\end{itemize}
+	
+	\subsection{Inverse Square Law}
+	
+	This subsection explains the procedure for verifying the Inverse Square Law with a Geiger-Müller Counter, which is fundamental for understanding the relationship between distance and radiation intensity.
+	
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Follow the \textit{Setup and Initial Configuration} steps from the \textit{Plotting a GM Plateau} subsection for the initial setup and configuration of the GM tube.
+			\item Ensure the GM tube is set to its optimal operating voltage as determined from the plateau experiment, ensuring accuracy in measurement.
+		\end{enumerate}
+		
+		\item \textbf{Testing the Inverse Square Law:}
+		\begin{enumerate}
+			\item Place a radioactive source (preferably one with a strong and easily detectable emission such as Cs-137) at a measured initial distance from the GM tube.
+			\item Record the count rate at this initial distance.
+			\item Incrementally increase the distance between the source and the GM tube, doubling the initial distance successively (e.g., 1cm, 2cm, 4cm, etc.).
+			\item Record the count rates at each distance.
+			\item Plot these distances against the corresponding count rates on a log-log graph to visually assess the inverse square relationship.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Document each distance and the corresponding count rate.
+			\item Use the data to calculate the intensity of radiation as a function of distance, ideally fitting a curve to verify the inverse square proportionality: \( I \propto \frac{1}{d^2} \) where \( I \) is intensity and \( d \) is distance.
+			\item Analyze any deviations from the ideal inverse square law which may be influenced by factors such as air absorption or scatter.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Summarize the findings and confirm whether the experimental data supports the Inverse Square Law.
+			\item Discuss the implications of the results for practical applications where understanding radiation intensity and distance is important, such as in medical radiography, nuclear safety, and radiation shielding.
+		\end{enumerate}
+	\end{itemize}
+	
+	\subsection{Range of Alpha Particles}
+	
+	This subsection details the procedure for determining the range of alpha particles using a Geiger-Müller Counter, an essential step for understanding the penetration power of alpha radiation and its interaction with matter.
+	
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Refer to the \textit{Setup and Initial Configuration} steps from the \textit{Plotting a GM Plateau} subsection for the initial setup and configuration of the GM tube.
+			\item Set the GM tube to its optimal operating voltage as determined from the plateau experiment, ensuring accurate measurements.
+		\end{enumerate}
+		
+		\item \textbf{Measuring Alpha Particle Range:}
+		\begin{enumerate}
+			\item Place an alpha-emitting radioactive source, such as Po-210, at a very close distance (a few centimeters) from the GM tube to maximize detection efficiency.
+			\item Record the count rate at this initial position.
+			\item Gradually increase the distance between the source and the GM tube in small increments, such as 0.5 cm, noting the count rate at each step.
+			\item Continue adjusting the distance until the count rate falls to background levels, indicating that alpha particles no longer reach the detector.
+			\item Measure and document the maximum distance at which alpha particles are detected, known as the range of the alpha particles in air.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Record the distances and corresponding count rates.
+			\item Plot these values to visually depict the decrease in alpha particle intensity with increased distance.
+			\item Analyze the range where the count rate significantly drops to near-background levels, establishing the practical range of alpha particles in air.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Evaluate the implications of the alpha particle range for safety and material design, particularly in scenarios involving radioactive materials.
+			\item Discuss the relationship between alpha particle energy and penetration range, highlighting how this experiment helps in understanding alpha radiation shielding requirements.
+		\end{enumerate}
+	\end{itemize}
+	
+	\subsection{Absorption of Beta Particles}
+	
+	This subsection describes the procedure for examining the absorption characteristics of beta particles using a Geiger-Müller Counter. This experiment is fundamental for understanding the interaction between beta radiation and matter, specifically how different materials can attenuate beta radiation.
+	
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Follow the \textit{Setup and Initial Configuration} steps from the \textit{Plotting a GM Plateau} subsection to prepare the GM tube.
+			\item Ensure the GM tube is set to the optimal operating voltage as determined from previous experiments, to ensure accurate and reliable measurements.
+		\end{enumerate}
+		
+		\item \textbf{Measuring Beta Particle Absorption:}
+		\begin{enumerate}
+			\item Select a beta-emitting radioactive source, such as Sr-90.
+			\item Place the source at a fixed distance from the GM tube. Begin without any absorber to record the baseline count rate.
+			\item Introduce absorbers of varying thicknesses and materials between the source and the GM tube. Common materials include aluminum, lead, and plastic.
+			\item For each absorber, record the count rate. Note how the count rate changes as the thickness or type of the absorber changes.
+			\item Incrementally increase the thickness of the absorber and observe the attenuation of beta particles until the count rate approaches background levels.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Document each type and thickness of the absorber used along with the corresponding count rates.
+			\item Plot the count rates against the thickness or type of the absorber to illustrate the absorption curve of beta particles.
+			\item Analyze how the absorption characteristics vary with different materials and thicknesses, and calculate the half-value layer for each type of absorber if applicable.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Summarize how effectively different materials can shield against beta radiation.
+			\item Discuss the practical applications of this knowledge in designing safety measures and protective gear for environments where beta radiation is present.
+		\end{enumerate}
+	\end{itemize}
+			
+	\subsection{Beta Decay Energy}
+	
+	This subsection describes the methodology for determining the energy spectrum of beta particles emitted by a radioactive source using a Geiger-Müller Counter. This experiment is essential for exploring the energetic properties of beta decay and its implications for nuclear physics and radiation protection.
+	
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Implement the \textit{Setup and Initial Configuration} steps from the \textit{Plotting a GM Plateau} subsection for setting up the GM tube.
+			\item Adjust the GM tube to the optimal operating voltage established from the plateau experiment, ensuring the detector operates within its effective range for accurate energy measurements.
+		\end{enumerate}
+		
+		\item \textbf{Measuring Beta Particle Energy:}
+		\begin{enumerate}
+			\item Use a beta-emitting radioactive source known for a specific energy spectrum, such as Sr-90 or P-32.
+			\item Position the source a consistent distance from the GM tube to standardize measurement conditions.
+			\item Employ a series of absorbers with precisely known thicknesses to progressively attenuate the beta particles.
+			\item Record the count rate as each absorber is introduced, noting the decrease in count rate corresponding to increased absorber thickness.
+			\item Use the count rates and known absorber properties to calculate the maximum energy of the beta particles using absorption data and range-energy relationships.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Log each absorber's material, thickness, and the associated count rates.
+			\item Analyze how the count rates decrease as the beta particles' energy is absorbed by the material, plotting energy absorption curves.
+			\item Determine the endpoint energy of the beta spectrum from the absorption data, which reflects the maximum energy that beta particles can carry.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Interpret the findings in the context of beta decay theory and discuss the energy spectrum of the utilized beta source.
+			\item Evaluate how the measured beta energies relate to theoretical predictions and their implications for applications in medical imaging, radiation therapy, and nuclear safety.
+		\end{enumerate}
+	\end{itemize}
+
+	\subsection{Absorption of Gamma Rays}
+	
+	This subsection outlines the procedure for studying the absorption characteristics of gamma rays through different materials using a Geiger-Müller Counter. Understanding gamma ray absorption is vital for applications in medical diagnostics, nuclear power management, and radiation shielding.
+	
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Follow the \textit{Setup and Initial Configuration} steps from the \textit{Plotting a GM Plateau} subsection for preparing the GM tube.
+			\item Ensure the GM tube is set to its optimal operating voltage, as identified from the plateau experiment, to accurately measure gamma radiation.
+		\end{enumerate}
+		
+		\item \textbf{Measuring Gamma Ray Absorption:}
+		\begin{enumerate}
+			\item Select a gamma-emitting radioactive source, such as Co-60 or Cs-137, known for their penetrating gamma rays.
+			\item Place the source at a fixed distance from the GM tube. Record the baseline count rate without any absorber to measure the unattenuated intensity.
+			\item Introduce different materials as absorbers between the source and the GM tube, starting with lighter materials like aluminum and progressing to denser materials like lead.
+			\item Record the count rate for each absorber, noting the attenuation of gamma rays as the absorber thickness or density increases.
+			\item Continuously adjust the thickness of each material to determine the half-value thickness, where the original intensity is reduced by half.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Document each absorber's material, thickness, and the corresponding count rates.
+			\item Plot these values to illustrate the relationship between absorber density/thickness and gamma ray attenuation.
+			\item Analyze the effectiveness of each material in shielding against gamma radiation, calculating the half-value layer for each type of absorber.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Summarize the results and assess the efficiency of different materials in absorbing gamma rays.
+			\item Discuss the implications of the findings for designing radiation protection measures and the safe handling of gamma-emitting sources.
+		\end{enumerate}
+	\end{itemize}
+	
+	\subsection{Half-Life Measurement}
+	
+	This subsection explains the procedure for measuring the half-life of a radioactive isotope, a key experiment for understanding the decay characteristics and stability of nuclear materials.
+	
+	\begin{itemize}
+		\item \textbf{Setup and Initial Configuration:}
+		\begin{enumerate}
+			\item Implement the \textit{Setup and Initial Configuration} steps from the \textit{Plotting a GM Plateau} subsection to prepare the GM tube.
+			\item Set the GM tube to the optimal operating voltage as determined from previous experiments to ensure accurate decay rate measurements.
+		\end{enumerate}
+		
+		\item \textbf{Measuring Half-Life:}
+		\begin{enumerate}
+			\item Choose a radioactive source with a known or suspected half-life that is practical for the duration of the laboratory session, such as Ba-137m.
+			\item Start with the source in close proximity to the GM tube to record the initial activity (count rate).
+			\item Record the activity at regular intervals over a period that includes several expected half-lives of the isotope. For isotopes with very short half-lives, measurements may need to be taken every few seconds or minutes; for longer half-lives, hourly measurements may suffice.
+			\item Continue recording until the activity decreases to a point where it approaches the background radiation level, or until enough data has been collected to clearly define the decay curve.
+		\end{enumerate}
+		
+		\item \textbf{Data Recording and Analysis:}
+		\begin{enumerate}
+			\item Document the time and corresponding count rate at each interval.
+			\item Plot the natural logarithm of the count rate against time to produce a decay curve. The slope of this line will provide the decay constant (\(\lambda\)), from which the half-life (\(T_{1/2}\)) can be calculated using the relationship \(T_{1/2} = \frac{\ln 2}{\lambda}\).
+			\item Analyze the data to confirm the exponential nature of the decay process and to accurately determine the half-life.
+		\end{enumerate}
+		
+		\item \textbf{Conclusion of Experiment:}
+		\begin{enumerate}
+			\item Evaluate the calculated half-life against known values (if available) to validate the experimental approach and the accuracy of the measurements.
+			\item Discuss the implications of the findings for practical applications, such as radioactive dating, medical diagnostics, and nuclear power generation.
+		\end{enumerate}
+	\end{itemize}
+	
+	
+\clearpage
+
+	\section{Results and Discussion}
+
+	The following subsections contains our results for each section with tables and graphs. This is accompanied by a discussion that includes interpretations of the results and error analysis.
+	
+	\subsection{Plotting a GM Plateau}
+	
+	% Table generated by Excel2LaTeX from sheet 'Operating Voltage'
+	\begin{table}[htbp]
+		\centering
+		\caption{Voltage ($\unit{\volt}$) vs Counts (30s) for Sr-90 Beta Radiation}
+		\begin{tabular}{ccccc}
+			\toprule
+			\multirow{3}[6]{*}{Voltage ($\unit{\volt}$)} & \multicolumn{4}{c}{Counts ($\qty{30}{\second}$)} \\
+			\cmidrule{2-5}      & \multicolumn{3}{c}{Trials} & \multirow{2}[4]{*}{Average} \\
+			\cmidrule{2-4}      & 1 & 2 & 3 &  \\
+			\midrule
+			700 & 1668 & 1659 & 1643 & 1657 \\
+			720 & 1762 & 1793 & 1765 & 1773 \\
+			740 & 1904 & 1917 & 1939 & 1920 \\
+			760 & 1968 & 2013 & 2000 & 1994 \\
+			780 & 2038 & 2072 & 2050 & 2053 \\
+			800 & 2038 & 2197 & 2181 & 2139 \\
+			820 & 2135 & 2129 & 2134 & 2133 \\
+			840 & 2223 & 2199 & 2210 & 2211 \\
+			860 & 2179 & 2236 & 2245 & 2220 \\
+			880 & 2357 & 2320 & 2359 & 2345 \\
+			900 & 2278 & 2305 & 2299 & 2294 \\
+			920 & 2287 & 2362 & 2325 & 2325 \\
+			940 & 2323 & 2340 & 2345 & 2336 \\
+			960 & 2544 & 2453 & 2482 & 2493 \\
+			980 & 2629 & 2484 & 2565 & 2559 \\
+			1000 & 3055 & 3081 & 3020 & 3052 \\
+			1020 & 4387 & 4364 & 4455 & 4402 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:1_Table}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{1_Graph.jpg}
+		\caption{Voltage ($\unit{\volt}$) vs Counts (30s) for Sr-90 Beta Radiation}
+		\label{fig:1_Graph}
+	\end{figure}
+	
+	The above graph does show a plateau around $\qty{875}{\volt}$ and $\qty{925}{\volt}$, we went with the average which gives $\qty{900}{\volt}$. This is the best operating voltage for this specific tube and so we use it for further experiments.
+	
+\clearpage
+
+	\subsection{Background}
+	
+	% Table generated by Excel2LaTeX from sheet 'Operating Voltage'
+	\begin{table}[htbp]
+		\centering
+		\caption{Background Radiation}
+		\begin{tabular}{ccccc}
+			\toprule
+			\multirow{3}[6]{*}{Voltage ($\unit{\volt}$)} & \multicolumn{4}{c}{Counts ($\qty{30}{\second}$)} \\
+			\cmidrule{2-5}      & \multicolumn{3}{c}{Trials} & \multirow{2}[4]{*}{Average} \\
+			\cmidrule{2-4}      & 1 & 2 & 3 &  \\
+			\midrule
+			900 & 26 & 21 & 27 & 25 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:3_Table}%
+	\end{table}%
+	
+	The measurements for some experiments were collated at different times, so this measurement for the background is not always used. This confirms the statistical variation of background radiation.
+	
+\clearpage
+	
+	\subsection{Resolving Time}
+	
+	This subsection was done at different times so the background radiation will be different. The resolving time is found using
+	\[
+		T = \frac{r_1 + r_2 - r_3}{2r_1 r_2}.
+	\]
+	Also the True cpm is found by
+	\[
+		R = \frac{r}{1-rT}.
+	\]
+	\% Counts added is found by
+	\[
+		\% = \left( \frac{\abs{New - Corrected}}{Corrected} \right).
+	\]
+	% Table generated by Excel2LaTeX from sheet 'Resolving Time'
+	\begin{table}[htbp]
+		\centering
+		\caption{First Trial for Ti-204 Beta Radiation}
+		\begin{tabular}{ccccc}
+			\toprule
+			Half-sources & cpm & Corrected cpm & True cpm & \% Counts Added \\
+			\midrule
+			r1 & 84702 & 84544 & 137243 & 62.03\% \\
+			r2 & 84900 & 84742 & 137766 & 62.27\% \\
+			r3 & 104365 & 104207 & 197845 & 89.57\% \\
+			\midrule
+			Background cpm & 158 &   &   &  \\
+			Resolving Time ($\unit{\second}$) & 4.54181E-06 &   &   &  \\
+			\cmidrule{1-2}    \end{tabular}%
+		\label{tab:4_Table_1}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'Resolving Time'
+	\begin{table}[htbp]
+		\centering
+		\caption{Second Trial for Ti-204 Beta Radiation}
+		\begin{tabular}{ccccc}
+			\toprule
+			Half-sources & cpm & Corrected cpm & True cpm & \% Counts Added \\
+			\midrule
+			r1 & 53949 & 53920 & 71407 & 32.36\% \\
+			r2 & 55928 & 55899 & 74920 & 33.96\% \\
+			r3 & 82970 & 82941 & 133068 & 60.38\% \\
+			\midrule
+			Background cpm & 29 &   &   &  \\
+			Resolving Time ($\unit{\second}$) & 4.45875E-06 &   &   &  \\
+			\cmidrule{1-2}    \end{tabular}%
+		\label{tab:4_Table_2}%
+	\end{table}%
+	
+	The average resolving time for this tube is $\qty{4.50028e-6}{\second}$, and it falls withing the accepted $\qty{1}{\micro\second}$ to $\qty{100}{\micro\second}$ range. This value is used for further experiments wherever True cpm is calculated. The percent of correction is not the same for all values, ideally it should be consistent but because of inherent errors in the experiment the percentage varies. Some errors include
+	\begin{itemize}
+		\item \textbf{Random Nature of Decay}: Radioactive decay is a stochastic process, meaning it is random by nature. The time between decay events is exponentially distributed, which can lead to variability in the number of disintegrations observed over a fixed time interval, even under identical experimental conditions.
+		\item \textbf{Detector Efficiency Variability}: Geiger-Müller tubes can have slight variations in sensitivity and efficiency, even among tubes of the same model and make. These variations can affect how many events the tube detects, particularly during periods of high activity when multiple decays occur close together in time.
+		\item \textbf{Experimental Setup}: Small differences in how the experiment is set up each time can influence results. This includes variations in source placement, environmental conditions (like temperature and humidity), and background radiation levels, all of which can affect the count rate.
+		\item \textbf{Dead Time of the Detector}: The dead time (Resolving time) can vary slightly depending on the specific characteristics of the tube and the operating voltage. If the count rates are high, even small variations in dead time can significantly impact the percentage of counts added.
+	\end{itemize}
+	
+\clearpage
+
+	\subsection{Geiger Tube Efficiency}
+	
+	% Table generated by Excel2LaTeX from sheet 'Efficiency'
+	\begin{table}[htbp]
+		\centering
+		\caption{Efficiency Table}
+		\begin{tabular}{cccccc}
+			\toprule
+			Trials & cpm & Corrected cpm & True cpm & Expected cpm & Efficiency \\
+			\midrule
+			1 & 53720 & 53720 & 70848 & 445778820 & 0.02\% \\
+			2 & 53436 & 53436 & 70355 & 445778820 & 0.02\% \\
+			3 & 53530 & 53530 & 70518 & 445778820 & 0.02\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:5_Table_1}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'Efficiency'
+	\begin{table}[htbp]
+		\centering
+		\caption{Cs-137 Relevant Information}
+		\begin{tabular}{cc}
+			\toprule
+			Dead Time (s)  & 4.50028E-06 \\
+			Initial Activity (Ci) & 5.00E-06 \\
+			Half-life (yrs) & 30.2 \\
+			Manufacturing Date & 1 11 2006 \\
+			Current Date & 29 04 2024 \\
+			Time since MD (yrs) & 17.49 \\
+			Today Activity (Ci) & 3.34647E-06 \\
+			Ci to Bq & 3.70E+10 \\
+			Today Activity (Bq) & 7429173 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:5_Table_2}%
+	\end{table}%
+	
+	The efficiency is very low indicating that not all the expected counts were counted. This is a given due to many factors: the activity of the sample decaying over time, the placement of the sample in the holder, environmental fluctuations, etc. The main factor is the expected cpm accounts for all the radiation emitting from a sample, not the fraction detected by the GM tube.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{sphere.jpg}
+		\caption{Sphere of radiation}
+		\label{fig:}
+	\end{figure}
+	
+	Comparing the surface area of a sphere $\qty{3}{\centi\meter}$ from the source to the area of the GM tube's window (ST360: $\qty{35}{\milli\meter}$ OD).
+	\[
+		\frac{\pi(\frac{\qty{3.5}{\centi\meter}}{2})^2}{4\pi(\qty{3}{\centi\meter})^2} = 0.0851
+	\]
+	Multiplying this ratio by the expected cpm gives $37935777$, which is still far from the True cpm.
+	
+	
+\clearpage
+	
+	\subsection{Inverse Square Law}
+	
+	% Table generated by Excel2LaTeX from sheet 'Inverse Square Law'
+	\begin{table}[htbp]
+		\centering
+		\caption{Distance d ($\unit{\centi\meter}$) vs Counts (cpm) for Cs-137 Beta/Gamma Radiation}
+		\begin{tabular}{cccccccc}
+			\toprule
+			\multirow{3}[6]{*}{d ($\unit{\centi\meter}$)} & \multirow{3}[6]{*}{1/$d^2$ ($\unit{\per\centi\meter\squared}$)} & \multicolumn{6}{c}{Counts (cpm)} \\
+			\cmidrule{3-8}      &   & \multicolumn{3}{c}{Trials} & \multirow{2}[4]{*}{Average} & \multirow{2}[4]{*}{Corrected Average} & \multirow{2}[4]{*}{True Average} \\
+			\cmidrule{3-5}      &   & 1 & 2 & 3 &   &   &  \\
+			\midrule
+			2 & 0.25 & 53640 & 53336 & 53516 & 53497 & 53473 & 70418 \\
+			3 & 0.11 & 34358 & 34722 & 34497 & 34526 & 34501 & 40842 \\
+			4 & 0.06 & 23032 & 22858 & 23049 & 22980 & 22955 & 25600 \\
+			5 & 0.04 & 15941 & 15638 & 16057 & 15879 & 15854 & 17072 \\
+			6 & 0.03 & 11760 & 11533 & 11592 & 11628 & 11604 & 12243 \\
+			7 & 0.02 & 8877 & 8903 & 8832 & 8871 & 8846 & 9213 \\
+			8 & 0.02 & 6958 & 7031 & 6992 & 6994 & 6969 & 7195 \\
+			9 & 0.01 & 5603 & 5659 & 5587 & 5616 & 5592 & 5736 \\
+			10 & 0.01 & 4638 & 4622 & 4643 & 4634 & 4610 & 4707 \\
+			11 & 0.01 & 3963 & 4012 & 3931 & 3969 & 3944 & 4015 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:8_Table}%
+	\end{table}%
+
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{8_Graph_1.jpg}
+			\caption{\centering Distance ($\unit{\centi\meter}$) vs Counts (cpm) for Cs-137 Beta/Gamma Radiation}
+			\label{fig:8_Graph_1}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{8_Graph_2.jpg}
+			\caption{\centering 1/Distance$^2$ ($\unit{\per\centi\meter\squared}$) vs Counts (cpm) for Cs-137 Beta/Gamma Radiation}
+			\label{fig:8_Graph_2}
+		\end{minipage}
+	\end{figure}
+	
+	Figure 5 shows the asymptotic behavior of radiation intensity of source with varying distance, and Figure 6 verifies the inverse square law by Intensity $\propto 1/d^2$. An $R^2$ value of 0.9802 indicates a strong correlation.
+
+\clearpage
+
+	\subsection{Range of Alpha Particles}
+	
+	% Table generated by Excel2LaTeX from sheet 'Range'
+	\begin{table}[htbp]
+		\centering
+		\caption{Distance d ($\unit{\centi\meter}$) vs Counts (cpm) for Am-241 Alpha Radiation}
+		\begin{tabular}{cccccccc}
+			\toprule
+			\multirow{3}[6]{*}{Distance ($\unit{\centi\meter}$)} & \multicolumn{7}{c}{Counts (cpm)} \\
+			\cmidrule{2-8}      & \multicolumn{3}{c}{Trials} & \multirow{2}[4]{*}{Average} & \multirow{2}[4]{*}{Corrected Average} & \multirow{2}[4]{*}{True Average} & \multirow{2}[4]{*}{$I/I_0$} \\
+			\cmidrule{2-4}      & 1 & 2 & 3 &   &   &   &  \\
+			\midrule
+			1.5 & 11958 & 11782 & 11679 & 11806 & 11806 & 12469 & 1 \\
+			2 & 11098 & 11165 & 11207 & 11157 & 11132 & 11719 & 0.93985 \\
+			2.5 & 8274 & 8270 & 8243 & 8262 & 8262 & 8581 & 0.68819 \\
+			3 & 138 & 144 & 137 & 140 & 140 & 140 & 0.01123 \\
+			4 & 72 & 74 & 68 & 71 & 71 & 71 & 0.00569 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:9_Table_1}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.6\textwidth]{9_Graph.jpg}
+		\caption{Distance d ($\unit{\centi\meter}$) vs Counts (cpm) for Am-241 Alpha Radiation}
+		\label{fig:9_Graph}
+	\end{figure}
+	
+	We were able to take some reading less than $\qty{2}{\centi\meter}$ and this allows us to see the curve slope down over a certain interval of distances towards zero. This range indicates that not every identical particle will have identical energy loss because every particles goes through a different number of collisions. This phenomenon is called \textit{range straggling} and the mean range $\bar{R}$ can be used to approximate the energy of an alpha particle. The energy is approximated by $E \approx R + 1.5$, where $E$ is in $\unit{\mega\electronvolt}$ and $R$ is in $\unit{\centi\meter}$.
+	
+	% Table generated by Excel2LaTeX from sheet 'Range'
+	\begin{table}[htbp]
+		\centering
+		\caption{Energy Calculation and Error}
+		\begin{tabular}{cccc}
+			\toprule
+			Mean Range & Approximated Energy & Expected Energy & \multirow{2}[2]{*}{\% error} \\
+			($\unit{\centi\meter}$) & ($\unit{\joule}$) & ($\unit{\joule}$) &  \\
+			\midrule
+			2.63 & 4.13 & 5.34 & 29\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:9_Table_2}%
+	\end{table}%
+	
+	The percent error is high indicating some inherent error in the experiment. Main source of error would be misalignment of the source and detector especially with this sample since alpha particles have very short range in air, any deviation can introduce error. The air density can fluctuate from temperature or pressure changes from nearby objects like humans, GM Tube, computers.
+	
+\clearpage
+
+	\subsection{Absorption of Beta Particles}
+	
+	% Table generated by Excel2LaTeX from sheet 'Absorption'
+	\begin{table}[htbp]
+		\centering
+		\caption{\centering Mass Thickness vs ln(True cpm)}
+		\begin{tabular}{cccccc}
+			\toprule
+			\multirow{2}[4]{*}{Material} & Thickness & Mass Thickness & \multirow{2}[4]{*}{cpm} & \multirow{2}[4]{*}{True cpm} & \multirow{2}[4]{*}{ln(New cpm)} \\
+			\cmidrule{2-3}      & ($\unit{\milli\meter}$) & ($\unit{\milli\gram\per\centi\meter\squared}$) &   &   &  \\
+			\midrule
+			no absorber & 0 & 0 & 8047 & 8279 & 3.918 \\
+			Al foil A & 0.7 mil & 4.5 & 7561 & 7827 & 3.894 \\
+			Al foil B & 1 mil & 6.5 & 7507 & 7769 & 3.890 \\
+			Poly C & 5 mil & 14.1 & 7444 & 7702 & 3.887 \\
+			Poly D & 10 mil & 28.1 & 6813 & 7028 & 3.847 \\
+			Plastic E & 0.03 & 59.1 & 5062 & 5180 & 3.714 \\
+			Plastic F & 0.04 & 102 & 4925 & 5037 & 3.702 \\
+			Al G & 0.02 & 129 & 4464 & 4556 & 3.659 \\
+			Al H & 0.025 & 161 & 3910 & 3980 & 3.600 \\
+			Al I & 0.032 & 206 & 3426 & 3480 & 3.542 \\
+			Al J & 0.04 & 258 & 2720 & 2754 & 3.440 \\
+			Al K & 0.05 & 328 & 1924 & 1941 & 3.288 \\
+			Al L & 0.063 & 419 & 1176 & 1182 & 3.073 \\
+			Al M & 0.08 & 516 & 617 & 619 & 2.792 \\
+			Al N & 0.09 & 590 & 363 & 364 & 2.561 \\
+			Al O & 0.1 & 645 & 272 & 272 & 2.435 \\
+			Al P & 0.125 & 849 & 108 & 108 & 2.033 \\
+			Lead Q & 0.032 & 1230 & 71 & 71 & 1.851 \\
+			Lead R & 0.064 & 1890 & 72 & 72 & 1.857 \\
+			Lead S & 0.125 & 3632 & 71 & 71 & 1.851 \\
+			Lead T & 0.25 & 7435 & 68 & 68 & 1.833 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:10_Table}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{10_Graph_1.jpg}
+			\caption{\centering Mass Thickness vs ln(True cpm) with background}
+			\label{fig:10_Graph_1}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{10_Graph_2.jpg}
+			\caption{\centering Mass Thickness vs ln(True cpm) without background}
+			\label{fig:10_Graph_2}
+		\end{minipage}
+	\end{figure}
+	
+	For Figure 8, the drop-off in cpm is sharp initially and then flattens out, which is due to background radiation. Figure 9 is constructed by subtracting the average of the background from Lead and removing those reading, now it depicts a clear linear decay trend of ln(True cpm) with mass thickness, which is more consistent with the theoretical expectation for beta particle absorption. The linear trend line with a negative slope and a high \( R^2 \) value suggests a good fit to an exponential decay model, implying that the intensity of beta radiation decreases exponentially with the mass thickness of the absorber.
+	
+	
+\clearpage
+	
+	\subsection{Beta Decay Energy}
+	
+	% Table generated by Excel2LaTeX from sheet 'Decay'
+	\begin{table}[htbp]
+		\centering
+		\caption{Mass Thickness vs log(True cpm)}
+		\begin{tabular}{cccccc}
+			\toprule
+			\multirow{2}[4]{*}{Material} & Thickness & Mass Thickness & \multirow{2}[4]{*}{cpm} & \multirow{2}[4]{*}{True cpm} & \multirow{2}[4]{*}{log(New cpm)} \\
+			\cmidrule{2-3}      & ($\unit{\milli\meter}$) & ($\unit{\milli\gram\per\centi\meter\squared}$) &   &   &  \\
+			\midrule
+			no absorber & 0 & 0 & 8047 & 8279 & 3.918 \\
+			Al foil A & 0.7 mil & 4.5 & 7561 & 7757 & 3.890 \\
+			Al foil B & 1 mil & 6.5 & 7507 & 7699 & 3.886 \\
+			Poly C & 5 mil & 14.1 & 7444 & 7632 & 3.883 \\
+			Poly D & 10 mil & 28.1 & 6813 & 6958 & 3.842 \\
+			Plastic E & 0.03 & 59.1 & 5062 & 5110 & 3.708 \\
+			Plastic F & 0.04 & 102 & 4925 & 4967 & 3.696 \\
+			Al G & 0.02 & 129 & 4464 & 4486 & 3.652 \\
+			Al H & 0.025 & 161 & 3910 & 3910 & 3.592 \\
+			Al I & 0.032 & 206 & 3426 & 3410 & 3.533 \\
+			Al J & 0.04 & 258 & 2720 & 2684 & 3.429 \\
+			Al K & 0.05 & 328 & 1924 & 1871 & 3.272 \\
+			Al L & 0.063 & 419 & 1176 & 1112 & 3.046 \\
+			Al M & 0.08 & 516 & 617 & 549 & 2.740 \\
+			Al N & 0.09 & 590 & 363 & 294 & 2.468 \\
+			Al O & 0.1 & 645 & 272 & 202 & 2.305 \\
+			Al P & 0.125 & 849 & 108 & 38 & 1.580 \\
+			Lead Q & 0.032 & 1230 & 71 & 1 & 0.000 \\
+			Lead R & 0.064 & 1890 & 72 & 2 & 0.301 \\
+			Lead S & 0.125 & 3632 & 71 & 1 & 0.000 \\
+			Lead T & 0.25 & 7435 & 68 & -2 & 0.000 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:11_Table}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{11_Graph.jpg}
+		\caption{\centering Mass Thickness vs log(True cpm) without background}
+		\label{fig:11_Graph}
+	\end{figure}
+	
+	The maximum energy of the beta particles is $\qty{0.546}{\unit{\mega\electronvolt}}$, the experimental measurement is found by setting the equation of the line to 0 and finding x. $x = \qty{1.3926e3}{\milli\gram\per\centi\meter\squared}$. Dividing this by 1000 to convert it to suitable units and inserting it into $E = 1.84R+0.212$, where $R$ is in $\unit{\gram\per\centi\meter\squared}$. $E = \qty{2.7743}{\mega\electronvolt}$. Clearly this is too far from the real value and this can be attributed to range strangling. I attempted to remove range straggling by not counting the lead readings from the graph. Even so, this indicates that range strangling occurs for aluminum, meaning the x-intercept must be between $\qty{129}{\\gram\per\centi\meter\squared}$ and $\qty{849}{\milli\gram\per\centi\meter\squared}$.
+	
+	
+\clearpage
+
+	\subsection{Absorption of Gamma Rays}
+	
+	% Table generated by Excel2LaTeX from sheet 'Gamma Decay'
+	\begin{table}[htbp]
+		\centering
+		\caption{Mass Thickness vs ln($I/I_0$)}
+		\begin{tabular}{cccccc}
+			\toprule
+			\multirow{2}[4]{*}{Material} & Thickness & Mass Thickness & \multirow{2}[4]{*}{cpm} & \multirow{2}[4]{*}{True cpm} & \multirow{2}[4]{*}{ln($I/I_0$)} \\
+			\cmidrule{2-3}      & ($\unit{\milli\meter}$) & ($\unit{\milli\gram\per\centi\meter\squared}$) &   &   &  \\
+			\midrule
+			no absorber & 0 & 0 & 265 & 265 & 0.000 \\
+			Al foil A & 0.7 mil & 4.5 & 264 & 264 & -0.004 \\
+			Al foil B & 1 mil & 6.5 & 276 & 276 & 0.041 \\
+			Poly C & 5 mil & 14.1 & 284 & 284 & 0.069 \\
+			Poly D & 10 mil & 28.1 & 286 & 286 & 0.076 \\
+			Plastic E & 0.03 & 59.1 & 254 & 254 & -0.042 \\
+			Plastic F & 0.04 & 102 & 234 & 234 & -0.124 \\
+			Al G & 0.02 & 129 & 229 & 229 & -0.146 \\
+			Al H & 0.025 & 161 & 260 & 260 & -0.019 \\
+			Al I & 0.032 & 206 & 262 & 262 & -0.011 \\
+			Al J & 0.04 & 258 & 243 & 243 & -0.087 \\
+			Al K & 0.05 & 328 & 239 & 239 & -0.103 \\
+			Al L & 0.063 & 419 & 253 & 253 & -0.046 \\
+			Al M & 0.08 & 516 & 256 & 256 & -0.035 \\
+			Al N & 0.09 & 590 & 273 & 273 & 0.030 \\
+			Al O & 0.1 & 645 & 300 & 300 & 0.124 \\
+			Al P & 0.125 & 849 & 231 & 231 & -0.137 \\
+			Lead Q & 0.032 & 1230 & 242 & 242 & -0.091 \\
+			Lead R & 0.064 & 1890 & 266 & 266 & 0.004 \\
+			Lead S & 0.125 & 3632 & 205 & 205 & -0.257 \\
+			Lead T & 0.25 & 7435 & 179 & 179 & -0.392 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:12_Table}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{12_Graph.jpg}
+		\caption{Mass Thickness vs ln($I/I_0$)}
+		\label{fig:12_Graph}
+	\end{figure}
+	
+	The best fit line indicates the exponential nature of attenuation, where $I=I_0 e^{-\mu X}$, $\mu = \num{5e-5}$. With that we can find the half mass thickness $X_{1/2}$ by $I_0 /2 = I_0 e^{-\mu X_{1/2}}$.
+	\[
+		X_{1/2} = \frac{\ln(2)}{\num{5e-5}} = \qty{13863}{\milli\gram\per\centi\meter\squared}
+	\]
+	This is consistent with our data as no absorber has $265$ cpm, half of that is $133$ cpm and our readings reach $179$ cpm, so there is still more shielding needed to half the original cpm.
+	
+	
+\clearpage
+
+	\subsection{Half-Life of Ba-137m}
+	
+	% Table generated by Excel2LaTeX from sheet 'Half-Life'
+	\begin{table}[htbp]
+		\centering
+		\caption{Half-life readings for Ba-137m}
+		\begin{tabular}{ccccc}
+			\toprule
+			Time & cpm & Corrected cpm & New cpm & ln(New cpm) \\
+			\midrule
+			(Background Count) & 31 &   &   &  \\
+			30 & 3205 & 3174 & 3220 & 8.08 \\
+			60 & 2749 & 2718 & 2752 & 7.92 \\
+			90 & 2329 & 2298 & 2322 & 7.75 \\
+			120 & 2079 & 2048 & 2067 & 7.63 \\
+			150 & 1842 & 1811 & 1826 & 7.51 \\
+			180 & 1627 & 1596 & 1608 & 7.38 \\
+			210 & 1376 & 1345 & 1353 & 7.21 \\
+			240 & 1186 & 1155 & 1161 & 7.06 \\
+			270 & 1051 & 1020 & 1025 & 6.93 \\
+			300 & 835 & 804 & 807 & 6.69 \\
+			330 & 825 & 794 & 797 & 6.68 \\
+			360 & 736 & 705 & 707 & 6.56 \\
+			390 & 624 & 593 & 595 & 6.39 \\
+			420 & 546 & 515 & 516 & 6.25 \\
+			450 & 488 & 457 & 458 & 6.13 \\
+			480 & 426 & 395 & 396 & 5.98 \\
+			510 & 373 & 342 & 343 & 5.84 \\
+			540 & 356 & 325 & 325 & 5.78 \\
+			570 & 271 & 240 & 240 & 5.48 \\
+			600 & 254 & 223 & 223 & 5.41 \\
+			630 & 221 & 190 & 190 & 5.25 \\
+			660 & 191 & 160 & 160 & 5.08 \\
+			690 & 157 & 126 & 126 & 4.84 \\
+			720 & 150 & 119 & 119 & 4.78 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:13_Table_1}%
+	\end{table}%
+	
+	\begin{figure}
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{13_Graph_1.jpg}
+			\caption{\centering Time (s) vs ln(cpm)}
+			\label{fig:13_Graph_1}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{13_Graph_2.jpg}
+			\caption{\centering Time (s) vs True cpm}
+			\label{fig:13_Graph_2}
+		\end{minipage}
+	\end{figure}
+	
+	% Table generated by Excel2LaTeX from sheet 'Half-Life'
+	\begin{table}[htbp]
+		\centering
+		\caption{Half-life Error Analysis}
+		\begin{tabular}{cccccc}
+			\toprule
+			Data & lambda & $t_{1/2}$ & Standard Error $t_{1/2}$ & $\sigma_{t_{1/2}}$ & \# of $\sigma$'s \\
+			\midrule
+			First Half & 0.00469 & 147.69612 & 3.45404 & 11.96516 & 0.44328 \\
+			Second Half & 0.00501 & 138.23978 & 3.88492 & 13.45775 & 1.09678 \\
+			Whole  & 0.00472 & 146.74856 & 1.50594 & 7.37758 & 0.84736 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:13_Table_2}%
+	\end{table}%
+	
+	The standard error comes from the regression analysis tables, and the standard deviations $\sigma$ are found by $SE = \frac{\sigma}{\sqrt{n}}$ where n is the number of observations for that run. The real value of Ba-137m $t_{1/2}$ is $\qty{153}{\second}$ and the \# of $\sigma$'s is found by $\frac{\abs{Experimental - Real}}{\sigma_{t_{1/2}}}$. The best result from the three is the first half with a percent error of $3.47\%$. Initially one would think the whole data would give the best result but this indicates some inherent errors in the experiment. The relationship is exponential meaning that linear regression is not the best model. Also the inherent statistical variation of radiation is a major factor.
+	
+	% Table generated by Excel2LaTeX from sheet 'Half-Life'
+	\begin{table}[htbp]
+		\centering
+		\caption{First Half Data Regression Analysis}
+		\begin{tabular}{ccc}
+			\cmidrule{1-2}    \textit{Regression Statistics} &   &  \\
+			\cmidrule{1-2}    Multiple R & 0.997 &  \\
+			R Square & 0.995 &  \\
+			Adjusted R Square & 0.994 &  \\
+			Standard Error & 0.039 &  \\
+			Observations & 12.000 &  \\
+			\cmidrule{1-2}      &   &  \\
+			\midrule
+			& \textit{Coefficients} & \textit{Standard Error} \\
+			\midrule
+			Intercept & 8.199 & 0.024 \\
+			X Variable 1 & -0.005 & 0.000 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:13_Table_3}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'Half-Life'
+	\begin{table}[htbp]
+		\centering
+		\caption{Second Half Data Regression Analysis}
+		\begin{tabular}{ccc}
+			\cmidrule{1-2}    \textit{Regression Statistics} &   &  \\
+			\cmidrule{1-2}    Multiple R & 0.996 &  \\
+			R Square & 0.992 &  \\
+			Adjusted R Square & 0.991 &  \\
+			Standard Error & 0.051 &  \\
+			Observations & 12.000 &  \\
+			\cmidrule{1-2}      &   &  \\
+			\midrule
+			& \textit{Coefficients} & \textit{Standard Error} \\
+			\midrule
+			Intercept & 8.382 & 0.080 \\
+			X Variable 1 & -0.005 & 0.000 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:13_Table_4}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'Half-Life'
+	\begin{table}[htbp]
+		\centering
+		\caption{Whole Data Regression Analysis}
+		\begin{tabular}{ccc}
+			\cmidrule{1-2}    \textit{Regression Statistics} &   &  \\
+			\cmidrule{1-2}    Multiple R & 0.999 &  \\
+			R Square & 0.998 &  \\
+			Adjusted R Square & 0.998 &  \\
+			Standard Error & 0.049 &  \\
+			Observations & 24.000 &  \\
+			\cmidrule{1-2}      &   &  \\
+			\midrule
+			& \textit{Coefficients} & \textit{Standard Error} \\
+			\midrule
+			Intercept & 8.213 & 0.021 \\
+			X Variable 1 & -0.005 & 0.000 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:13_Table_5}%
+	\end{table}%
+	
+	
+	
+	
+	
+\clearpage
+
+	\section{Applications}
+	
+	Radioactivity has a wide range of applications across various fields. Some of the key applications include:
+	
+	\begin{itemize}
+		\item \textbf{Medical Applications:}
+		\begin{itemize}
+			\item \textit{Diagnostic Imaging:} Radioactive tracers are used in nuclear medicine to diagnose ailments. Techniques like Positron Emission Tomography (PET) scans use radioisotopes to visualize and measure metabolic processes in the body.
+			\item \textit{Radiation Therapy:} Radioisotopes are used to treat certain types of cancer. Targeted radiation can destroy malignant cells, minimizing damage to healthy tissue.
+		\end{itemize}
+		
+		\item \textbf{Industrial Applications:}
+		\begin{itemize}
+			\item \textit{Material Testing:} Radioactive sources are used in non-destructive testing to inspect metal parts and welds for defects.
+			\item \textit{Radiation Processing:} Radiation is used to sterilize medical products and food items, as well as to improve the properties of materials like polymers.
+		\end{itemize}
+		
+		\item \textbf{Scientific Research:}
+		\begin{itemize}
+			\item \textit{Radiometric Dating:} Radioactive isotopes are used to date ancient materials, such as archaeological artifacts and geological formations, based on their decay rates.
+			\item \textit{Tracer Studies:} Radioisotopes are used as tracers in environmental and biological research to track the movement and chemical reactions of substances.
+		\end{itemize}
+		
+		\item \textbf{Energy Production:}
+		\begin{itemize}
+			\item \textit{Nuclear Power:} Radioactive materials, such as uranium, are used as fuel in nuclear reactors to generate electricity through controlled nuclear fission reactions.
+		\end{itemize}
+		
+		\item \textbf{National Security:}
+		\begin{itemize}
+			\item \textit{Border Security:} Radioactive sources are used in detection systems to prevent the illegal transport of radioactive materials across borders.
+			\item \textit{Nuclear Forensics:} Techniques that involve the analysis of radioactive materials can help in investigating nuclear smuggling and terrorism.
+		\end{itemize}
+	\end{itemize}
+	
+	
+\clearpage
+
+	\section{Conclusion}
+
+	The series of experiments conducted provided a comprehensive understanding of several phenomena associated with radioactivity. The inverse square law was confirmed within an acceptable margin of error, demonstrating the predictable nature of radiation intensity as a function of distance from a source. The experiments involving the absorption of beta and gamma rays yielded results that were consistent with established physical laws, although the beta particle energy measurements indicated a need for further refinement in experimental technique.
+	
+	The half-life measurement for Ba-137m, while not entirely within the expected range, offered a practical exercise in the challenges of radiometric data collection and analysis. The observed percent error prompted a review of the data collection process, leading to improvements in both methodology and analytical precision.
+	
+	In summary, the experiments successfully demonstrated the core principles of radioactivity and its measurement, reinforcing theoretical knowledge with empirical data. The experience has shown the importance of experimental design and has provided valuable lessons in the interpretation of radiometric data. 
+
+\clearpage
+
+	\printbibliography
+
+\clearpage
+
+	\section{Appendix}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Sources.jpeg}
+		\caption{Sources}
+		\label{fig:Sources}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Absorbers.jpeg}
+		\caption{Absorbers kit}
+		\label{fig:Absorbers}
+	\end{figure}
+	
+\end{document}

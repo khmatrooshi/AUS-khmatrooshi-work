@@ -1,0 +1,691 @@
+\documentclass[11pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\doublespacing
+
+\usepackage[shortconst]{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\setlist[itemize]{leftmargin=*, labelindent=\parindent, noitemsep, topsep=0pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt}
+
+\hypersetup{
+	pdftitle={Hall Effect},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{Hall Effect} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			This experiment aimed to explore the temperature-dependent resistivity and Hall effect in p-type and n-type Germanium (Ge) to elucidate the materials' semiconductor properties. Standard procedures for measuring resistivity and Hall voltage were employed, with temperatures ranging from room temperature to $\qty{120}{\degreeCelsius}$ and magnetic fields up to $\qty{300}{\milli\tesla}$. Our results demonstrated the expected decrease in resistivity with temperature for p-type Ge, and a linear relationship between Hall voltage and magnetic field for both semiconductor types. The experiment yielded an activation energy of $\qty{0.66}{\electronvolt}$ for p-type Ge, with carrier concentrations and mobilities showing significant variance from literature values. The sources of error were  evaluated, revealing potential improvements in instrumental calibration, sample uniformity, and electromagnetic shielding. The findings underscore the complexity of precise semiconductor measurements.
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{Hall effect, Semiconductor, Resistivity, Activation energy}
+	\end{titlepage}
+	
+	\clearpage
+	
+	\section{Introduction}	
+	
+	The Hall effect, a fundamental phenomenon observed in conductive and semiconductive materials, is integral to understanding the behavior of charge carriers when subjected to magnetic fields. Discovered by Edwin Hall in 1879, this effect has been pivotal in characterizing the electronic properties of materials, including metals, insulators, and semiconductors.
+	
+	At the core of the Hall effect is the generation of an electric field, known as the Hall field, perpendicular to both the current flow and the applied magnetic field. This transverse electric field induces a potential difference, or Hall voltage, across the material. The Hall voltage's magnitude and sign provide valuable information about the nature and density of charge carriers in the material, distinguishing between electron or hole dominant conduction.
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Hall Effect}
+		\includegraphics[width=0.8\textwidth]{HallEffect.jpg}
+	\end{figure}
+	
+	The objectives of this experiment are multifaceted. Primarily, it aims to explore the Hall effect in semiconductor materials, such as Germanium (Ge), which exhibit distinctive electrical properties due to their energy band structure. The experiment will investigate the temperature dependence of resistivity, highlighting the different behavior of semiconductors compared to metals as temperature varies. Additionally, the experiment will focus on determining charge carrier density and mobility by measuring electrical resistivity and the Hall coefficient, respectively. These measurements will shed light on the scattering mechanisms of carriers and the types of forces acting on a carrier in a magnetic field.
+	
+	The temperature dependence of resistivity in semiconductors, such as Germanium (Ge), differs significantly from that of metals. While the resistance of metals typically increases with temperature, the resistance of semiconductors like Ge decreases as temperature rises near room temperature. This behavior is due to the increase in the number of charge carriers (electrons and holes) available for conduction as the temperature increases.
+	
+	The conductivity of a semiconductor is determined by two factors: the number of charge carriers and their mobility. In semiconductors, the number of charge carriers increases exponentially with temperature, leading to a decrease in resistivity. This relationship is described by an exponential equation for intrinsic p-type Ge:
+	
+	\begin{equation}
+		\rho(T) = \rho_0 e^{\frac{E_A}{2k_B T}} \label{eq:1}
+	\end{equation}
+	
+	where \( \rho(T) \) is the resistivity at temperature \( T \), \( \rho_0 \) is the resistivity limit as \( T \) approaches infinity, \( E_A \) is the activation energy, \( k_B \) is the Boltzmann constant, and \( T \) is the temperature in Kelvin.
+	
+	The activation energy \( E_A \) is a crucial parameter in semiconductors, representing the energy required for an electron to jump from the valence band to the conduction band. In semiconductors with a small band gap (less than about 2 eV), electrons can be thermally excited across the band gap, contributing to the conductivity.
+	
+	Resistivity can be related to charge carrier mobility from first principles leading to the following equation:
+	
+	\begin{equation}
+		\rho = \frac{1}{nq \mu} \label{eq:2}
+	\end{equation}
+	
+	where: $n$ is the dominant charge carrier density, $q$ is the charge (elementary charge), $\mu$ is the mobility of the dominant charge carriers. In this experiment, we call the dominant charge carrier density $n$ the hall carrier density, which can be found experimentally by relating the Hall voltage to the carrier density.
+	
+	For a p-type semiconductor with a current density \(J_x\) flowing in the x-direction and a magnetic field \(B_z\) along the z-direction, the Hall voltage (\(U_H\)) is given by:
+	
+	\begin{equation}
+		U_H = \frac{I B_z}{p e t} \label{eq:3}
+	\end{equation}
+	
+	where\(p\) is the hole carrier density (number of holes per unit volume), \(e\) is the elementary charge, \(t\) is the thickness of the sample, \(I\) is the current flowing through the sample.
+	
+	The Hall coefficient (\(R_H\)) is defined as:
+	
+	\begin{equation}
+		R_H = \frac{U_H}{I B_z} \cdot t = \frac{\Delta R_{xy}}{\Delta B } \cdot t = \frac{1}{p e} \label{eq:4}
+	\end{equation}
+	
+	By measuring the Hall voltage (\(U_H\)) as a function of the magnetic field (\(B_z\)) and the current (\(I\)), one can determine the Hall coefficient (\(R_H\)) and subsequently calculate the carrier density (\(p\)):
+	
+	\begin{equation}
+		p = \frac{1}{R_H e} \label{eq:5}
+	\end{equation}
+	
+	For an n-type semiconductor, a similar analysis can be conducted with electrons as the majority carriers. The sign of the Hall voltage and the Hall coefficient can be used to determine the type of majority carriers (positive for p-type and negative for n-type).
+	
+	Combining Hall effect measurements with resistivity measurements allows for the determination of the mobility (\(\mu\)) of the charge carriers:
+	
+	\begin{equation}
+		\mu = \frac{R_H}{\rho} \label{eq:6}
+	\end{equation}
+	
+	Understanding the Hall effect is crucial for various applications in solid-state physics and electronics. It forms the basis for Hall effect sensors used in magnetic field sensing, position sensing, and current measurement. Furthermore, the Hall effect is instrumental in semiconductor research, aiding in the development of new materials and devices.
+	
+	
+	\clearpage
+	
+	\section{Experimental Details}
+	
+	This section details the procedure for each method and the expected results according to the lab manuals and the relevant equations. There are 4 tasks to conduct for semiconductor Ge p-type and/or n-type.
+	
+	\subsection{Task 1: Linearity of Ohm's Law and Hall Voltage Measurement}
+	
+	In this task, we will investigate the linearity of Ohm's law in both Hall and resistivity configurations for the semiconductor. The linearity is crucial for ensuring that the excitation current does not induce self-heating in the sample, which could affect the measurement accuracy. Ensure that the resistivity box in your circuit is set to $\qty{300}{\ohm}$ throughout the experiment to maintain consistent conditions.
+	
+	\begin{enumerate}
+		\item[1.] Set up the sample in the resistivity configuration, where the current flows through the sample without a magnetic field.
+		\item[2.] Measure the voltage across the sample \(U_p\) as you vary the control current \(I_p\) from -30 mA to +30 mA in steps of 5 mA.
+		\item[3.] Record the values of \(U_p\) and \(I_p\) and plot \(U_p\) vs. \(I_p\).
+		\item[4.] Set up the sample in the Hall configuration, where the current flows through the sample in the presence of a perpendicular magnetic field.
+		\item[5.] Adjust the magnetic field to a constant value of 300 mT using the power supply.
+		\item[6.] Measure the voltage across the sample \(U_H\) as you vary the control current \(I_p\) in the same range as in the resistivity configuration.
+		\item[7.] Record the values of \(U_H\) and \(I_p\) and plot \(U_H\) vs. \(I_p\).
+	\end{enumerate}
+	
+	Examine the linearity of the plots in both configurations. The relationship between voltage and current should be linear, following Ohm's law: \(U = \alpha I\), where \(\alpha\) is the proportionality factor, representing the resistance. In the Hall configuration for p-type Ge, the plot should show a positive slope. For n-type Ge, the slope would be negative. This difference is due to the opposite signs of charge carriers in p-type and n-type semiconductors.
+	
+\clearpage
+	
+	\subsection{Task 2: Magnetoresistance Measurement}
+	
+	In this task, we will investigate the change in resistance of a semiconductor sample in the presence of a magnetic field. This phenomenon is known as magnetoresistance. When conducting the measurements, ensure that the voltage across the sample stabilizes before recording each value, as the magnetic field changes can induce transient effects.
+	
+	\begin{enumerate}
+		\item[1.] Arrange the sample in the resistivity configuration, ensuring that the current flows through the sample without any magnetic field applied initially.
+		\item[2.] Set the control current $I$ to a constant value of $\qty{30}{\milli\ampere}$.
+		\item[3.] Gradually increase the magnetic field strength \(B\) from $0$ to $\qty{300}{\milli\tesla}$, measuring the voltage across the sample \(U_p\) at each step.
+		\item[4.] Record the values of \(B\) and \(U_p\) for the entire range.
+		\item[5.] Calculate the change in resistance \(MR\) of the sample due to the magnetic field using the formula:
+		\begin{equation}
+			MR(\%) = \frac{R_m - R_0}{R_0} \times 100\% = \frac{U_m - U_0}{U_0} \times 100\% \label{eq:7}
+		\end{equation}
+		where \(R_m\) and \(U_m\) are the resistance and voltage of the sample in the presence of the magnetic field \(B\), \(R_0\) and \(U_0\) are the resistance and voltage of the sample when \(B = 0\).
+		\item[6.] Plot the magnetoresistance \(MR\) as a function of the magnetic field strength \(B\).
+	\end{enumerate}
+	
+	The magnetoresistance curve should exhibit a non-linear (typically parabolic) dependence on the magnetic field strength for p-type Ge. The change in resistance is associated with the reduction in the mean free path of the charge carriers due to the Lorentz force acting on them in the presence of the magnetic field.
+	
+\clearpage
+	
+	\subsection{Task 3: Activation Energy Measurement}
+	
+	In this task, we will measure the activation energy of a semiconductor by examining the temperature dependence of its resistivity. The activation energy is a crucial parameter in semiconductors, representing the energy required for charge carriers to jump from the valence band to the conduction band.
+	
+	\begin{enumerate}
+		\item[1.] Set the current $I$ to a constant value of $\qty{30}{\milli\ampere}$.
+		\item[2.] Gradually increase the temperature of the sample from room temperature to 120°C using a heating coil. Monitor the temperature using a thermocouple, and calculate the temperature $T$ using the formula 
+		\begin{equation}
+			T = \frac{U_T}{\alpha} + T_0 \label{eq:8}
+		\end{equation} 
+		where $U_T$ is the voltage across the thermocouple, $\alpha = \qty{40}{\micro\volt\per\kelvin}$, and $T_0$ is the room temperature in Kelvin.
+		\item[3.] Measure the voltage across the sample $U_p$ at each temperature increment and calculate the resistivity $\rho$ using the formula 
+		\begin{equation}
+			\rho = Rt = \frac{U_p}{I} t \label{eq:9}
+		\end{equation}
+		where $t$ is the thickness of the sample.
+		\item[4.] Plot the natural logarithm of the resistivity $\ln(\rho)$ versus the inverse of the temperature $\frac{1}{k_\mathrm{B} T}$, where $k_\mathrm{B}$ is the Boltzmann constant.
+		\item[5.] Fit the data to the equation
+		\begin{equation}
+			\ln(\rho) = \ln(\rho_0) + \frac{E_\mathrm{A}}{k_\mathrm{B} T} \label{eq:10}
+		\end{equation}
+		to extract the activation energy $E_\mathrm{A}$ from the slope of the linear fit corresponding to the first few points of the graph. This equation is equivalent to the natural logarithm of \ref{eq:1}.
+		\item[6.] Calculate the activation energy $E_\mathrm{A}$ from the slope of the linear fit, using the equation
+		\begin{equation}
+			E_\mathrm{A} = 2k_\mathrm{B} \times \text{slope} \label{eq:11}
+		\end{equation}
+		
+	\end{enumerate}
+	
+\clearpage
+	
+	\subsection{Task 4: Hall Voltage Measurement and Carrier Density Determination}
+	
+	In this task, we will measure the Hall voltage \(U_H\) as a function of magnetic induction \(B\) in a p-type Ge sample and use this data to determine the carrier density and mobility. Ensure that the measurements are taken carefully, and the magnetic field is allowed to stabilize before recording each Hall voltage value.
+	
+	\begin{enumerate}
+		\item[1.] Arrange the sample in the Hall configuration with a current flowing perpendicular to the applied magnetic field.
+		\item[2.] Set the current \(I\) to zero and measure the Hall voltage \(U_H\) to ensure there is no offset voltage. Adjust the setup if necessary to nullify any offset. Then, set the current to a constant value of $\qty{30}{\milli\ampere}$.
+		\item[3.] Start with a magnetic induction of $\qty{-300}{\milli\tesla}$. Measure the Hall voltage \(U_H\) at this initial value. Increase the magnetic induction in steps of approximately $\qty{20}{\milli\tesla}$, measuring the Hall voltage at each step. Continue until you reach $\qty{+300}{\milli\tesla}$. Change the polarity of the coil current at the zero point to ensure the magnetic field direction is correctly reversed.
+		\item[4.] Plot the Hall voltage \(U_H\) as a function of the magnetic flux \(B\).
+		\item[5.] Use the slope of the linear region of the plot to calculate the Hall coefficient \(R_H\) and the carrier density \(p\) using the equations \ref{eq:4} and \ref{eq:5}.
+		\item[6.] Calculate the Hall mobility \(\mu_H\) using equation \ref{eq:6}.
+	\end{enumerate}
+	
+	The Hall voltage \(U_H\) should be linearly proportional to the magnetic induction \(B\), allowing for the determination of the Hall coefficient \(R_H\). The carrier density (\(p\)) and mobility (\(\mu_H\)) for p-type Ge can be calculated from the slope of the \(U_H\) vs. \(B\) plot and the resistivity measurements.
+	
+\clearpage
+
+	\section{Results and Discussion}
+	
+	The following section contains our results for each method that includes tables and graphs. This is accompanied by a discussion that includes interpretations of the results and error analysis. We conducted all 4 tasks for p-type Ge, and only the first task for n-type Ge because of complications with the sample. The main difference between the types is the major charge carrier being electrons in n-type and holes in p-type, as such the sign of the charge in all applicable equations change. The temperature in the room at the time of conducting the experiment was $\qty{22}{\degreeCelsius} \equiv \qty{295}{\kelvin}$. The thickness of the sample is $\qty{1}{\milli\meter}$.
+	
+	Where applicable, I find the percentage error between the experimental and the real values with the following formula.
+	\begin{equation}
+		\% \text{ Error} = \left| \frac{X_{exp}-X_{real}}{X_{real}} \right| \times 100 \label{eq:12}
+	\end{equation}
+	
+	\subsection{Task 1: Linearity of Ohm's Law and Hall Voltage Measurement}
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\caption{p-type Ge - Ohm's Law}
+			\includegraphics[width=\linewidth]{Task1pa.jpg}
+			\label{fig:image1}
+		\end{minipage}\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\caption{p-type Ge - Current vs Hall Voltage}
+			\includegraphics[width=\linewidth]{Task1pb.jpg}
+			\label{fig:image2}
+		\end{minipage}
+	\end{figure}
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\caption{n-type Ge - Ohm's Law}
+			\includegraphics[width=\linewidth]{Task1na.jpg}
+			\label{fig:image3}
+		\end{minipage}\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\caption{n-type Ge - Current vs Hall Voltage}
+			\includegraphics[width=\linewidth]{Task1nb.jpg}
+			\label{fig:image4}
+		\end{minipage}
+	\end{figure}
+	
+	For  n-type and p-type, the linearity observed in all the figures confirms the validity of Ohm's law for the semiconductor sample, with $R^2$ values of 1 and extremely close to 1. This linearity is crucial, as it indicates that the charge carriers are moving through the material without significant scattering, ensuring predictable electrical behavior. Moreover, the absence of self-heating effects, which could lead to a deviation from Ohm's law, suggests that our measurements accurately reflect the intrinsic properties of the semiconductor.
+	
+	The resistivity configuration provides insights into the overall conductive properties of the material, and the Hall configuration offers a more detailed understanding of the specific charge carriers. This is particularly important in semiconductors, where the type and density of charge carriers are key determinants of the material's electrical behavior. The positive slope observed in \ref{fig:image2} for p-type Germanium indicates hole dominant conduction and the negative slope observed in \ref{fig:image4} for n-type Germanium indicates electron dominant conduction. This is apparent from the Lorentz force $F = q(v \times B) + qE$, where the sign of the charge $q$ determines the direction of resultant force on the major charge carriers, which by inference are two anti-parallel vectors.
+	
+\clearpage	
+	
+	\subsection{Task 2: Magnetoresistance Measurement}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{p-type Ge - Magnetoresistance}
+		\includegraphics[width=0.8\textwidth]{Task2.jpg}
+		\label{fig:image5}
+	\end{figure}
+	
+	The magnetoresistance measurement revealed a parabolic relationship between the resistance of the p-type Ge sample and the applied magnetic field strength. This parabolic behavior is a characteristic feature of magnetoresistance in semiconductors, contrasting with the typically linear response observed in metals.
+	
+	The increase in resistance with the magnetic field, known as positive magnetoresistance, can be attributed to the Lorentz force acting on the charge carriers. This force causes the carriers to follow curved paths, effectively increasing their path length and scattering, which in turn increases the resistance. The non-linear nature of this effect in semiconductors is due to the complex band structure and the dependence of carrier mobility on the applied field.
+	
+\clearpage
+
+	\subsection{Task 3: Activation Energy Measurement}
+	
+		\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\caption{p-type Ge - $\rho$ vs $T$}
+			\includegraphics[width=\linewidth]{Task3a.jpg}
+			\label{fig:image6}
+		\end{minipage}\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\caption{p-type Ge - $\ln(\rho)$ vs $\frac{1}{T}$}
+			\includegraphics[width=\linewidth]{Task3b.jpg}
+			\label{fig:image7}
+		\end{minipage}
+	\end{figure}
+	
+	The first graph’s curvature suggests that the resistivity initially increases with temperature until it reaches a peak, beyond which it starts to decrease. This behavior can be attributed to the semiconductor's increasing thermal energy, which initially contributes to the increased resistivity due to enhanced carrier scattering and crowding. Upon reaching a critical temperature, the thermal generation of electron-hole pairs becomes significant, leading to a marked increase in charge carriers that facilitate conductivity, thereby decreasing resistivity. The equation displayed on the graph, a cubic polynomial fit, is likely an empirical model that describes the observed behavior over the experimental temperature range. 
+	
+	The second graph shows a clear linear relationship at lower temperatures, which deviates from linearity at higher temperatures. This initial linearity is expected from the theory of intrinsic semiconductor behavior, where the resistivity follows an Arrhenius-type temperature dependence, as expressed in equation \ref{eq:1}. The linear part of the plot allows for the extraction of the activation energy \( E_\mathrm{A} \), calculated from the slope of the line. The provided equation, \( y = 2975.9x - 6.0183 \), with \( R^2 = 1 \), indicates an excellent fit to the experimental data in the linear region. Within this region, the model \ref{eq:10} accurately describes the relationship between resistivity and temperature. Using \ref{eq:11} we can find the activation energy $E_\mathrm{A}$.
+	
+	\begin{equation}
+		E_\mathrm{A} = 2(\qty{8.625e-5}{\electronvolt\per\kelvin})(\qty{2975.9}{\kelvin}) = \qty{0.5133}{\electronvolt} \label{eq:13}
+	\end{equation}
+	
+	The standard value is $\qty{0.72}{\electronvolt}$ for p-type Ge, so the percent error is $28.7\%$.
+	
+	To add to the temperature discussion, the following p-type graph between hall voltage and temperature shows that as temperature increases the hall voltage approaches zero. This is due to an increase in carrier concentration that typically occurs in semiconductors as temperature rises. This increase in carriers can lead to a reduction in Hall voltage, since $U_H$ is inversely proportional to carrier density.
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{p-type Ge - Hall Voltage vs Temperature}
+		\includegraphics[width=0.8\textwidth]{task5.jpg}
+	\end{figure}
+	
+\clearpage
+	
+	\subsection{Task 4: Hall Voltage Measurement and Carrier Density Determination}
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\caption{p-type Ge - $U_H$ vs $B$}
+			\includegraphics[width=\linewidth]{Task4p.jpg}
+			\label{fig:image8}
+		\end{minipage}\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\caption{n-type Ge - $U_H$ vs $B$}
+			\includegraphics[width=\linewidth]{Task4n.jpg}
+			\label{fig:image9}
+		\end{minipage}
+	\end{figure}
+	
+	The graphs exhibit clear linear relationships between \(U_H\) and the magnetic field strength \(B\), $R^2$ values close to one, with one having a negative slope indicative of n-type material and the other a positive slope consistent with p-type material. We determine the hall coefficient and the major charge carrier mobility using equations \ref{eq:4}, \ref{eq:5}, and \ref{eq:6}. The resistivity at room temperature is found by first using the Ohm's law graphs from task 1 to find the resistance then the resistivity knowing the dimensions of the sample to be $\qty{20}{\milli\meter} \times \qty{10}{\milli\meter} \times \qty{1}{\milli\meter}$. For p-type Ge, $R = \qty{2.08}{\ohm}$, $\rho = (\qty{2.08}{\ohm})\left( \frac{\qty{1}{\milli\meter} \times \qty{20}{\milli\meter}}{\qty{10}{\milli\meter}} \right) = \qty{4.16}{\ohm\milli\meter}$. For n-type Ge, $R = \qty{-1.70}{\ohm}$, $\rho = (\qty{-1.70}{\ohm})\left( \frac{\qty{1}{\milli\meter} \times \qty{20}{\milli\meter}}{\qty{10}{\milli\meter}} \right) = \qty{3.4}{\ohm\milli\meter}$
+
+	The positive slope of the Hall voltage versus magnetic field strength plot for p-type Ge reflects the positive charge of the majority carriers, which are holes. From this graph, we can deduce the Hall coefficient to be positive, and with the known value of the elementary charge, the carrier density \(p\) can be extracted.
+	
+	\begin{equation}
+		R_\mathrm{H} = (\qty{0.1964}{\milli\volt\per\milli\tesla})\left( \frac{\qty{1}{\milli\meter}}{\qty{30}{\milli\ampere}} \right) = \qty{6.55e-3}{\meter\cubed\per\ampere\per\second}
+	\end{equation}
+	
+	\begin{equation}
+		p = \frac{1}{(\qty{6.55e-3}{\meter\cubed\per\ampere\per\second})(\qty{1.602e-19}{\coulomb})} = \qty{9.53e20}{\per\meter\cubed}
+	\end{equation}
+	
+	\begin{equation}
+		\mu_H = \frac{\qty{6.55e-3}{\meter\cubed\per\ampere\per\second}}{\qty{4.16}{\ohm\milli\meter}} = \qty{1.5745}{\meter\squared\per\second\per\volt}
+	\end{equation}
+	
+	Conversely, the negative slope in the n-type Ge graph indicates that the majority carriers are electrons. The negative Hall coefficient derived from this graph is in alignment with the negative charge of electrons.
+	
+	\begin{equation}
+		R_\mathrm{H} = (\qty{-0.2483}{\milli\volt\per\milli\tesla})\left( \frac{\qty{1}{\milli\meter}}{\qty{30}{\milli\ampere}} \right) = \qty{-8.28e-3}{\meter\cubed\per\ampere\per\second}
+	\end{equation}
+	
+	\begin{equation}
+		n = \frac{1}{(\qty{-8.28e-3}{\meter\cubed\per\ampere\per\second})(\qty{-1.602e-19}{\coulomb})} = \qty{5.17e16}{\per\meter\cubed}
+	\end{equation}
+	
+	\begin{equation}
+		\mu_H = \frac{\qty{-8.28e-3}{\meter\cubed\per\ampere\per\second}}{\qty{3.4}{\ohm\milli\meter}} = \qty{2.4353}{\meter\squared\per\second\per\volt}
+	\end{equation}
+	
+	For the charge concentrations, the real values are $p=\qty{14.9e20}{\per\meter\cubed}$ and $n=\qty{13.9e20}{\per\meter\cubed}$. The percent error for $p$ is $36\%$ while $n$ is magnitudes off. For the charge mobility, the real values are $\mu_p = \qty{0.238}{\meter\squared\per\second\per\volt}$ and $\mu_n = \qty{0.257}{\meter\squared\per\second\per\volt}$, with percent errors of $84\%$ and $89\%$. 
+	
+	Some sources of error include:
+	\begin{itemize}
+		\item Instrumental Calibration: Inaccuracies due to instruments not being precisely calibrated.
+		\item Sample Quality: Variations in the semiconductor material such as impurities and defects.
+		\item Temperature Control: Difficulty in maintaining a stable temperature throughout the experiment.
+		\item Thermoelectric Effects: Errors in temperature measurement due to incorrect thermocouple readings.
+		\item Contact Resistance: Additional resistance from contacts not accounted for in the calculations.
+		\item Geometric Factors: Discrepancies in the actual size, shape, or thickness of the sample compared to assumed values.
+		\item Magnetic Field Uniformity: Non-uniform magnetic field across the sample affecting Hall voltage measurements.
+	\end{itemize}
+	
+	
+	
+\clearpage
+	
+	\section{Applications}
+	
+	\begin{itemize}
+		\item Magnetic Field Measurement: Employed to gauge the strength of magnetic fields in various devices like electric motors and generators.
+		\item Current Measurement: Utilized for non-contact current measurements in power distribution systems for safety and precision.
+		\item Flow Measurement: Used in flow meters to determine the flow rate and direction of fluids.
+		\item Position Sensing: Integral in systems that require precise position measurements, such as anti-lock braking systems in vehicles.
+		\item Proximity Sensors: Used to detect the presence of magnetic objects in various sensors for automotive, aerospace, and medical devices.
+		\item Material Characterization: Utilized in solid-state physics for understanding the electronic properties of materials.
+	\end{itemize}
+	
+	\clearpage
+	
+	\section{Conclusion}
+	
+	In conclusion, while the experiment faced challenges in matching theoretical values closely, the results provide valuable insights into the semiconductor properties under study. Each percent error points to an area for methodological refinement and increased understanding of the material's behavior.
+	
+	Despite the discrepancies noted in the percent errors for activation energy in p-type Germanium, charge concentrations, and charge mobility for both n-type and p-type samples, the experiment successfully demonstrated key principles of semiconductor behavior and the functionality of the Hall effect in measuring important material properties.
+	
+	The observed percent error of 28.7\% for the activation energy of p-type Ge, although significant, provides a learning opportunity to assess the experimental setup and identify potential sources of error, such as calibration of instruments, thermal stability, and measurement techniques.
+	
+	The errors in charge concentration, especially the substantial deviation for the n-type carrier concentration, underscore the need for a careful experimental design and the consideration of external factors that may influence the results, such as impurities in the sample or electromagnetic interference.
+	
+	The high percent errors of 84\% and 89\% for the charge mobility measurements for p-type and n-type Ge, respectively, suggest that improvements could be made in the measurement process or that the experimental conditions may not have been ideal. This could be due to variations in sample quality, the impact of temperature fluctuations, or inaccuracies in the setup that led to deviations from the expected outcomes.
+	
+	
+	
+	\clearpage
+	
+	\section{Appendix}
+	
+	% Table generated by Excel2LaTeX from sheet 'p type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 1a p-type Ge}
+		\begin{tabular}{cc}
+			\toprule
+			I (mA) & $U_p$ (V) \\
+			\midrule
+			1 & 0.053 \\
+			2 & 0.102 \\
+			5 & 0.255 \\
+			10 & 0.509 \\
+			15 & 0.763 \\
+			20 & 1.016 \\
+			25 & 1.272 \\
+			30 & 1.523 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:1}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'p type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 1b p-type Ge}
+		\begin{tabular}{cc}
+			\toprule
+			I (mA) & $U_H$ (mV) \\
+			\midrule
+			-30 & -62.2 \\
+			-25 & -51.8 \\
+			-20 & -41.3 \\
+			-15 & -31 \\
+			-10 & -20.7 \\
+			-5 & -10.4 \\
+			-2 & -4.2 \\
+			-1 & -2 \\
+			1 & 2 \\
+			2 & 4.2 \\
+			5 & 10.4 \\
+			10 & 20.8 \\
+			15 & 31.2 \\
+			20 & 41.5 \\
+			25 & 52 \\
+			30 & 62.3 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:2}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'n type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 1a n-type Ge}
+		\begin{tabular}{cc}
+			\toprule
+			I (mA) & $U_p$ (V) \\
+			\midrule
+			1 & 0.177 \\
+			2 & 0.345 \\
+			5 & 0.785 \\
+			10 & 1.05 \\
+			15 & 1.56 \\
+			20 & 2.04 \\
+			25 & 2.59 \\
+			30 & 3.1 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:3}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'n type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 1b n-type Ge}
+		\begin{tabular}{cc}
+			\toprule
+			I (mA) & $U_H$ (mV) \\
+			\midrule
+			-30 & 52.3 \\
+			-25 & 48.1 \\
+			-20 & 36.7 \\
+			-15 & 25.6 \\
+			-10 & 18.5 \\
+			-5 & 10 \\
+			-2 & 3.3 \\
+			-1 & 1.9 \\
+			1 & -2.2 \\
+			2 & -4 \\
+			5 & -10 \\
+			10 & -19.9 \\
+			15 & -29.6 \\
+			20 & -36.6 \\
+			25 & -45.5 \\
+			30 & -50.9 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:4}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'p type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 2 p-type Ge}
+		\begin{tabular}{ccc}
+			\toprule
+			B (T) & $U_p$ (V) & MR(\%) \\
+			\midrule
+			0 & 1.498 & 0.00\% \\
+			0.05 & 1.499 & 0.07\% \\
+			0.1 & 1.502 & 0.27\% \\
+			0.15 & 1.507 & 0.60\% \\
+			0.2 & 1.512 & 0.93\% \\
+			0.25 & 1.52 & 1.47\% \\
+			0.3 & 1.526 & 1.87\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:5}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'p type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 3 p-type Ge}
+		\begin{tabular}{cccccc}
+			\toprule
+			Sensor Voltage (mV) & $U_p$ (V) & T & $\rho$ & $\ln(\rho)$ & 1/T \\
+			\midrule
+			0.2 & 2.12 & 300 & 7.067 & 1.955 & 3.33E-03 \\
+			0.4 & 2.21 & 305 & 7.367 & 1.997 & 3.28E-03 \\
+			0.6 & 2.24 & 310 & 7.467 & 2.010 & 3.23E-03 \\
+			0.8 & 2.31 & 315 & 7.700 & 2.041 & 3.17E-03 \\
+			1 & 2.37 & 320 & 7.900 & 2.067 & 3.13E-03 \\
+			1.2 & 2.42 & 325 & 8.067 & 2.088 & 3.08E-03 \\
+			1.4 & 2.47 & 330 & 8.233 & 2.108 & 3.03E-03 \\
+			1.6 & 2.5 & 335 & 8.333 & 2.120 & 2.99E-03 \\
+			1.8 & 2.54 & 340 & 8.467 & 2.136 & 2.94E-03 \\
+			2 & 2.55 & 345 & 8.500 & 2.140 & 2.90E-03 \\
+			2.2 & 2.54 & 350 & 8.467 & 2.136 & 2.86E-03 \\
+			2.4 & 2.5 & 355 & 8.333 & 2.120 & 2.82E-03 \\
+			2.6 & 2.43 & 360 & 8.100 & 2.092 & 2.78E-03 \\
+			2.8 & 2.33 & 365 & 7.767 & 2.050 & 2.74E-03 \\
+			3 & 2.19 & 370 & 7.300 & 1.988 & 2.70E-03 \\
+			3.2 & 2.04 & 375 & 6.800 & 1.917 & 2.67E-03 \\
+			3.4 & 1.84 & 380 & 6.133 & 1.814 & 2.63E-03 \\
+			3.6 & 1.66 & 385 & 5.533 & 1.711 & 2.60E-03 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:6}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'p type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 4 p-type Ge}
+		\begin{tabular}{cc}
+			\toprule
+			B (mT) & $U_H$ (mV) \\
+			\midrule
+			-300 & -57.2 \\
+			-250 & -48.6 \\
+			-200 & -39.5 \\
+			-150 & -29.8 \\
+			-100 & -19.9 \\
+			-50 & -9.7 \\
+			0 & 1.1 \\
+			50 & 11.5 \\
+			100 & 21.6 \\
+			150 & 31.4 \\
+			200 & 40.6 \\
+			250 & 49.5 \\
+			300 & 57.6 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:7}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'n type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 4 n-type Ge}
+		\begin{tabular}{cc}
+			\toprule
+			B (mT) & $U_H$ (mV) \\
+			\midrule
+			-301 & 77.8 \\
+			-275 & 70.3 \\
+			-251 & 64.2 \\
+			-225 & 57.5 \\
+			-201 & 52.2 \\
+			-175 & 45.4 \\
+			-150 & 40.2 \\
+			-126 & 34.4 \\
+			-100 & 27.6 \\
+			-76 & 21.1 \\
+			-50 & 14.6 \\
+			-25 & 8.1 \\
+			0 & 0 \\
+			26 & -6 \\
+			51 & -12.8 \\
+			75 & -18.8 \\
+			104 & -25.8 \\
+			123 & -31.2 \\
+			152 & -38.8 \\
+			175 & -42.2 \\
+			201 & -48.3 \\
+			225 & -54 \\
+			250 & -59.8 \\
+			276 & -63.6 \\
+			300 & -68.2 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:8}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'p type'
+	\begin{table}[htbp]
+		\centering
+		\caption{Task 5 p-type Ge}
+		\begin{tabular}{cccc}
+			\toprule
+			Sensor Voltage (mV) & $U_H$ (V) & T & $\rho$ \\
+			\midrule
+			0.2 & 0.055 & 300 & 0.183 \\
+			0.4 & 0.055 & 305 & 0.183 \\
+			0.6 & 0.055 & 310 & 0.183 \\
+			0.8 & 0.055 & 315 & 0.183 \\
+			1 & 0.055 & 320 & 0.183 \\
+			1.2 & 0.055 & 325 & 0.183 \\
+			1.4 & 0.054 & 330 & 0.180 \\
+			1.6 & 0.054 & 335 & 0.180 \\
+			1.8 & 0.052 & 340 & 0.173 \\
+			2 & 0.05 & 345 & 0.167 \\
+			2.2 & 0.047 & 350 & 0.157 \\
+			2.4 & 0.043 & 355 & 0.143 \\
+			2.6 & 0.039 & 360 & 0.130 \\
+			2.8 & 0.034 & 365 & 0.113 \\
+			3 & 0.028 & 370 & 0.093 \\
+			3.2 & 0.021 & 375 & 0.070 \\
+			3.4 & 0.013 & 380 & 0.043 \\
+			3.6 & 0.007 & 385 & 0.023 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:9}%
+	\end{table}%
+	
+	
+	
+	
+	
+	
+	\clearpage
+	
+	\section{References}
+	
+	\begin{itemize}
+		\item Lab manual
+		\item General Physics book
+		\item Robert F. Pierret, (2006). Semiconductor Device Fundamentals, Pearson
+		\item \href{https://www.nikhef.nl/~h73/kn1c/praktikum/phywe/LEP/Experim/5_3_03.pdf}{https://www.nikhef.nl/~h73/kn1c/praktikum/phywe/LEP/Experim/5\_3\_03.pdf}
+		\item \href{https://home.uni-leipzig.de/prakphys/pdf/VersucheIPSP/Electricity/E-08e-AUF.pdf}{https://home.uni-leipzig.de/prakphys/pdf/VersucheIPSP/Electricity/E-08e-AUF.pdf}
+	\end{itemize}
+	
+\end{document}

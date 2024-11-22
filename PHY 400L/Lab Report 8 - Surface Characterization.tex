@@ -1,0 +1,686 @@
+\documentclass[11pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\doublespacing
+
+\usepackage[shortconst]{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\setlist[itemize]{leftmargin=*, labelindent=\parindent, noitemsep, topsep=0pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt}
+
+\hypersetup{
+	pdftitle={Surface Characterization},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{Surface Characterization} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			This comprehensive study employs multiple surface characterization techniques, including Scanning Electron Microscopy (SEM) with Energy Dispersive X-Ray (EDX) Analysis, Optical Profilometry (OP), and Atomic Force Microscopy (AFM), to analyze the surface properties of various materials. SEM and EDX were used to investigate the structural and chemical characteristics of Zirconium Carbide coated with Zirconium dioxide (ZrC-ZrO2) and laser-engraved Copper (Cu). OP was applied to Copper (Cu), Aluminum (Al), glass, and laser-etched samples, providing detailed 3D topographical maps and roughness measurements. AFM was utilized to examine a Fluoride Tin Oxide-coated glass substrate (FTO), highlighting its nanoscale surface features. These methods collectively provided a deep insight into the materials' surface roughness, texture, and morphology, essential for optimizing material performance in various applications.
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{Surface Characterization, Material Analysis, Roughness, Elements}
+	\end{titlepage}
+	
+\clearpage
+	
+	\section{Introduction}	
+	
+	This comprehensive experiment incorporates Scanning Electron Microscopy (SEM) with Energy Dispersive X-ray (EDX) Analysis, Atomic Force Microscopy (AFM), and Optical Profilometry to provide an in-depth characterization of material surfaces. These advanced techniques allow for the precise analysis of surface topography, structure, and composition, each contributing unique insights into the material properties at micro to nanometer scales.
+	
+	SEM and EDX represent cornerstone technologies in the field of material science, providing essential insights into the structural and compositional aspects of materials at the micro to nano scale. SEM operates on principles akin to optical microscopes but uses focused beams of electrons instead of light to achieve magnifications up to the sub-nanometer level, significantly surpassing the limitations of optical instruments.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Intro_SEM&EDX_1.jpg}
+		\caption{SEM Concept}
+	\end{figure}
+	
+	The operation of SEM is based on the interactions between electron beams and the sample, producing various signals like secondary electrons (SE) and backscattered electrons (BSE), which help in imaging the surface topography and composition. The introduction of EDX into SEM extends its functionality by enabling elemental analysis. EDX works by detecting X-rays emitted from the sample when it is bombarded with electrons; these X-rays have energies characteristic of specific elements, thus allowing for precise compositional analysis. Together, they enable a detailed examination of surface morphology and chemical makeup, crucial for materials science, metallurgy, and semiconductor research.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.6\textwidth]{Intro_SEM&EDX_2.jpg}
+		\caption{Various Images}
+	\end{figure}
+	
+\clearpage
+	
+	OP is a non-contact method that uses light to measure the topography of a surface, providing detailed 3D imaging and roughness measurements. This technique leverages the principles of optical interference, focus variation, confocal microscopy, and other light-based methods to generate accurate topographical data of the sample surface. It is distinguished by its ability to rapidly and accurately measure surface features across a wide range of scales, from nanometers to millimeters, without touching the sample. This makes it particularly valuable for sensitive or soft materials that could be damaged by contact methods. Common implementations include White Light Interferometry (WLI) and Confocal Microscopy, which are used to achieve high-resolution measurements of surface roughness, texture, and form.
+	
+	The technology operates on the principle of detecting the interference pattern created when light reflected from the sample surface combines with light from a reference beam. This interference pattern is analyzed to extract the surface's profile. Advanced techniques such as Phase Shifting Interferometry (PSI) and Vertical Scanning Interferometry (VSI) are used to enhance the measurement's precision and to cater to different types of surface characteristics.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Intro_OP_1.jpg}
+		\caption{OP Concept}
+	\end{figure}
+	
+\clearpage
+	
+	AFM, also known as Scanning Force Microscopy (SFM), is a type of scanning probe microscopy that provides detailed topographical mapping of surfaces at the nanometer scale. This powerful technique utilizes a sharp probe mounted on a flexible cantilever to interact with the surface of a sample. As the probe raster scans across the surface, it records minute force interactions between the tip and the surface, which are translated into electrical signals that can be used to construct a three-dimensional image of the surface.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.4\textwidth]{Intro_AFM_1.jpg}
+		\caption{AFM Concept}
+	\end{figure}
+	
+	AFM is distinguished by its remarkable resolution, capable of detecting features at the fraction of a nanometer scale, far surpassing the optical diffraction limit. This high resolution enables the observation of individual atoms and molecules on a variety of surfaces, including polymers, ceramics, composites, and biological samples. Moreover, AFM is versatile in its environmental adaptability, allowing measurements to be conducted in various settings including air and liquid, making it indispensable for studying biological processes in their native environments.
+	
+	The technique is fundamentally driven by the interaction of forces including Van der Waals forces, electrostatic forces, and capillary forces, among others. These interactions help in not only determining the surface topography but also in measuring the mechanical, magnetic, and electrical properties of the sample surface.
+	
+	Through its multiple operational modes, such as contact mode, non-contact mode, and tapping mode, AFM provides a comprehensive suite of analysis options, catering to the specific needs of the research or industrial application at hand, from studying the surface roughness to functional properties like phase and modulus.
+	
+\clearpage
+	
+	\section{Experimental Details}
+	
+	This section details the procedure for each method and the expected results according to the lab manuals and the relevant equations.
+	
+	\subsection{Scanning Electron Microscope \& Energy Dispersive X-Ray Spectroscopy}
+	
+		\subsection*{Equipment and Materials:}
+		\begin{itemize}
+			\item Tescan Vega 3 Scanning Electron Microscope (SEM) equipped with an Oxford Instruments EDX spectrometer.
+			\item Samples: Copper (Cu) sheets and Zirconium Carbide (ZrC) coated with Zirconium Dioxide (ZrO2).
+			\item Standard SEM accessories including secondary electron (SE) and backscattered electron (BSE) detectors.
+		\end{itemize}
+		
+		\subsection*{Procedure:}
+		\begin{enumerate}
+			\item \textbf{Sample Preparation:}
+			\begin{itemize}
+				\item Clean the surfaces of the copper sheets and ZrC-ZrO2 coated samples to ensure they are free from contaminants.
+				\item Mount the samples on SEM stubs using conductive carbon tape to ensure electrical conductivity and stability during imaging.
+			\end{itemize}
+			
+			\item \textbf{SEM Imaging:}
+			\begin{itemize}
+				\item Turn on the Tescan Vega 3 SEM, check for proper calibration, and ensure the vacuum level is suitable for high-resolution operation.
+				\item Place the sample in the SEM chamber, adjust the working distance and focus using the stage controls for optimal image quality.
+				\item Set the SEM to operate at an appropriate accelerating voltage, typically around 20 kV for metals and coated materials.
+				\item Acquire images using:
+				\begin{itemize}
+					\item Secondary electron (SE) detector for topography and surface details.
+					\item Backscattered electron (BSE) detector for compositional contrast.
+				\end{itemize}
+			\end{itemize}
+			
+			\item \textbf{EDX Spectroscopy:}
+			\begin{itemize}
+				\item Use the integrated EDX spectrometer for elemental analysis of identified areas of interest within the SEM images.
+				\item Acquire and analyze EDX spectra to assess the elemental composition, focusing on areas such as the ZrC-ZrO2 interface.
+				\item Quantify the elemental distribution to evaluate the coating uniformity and integrity.
+			\end{itemize}
+			
+			\item \textbf{Data Analysis:}
+			\begin{itemize}
+				\item Analyze SEM images to identify surface features like grain boundaries, defects, and coating morphology. Done through Oxford Instruments software.
+				\item Correlate EDX data with SEM findings to understand the elemental variations and identify any anomalies or processing issues.
+			\end{itemize}
+			
+			\item \textbf{Safety and Maintenance:}
+			\begin{itemize}
+				\item Follow all safety protocols during SEM operation, including wearing appropriate personal protective equipment.
+				\item Keep the SEM operational environment clean and follow manufacturer guidelines for maintenance and shutdown procedures.
+			\end{itemize}
+		\end{enumerate}
+	
+	
+\clearpage
+	
+	\subsection{Optical Profilometry}
+	
+		\subsection*{Equipment and Materials:}
+		\begin{itemize}
+			\item Filmetric Profilm3D Optical Profiler.
+			\item Samples: Aluminum (Al), Copper (Cu), Glass, a sample with laser etching, and a step height standard for calibration.
+		\end{itemize}
+		
+		\subsection*{Procedure:}
+		\begin{enumerate}
+			\item \textbf{Sample Preparation:}
+			\begin{itemize}
+				\item Clean each sample thoroughly to remove any debris or contaminants that might interfere with the optical measurements.
+				\item Securely mount the samples on the stage of the optical profiler, ensuring that the step height standard is accurately positioned to validate measurement accuracy.
+			\end{itemize}
+			
+			\item \textbf{Optical Profilometry Setup:}
+			\begin{itemize}
+				\item Initialize the Filmetric Profilm3D Optical Profiler and perform a system calibration using the step height standard to ensure accurate height measurements.
+				\item Configure the profiler settings appropriate for each type of sample, adjusting for specific requirements such as resolution for detailed features like laser etchings.
+			\end{itemize}
+			
+			\item \textbf{Data Acquisition:}
+			\begin{itemize}
+				\item Proceed with scanning each sample using the optical profiler. The device employs white light interferometry to create detailed 3D topographical maps from the interference patterns of light reflected off the sample surface.
+				\item Adjust the focus and measurement parameters specifically for each material type, taking into account factors like the reflectivity and surface texture.
+			\end{itemize}
+			
+			\item \textbf{Data Analysis:}
+			\begin{itemize}
+				\item Analyze the collected data using the profiler's software to produce maps of surface topography and quantify roughness and step heights as needed.
+				\item Pay particular attention to detailed features such as the depth and uniformity of laser etchings, utilizing the software’s enhanced analysis tools.
+			\end{itemize}
+			
+			\item \textbf{Calibration and Maintenance:}
+			\begin{itemize}
+				\item Regularly recalibrate the optical profiler using the step height standard to maintain measurement precision.
+				\item Keep the optical components clean and free from dust to prevent any interference with the accuracy of the measurements.
+			\end{itemize}
+		\end{enumerate}
+	
+	
+\clearpage
+	
+	\subsection{Atomic Force Microscopy}
+	
+		\subsection*{Equipment and Materials:}
+		\begin{itemize}
+			\item hpAFM setup: Includes the cantilever assembly, probe holder, scanner, laser and photodetector, feedback system, and computer with control software.
+			\item Sample: Fluoride Tin Oxide (FTO) coated glass substrate.
+		\end{itemize}
+		
+		\subsection*{Procedure:}
+		\begin{enumerate}
+			\item \textbf{Sample Preparation:}
+			\begin{itemize}
+				\item Thoroughly clean the FTO coated glass substrate to ensure the surface is free from contaminants and residues.
+				\item Mount the sample on the sample stage of the AFM setup, ensuring it is stable and aligned properly for scanning.
+			\end{itemize}
+			
+			\item \textbf{Cantilever Calibration:}
+			\begin{itemize}
+				\item Select an appropriate cantilever for the expected sample properties (considering factors like spring constant and tip radius).
+				\item Calibrate the cantilever by determining its spring constant and sensitivity using the thermal tuning method provided by the AFM software.
+			\end{itemize}
+			
+			\item \textbf{AFM Scanning:}
+			\begin{itemize}
+				\item Configure the AFM to operate in the desired mode. For surface topography and roughness measurements, non-contact or tapping mode is generally preferred to minimize tip-sample interaction.
+				\item Set scanning parameters such as scan size, scan rate, and setpoint.
+				\item Begin the scanning process, ensuring that the laser is correctly aligned on the cantilever and the photodetector is capturing the cantilever’s motion accurately.
+			\end{itemize}
+			
+			\item \textbf{Data Acquisition and Analysis:}
+			\begin{itemize}
+				\item Monitor the AFM images in real-time to ensure quality data collection.
+				\item Use the AFM software to analyze the data post-acquisition. Key analyses might include measuring surface roughness parameters, feature dimensions, and assessing the uniformity of the FTO coating.
+			\end{itemize}
+			
+			\item \textbf{Post-Experiment Procedures:}
+			\begin{itemize}
+				\item Carefully remove the sample from the AFM setup.
+				\item Conduct routine maintenance on the AFM to ensure it is clean and functional for future experiments.
+			\end{itemize}
+		\end{enumerate}
+	
+	
+\clearpage
+
+	\section{Results and Discussion}
+	
+	The following sections contain our results for each method that includes tables and graphs. This is accompanied by a discussion that includes interpretations of the results.
+	
+	\subsection{Scanning Electron Microscope (SEM) \& Energy Dispersive X-Ray Spectroscopy (EDX)}
+	
+	We used the SEM to image the surfaces of two samples: Zirconium Carbide coated with Zirconium Oxide (ZrC-ZrO$_2$), and laser engraved Copper (Cu). With the images we performed EDX analysis on them to determine the surface composition.
+	
+	% Zirconium
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{SEM and EDX/data/Second Group/ZrC_SEM_1.jpg}
+			\caption{SEM ZrC 1}
+			\label{fig:ZrC_SEM_1}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/ZrC_SEM_2.jpg}
+			\caption{SEM ZrC 2}
+			\label{fig:ZrC_SEM_2}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/ZrC_SEM_3.jpg}
+			\caption{SEM ZrC 3}
+			\label{fig:ZrC_SEM_3}
+		\end{minipage}
+	\end{figure}
+	
+	The first image shows the fine structure of the surface, seen by the contrast revealing variations in depth. The second image shows the coating of ZrO$_2$.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Map_Image.jpg}
+		\caption{ZrC-ZrO$_2$ EDX Map Image}
+		\label{fig:ZrC_EDX_Map_Image}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{SEM and EDX/data/Second Group/ZrC_EDX_Map_Zr.jpg}
+			\caption{Zr presence in ZrC-ZrO$_2$ sample}
+			\label{fig:ZrC_EDX_Map_Zr}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Map_C.jpg}
+			\caption{C presence in ZrC-ZrO$_2$ sample}
+			\label{fig:ZrC_EDX_Map_C}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Map_O.jpg}
+			\caption{O presence in ZrC-ZrO$_2$ sample}
+			\label{fig:ZrC_EDX_Map_O}
+		\end{minipage}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Map_Sum_Spectrum.jpg}
+		\caption{ZrC-ZrO$_2$ EDX Map Sum Spectrum}
+		\label{fig:ZrC_EDX_Map_Sum_Spectrum}
+	\end{figure}
+	
+	% Table generated by Excel2LaTeX from sheet 'Sheet1'
+	\begin{table}[!ht]
+		\centering
+		\caption{ZrC-ZrO$_2$ EDX Map Sum Spectrum Atomic Weight}
+		\begin{tabular}{cc}
+			\toprule
+			Map Sum Spectrum & Atomic \% \\
+			\midrule
+			C & 52.73 \\
+			O & 37.98 \\
+			Al & 0.36 \\
+			Cl & 0.24 \\
+			Ca & 0.78 \\
+			Zr & 7.91 \\
+			\midrule
+			Total & 100 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:ZrC_EDX_Map_Atomic_Weight}%
+	\end{table}%
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Line_Image_1.jpg}
+		\caption{ZrC-ZrO$_2$ EDX Line Image 1}
+		\label{fig:ZrC_EDX_Line_Image_1}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Line_Image_2.jpg}
+		\caption{ZrC-ZrO$_2$ EDX Line Image 2}
+		\label{fig:ZrC_EDX_Line_Image_2}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Line_Sum_Spectrum.jpg}
+		\caption{ZrC-ZrO$_2$ EDX Line Sum Spectrum}
+		\label{fig:ZrC_EDX_Line_Sum_Spectrum}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Line_Counts_Spectrum.jpg}
+		\caption{ZrC-ZrO$_2$ EDX Line Counts Spectrum}
+		\label{fig:ZrC_EDX_Line_Counts_Spectrum}
+	\end{figure}
+	
+	% Table generated by Excel2LaTeX from sheet 'Sheet1'
+	\begin{table}[!ht]
+		\centering
+		\caption{ZrC-ZrO$_2$ EDX Line Sum Spectrum Atomic Weight}
+		\begin{tabular}{cc}
+			\toprule
+			Line Sum Spectrum & Atomic \% \\
+			\midrule
+			C & 56.29 \\
+			O & 35.65 \\
+			Ca & 0.67 \\
+			Zr & 7.38 \\
+			\midrule
+			Total & 100 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:ZrC_EDX_Line_Atomic_Weight}%
+	\end{table}%
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Point_Image.jpg}
+		\caption{ZrC-ZrO$_2$ EDX Line Image 1}
+		\label{fig:ZrC_EDX_Point_Image}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/ZrC_EDX_Point_Sum_Spectrum.jpg}
+		\caption{ZrC-ZrO$_2$ EDX Line Sum Spectrum}
+		\label{fig:ZrC_EDX_Point_Sum_Spectrum}
+	\end{figure}
+	
+	% Table generated by Excel2LaTeX from sheet 'Sheet1'
+	\begin{table}[!ht]
+		\centering
+		\caption{ZrC-ZrO$_2$ EDX Point Sum Spectrum Atomic Weight}
+		\begin{tabular}{cc}
+			\toprule
+			Point Sum Spectrum & Atomic \% \\
+			\midrule
+			C & 52.79 \\
+			O & 37.47 \\
+			Si & 0.59 \\
+			Cl & 0.29 \\
+			Ca & 0.87 \\
+			Zr & 7.99 \\
+			\midrule
+			Total & 100 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:ZrC_EDX_Point_Atomic_Weight}%
+	\end{table}%
+	
+	% Copper
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{SEM and EDX/data/Second Group/Cu_SEM_1.jpg}
+			\caption{Laser Etched Cu SEM 1}
+			\label{fig:Cu_SEM_1}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{SEM and EDX/data/Second Group/Cu_SEM_2.jpg}
+			\caption{Laser Etched Cu SEM 2}
+			\label{fig:Cu_SEM_2}
+		\end{minipage}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{SEM and EDX/data/Second Group/Cu_EDX_Map_Image.jpg}
+		\caption{Cu EDX Map Image}
+		\label{fig:Cu_EDX_Map_Image}
+	\end{figure}
+	
+\clearpage
+	
+	\begin{figure}[!ht]
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{SEM and EDX/data/Second Group/Cu_EDX_Map_Cu.jpg}
+			\caption{Cu presence in Cu sample}
+			\label{fig:Cu_EDX_Map_Cu}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{SEM and EDX/data/Second Group/Cu_EDX_Map_O.jpg}
+			\caption{O presence in Cu sample}
+			\label{fig:Cu_EDX_Map_O}
+		\end{minipage}
+		\begin{minipage}{0.33\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{SEM and EDX/data/Second Group/Cu_EDX_Map_C.jpg}
+			\caption{C presence in Cu sample}
+			\label{fig:Cu_EDX_Map_C}
+		\end{minipage}
+	\end{figure}
+	
+	The SEM images showcase the microstructure of the ZrC under the ZrO2 coating. The expected property is a uniform and continuous coating, and it is apparent from the smooth and homogeneous surface. Variations in depth and texture are observed which indicates areas where the coating might be too thin or non-uniform, potentially exposing the ZrC substrate. For the Cu sample, the SEM images show the quality of the laser etching. We observe well-defined edges and consistent depth of the engraving, which are crucial for applications like microcircuit fabrication or decorative finishes.
+	EDX analysis helps confirm the chemical makeup of the ZrC-ZrO2 interface. Expected properties include a clear split of ZrO2 and ZrC layers with distinct peaks for Zr and O in the ZrO2 layer and C and Zr in the ZrC layer. The presence of unexpected elements like Al and Ca could suggest contamination or secondary phases that could affect the material's properties like electrical conductivity or corrosion resistance. Also on the Cu sample, we can see some oxidation from the O atoms and some C atoms, potentially from coating.
+	
+\clearpage
+
+	\subsection{Optical Profilometry (OP)}
+	
+	We used the Profilometer to image the surfaces of four samples: Copper (Cu), typical sample with laser etching, Glass (SiO$_2$), Aluminum (Al). A step height provided by the manufacturer was used to calibrate the Profilometer.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Surface Profilemeter/First Group/Step_Height.jpg}
+		\caption{Step Height}
+		\label{fig:OP_Step_Height}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Surface Profilemeter/First Group/Copper.jpg}
+		\caption{Copper}
+		\label{fig:OP_Copper}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Surface Profilemeter/First Group/Sample_With_Laser_Etching.jpg}
+		\caption{Sample With Laser Etching}
+		\label{fig:OP_Sample_With_Laser_Etching}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Surface Profilemeter/First Group/Glass_Surface_Without_Image_Processing.jpg}
+		\caption{Glass Surface Without Image Processing}
+		\label{fig:OP_Glass_Surface_Without_Image_Processing}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Surface Profilemeter/First Group/Glass_Surface_With_Image_Processing.jpg}
+		\caption{Glass Surface With Image Processing}
+		\label{fig:OP_Glass_Surface_With_Image_Processing}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Surface Profilemeter/First Group/Aluminum_Surface_Before_Flattening.jpg}
+		\caption{Aluminum Surface Before Flattening}
+		\label{fig:OP_Aluminum_Surface_Before_Flattening}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{Surface Profilemeter/First Group/Aluminum_Surface_After_Flattening.jpg}
+		\caption{Aluminum Surface After Flattening}
+		\label{fig:OP_Aluminum_Surface_After_Flattening}
+	\end{figure}
+	
+	The step height standard was used for calibration, ensuring the accuracy of height measurements across these samples. The profiler provided detailed 3D topographical maps that highlighted features such as the surface roughness of Al and Cu, the smoothness of Glass, and the details of the laser etching. Its clear that post processing is required due to the nature of the apparatus. The metals Cu and Al exhibit uniform and smooth surfaces even after manufacturing with only minimal surface roughness. For glass, we can see how flat the surface is before processing, and even after processing the variations are in the range of $\qty{0.01}{\micro\meter}$. The laser etched sample highlghts the preceision and repeatability of the applied etching process, as evident by the consistent depth and apparent pattern.
+	
+\clearpage
+
+	\subsection{Atomic Force Microscopy (AFM)}
+	
+	We used AFM to image a Fluoride Tin oxide-coated glass substrate (FTO).
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{AFM/Group2/AFM_FTO_2D_Image.png}
+			\caption{FTO AFM 2D}
+			\label{fig:AFM_FTO_2D_Image}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{AFM/Group2/AFM_FTO_3D_Image.png}
+			\caption{FTO AFM 3D}
+			\label{fig:AFM_FTO_3D_Image}
+		\end{minipage}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{AFM/Group2/AFM_FTO_Line_1_Image.png}
+			\caption{FTO AFM Line Image 1}
+			\label{fig:AFM_FTO_Line_1_Image}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{AFM/Group2/AFM_FTO_Line_1_Roughness.png}
+			\caption{FTO AFM Line Image 1 Roughness}
+			\label{fig:AFM_FTO_Line_1_Roughness}
+		\end{minipage}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{AFM/Group2/AFM_FTO_Line_2_Image.png}
+			\caption{FTO AFM Line Image 2}
+			\label{fig:AFM_FTO_Line_2_Image}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{AFM/Group2/AFM_FTO_Line_2_Topography.png}
+			\caption{FTO AFM Line Image 2 Topography}
+			\label{fig:AFM_FTO_Line_2_Topography}
+		\end{minipage}
+	\end{figure}
+	
+\clearpage
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{AFM/Group2/AFM_FTO_Area_Image.png}
+			\caption{FTO AFM Area Image}
+			\label{fig:AFM_FTO_Area_Image}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{AFM/Group2/AFM_FTO_Area_Roughness.png}
+			\caption{FTO AFM Area Image Roughness}
+			\label{fig:AFM_FTO_Area_Roughness}
+		\end{minipage}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{AFM/Group2/AFM_FTO_XY_Image.png}
+			\caption{FTO AFM XY Image}
+			\label{fig:AFM_FTO_XY_Image}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{AFM/Group2/AFM_FTO_XY_Topography.png}
+			\caption{FTO AFM XY Image Topography}
+			\label{fig:AFM_FTO_XY_Topography}
+		\end{minipage}
+	\end{figure}
+	
+	It is clear that FTO has a smooth surface with minimal grain boundaries visible at the nanoscale. The variations range between $\qty{10}{\nano\meter}$ and $\qty{60}{\nano\meter}$.
+	
+	
+\clearpage
+	
+	\section{Applications}
+	
+	\begin{itemize}
+		\item \textbf{Materials Science:}
+		\begin{itemize}
+			\item Characterizing the surface roughness, texture, and morphology of materials.
+			\item Analyzing material defects such as cracks, corrosion, and other surface irregularities.
+			\item Investigating thin films, coatings, and surface treatments.
+		\end{itemize}
+		
+		\item \textbf{Semiconductor Industry:}
+		\begin{itemize}
+			\item Inspecting semiconductor wafers for defects.
+			\item Measuring layer thickness and uniformity in multi-layer structures.
+			\item Surface roughness and topography assessment for quality control.
+		\end{itemize}
+		
+		\item \textbf{Biomedical Applications:}
+		\begin{itemize}
+			\item Imaging and analyzing biological samples like cells and tissues at high resolution.
+			\item Characterizing the surface properties of biomaterials for implants and prosthetics.
+		\end{itemize}
+		
+		\item \textbf{Manufacturing and Engineering:}
+		\begin{itemize}
+			\item Assessing wear and tear on mechanical components.
+			\item Examining the quality of machined surfaces to ensure compliance with specifications.
+		\end{itemize}
+	\end{itemize}
+	
+	
+\clearpage
+	
+	\section{Conclusion}
+		
+	The integration of SEM, EDX, OP, and AFM in this experiment has effectively shown the surface characteristics of various materials. SEM and EDX analyses revealed the microstructural details and elemental composition of ZrC-ZrO2 and Cu, confirming the uniformity of coatings and the quality of laser etchings. OP provided quantitative data on surface roughness and topography, particularly highlighting the precision of surface treatments and manufacturing quality. AFM offered unparalleled insights into the nanoscale surface features of FTO-coated glass, showing minimal grain boundaries and surface roughness suitable for advanced optical applications. This study demonstrates the powerful synergy of combining multiple surface characterization techniques to obtain a comprehensive understanding of material surfaces, which is vital for the advancement of materials science and engineering.
+	
+\clearpage
+	
+	\section{References}
+	
+	\begin{itemize}
+		\item Lab manuals
+	\end{itemize}
+	
+\end{document}

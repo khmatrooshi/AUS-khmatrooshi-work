@@ -1,0 +1,673 @@
+\documentclass[11pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\doublespacing
+
+\usepackage[shortconst]{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\setlist[itemize]{leftmargin=*, labelindent=\parindent, noitemsep, topsep=0pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt}
+
+\hypersetup{
+	pdftitle={X-Ray Diffraction},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{X-Ray Diffraction} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			This experiment utilized X-ray Diffraction (XRD) to analyze the structural properties of various polycrystalline materials including copper (Cu), silicon (Si), sodium chloride (NaCl), and others. Through the application of XRD, we were able to determine the phase compositions and lattice parameters. The results confirmed the crystalline structures and phase purity of Cu and NaCl, showcasing their expected cubic structures and polycrystalline nature. However, discrepancies in the characterization of TiO2 highlighted potential anomalies or procedural errors, suggesting areas for further investigation.
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{X-ray Diffraction, Crystalline, Phase, Non-destructive}
+	\end{titlepage}
+	
+\clearpage
+	
+	\section{Introduction}	
+	
+	XRD is a fundamental analytical method used to investigate the atomic and molecular structure of a crystal. The principle behind XRD is based on the constructive interference of monochromatic X-rays and a crystalline sample. This experiment aims to employ XRD to explore the structural properties of polycrystalline materials, identify crystalline phases
+	
+	When X-rays interact with a crystalline material, they are diffracted in many specific directions. According to Bragg's Law (\(n\lambda = 2d\sin\theta\)), these directions depend on the wavelength (\(\lambda\)) of the X-rays and the distance between the lattice planes in the crystal (\(d\)). Here, \(n\) represents an integer, and \(\theta\) is the angle of incidence that satisfies the condition for constructive interference. This law facilitates the prediction of where diffracted peaks will appear in XRD patterns, allowing for accurate identification of the material's phase based on its unique crystal structure.
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Intro_Bragg's_Law.png}
+		\caption{Bragg's Law}
+	\end{figure}
+	
+	The experiment will utilize a diffractometer equipped with an X-ray tube, a sample holder, and a detector, configured to measure the angle (\(\theta\)) and intensity of the diffracted beams. As the sample is rotated, the detector records the diffracted X-rays at various angles, creating a diffractogram that reveals information about the crystal structure. Analyzing these patterns enables the determination of the lattice parameters, providing insights into the material’s crystalline structure.
+	
+\clearpage
+	
+	\section{Experimental Details}
+	
+	This section details the procedure for the experiment and the expected results according to the lab manuals and the relevant equations.
+
+	\begin{enumerate}
+		\item \textbf{Equipment and Materials:}
+		\begin{itemize}
+			\item Panalytical Xpert Pro 3 powder diffractometer for high-resolution XRD analysis.
+			\item Polycrystalline metallic sheets and glass microscope slides as samples.
+			\item Personal Protective Equipment (PPE): Laboratory coats, gloves, and eye protection.
+		\end{itemize}
+		
+		\item \textbf{Procedure:}
+		\begin{enumerate}
+			\item \textbf{Setup:}
+			\begin{itemize}
+				\item Ensure all diffractometers are properly set up and functioning. Check power, generator settings, alignment of the X-ray tube, and detectors.
+				\item Properly mount the sample in the holder of the Xpert Pro 3 diffractometer, ensuring correct orientation for diffraction.
+			\end{itemize}
+			
+			\item \textbf{XRD Measurement:}
+			\begin{itemize}
+				\item Configure the Xpert Pro 3 to use Cu K$\alpha$ radiation (wavelength = 1.5418 \AA). Set the operational voltage and current (typically 40kV and 30mA).
+				\item Initiate the scan over a 2$\theta$ range of about 10$^\circ$ to 100$^\circ$ to capture all relevant diffraction peaks.
+			\end{itemize}
+			
+			\item \textbf{Data Collection:}
+			\begin{itemize}
+				\item Record the intensity of the diffracted X-rays at each angle of 2$\theta$. Monitor equipment continuously to adjust for any drift.
+			\end{itemize}
+			
+			\item \textbf{Data Analysis:}
+			\begin{itemize}
+				\item Apply Bragg's Law to determine the d-spacings and identify the phases using standard reference patterns. This is done through HighScore.
+			\end{itemize}
+			
+			\item \textbf{Safety Measures:}
+			\begin{itemize}
+				\item Ensure the X-ray generator is off when not in use and during sample loading/unloading.
+				\item Wear appropriate PPE throughout the experiment to mitigate exposure risks.
+			\end{itemize}
+		\end{enumerate}
+	\end{enumerate}
+	
+
+\clearpage
+
+	\section{Results and Discussion}
+	
+	The following sections contain our results for each method that includes tables and graphs. This is accompanied by a discussion that includes interpretations of the results. We conducted XRD on 5 samples: Copper (Cu), Halite composed of Sodium Chloride (NaCl), Silicon (Si), Strontianite composed of Strontium Carbonate (SrCO$_3$), Rutile composed of Titanium(II) dioxide (TiO$_2$). The data generated by HighScore was inconsistent as the documents did not all contain the XRD spectrum. Therefore using the csv/xrdml file for each sample I plotted the graph on RStudio. For each sample I include the peaks list with it, longer lists are in the appendix to maintain the flow of the report. The calculated lattice parameters by HighScore are in the appendix, note that Silicon did not generate a HighScore document.
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{data/Cu_Spectrum_HighScore.jpg}
+		\caption{Cu XRD Spectrum}
+	\end{figure}
+	
+	% Table generated by Excel2LaTeX from sheet 'Sheet1'
+	\begin{table}[htbp]
+		\centering
+		\begin{tabular}{ccccccc}
+			\toprule
+			No. & h & k & l & d ($\unit{\AA}$) & $2\theta$ ($\unit{\degreeCelsius}$) & I (\%) \\
+			\midrule
+			1 & 1 & 1 & 1 & 2.086 & 43.34 & 100 \\
+			2 & 0 & 2 & 0 & 1.8065 & 50.48 & 45.3 \\
+			3 & 0 & 2 & 2 & 1.2774 & 74.17 & 22.7 \\
+			\bottomrule
+		\end{tabular}%
+		\caption{Cu Peaks List}
+		\label{tab:Copper_Peaks}%
+	\end{table}%
+	
+\clearpage
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{data/NaCl_Spectrum_R.jpeg}
+		\caption{NaCl XRD Spectrum}
+	\end{figure}
+	
+	% Table generated by Excel2LaTeX from sheet 'Sheet1'
+	\begin{table}[!ht]
+		\centering
+		\caption{NaCl Peaks List}
+		\begin{tabular}{ccccccc}
+			\toprule
+			No. & h & k & l & d ($\unit{\AA}$) & $2\theta$ ($\unit{\degreeCelsius}$) & I (\%) \\
+			\midrule
+			1 & 1 & 1 & 1 & 3.2326 & 27.57 & 8.7 \\
+			2 & 0 & 2 & 0 & 2.7995 & 31.94 & 100 \\
+			3 & 0 & 2 & 2 & 1.9796 & 45.8 & 64.1 \\
+			4 & 1 & 3 & 1 & 1.6882 & 54.3 & 2.2 \\
+			5 & 2 & 2 & 2 & 1.6163 & 56.93 & 20.1 \\
+			6 & 0 & 4 & 0 & 1.3998 & 66.78 & 8.6 \\
+			7 & 1 & 3 & 3 & 1.2845 & 73.7 & 1 \\
+			8 & 0 & 4 & 2 & 1.252 & 75.94 & 22.4 \\
+			9 & 2 & 4 & 2 & 1.1429 & 84.75 & 16.2 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:NaCl_Peaks}%
+	\end{table}%
+	
+	For both Cu and NaCl, the experiment corresponds greatly to the sources, indicating the accuracy of the experimental method. Agreeing with both samples being polycrystalline and having a cubic structure
+	
+\clearpage
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{data/Si_Spectrum_R.jpeg}
+		\caption{Si XRD Spectrum}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{data/Si_Spectrum_Reference.png}
+		\caption{Si XRD Spectrum Reference}
+	\end{figure}
+	
+	The HighScore word document for Silicon was not generated, therefore browsing online, an XRD pattern for a p-type silicon crystalline silicon corresponds to our XRD pattern. Left image is the p-type and right image is a porous silicon.
+	
+\clearpage
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{data/SrCO3_Spectrum_HighScore.jpg}
+		\caption{SrCO$_3$ XRD Spectrum}
+	\end{figure}
+	
+	\begin{figure}[!ht]
+		\centering
+		\includegraphics[width=0.8\textwidth]{data/TiO2_Spectrum_R.jpeg}
+		\caption{TiO$_2$ XRD Spectrum}
+	\end{figure}
+	
+	The peaks list for SrCO$_3$ and TiO$_2$ are in the appendix. Comparing to the sources, SrCO$_3$ prominent peaks are reflected in the source. While for TiO$_2$ it is not reflected in the source, suggesting a mischaracterization of the sample, or improper procedure. The noise is expected as Anatase and Rutile phases coexist in the sample.
+	
+\clearpage
+	
+	\section{Applications}
+	
+	\begin{itemize}
+		\item Qualitative and quantitative phase analysis of pure substances and mixtures.
+		\item Analysis of phase changes under non-ambient conditions like temperature and pressure.
+		\item Analysis of physical properties such as crystallite size, crystal orientation, and residual stress.
+		\item Use in polycrystalline layered materials such as coatings and thin films via grazing incidence XRD (GIXRD).
+		\item Microdiffraction studies for examining small areas within polycrystalline materials.
+		\item High-resolution analysis of single crystal semiconductor wafers or epitaxial layers using HR-XRD.
+		\item Examination of non-crystalline components of materials using various X-ray scattering methods.
+	\end{itemize}
+	
+\clearpage
+	
+	\section{Conclusion}
+	
+	The experiment successfully demonstrated the application of XRD in identifying and characterizing the crystalline structures of different materials. The results closely matched the expected outcomes based on standard references, indicating the reliability of the experimental setup and procedure. For materials like Cu and NaCl, the XRD patterns confirmed their polycrystalline nature and cubic structures, aligning with theoretical predictions and literature values. However, discrepancies in the characterization of TiO2 suggest potential experimental errors or sample anomalies. This experiment underscores the efficacy of XRD in material science, particularly in validating material properties and improving the understanding of material behaviors under standard environmental conditions.
+		
+\clearpage
+	
+	\section{Appendix}	
+	
+	% Table generated by Excel2LaTeX from sheet 'Cu'
+	\begin{table}[htbp]
+		\centering
+		\caption{Cu HighScore Information}
+		\begin{tabular}{cc}
+			\toprule
+			Name and formula &  \\
+			\midrule
+			Reference code: & 96-901-3015 \\
+			Mineral name: & Copper \\
+			Compound name: & Copper \\
+			Common name: & Copper \\
+			Chemical formula: & Cu4.00 \\
+			\midrule
+			Crystallographic parameters &  \\
+			\midrule
+			Crystal system: & Cubic \\
+			Space group: & F m -3 m \\
+			Space group number: & 225 \\
+			a (Å): & 3.613 \\
+			b (Å): & 3.613 \\
+			c (Å): & 3.613 \\
+			Alpha (°): & 90 \\
+			Beta (°): & 90 \\
+			Gamma (°): & 90 \\
+			Calculated density (g/cm3): & 8.95 \\
+			Volume of cell (e6 pm3): & 47.16 \\
+			RIR: & 9.63 \\
+			\midrule
+			Subfiles and quality &  \\
+			\midrule
+			Subfiles: & User Inorganic, User Metallic, User Mineral \\
+			Quality: & User From Structure (=) \\
+			Comments &  \\
+			Creation Date: & 6/15/2016 8:20:51 PM \\
+			Modification Date: & 6/15/2016 8:20:51 PM \\
+			Cross-References: & ICDD:96-901-3015 \\
+			Publication title: & \multirow{4}{*}{\parbox{7cm}{High-temperature thermal expansion of six metallic elements measured by dilatation method and X-ray diffraction  Locality: synthetic  Sample: at $T = 293 K$}} \\
+			& \\
+			& \\
+			& \\
+			COD database code: 9013014 &  \\
+			\bottomrule
+		\end{tabular}%
+		\\
+		\begin{tabular}{ccccccccc}
+			\toprule
+			Structure &   &   &   &   &   &   &   &  \\
+			\midrule
+			No. & Name & Element & X & Y & Z & Biso & sof & Wyck. \\
+			\midrule
+			1 & Cu & Cu & 0 & 0 & 0 & 0.5 & 1 & 4a \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:Copper_Appendix}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'NaCl'
+	\begin{table}[htbp]
+		\centering
+		\caption{NaCl HighScore Information}
+		\begin{tabular}{cc}
+			\toprule
+			Name and formula &  \\
+			\midrule
+			Reference code: & 96-900-6371 \\
+			Mineral name: & Halite \\
+			Compound name: & Halite \\
+			Common name: & Halite \\
+			Chemical formula: & Na4.00Cl4.00 \\
+			\midrule
+			Crystallographic parameters &  \\
+			\midrule
+			Crystal system: & Cubic \\
+			Space group: & F m -3 m \\
+			Space group number: & 225 \\
+			a (Å): & 5.599 \\
+			b (Å): & 5.599 \\
+			c (Å): & 5.599 \\
+			Alpha (°): & 90 \\
+			Beta (°): & 90 \\
+			Gamma (°): & 90 \\
+			Calculated density (g/cm3): & 2.21 \\
+			Volume of cell (e6 pm3): & 175.52 \\
+			RIR: & 4.98 \\
+			\midrule
+			Subfiles and quality &  \\
+			\midrule
+			Subfiles: & User Inorganic, User Mineral \\
+			Quality: & User From Structure (=) \\
+			Comments &  \\
+			Creation Date: & 6/15/2016 8:10:15 PM \\
+			Modification Date: & 6/15/2016 8:10:15 PM \\
+			Cross-References: & ICDD:96-900-6371 \\
+			Publication title: & \multirow{3}{*}{\parbox{7cm}{Thermal expansion of alkali halides at high pressure: NaCl as an example  Sample: T = 100 K, Molar volume = 26.42 cc/mol}} \\
+			& \\
+			& \\
+			COD database code: & 9006370 \\
+			\bottomrule
+		\end{tabular}%
+		\\
+		\begin{tabular}{ccccccccc}
+			\toprule
+			Structure &   &   &   &   &   &   &   &  \\
+			\midrule
+			No. & Name & Element & X & Y & Z & Biso & sof & Wyck. \\
+			\midrule
+			1 & Na & Na & 0 & 0 & 0 & N/A & N/A & N/A \\
+			2 & Cl & Cl & 0.5 & 0.5 & 0.5 & N/A & N/A & N/A \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:NaCl_Appendix}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'SrCO3'
+	\begin{table}[htbp]
+		\centering
+		\caption{SrCO3 HighScore Information}
+		\begin{tabular}{cc}
+			\toprule
+			Name and formula &  \\
+			\midrule
+			Reference code: & 96-900-0228 \\
+			Mineral name: & Strontianite \\
+			Compound name: & Strontianite \\
+			Common name: & Strontianite \\
+			Chemical formula: & Sr4.00C4.00O12.00 \\
+			\midrule
+			Crystallographic parameters &  \\
+			\midrule
+			Crystal system: & Orthorhombic \\
+			Space group: & P n m a \\
+			Space group number: & 62 \\
+			a (Å): & 5.997 \\
+			b (Å): & 5.09 \\
+			c (Å): & 8.358 \\
+			Alpha (°): & 90 \\
+			Beta (°): & 90 \\
+			Gamma (°): & 90 \\
+			Calculated density (g/cm3): & 3.84 \\
+			Volume of cell (e6 pm3): & 255.13 \\
+			RIR: & 3.97 \\
+			\midrule
+			Subfiles and quality &  \\
+			\midrule
+			Subfiles: & User Inorganic, User Mineral \\
+			Quality: & User From Structure (=) \\
+			Comments &  \\
+			Creation Date: & 6/15/2016 7:59:46 PM \\
+			Modification Date: & 6/15/2016 7:59:46 PM \\
+			Cross-References: & ICDD:96-900-0228 \\
+			Structure TIDY: & TRANS  c,a,b     origin  0 1/2 0 \\
+			Structure TIDY: & REMARK Transformed from setting  P m c n. \\
+			Publication title: & Crystal structures of aragonite, strontianite, and witherite \\
+			COD database code: 9000227 &  \\
+			\bottomrule
+		\end{tabular}%
+		\\
+		\begin{tabular}{ccccccccc}
+			\toprule
+			Structure &   &   &   &   &   &   &   &  \\
+			\midrule
+			No. & Name & Element & X & Y & Z & Biso & sof & Wyck. \\
+			\midrule
+			1 & Sr & Sr & 0.2431 & 0.25 & 0.584 & 0.5077 & 1 & 4c \\
+			2 & C & C & 0.0864 & 0.25 & 0.2399 & 0.5922 & 1 & 4c \\
+			3 & O1 & O & 0.0946 & 0.25 & 0.0881 & 0.9127 & 1 & 4c \\
+			4 & O2 & O & 0.0839 & 0.0306 & 0.3179 & 0.7967 & 1 & 8d \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:SrCO3_Appendix}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'TiO2'
+	\begin{table}[htbp]
+		\centering
+		\caption{TiO2 HighScore Information}
+		\begin{tabular}{cc}
+			\toprule
+			Name and formula &  \\
+			\midrule
+			Reference code: & 96-231-0487 \\
+			Compound name: & Ti O2 \\
+			Common name: & Ti O2 \\
+			Chemical formula: & O8.00Ti4.00 \\
+			\midrule
+			Crystallographic parameters &  \\
+			\midrule
+			Crystal system: & Orthorhombic \\
+			Space group: & P b c n \\
+			Space group number: & 60 \\
+			a (Å): & 4.515 \\
+			b (Å): & 5.497 \\
+			c (Å): & 4.939 \\
+			Alpha (°): & 90 \\
+			Beta (°): & 90 \\
+			Gamma (°): & 90 \\
+			Calculated density (g/cm3): & 4.33 \\
+			Volume of cell (e6 pm3): & 122.58 \\
+			RIR: & 3.1 \\
+			\midrule
+			Subfiles and quality &  \\
+			\midrule
+			Subfiles: & User Inorganic \\
+			Quality: & User From Structure (=) \\
+			Comments &  \\
+			Creation Date: & 6/14/2016 7:23:43 PM \\
+			Modification Date: & 6/14/2016 7:23:43 PM \\
+			Cross-References: & ICDD:96-231-0487 \\
+			Structure TIDY: & TRANS  Origin  1/2 0 1/2 \\
+			Publication title: & The structure of Ti O2 II, a high-pressure phase of Ti O2 \\
+			COD database code: 2310486 &  \\
+			\bottomrule
+		\end{tabular}%
+		\\
+		\begin{tabular}{ccccccccc}
+			\toprule
+			Structure &   &   &   &   &   &   &   &  \\
+			\midrule
+			No. & Name & Element & X & Y & Z & Biso & sof & Wyck. \\
+			\midrule
+			1 & O1 & O & 0.286 & 0.124 & 0.088 & 0 & 1 & 8d \\
+			2 & Ti1 & Ti & 0 & 0.329 & 0.25 & 0 & 1 & 4c \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:TiO2_Appendix}%
+	\end{table}%
+	
+	
+	% Table generated by Excel2LaTeX from sheet 'SrCO3'
+	\begin{table}[htbp]
+		\centering
+		\caption{SrCO3 Peaks List 1}
+		\begin{tabular}{ccccccc}
+			\toprule
+			No. & h & k & l & d ($\unit{\AA}$) & $2\theta$ ($\unit{\degreeCelsius}$) & I (\%) \\
+			\midrule
+			1 & 1 & 0 & 1 & 4.8725 & 18.192 & 0.2 \\
+			2 & 0 & 1 & 1 & 4.34729 & 20.412 & 4.3 \\
+			3 & 0 & 0 & 2 & 4.179 & 21.244 & 1.8 \\
+			4 & 1 & 1 & 1 & 3.51976 & 25.283 & 100 \\
+			5 & 1 & 0 & 2 & 3.42864 & 25.966 & 52.7 \\
+			6 & 2 & 0 & 0 & 2.9985 & 29.772 & 12 \\
+			7 & 1 & 1 & 2 & 2.84366 & 31.434 & 2 \\
+			8 & 2 & 0 & 1 & 2.82237 & 31.677 & 10.3 \\
+			9 & 2 & 1 & 0 & 2.58354 & 34.694 & 6.7 \\
+			10 & 0 & 2 & 0 & 2.545 & 35.236 & 15.7 \\
+			11 & 1 & 0 & 3 & 2.52666 & 35.501 & 2.6 \\
+			12 & 2 & 1 & 1 & 2.46831 & 36.369 & 24.5 \\
+			13 & 0 & 1 & 3 & 2.44387 & 36.745 & 27.5 \\
+			14 & 2 & 0 & 2 & 2.43625 & 36.864 & 12.2 \\
+			15 & 1 & 1 & 3 & 2.26316 & 39.798 & 0 \\
+			16 & 1 & 2 & 1 & 2.25582 & 39.933 & 2.2 \\
+			17 & 2 & 1 & 2 & 2.19751 & 41.04 & 0 \\
+			18 & 0 & 2 & 2 & 2.17364 & 41.511 & 9.8 \\
+			19 & 0 & 0 & 4 & 2.0895 & 43.265 & 3 \\
+			20 & 1 & 2 & 2 & 2.04355 & 44.289 & 41.2 \\
+			21 & 2 & 0 & 3 & 2.04099 & 44.347 & 0.2 \\
+			22 & 1 & 0 & 4 & 1.97316 & 45.957 & 18.6 \\
+			23 & 3 & 0 & 1 & 1.94417 & 46.683 & 0.1 \\
+			24 & 2 & 2 & 0 & 1.94032 & 46.781 & 16 \\
+			25 & 2 & 1 & 3 & 1.89437 & 47.986 & 27.3 \\
+			26 & 2 & 2 & 1 & 1.89006 & 48.102 & 0.4 \\
+			27 & 1 & 1 & 4 & 1.83976 & 49.504 & 0.8 \\
+			28 & 3 & 1 & 1 & 1.81619 & 50.191 & 22.4 \\
+			29 & 3 & 0 & 2 & 1.80331 & 50.575 & 10.5 \\
+			30 & 1 & 2 & 3 & 1.79307 & 50.884 & 1.8 \\
+			31 & 2 & 2 & 2 & 1.75988 & 51.914 & 3.6 \\
+			32 & 2 & 0 & 4 & 1.71432 & 53.402 & 2.4 \\
+			33 & 3 & 1 & 2 & 1.69978 & 53.895 & 0.4 \\
+			34 & 0 & 3 & 1 & 1.66275 & 55.196 & 2 \\
+			35 & 2 & 1 & 4 & 1.62465 & 56.606 & 0 \\
+			36 & 3 & 0 & 3 & 1.62417 & 56.624 & 0 \\
+			37 & 0 & 2 & 4 & 1.61493 & 56.977 & 1.8 \\
+			38 & 1 & 0 & 5 & 1.61022 & 57.16 & 0.6 \\
+			39 & 1 & 3 & 1 & 1.6023 & 57.468 & 8.6 \\
+			40 & 2 & 2 & 3 & 1.59222 & 57.866 & 0 \\
+			41 & 0 & 1 & 5 & 1.58815 & 58.029 & 1 \\
+			42 & 1 & 2 & 4 & 1.55938 & 59.205 & 8.2 \\
+			43 & 3 & 1 & 3 & 1.5473 & 59.713 & 0 \\
+			44 & 3 & 2 & 1 & 1.54495 & 59.814 & 0.1 \\
+			45 & 1 & 1 & 5 & 1.53523 & 60.232 & 8.1 \\
+			
+			\bottomrule
+		\end{tabular}%
+		\label{tab:SrCO3_Peaks_1}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'SrCO3'
+	\begin{table}[htbp]
+		\centering
+		\caption{SrCO3 Peaks List 2}
+		\begin{tabular}{ccccccc}
+			\toprule
+			No. & h & k & l & d ($\unit{\AA}$) & $2\theta$ ($\unit{\degreeCelsius}$) & I (\%) \\
+			\midrule
+			46 & 1 & 3 & 2 & 1.52066 & 60.869 & 0.9 \\
+			47 & 4 & 0 & 0 & 1.49925 & 61.833 & 1.4 \\
+			48 & 2 & 3 & 0 & 1.47666 & 62.886 & 0.2 \\
+			49 & 4 & 0 & 1 & 1.4757 & 62.932 & 1.1 \\
+			50 & 3 & 2 & 2 & 1.47138 & 63.138 & 3 \\
+			51 & 2 & 0 & 5 & 1.46005 & 63.685 & 0 \\
+			52 & 2 & 3 & 1 & 1.45414 & 63.974 & 2.7 \\
+			53 & 0 & 3 & 3 & 1.4491 & 64.223 & 4.3 \\
+			54 & 3 & 0 & 4 & 1.44444 & 64.455 & 1.2 \\
+			55 & 4 & 1 & 0 & 1.43816 & 64.771 & 0 \\
+			56 & 2 & 2 & 4 & 1.42183 & 65.608 & 2.9 \\
+			57 & 4 & 1 & 1 & 1.41733 & 65.842 & 3.8 \\
+			58 & 4 & 0 & 2 & 1.41118 & 66.166 & 1.7 \\
+			59 & 1 & 3 & 3 & 1.40856 & 66.305 & 0.1 \\
+			60 & 2 & 1 & 5 & 1.40345 & 66.578 & 2.6 \\
+			61 & 0 & 0 & 6 & 1.393 & 67.143 & 2.2 \\
+			62 & 2 & 3 & 2 & 1.3923 & 67.182 & 0.1 \\
+			63 & 3 & 1 & 4 & 1.38957 & 67.331 & 0.2 \\
+			64 & 3 & 2 & 3 & 1.36912 & 68.475 & 0 \\
+			65 & 1 & 2 & 5 & 1.36073 & 68.956 & 0.2 \\
+			66 & 4 & 1 & 2 & 1.35989 & 69.005 & 0.2 \\
+			67 & 1 & 0 & 6 & 1.35688 & 69.18 & 0 \\
+			68 & 4 & 0 & 3 & 1.32023 & 71.389 & 0.1 \\
+			69 & 1 & 1 & 6 & 1.31109 & 71.963 & 0 \\
+			70 & 2 & 3 & 3 & 1.30472 & 72.37 & 7.6 \\
+			71 & 4 & 2 & 0 & 1.29177 & 73.213 & 3.3 \\
+			72 & 1 & 3 & 4 & 1.28647 & 73.564 & 0 \\
+			73 & 3 & 0 & 5 & 1.28234 & 73.84 & 0 \\
+			74 & 3 & 3 & 1 & 1.27833 & 74.11 & 7.1 \\
+			75 & 4 & 1 & 3 & 1.27794 & 74.137 & 7 \\
+			76 & 4 & 2 & 1 & 1.27661 & 74.227 & 0 \\
+			77 & 0 & 4 & 0 & 1.2725 & 74.507 & 3.3 \\
+			78 & 2 & 2 & 5 & 1.26644 & 74.925 & 0.2 \\
+			79 & 2 & 0 & 6 & 1.26333 & 75.141 & 3.4 \\
+			80 & 3 & 2 & 4 & 1.25621 & 75.641 & 6.5 \\
+			81 & 3 & 1 & 5 & 1.24348 & 76.555 & 6.1 \\
+			82 & 3 & 3 & 2 & 1.23571 & 77.125 & 0.1 \\
+			83 & 4 & 2 & 2 & 1.23415 & 77.24 & 1 \\
+			84 & 1 & 4 & 1 & 1.23121 & 77.459 & 0 \\
+			85 & 2 & 1 & 6 & 1.22613 & 77.84 & 0.3 \\
+			86 & 0 & 2 & 6 & 1.22193 & 78.158 & 5.7 \\
+			87 & 4 & 0 & 4 & 1.21813 & 78.45 & 0.7 \\
+			88 & 0 & 4 & 2 & 1.21732 & 78.512 & 0.3 \\
+			89 & 2 & 3 & 4 & 1.20592 & 79.4 & 0 \\
+			90 & 1 & 2 & 6 & 1.19733 & 80.084 & 0 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:SrCO3_Peaks_2}%
+	\end{table}%
+	
+	% Table generated by Excel2LaTeX from sheet 'TiO2'
+	\begin{table}[htbp]
+		\centering
+		\caption{TiO$_2$ Peaks List}
+		\begin{tabular}{ccccccc}
+			\toprule
+			No. & h & k & l & d ($\unit{\AA}$) & $2\theta$ ($\unit{\degreeCelsius}$) & I (\%) \\
+			\midrule
+			1 & 1 & 1 & 0 & 3.48898 & 25.51 & 45.5 \\
+			2 & 1 & 1 & 1 & 2.84967 & 31.366 & 100 \\
+			3 & 0 & 2 & 0 & 2.7485 & 32.552 & 9.7 \\
+			4 & 0 & 0 & 2 & 2.4695 & 36.351 & 11.7 \\
+			5 & 0 & 2 & 1 & 2.40167 & 37.415 & 10.3 \\
+			6 & 2 & 0 & 0 & 2.2575 & 39.902 & 3 \\
+			7 & 1 & 0 & 2 & 2.1666 & 41.652 & 11 \\
+			8 & 1 & 2 & 1 & 2.12035 & 42.605 & 18.3 \\
+			9 & 1 & 1 & 2 & 2.01568 & 44.934 & 9.5 \\
+			10 & 2 & 1 & 1 & 1.9234 & 47.217 & 1.2 \\
+			11 & 0 & 2 & 2 & 1.83694 & 49.586 & 5.7 \\
+			12 & 2 & 2 & 0 & 1.74449 & 52.407 & 4.8 \\
+			13 & 1 & 2 & 2 & 1.70151 & 53.836 & 0 \\
+			14 & 1 & 3 & 0 & 1.69784 & 53.962 & 16.9 \\
+			15 & 2 & 0 & 2 & 1.66621 & 55.072 & 20.5 \\
+			16 & 2 & 2 & 1 & 1.6449 & 55.847 & 31.8 \\
+			17 & 1 & 3 & 1 & 1.60562 & 57.338 & 0.4 \\
+			18 & 2 & 1 & 2 & 1.59457 & 57.773 & 0.6 \\
+			19 & 1 & 1 & 3 & 1.4889 & 62.311 & 16.5 \\
+			20 & 3 & 1 & 0 & 1.45158 & 64.101 & 0.4 \\
+			21 & 2 & 2 & 2 & 1.42484 & 65.452 & 4.4 \\
+			22 & 0 & 2 & 3 & 1.41235 & 66.105 & 14.1 \\
+			23 & 1 & 3 & 2 & 1.39908 & 66.813 & 12.7 \\
+			24 & 3 & 1 & 1 & 1.39268 & 67.161 & 13.9 \\
+			25 & 0 & 4 & 0 & 1.37425 & 68.184 & 3 \\
+			26 & 2 & 3 & 1 & 1.36709 & 68.59 & 0.3 \\
+			27 & 1 & 2 & 3 & 1.34794 & 69.705 & 0 \\
+			28 & 0 & 4 & 1 & 1.32395 & 71.157 & 4.8 \\
+			29 & 2 & 1 & 3 & 1.29287 & 73.14 & 0 \\
+			30 & 3 & 0 & 2 & 1.28515 & 73.652 & 0.7 \\
+			31 & 3 & 2 & 1 & 1.27529 & 74.316 & 1.3 \\
+			32 & 1 & 4 & 1 & 1.27046 & 74.647 & 0 \\
+			33 & 3 & 1 & 2 & 1.2514 & 75.984 & 3.1 \\
+			34 & 0 & 0 & 4 & 1.23475 & 77.196 & 1 \\
+			35 & 2 & 3 & 2 & 1.23274 & 77.345 & 0.2 \\
+			36 & 0 & 4 & 2 & 1.20083 & 79.803 & 0.1 \\
+			37 & 2 & 2 & 3 & 1.19733 & 80.084 & 1.1 \\
+			38 & 1 & 0 & 4 & 1.19102 & 80.595 & 0.7 \\
+			39 & 1 & 3 & 3 & 1.18192 & 81.345 & 0 \\
+			40 & 2 & 4 & 0 & 1.17385 & 82.023 & 0 \\
+			41 & 3 & 2 & 2 & 1.16417 & 82.855 & 0 \\
+			42 & 1 & 1 & 4 & 1.16401 & 82.869 & 1.3 \\
+			43 & 3 & 3 & 0 & 1.16299 & 82.957 & 2.1 \\
+			44 & 1 & 4 & 2 & 1.16049 & 83.176 & 1.5 \\
+			45 & 2 & 4 & 1 & 1.14204 & 84.83 & 5.6 \\
+			46 & 3 & 3 & 1 & 1.13203 & 85.759 & 0 \\
+			47 & 4 & 0 & 0 & 1.12875 & 86.069 & 2.9 \\
+			48 & 0 & 2 & 4 & 1.12631 & 86.3 & 1 \\
+			49 & 1 & 2 & 4 & 1.09282 & 89.638 & 0 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:TiO2_Peaks}%
+	\end{table}%
+	
+	
+\clearpage
+	
+	\section{References}
+	
+	\begin{itemize}
+		\item Lab manual
+		\item \href{https://www.malvernpanalytical.com/en/products/technology/xray-analysis/x-ray-diffraction}{https://www.malvernpanalytical.com/en/products/technology/xray-analysis/x-ray-diffraction}
+		\item Si XRD reference: \href{https://www.researchgate.net/figure/XRD-pattern-of-ap-type-crystalline-silicon-and-b-porous-silicon-XRD-pattern-of_fig1_353826243}{https://www.researchgate.net/figure/XRD-pattern-of-ap-type-crystalline-silicon-and-b-porous-silicon-XRD-pattern-of\_fig1\_353826243}
+		\item Source for structures: \href{https://rruff.geo.arizona.edu/AMS/amcsd.php}{https://rruff.geo.arizona.edu/AMS/amcsd.php}
+		\item Cu Structure: Suh, I.-K., Ohta, H., Waseda, Y., Journal of Materials Science, 23, 757 - 760, (1988)
+		\item NaCl Structure: Wang, K., Reeber, R. R., Physics and Chemistry of Minerals, 23, 354 - 360, (1996) \href{https://rruff.geo.arizona.edu/AMS/minerals/Halite}{https://rruff.geo.arizona.edu/AMS/minerals/Halite}
+		\item SrCO3 Structure: de Villiers, J. P. R., American Mineralogist, 56, 758 - 767, (1971)
+		\item TiO2 Structure: Simons, P.Y., Dachille, F., Acta Crystallographica (1,1948-23,1967), 23, 334 - 336, (1967)
+	\end{itemize}
+	
+\end{document}
