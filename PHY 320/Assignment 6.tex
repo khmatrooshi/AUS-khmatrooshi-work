@@ -1,0 +1,198 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{siunitx}
+\usepackage{physics}
+
+
+\setlength{\droptitle}{-10em}
+
+\title{PHY 320 - Assignment 6}
+\author{Khalifa Salem Almatrooshi b00090847}
+\date{24/11/2022}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+\newcommand\sep[1]{%
+	\leavevmode\unskip\unskip 
+	\nobreak % optional
+	\hspace{#1}\ignorespaces
+}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Problem 3}
+	
+	A bullet of mass $m$ is fired from a gun of mass $M$. If the gun can recoil freely and the muzzle velocity of the bullet (velocity relative to the gun as it leaves the barrel) is $v_0$, show that the actual velocity of the bullet relative to the ground is $v_0 / (1 + \gamma)$ and the recoil velocity for the gun is $-\gamma v_0 / (1 + \gamma)$, where $\gamma = m / M$. \\
+	
+	\bd{Solution} The velocity of the bullet $v_B$ relative to the recoil velocity of the gun $v_R$ is $v_0 = v_B - v_R$.
+	
+	\begin{equation}
+		\begin{split}
+			p_f &= p_i \\
+			mv_B + Mv_R &= 0 \\
+			v_R &= -\gamma v_B \\
+			v_B - v_0 &= -\gamma v_B \\
+			v_0 &= \gamma v_B + v_B = v_B(\gamma + 1) \\
+			v_B &= \frac{v_0}{\gamma + 1} = \frac{v_R}{-\gamma} \\
+			v_R &= \frac{-\gamma v_0}{\gamma + 1} \\
+		\end{split}
+	\end{equation}
+	 
+	\section{Problem 6}
+	
+	A ball is dropped from a height $h$ onto a horizontal pavement. If the coefficient of restitution is $\epsilon$, show that the total vertical distance the ball goes before the rebounds cease is $h(1+\epsilon^2)/(1-\epsilon^2)$. Find also the total length of time that the ball bounces. \\
+	
+	\bd{Solution} The coefficient of restitution connects the velocities and heights of subsequent bounces. Taking an energy approach with $\frac{1}{2}mv^2 = mgh$.
+	
+	\begin{equation}
+		\begin{split}
+			\epsilon = \frac{v'}{v} = \frac{\sqrt{2gh'}}{\sqrt{2gh}} &= \sqrt{\frac{h'}{h}} \\
+			h' &= \epsilon^2 h \\
+			h'' &= \epsilon^2 h' = \epsilon^4 h \\
+		\end{split}
+	\end{equation}
+	Now to find the total vertical distance starting at height $h$ and adding rebounds in terms of h and $\epsilon$.
+	\begin{equation}
+		\begin{split}
+			d_{fall} &= h + \epsilon^2 h + \epsilon^4 h + ... = \frac{h}{1 - \epsilon^2} \\
+			d_{rise} &= \epsilon^2 h + \epsilon^4 h + ... = \frac{\epsilon^2 h}{1 - \epsilon^2} \\
+			d_{total} &= \frac{h}{1 - \epsilon^2} + \frac{\epsilon^2 h}{1 - \epsilon^2} = h\left( \frac{1 + \epsilon^2}{1 - \epsilon^2} \right) \\
+		\end{split}
+	\end{equation}
+	Similar approach to find total time taken.
+	\begin{equation}
+		\begin{aligned}
+			s &= ut + \frac{1}{2}at^2 & t_{fall} &= \sqrt{\frac{2h}{g}} + \epsilon \sqrt{\frac{2h}{g}} + \epsilon^2 \sqrt{\frac{2h}{g}} + ... = \frac{\sqrt{2h/g}}{1 - \epsilon} \\
+			t &= \sqrt{\frac{2h}{g}} & t_{rise} &= \epsilon \sqrt{\frac{2h}{g}} + \epsilon^2 \sqrt{\frac{2h}{g}} + ... = \frac{\epsilon \sqrt{2h/g}}{1 - \epsilon} \\
+			t' &= \sqrt{\frac{2h'}{g}} = \epsilon \sqrt{\frac{2h}{g}} & t_{total} &= \frac{\sqrt{2h/g}}{1 - \epsilon} + \frac{\epsilon \sqrt{2h/g}}{1 - \epsilon} = \sqrt{\frac{2h}{g}} \left( \frac{1 + \epsilon}{1 - \epsilon} \right) \\
+		\end{aligned}
+	\end{equation}
+
+	\section{Problem 14}
+	
+	A proton of mass $m_p$ with initial velocity $\vec{v}_0$ collides with a helium atom, mass $4m_p$, that is initially at rest. If the proton leaves the point of impact at an angle of $45^{\circ}$ with its original line of motion, find the final velocities of each particle. Assume that the collision is perfectly elastic. \\
+	
+	\bd{Solution} Perfectly elastic, $Q = 0$ in conservation of linear momentum, breaking velocity down into its components.
+
+	\begin{equation}
+		\begin{split}
+			E: \frac{1}{2}m_p v^2_0 &= \frac{1}{2}m_p v^2_p + \frac{1}{2}4m_p v^2_{He} \\
+			v^2_0 &= v^2_p + 4v^2_{He} \\
+		\end{split}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			p&: m_p\vec{v}_0 = m_p\vec{v}'_p + 4m_p\vec{v}'_{He} \\
+			x&: v_0 = v'_p \cos 45 + 4v'_{He} \cos \theta = \frac{v'_p}{\sqrt{2}} + 4v'_{He} \cos \theta \\
+			y&: 0 = v'_p \sin 45 - 4v'_{He} \sin \theta = \frac{v'_p}{\sqrt{2}} - 4v'_{He} \sin \theta \\
+			x^2&: 16v'^2_{He} \cos^2 \theta = \left( v_0 - \frac{v'_p}{\sqrt{2}} \right)^2 = v^2_0 - \sqrt{2}v'_p v_0 + \frac{v'^2_p}{2} \\
+			y^2&: 16v'^2_{He} \sin^2 \theta = \frac{v'^2_p}{2} \\
+			x^2 + y^2 &: 16v'^2_{He} = v^2_0 - \sqrt{2}v'_p v_0 + v'^2_p = 4v^2_0 - 4v^2_p \\
+		\end{split}
+	\end{equation}
+	Combining the energy equation with the momentum equation.
+	\begin{equation}
+		\begin{split}
+			5v'^2_p &- \sqrt{2}v_0 v'_p - 3v^2_0 = 0 \\
+			v'_p &= \frac{\sqrt{2}v_0 \pm \sqrt{2v^2_0 - (4 \times 5 \times -3v^2_0)}}{10} = \frac{\sqrt{2}v_0 \pm \sqrt{2v^2_0 + 60 v^2_0}}{10} = \frac{v_0 (\sqrt{2} \pm \sqrt{62})}{10} \approx 0.929 v_0 \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			\theta_p &= 45^{\circ} \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{aligned}
+			v'_{px} &= \frac{v'_p}{\sqrt{2}} = 0.657v_0 & v'_{py} &= \frac{v'_p}{\sqrt{2}} = 0.657v_0 \\
+		\end{aligned}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			v'_{He} &= \frac{\sqrt{v^2_0 - v'^2_p}}{2} = \frac{\sqrt{v^2_0 - 0.929^2 v^2_0}}{2} = \frac{v_0\sqrt{1 - 0.929^2}}{2} \approx 0.185 v_0 \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{aligned}
+			v'_{He, x} &= 4v'_{He} \cos \theta_{He} = v_0 - \frac{v'_p}{\sqrt{2}} & v'_{He, y} &= 4v'_{He} \sin \theta_{He} = \frac{v'_p}{\sqrt{2}} & \tan \theta_{He} &= \frac{\frac{v'_p}{\sqrt{2}}}{v_0 - \frac{v'_p}{\sqrt{2}}} = \frac{0.657}{1 - 0.657} = 1.916 \\
+		\end{aligned}
+	\end{equation}
+	\begin{equation}
+		\begin{aligned}
+			\theta_{He} &= \arctan 1.916 = 62.44^{\circ} \\
+		\end{aligned}
+	\end{equation}
+	\begin{equation}
+		\begin{aligned}
+			v'_{He, x} &= v'_{He} \cos \theta_{He} = 0.0856v_0 & v'_{He, y} &= -v'_{He} \sin \theta_{He} = -0.164v_0 \\
+		\end{aligned}
+	\end{equation}
+
+	\clearpage
+
+	\section{Problem 18}
+	
+	A particle of mass $m$ with initial momentum $p_1$ collides with a particle of equal mass at rest. If the magnitudes of the final momenta of the two particles are $p'_1$ and $p'_2$, respectively, show that the energy loss of the collision is given by
+	\begin{equation}
+		\begin{split}
+			Q = \frac{p'_1 p'_2}{m}\cos \varPsi \\
+		\end{split}
+	\end{equation}
+	where $\varPsi$ is the angle between the paths of the two particles after colliding. \\
+	
+	\bd{Solution} Same approach as in lecture, with the case of similar masses.
+	
+	\begin{equation}
+		\begin{aligned}
+			p: \va{p'}_1 &= \va{p'}_1 + \va{p'}_2 & E: \frac{1}{2}m_1 v^2_1 &= \frac{1}{2}m_1 v'^2_1 + \frac{1}{2}m_2 v'^2_2 + Q \\
+			m_1 \va{v}^2_1 &= m_1 \va{v'}^2_1 + m_2 \va{v'}^2_2 & \frac{p^2_1}{2m_1} &= \frac{p'^2_1}{2m_1} + \frac{p'^2_2}{2m_2} + Q \\
+		\end{aligned}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			E: p^2_1 &= p'^2_1 + p'^2_2 + 2mQ \\
+			p: \va{p'}_1 \cdot \va{p'}_1 &= (\va{p'}_1 + \va{p'}_2) + (\va{p'}_1 + \va{p'}_2) \\
+			p^2_1 &= p'^2_1 + p'^2_2 + 2\va{p'}_1 \cdot \va{p'}_2 \\
+			p'^2_1 + p'^2_2 + 2mQ &= p'^2_1 + p'^2_2 + 2\va{p'}_1 \cdot \va{p'}_2 \\
+			mQ &= \va{p'}_1 \cdot \va{p'}_2 \\
+			Q &= \frac{p'_1 p'_2}{m}\cos \varPsi \\
+		\end{split}
+	\end{equation}
+	\section{Problem 27}
+	
+	A rocket traveling through the atmosphere experiences a linear air resistance $-k\bd{v}$. Find the differential equation of motion when all other external forces are negligible. Integrate the equation and show that if the rocket starts from rest, the final speed is given by $ v = V\alpha\left[ 1 - (m/m_0)^{1/\alpha} \right] $ where $V$ is the relative speed of the exhaust fuel, $\alpha = \left| \dot{m}/k \right| = constant$, $m_0$ is the initial mass of the rocket plus fuel, and $m$ is the final mass of the rocket. \\
+	
+	\bd{Solution} Assuming that the rocket travels upwards, so that the direction of the stationary particles is downwards relative to the rocket, then $ \va{V} = 0 - \va{v} = -\va{v} $.
+	
+	\begin{equation}
+		\begin{split}
+			m\dot{\va{v}} - \va{V}\dot{m} &= -k \va{v} \\
+			m\dot{v} + V\dot{m} &= -kv \\
+			-\frac{m}{k} \dot{v} - \frac{\dot{m}}{k} V &= v \\ 
+		\end{split}
+	\end{equation}
+	For  $\alpha = \left| \dot{m}/k \right| $, the absolute value sign is there because $\dot{m}$ is negative from the rocket expelling mass as fuel. Therefore $\alpha = -\dot{m}/k $.
+	\begin{equation}
+		\begin{aligned}
+			v &= -\frac{m}{(-\dot{m}/\alpha)} \dot{v} + \alpha V & \frac{1}{\alpha} \int_{m_0}^{m} \frac{dm}{m} &= \int_{0}^{v} \frac{dv}{v - \alpha V} \\
+			&= \alpha \frac{m}{\dot{m}} \dot{v} + \alpha V & \ln \left( \frac{m}{m_0} \right)^{1/\alpha} &= \ln \left( \frac{v - \alpha V}{-\alpha V} \right) \\
+			&= \alpha m \frac{dt}{dm} \frac{dv}{dt} + \alpha V & \left( \frac{m}{m_0} \right)^{1/\alpha} &= \frac{\alpha V - v}{\alpha V} = 1 - \frac{v}{\alpha V} \\
+			&= \alpha m \frac{dv}{dm} + \alpha V & v &= \alpha V \left( 1 - \left( \frac{m}{m_0} \right)^{1/\alpha} \right) \\
+		\end{aligned}
+	\end{equation}
+
+\end{document}

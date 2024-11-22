@@ -1,0 +1,305 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{siunitx}
+
+
+\setlength{\droptitle}{-10em}
+
+\title{PHY 320 - Assignment 4}
+\author{Khalifa Salem Almatrooshi b00090847}
+\date{25/10/2022}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+\newcommand\sep[1]{%
+	\leavevmode\unskip\unskip 
+	\nobreak % optional
+	\hspace{#1}\ignorespaces
+}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Problem 4}
+	
+	A particle of mass $ m $ moving in three dimensions under the potential energy function \newline $ V(x, y, z) = \alpha x + \beta y^2 + \gamma z^3 $ has speed $ v_0 $ when it passes through the origin.
+	\\\\
+	\bd{(a)} What will its speed be if and when it passes through the point $ (1,1,1) $? \\
+	
+	\bd{Solution} Conservation of mechanical energy.
+	\begin{equation}
+		\begin{split}
+			T_0 + V_0 &= T + V \\
+			\frac{1}{2} m v_0^2 + V(0,0,0) &= \frac{1}{2} m v^2 + V(1,1,1) \\
+			\frac{1}{2} m v_0^2 + 0 &= \frac{1}{2} m v^2 + \alpha + \beta + \gamma \\
+			\frac{1}{2} m v^2 &= \frac{1}{2} m v_0^2 - \alpha - \beta - \gamma \\
+			v &= \sqrt{v_0^2 - \frac{2}{m} ( \alpha + \beta + \gamma )} \\
+		\end{split}
+	\end{equation}
+	\bd{(b)} If the point $ (1,1,1) $ is a turning point in the motion $ (v=0) $, what is $ v_0 $? \\
+
+	\bd{Solution} Using final equation from part a.
+	\begin{equation}
+		\begin{split}
+			0 &= \sqrt{v_0^2 - \frac{2}{m} ( \alpha + \beta + \gamma )} \\
+			v_0 &= \sqrt{\frac{2}{m} ( \alpha + \beta + \gamma )} \\
+		\end{split}
+	\end{equation}
+	\bd{(c)} What are the component differential equations of motion of the particle? \\
+	
+	\bd{Solution} Gradient operator.
+	\begin{equation}
+		\begin{split}
+			F &= -\nabla V \\
+			F &= -\left[ \hat{i} \frac{\partial V}{\partial x} + \hat{j} \frac{\partial V}{\partial y} + \hat{k} \frac{\partial V}{\partial z} \right] \\
+			F &= -\hat{i} \alpha - \hat{j} 2\beta y - \hat{k} 3\gamma z^2 \\
+			F_x = -\alpha \sep{4mm} F_y &= -2\beta y \sep{4mm} F_z = -3\gamma z^2 \\
+		\end{split}
+	\end{equation}
+
+	\section{Problem 8}
+	
+	A gun is located at the bottom of a hill of constant slope $ \phi $. Show that the range of the gun measured up the slope of the hill is
+	\begin{equation}
+		\begin{split}
+			\frac{2v_0^2 \cos \alpha \sin (\alpha - \phi)}{g \cos^2 \phi} \\
+		\end{split}
+	\end{equation}
+	where $ \alpha $ is the angle of elevation of the gun, and that the maximum value of the slope range is
+	\begin{equation}
+		\begin{split}
+			\frac{v_0^2}{g(1 + \sin \phi)} \\
+		\end{split}
+	\end{equation}
+	\bd{Solution} Equating parabola to slope. Playing with trigonometric identities from Appendix B to reach given form of equations.
+	\begin{center}
+		\includegraphics[scale=0.3]{Screenshot 2022-10-15 183545.jpg}
+	\end{center}
+	\begin{equation}
+		\begin{split}
+			R \sin \phi &= \dot{y}_0 t - \frac{gt^2}{2} \\
+			R \sin \phi &= \frac{\dot{y}_0 x}{\dot{x}_0} - \frac{gx^2}{2\dot{x}^2_0} \\
+			R \sin \phi &= \frac{v_0 \sin \alpha R \cos \phi}{v_0 \cos \alpha} - \frac{g R^2 \cos^2 \phi}{2 v_0^2 \cos^2 \alpha} \\
+			\sin \phi &=  \tan \alpha \cos \phi - \frac{g R \cos^2 \phi}{2 v_0^2 \cos^2 \alpha} \\
+			\frac{g R \cos^2 \phi}{2 v_0^2 \cos^2 \alpha} &= \tan \alpha \cos \phi - \sin \phi \\
+			R &= \frac{2 v_0^2 \cos^2 \alpha}{g \cos^2 \phi} (\tan \alpha \cos \phi - \sin \phi) \\
+			R &= \frac{2 v_0^2 \cos \alpha}{g \cos^2 \phi} (\sin \alpha \cos \phi - \sin \phi \cos \alpha) \\
+			R &= \frac{2 v_0^2 \cos \alpha \sin (\alpha - \phi)}{g \cos^2 \phi} \\
+		\end{split}
+	\end{equation}
+	Maximum value of range with respect to $ \alpha $ comes from $ \frac{dR}{d\alpha} = 0 $.
+	\begin{equation}
+		\begin{split}
+			\frac{dR}{d\alpha} &= \frac{2v_0^2}{g \cos^2 \phi} \frac{d}{d\alpha} \left[ \cos \alpha \sin (\alpha - \phi) \right] \\
+			\frac{dR}{d\alpha} &= \frac{2v_0^2}{g \cos^2 \phi} \left[ -\sin \alpha \sin (\alpha - \phi) + \cos \alpha \cos (\alpha - \phi) \right] = 0 \\
+			0 &= cos(2\alpha - \phi) \\
+			\alpha &= \frac{\pi}{4} + \frac{\phi}{2} \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			R &= \frac{2 v_0^2 \cos (\frac{\pi}{4} + \frac{\phi}{2}) \sin (\frac{\pi}{4} - \frac{\phi}{2})}{g \cos^2 \phi} \\
+			R &= \frac{2 v_0^2 \cos (\frac{\pi}{4} + \frac{\phi}{2}) \cos (\frac{\pi}{4} + \frac{\phi}{2})}{g \cos^2 \phi} \\
+			R &= \frac{2 v_0^2}{g \cos^2 \phi} \cos^2 (\frac{\pi}{4} + \frac{\phi}{2}) \\
+			R &= \frac{2 v_0^2}{g \cos^2 \phi} \frac{\cos 2(\frac{\pi}{4} + \frac{\phi}{2}) + 1 }{2}  \\
+			R &= \frac{v_0^2}{g(1 - \sin^2 \phi)} (\cos (\frac{\pi}{2} + \phi) + 1) \\
+			R &= \frac{v_0^2}{g(1 - \sin \phi)(1 + \sin \phi)} (1 - \sin \phi) \\
+			R &= \frac{v_0^2}{g(1 + \sin \phi)} \\
+		\end{split}
+	\end{equation}
+
+	\section{Problem 14}
+	
+	Write down the component form of the differential equations of motion of a projectile if the air resistance is proportional to the square of the speed. Are the equations separated? Show that the $ x $ component of the velocity is given by
+	\begin{equation}
+		\begin{split}
+			\dot{x} = \dot{x}_0 e^{-\gamma s}
+		\end{split}
+	\end{equation}
+	where $ s $ is the distance the projectile has traveled along the path of motion, and $ \gamma = c_2 / m $. \\
+	
+	\bd{Solution} Assuming spherical coordinate system due to $ s $ as distance. Therefore taking $ \dot{s} $ as velocity, and $ c_2 $ as the proportionality constant.
+	\begin{center}
+		\includegraphics[scale=0.3]{Screenshot 2022-10-16 143942.jpg}
+	\end{center}
+	\begin{equation}
+		\begin{aligned}
+			\dot{x} &= \dot{s} \sin \theta \cos \phi & \dot{y} &= \dot{s} \sin \theta \sin \phi & \dot{z} &= \dot{s} \cos \theta \\
+		\end{aligned}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			F_s \, &\alpha \, \dot{s}^2 \\
+			F_s &= -c_2 \dot{s}^2 \\
+			\ddot{s} &= -\gamma \dot{s}^2 = -\gamma (\dot{x}^2 + \dot{y}^2 +\dot{z}^2) \\
+			\frac{d^2 s}{dt^2} &= -\gamma \left[ \frac{dx^2}{dt} + \frac{dy^2}{dt} + \frac{dz^2}{dt} \right] \\
+		\end{split}
+	\end{equation}
+	Equation above clearly shows that this is not a separable differential equation. Now for the equations of motion, similar approach with spherical coordinates where instead of $ \dot{s} $ the resultant vector is $ F_s $.
+	\begin{equation}
+		\begin{aligned}
+			F_x &= F_s \sin \theta \cos \phi & F_y &= F_s \sin \theta \sin \phi & F_z &= F_s \cos \theta - mg \\
+		\end{aligned}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			m\ddot{x} &= -c_2 \dot{s}^2 \sin \theta \cos \phi \\
+			\frac{d\dot{x}}{dt} &= -\gamma \dot{s} \dot{x} \\
+			\frac{d\dot{x}}{ds} \frac{ds}{dt} &= -\gamma \dot{s} \dot{x} \\
+			\int \frac{d\dot{x}}{\dot{x}} &= \int -\gamma \, ds \\
+			\ln \dot{x} - \ln \dot{x}_0 &= -\gamma s \\
+			\ln \frac{\dot{x}}{\dot{x}_0} &= -\gamma s \\
+			\dot{x} &= \dot{x}_0 e^{-\gamma s} \\
+		\end{split}
+	\end{equation}
+	\clearpage
+	\section{Problem 20}
+	
+	An electron moves in a force field due to a uniform electric field \bd{E} and a uniform magnetic field \bd{B} that is at right angles to \bd{E}. Let $ \bd{E} = \hat{j}E $ and  $ \bd{B} = \hat{k}B $. Take the initial position of the electron at the origin with initial velocity $ \bd{v}_0 = \hat{i}v_0 $ in the $ x $ direction. Find the resulting motion of the particle. Show that the path of motion is a cycloid:
+	\begin{equation}
+		\begin{split}
+			x &= a\sin \omega t + bt \\
+			y &= a(1 - \cos \omega t) \\
+			z &= 0 \\
+		\end{split}
+	\end{equation}
+	Cycloidal motion of electrons is used in an electronic tube called a magnetron to produce microwaves in a microwave oven. \\
+	
+	\bd{Solution} The Lorentz force describes the force on a charged particle due to the crossed electric and magnetic fields. Figure below is for an electron: at the origin, the force due to the electric field should be on the $ -\hat{j} $ direction due to the negative charge of the electron, and the force due to the magnetic field should be along the $ \hat{i} $ direction. Therefore constraining the motion of the particle on the $ xy $ plane and traveling in the $ \hat{i} $ direction.
+	\begin{center}
+		\includegraphics[scale=0.3]{Screenshot 2022-10-16 221338.jpg}
+	\end{center}
+	\begin{equation}
+		\begin{split}
+			\bd{F} &= \bd{F}_E + \bd{F}_B \\
+			\bd{F} &= q\bd{E} + q(\bd{v} \times \bd{B}) \\
+			\bd{F}_E &= q\bd{E} = qE\hat{j} \\
+			\bd{F}_B &= q(\bd{v} \times \bd{B}) = q
+			\begin{vmatrix}
+				\hat{i} & \hat{j} & \hat{k} \\
+				\dot{x} & \dot{y} & \dot{z} \\
+				0 & 0 & B
+			\end{vmatrix}
+			= qB\dot{y} \hat{i} - qB\dot{x} \hat{j} \\
+			\bd{F} &=  qE\hat{j} + q\dot{y}B \hat{i} - q\dot{x}B \hat{j} \\
+		\end{split}
+	\end{equation}
+	This equation is for a general case as we do not know the trajectory of the particle. A $ q = -e $ for an electron produces forces that correspond to the figure above.
+	\begin{equation}
+		\begin{aligned}
+			m\ddot{x} &= q\dot{y}B & m\ddot{y} &= qE - q\dot{x}B & m\ddot{z} &= 0 \\
+		\end{aligned}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			\dddot{x} &= \frac{qB}{m}\ddot{y} \\
+			\ddot{y} &= \frac{m}{qB}\dddot{x} = \frac{qE}{m} - \frac{qB}{m}\dot{x} \\
+			\dddot{x} &+ \left( \frac{qB}{m} \right)^2 \dot{x} = \left( \frac{q}{m} \right)^2 EB \\
+			\frac{d^2\dot{x}}{dt^2} &+ \left( \frac{qB}{m} \right)^2 \dot{x} = \left( \frac{q}{m} \right)^2 EB \\
+		\end{split}
+	\end{equation}
+	A nonhomogenous differential equation with constant coefficients. Using the auxiliary polynomial to find the complementary solution.
+	\begin{equation}
+		\begin{split}
+			a(r) &= r^2 + \left( \frac{qB}{m} \right)^2 = 0 \\
+			r& = \pm \frac{qB}{m}i = \pm \omega i \\
+			\dot{x}(t) &= \dot{x}_c(t) + \dot{x}_p(t) \\
+			\dot{x}_c(t) &= c_1\cos \omega t + c_2 \sin \omega t
+		\end{split}
+	\end{equation}
+	Now for the particular solution. Note that the right hand side is just a constant.
+	\begin{equation}
+		\begin{split}
+			g(r) = \left( \frac{q}{m} \right)^2 EB e^{0r} \\
+			\text{ Since 0 is not a root} \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{aligned}
+			\dot{x}_p &= C & \ddot{x}_p &= 0 & \dddot{x}_p &= 0
+		\end{aligned}
+	\end{equation}
+	Inputting these solutions into the differential equation.
+	\begin{equation}
+		\begin{split}
+			0 + \left( \frac{qB}{m} \right)^2 C &= \left( \frac{q}{m} \right)^2 EB \\
+			C &= \frac{E}{B} = \dot{x}_p(t) \\
+			\dot{x}(t) &= c_1\cos \omega t + c_2 \sin \omega t + \frac{E}{B} \\
+			\dot{y} &= \frac{m}{qb} \ddot{x} \\
+			\dot{y}(t) &= \frac{m}{qB} \left[ \frac{qB}{m} \left( -c_1 \sin \omega t + c_2 \cos \omega t \right) \right] \\
+			\dot{y}(t) &= -c_1 \sin \omega t + c_2 \cos \omega t \\
+		\end{split}
+	\end{equation}
+	Applying initial conditions to find $c_1$ and $c_2$.
+	\begin{equation}
+		\begin{split}
+			\text{At } t = 0 , \  \dot{x} = \dot{x}_0 \\
+			\dot{x}_0 &= c_1 \cos 0 + c_2 \sin 0 + \frac{E}{B} \\
+			c_1 &= \dot{x}_0 - \frac{E}{B} \\
+			\text{At } t = 0 , \  \dot{y} = 0 \\
+			0 &= -c_1 \sin 0 + c_2 \cos 0 \\
+			c_2 &= 0 \\
+			\dot{x}(t) &= \left( \dot{x}_0 - \frac{E}{B} \right) \cos \omega t + \frac{E}{B} \\
+			\dot{y}(t) &= \left( \frac{E}{B} - \dot{x}_0 \right) \sin \omega t \\
+			\dot{z}(t) &= 0 \\
+		\end{split}
+	\end{equation}	
+	Now to find trajectory of the particle.
+	\begin{equation}
+		\begin{split}
+			x(t) &= \int \dot{x} \, dt = \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \sin \omega t + \frac{E}{B}t + x_0 \\
+			y(t) &= \int \dot{y} \, dt = \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \cos \omega t + y_0 \\
+		\end{split}
+	\end{equation}
+	Applying initial conditions to find $x_0$ and $y_0$.
+	\begin{equation}
+		\begin{split}
+			\text{At } t = 0 , \ x = 0 \\
+			0 &= \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \sin 0 + 0 + x_0 \\
+			x_0 &= 0 \\
+			\text{At } t = 0 , \ y = 0 \\
+			0 &= \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \cos 0 + y_0 \\
+			y_0 &= - \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \\
+			x(t) &= \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \sin \omega t + \frac{E}{B}t \\
+			y(t) &= \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \cos \omega t - \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \\
+		\end{split}
+	\end{equation}
+	Now for an electron, since $ \omega = \frac{qB}{m} = \frac{-eB}{m} $. \\
+	\begin{equation}
+		\begin{split}
+			x(t) &= \left( \frac{\dot{x}_0 - \frac{E}{B}}{-\omega} \right) \sin (-\omega t) + \frac{E}{B}t \\ 
+			&= \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) \sin (\omega t) + \frac{E}{B}t \\
+			y(t) &= \left( \frac{\dot{x}_0 - \frac{E}{B}}{-\omega} \right) (\cos (-\omega t) - 1) \\
+			&= \left( \frac{\dot{x}_0 - \frac{E}{B}}{\omega} \right) (1 - \cos \omega t) \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			x(t) &= a\sin \omega t + bt \\
+			y(t) &= a (1 - \cos \omega t) \\
+			z(t) &= 0
+		\end{split}
+	\end{equation}
+	\section{Problem 23}
+	
+	Show that the period of the particle sliding in the cycloidal trough of Example 4.6.2 is $ 4 \pi (A/g)^{1/2} $. \\
+	
+	\bd{Solution} The energy equation has the values for k. This works because a particle sliding in a smooth cycloidal trough exhibits harmonic motion.  ($ E = \frac{1}{2}mv^2 + \frac{1}{2}kx^2 $)
+	\begin{equation}
+		\begin{split}
+			E &= \frac{1}{2}m\dot{s}^2 + \frac{1}{2}\left( \frac{mg}{4A} \right)s^2 \\
+			T_s &= \frac{2\pi}{\omega} =  2\pi \sqrt{\frac{m}{k}} = 2\pi \sqrt{\frac{m}{\frac{mg}{4A}}} = 4\pi \sqrt{\frac{A}{g}} \\
+		\end{split}
+	\end{equation}
+\end{document}

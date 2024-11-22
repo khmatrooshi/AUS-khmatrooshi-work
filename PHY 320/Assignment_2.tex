@@ -1,0 +1,196 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+\usepackage{tikz}
+\usepackage{titling}
+
+\setlength{\droptitle}{-10em}
+
+\title{PHY 320 - Assignment 2}
+\author{Khalifa Salem Almatrooshi b00090847}
+\date{27/09/2022}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+
+\begin{document}
+	
+\maketitle
+
+\section{Problem 2c}
+
+Find the velocity $ \dot{x} $ as a function of the displacement \textit{x} for a particle of mass \textit{m}, which starts from rest at \textit{x} = 0, subject to the following force function: $ F_x = F_0 \cos cx $, where $ F_0 $ and c are positive constants. \\
+
+\bd{Solution} Since $ F_x = ma_x = m\ddot{x} $, the chain rule can be used on $ \frac{d\dot{x}}{dt} $ to extract $ \dot{x} $ as a function of $ dx $.
+\begin{equation}
+	\begin{split}
+		ma_x &= F_0 \cos cx \\
+		m\ddot{x} &= F_0 \cos cx \\
+		\frac{d\dot{x}}{dx} \frac{dx}{dt} &= \frac{F_0 \cos cx}{m} \\
+		\dot{x} d\dot{x} &= \frac{F_0 \cos cx}{m} dx \\
+		\int_{0}^{\dot{x}} \dot{x} d\dot{x} &= \frac{F_0}{m} \int_{0}^{x} \cos cx \text{ } dx \\
+		\frac{\dot{x}^2}{2} &=  \frac{F_0 \sin cx}{cm} \\
+		\dot{x}(x) &= \left(\frac{2F_0 \sin cx}{cm}\right)^\text{1/2} \\
+	\end{split}
+\end{equation}
+
+\section{Problem 5}
+
+A particle of mass \textit{m} is constrained to lie along a frictionless, horizontal plane subject to a force given by the expression $ F(x) = -kx + kx^3 / A^2 $, where \textit{k} and \textit{A} are positive constants.
+\\\\
+\bd{(a)} Find the potential energy function $ V(x) $ for this force. \\
+
+\bd{Solution} With the definition $ F(x) = -\frac{dV(x)}{dx} $, and assuming $ x_0 = 0 $.
+\begin{equation}
+	\begin{split}
+		-kx + \frac{kx^3}{A^2} &= -\frac{dV(x)}{dx} \\
+		\int_{0}^{x} -kx + \frac{kx^3}{A^2} \, dx &= -\int_{0}^{x} dV(x) \\
+		-k\int_{0}^{x} x \, dx + \frac{k}{A^2}\int_{0}^{x} x^3 \, dx &= -V(x) \\
+		-k\left[\frac{x^2}{2}\right] + \frac{k}{A^2}\left[\frac{x^4}{4}\right] &= -V(x) \\
+		V(x) &= \frac{kx^2}{2} - \frac{kx^4}{4A^2} \\
+	\end{split}
+\end{equation}
+\\
+\bd{(b)} Find the kinetic energy. \\
+
+\bd{Solution} The kinetic energy is related to the potential energy function by the Conservation of Mechanical Energy.
+\begin{equation}
+	\begin{split}
+		T + V(x) &= T_0 + V(x_0) \\
+		T &= T_0 - V(x) \\
+		T(x) &= \frac{mv_0^2}{2} - \frac{kx^2}{2} + \frac{kx^4}{4A^2} \\
+	\end{split}
+\end{equation}
+\\
+\bd{(c)} The total energy of the particle as a function of its position. \\
+
+\bd{Solution} Its total mechanical energy.
+\begin{equation}
+	\begin{split}
+		E &\equiv T + V(x) \\
+		E &= \frac{mv_0^2}{2} - \frac{kx^2}{2} + \frac{kx^4}{4A^2} + \frac{kx^2}{2} - \frac{kx^4}{4A^2} \\
+		E &= T_0 = T(0) \\ 
+	\end{split}
+\end{equation}
+\\
+\bd{(d)} Find the turning points of the motion and the condition the total energy of the particle must satisfy if its motion is to exhibit turning points. \\
+
+\bd{Solution} The turning points occur where $ dV(x)/dx = 0$.
+\begin{equation}
+	\begin{split}
+		kx - \frac{kx^3}{A^2} &= 0 \\
+		x\left(k - \frac{kx^2}{A^2} \right) &= 0 \\
+		\frac{kx^2}{A^2} &= k \\
+		x &= \pm \, A \\
+		V(x_\text{max}) &= \frac{kA^2}{2} - \frac{kA^4}{4A^2} \\
+		V(x_\text{max}) &= \frac{kA^2}{4} \\
+	\end{split}
+\end{equation}
+The condition on $ E $ for the motion to exhibit turning points is $ E < V(x_\text{max}) $ as this satisfies the Law of Conservation of Mechanical Energy, also from equation 2.3.9 in the book. Now to find the turning points $ x_c $ through $ T(x) = 0 $ and the quadratic formula.
+\begin{equation}
+	\begin{split}
+		T(x) = E - \frac{kx^2}{2} + \frac{kx^4}{4A^2} &= 0 \\
+		kx^4 -2A^2kx^2 + 4A^2E &= 0 \\
+	\end{split}
+\end{equation}
+\begin{equation}
+	\begin{split}
+		x^2 &= \frac{-(-2A^2k) \pm \sqrt{(-2A^2k)^2 - 4(k)(4A^2E)}}{2k} \\
+		&= \frac{2A^2k \pm \sqrt{(4A^4k^2) - (16A^2Ek)}}{2k} \\
+		&= \frac{2A^2k \pm 2A^2k\sqrt{(1) - (\frac{4E}{A^2k})}}{2k} \\
+		x^2 &= A^2 \left[ 1 \pm \left(1 - \left( \frac{4E}{A^2k} \right) \right)^\text{1/2} \right] \\
+		x_c &= \pm A \left[ 1 \pm \left(1 - \left( \frac{4E}{A^2k} \right) \right)^\text{1/2} \right]^\text{1/2} \\
+	\end{split}
+\end{equation}
+\\
+\clearpage
+\bd{(e)} Sketch the potential, kinetic, and total energy functions. \\
+
+\bd{Solution} With a value of 1 for k and A. $ V(x_\text{max}) = \frac{1}{4} $ and $ x_c = 1 $. No value for E is given or can be found\bd{?} so any arbitrary value for $ T_0 $ under $ V(x_\text{max}) $ is plausible. \\
+
+\begin{tikzpicture}[yscale = 5, xscale = 1.5, scale = 1.2]
+	\draw[ultra thin, lightgray] (-1.8, 0) grid[step = 0.2] (1.8, 0.4);
+	\draw[<->] (-2, 0) -- (2, 0) node[right] {$ x $};
+	\draw[<->] (0, 0) -- (0, 0.45) node[above] {$ y $};
+	
+	\begin{scope}
+	 	\clip (-2, 0) rectangle (2.75, 0.5);
+	 	\draw[domain = -2:2, variable = \x, samples = 100, smooth, blue, thick] plot ({ \x }, { ((\x)^2 / 2) - (\x)^4 / 4 });
+	 	\draw[domain = -1:1, variable = \x, samples = 100, smooth, red, thick] plot ({ \x }, { 0.125 - ((\x)^2 / 2) + ((\x)^4 / 4)  });
+	 	\draw[domain = -1.8:1.8, variable = \x, samples = 100, dashed, black] plot ({\x}, { 1/4 }) node[right] {$ V(x_\text{max}) $};
+	 	\draw[domain = -1.8:1.8, variable = \x, samples = 100, dashed, black] plot ({\x}, { 0.125 }) node[right] {$ E $};
+	\end{scope}
+
+	\draw (-1.8, 0.4) node[draw, blue, fill = white] {$ V(x) $};
+	\draw (-1.2, 0.4) node[draw, red, fill = white] {$ T(x) $};
+ 	\draw[black, dashed] (1, 0.25) -- (1, 0) node[blue, below] {$ x_c $};
+ 	\draw[black, dashed] (-1, 0.25) -- (-1, 0) node[blue, below] {$ -x_c $};
+ 	\draw (0, -0.01) node[blue, below] {$ x_c $};
+ 	
+\end{tikzpicture}	
+
+
+\section{Problem 14}
+
+A particle of mass \textit{m} is released from rest a distance \textit{b} from a fixed origin of force that attracts the particle according to the inverse square law: $ F(x) = -kx^\text{-2} $. Show that the time required for the particle to reach the origin is $ \pi (\frac{mb^3}{8k})^\text{1/2} $.
+\\\\
+\bd{Solution} By using the chain rule here, a separation of variables will help. The $\pi$ in the solution must mean that a trig substitution is used. For the first integral, differential displacements are used. I used an integral calculator for the second integral.
+\begin{equation}
+	\begin{split}
+		m \frac{d\dot{x}}{dx} \frac{dx}{dt} &= -kx^\text{-2} \\
+		\int_{0}^{\dot{x}} m\dot{x} \, d\dot{x} &= \int_{b}^{x} -kx^\text{-2} \, dx \\
+		\frac{m\dot{x}^2}{2} &= -k\left( -\frac{1}{x} + \frac{1}{b} \right) \\
+		\dot{x} &= \left( \frac{2k}{m} \left( \frac{1}{x} - \frac{1}{b} \right) \right)^\text{1/2} \\
+		\frac{dx}{dt} &= \left( \frac{2k}{m} \left( \frac{b-x}{bx} \right) \right)^\text{1/2} \\
+		\int_{0}^{t} dt &= \int_{b}^{0} \left( \frac{m}{2k} \left( \frac{bx}{b - x} \right) \right)^\text{1/2} \, dx \\
+		t &= \left( \frac{bm}{2k}\right)^\text{1/2} \int_{b}^{0} \left( \frac{x}{b - x} \right)^\text{1/2} \, dx \\
+		t &= \left( \frac{bm}{2k}\right)^\text{1/2} \left( \frac{\pi b}{2} \right) \\
+		t &= \pi \left( \frac{mb^3}{8k}\right)^\text{1/2} \\
+	\end{split}
+\end{equation}
+
+\clearpage
+
+\section{Problem 8}
+
+Given that the velocity of a particle in rectilinear motion varies with the displacement \textit{x} according to the equation $ \dot{x} = bx^\text{-3} $, where \textit{b} is a positive constant, find the force acting on the particle as a function of x. (Hint: $ F = m\ddot{x} = m\dot{x} \text{ } d\dot{x}/dx) $
+\\\\
+\bd{Solution} Using the hint, and since $ \frac{d\dot{x}}{dx} = -3bx^\text{-4} $. 
+\begin{equation}
+	\begin{split}
+		F(x) = m \frac{d\dot{x}}{dt} &= m \frac{d\dot{x}}{dx} \frac{dx}{dt} \\
+		F(x) &= m(-3bx^\text{-4})(bx^\text{-3}) \\
+		F(x) &= \frac{-3mb^2}{x^7} \\
+	\end{split}
+\end{equation}
+
+\section{Problem 18}
+
+The force acting on a particle of mass \textit{m} is given by $ F = kvx $ in which \textit{k} is a positive constant. The particle passes through the origin with speed $ v_0 $ at time $ t = 0 $. Find \textit{x} as a function of \textit{t}.
+\\\\
+\bd{Solution} Using the chain rule for a separation of variables. A substitution for the integral definition of arctan is useful, $ u = \sqrt{\frac{k}{2mv_0}} x $.
+
+\begin{equation}
+	\begin{split}
+		ma &= kvx \\
+		m\frac{dv}{dt} &= k\frac{dx}{dt}x \\
+		m\frac{dv}{dx} \frac{dx}{dt} &= k\frac{dx}{dt}x \\
+		\int_{v_0}^{v} \, dv &= \int_{0}^{x} \frac{k}{m} x \, dx \\
+		v - v_0 &= \frac{kx^2}{2m} \\
+		\frac{dx}{dt} &= v_0 + \frac{kx^2}{2m} \\
+		\frac{dx}{dt} &= v_0\left(1 + \frac{kx^2}{2mv_0}\right) \\
+		\int_{0}^{x} \frac{dx}{1 + \frac{kx^2}{2mv_0}} &= \int_{0}^{t} v_0 \, dt \\
+		\sqrt{\frac{2mv_0}{k}} \int_{0}^{\sqrt{\frac{k}{2mv_0}} x } \frac{du}{1 + u^2} &= v_0 t \\
+		\sqrt{\frac{2mv_0}{k}} \arctan \left( \sqrt{\frac{k}{2mv_0} } x \right) &= v_0 t \\
+		x(t) &= \sqrt{\frac{2mv_0}{k}} \tan \left( \sqrt{\frac{kv_0}{2m}} t \right)
+	\end{split}
+\end{equation}
+
+\end{document} 

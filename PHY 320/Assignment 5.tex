@@ -1,0 +1,220 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{siunitx}
+
+
+\setlength{\droptitle}{-10em}
+
+\title{PHY 320 - Assignment 5}
+\author{Khalifa Salem Almatrooshi b00090847}
+\date{08/11/2022}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+\newcommand\sep[1]{%
+	\leavevmode\unskip\unskip 
+	\nobreak % optional
+	\hspace{#1}\ignorespaces
+}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Problem 4}
+	
+	Show that the motion is simple harmonic with the same period as the previous problem for a particle sliding in a straight, smooth tube passing obliquely through Earth. \\
+	
+	\bd{Solution} Previous problem shows that $ F_g = -\frac{GmM}{r^2} \, \hat{e}_r = -\frac{4}{3}G\pi\rho mr \, \hat{e}_r = -kr \, \hat{e}_r $. A particle dropped into a straight hole drilled from pole to pole executes simple harmonic motion. With period $ T = 2\pi \sqrt{\frac{3}{4G\pi\rho}} = 1.4 \, hrs $. This problem has a particle sliding down obliquely, off-center, through the Earth. Therefore the force would be multiplied by an angle, assuming a central force at the center of the Earth.
+	\begin{center}
+		\includegraphics[scale=0.25]{Screenshot 2022-11-07 160353.jpg}
+	\end{center}
+	\begin{equation}
+		\begin{split}
+			F_g &= F_x + F_y  \\
+		\end{split}
+	\end{equation}
+	$ F_y $ is constantly balanced by the normal force from the particle as it is sliding across. Clearly, the net force is $ F_x $ which also exhibits simple harmonic motion. The period is the same, $ T = 1.4 \, hrs $, as it only depends on the density, and we are assuming a constant density.
+	
+	\section{Problem 10}
+	
+	A particle moving in a central field describes the spiral orbit $ r = r_0 e^{k \theta} $. Show that the force law is inverse cube and that $ \theta $ varies logarithmically with $ t $. \\
+	
+	\bd{Solution} Using the orbit equation (6.5.10b) and $ u = \frac{1}{r} = \frac{1}{r_0} e^{-k\theta} $.
+	
+	\begin{equation}
+		\begin{split}
+			\frac{d^2u}{d\theta^2} + u &= -\frac{f(u^{-1})}{ml^2u^2} \\
+			\frac{k^2}{r_0} e^{k\theta} + \frac{1}{r_0} e^{k\theta} &= -\frac{f(u^{-1})}{ml^2u^2} \\
+			-(k^2 u + u)(ml^2u^2) &= f(u^{-1}) \\
+			f(r) &= -\frac{ml^2(k^2 + 1)}{r^3} \\
+		\end{split}
+	\end{equation}
+	$ \frac{d\theta}{dt} $ to find how $ \theta $ varies with $ t $, from $ l = r^2 \dot{\theta} $.
+	\begin{equation}
+		\begin{split}
+			\frac{d\theta}{dt} &= \frac{l}{r^2} = \frac{l}{r_0^2} e^{-2k\theta} \\
+			e^{2k\theta} \, d\theta &= \frac{l}{r_0^2} \, dt \\
+			\frac{1}{2k} e^{2k\theta} &= \frac{l}{r_0^2}t + C \\
+			\theta &= \frac{1}{2k} \ln \left[ 2k\left(\frac{l}{r_0^2}t + C\right) \right]
+		\end{split}
+	\end{equation}
+	\section{Problem 14}
+	
+	A particle of unit mass is projected with a velocity $ v_0 $ at right angles to the radius vector at a distance $ a $ from the origin of a center of attractive force, given by
+	\begin{equation}
+		\begin{aligned}
+			f(r) &= -k \left( \frac{4}{r^3} + \frac{a^2}{r^5} \right) & v_0^2 &= \frac{9k}{2a^2}
+		\end{aligned}
+	\end{equation}
+	\bd{(a)} Find the polar equation of the resulting orbit. \\
+	
+	\bd{Solution} Energy equation of an orbit (6.9.2). Unit mass, $ m = 1 \, kg $. \\
+	\begin{equation}
+		\begin{split}
+			E = T_0 + V_0 &= \frac{1}{2}mv_0^2 + V(a) = \frac{9k}{4a^2} - k\left( \frac{2}{a^2} + \frac{1}{4a^2} \right) = 0 \\			
+		\end{split}
+	\end{equation}
+	From conservation of angular momentum, $ l^2 = r^4\dot{\theta}^2 = a^2 v_0^2 = \frac{9k}{2} $
+	\begin{equation}
+		\begin{split}
+			\frac{1}{2}m \left(\left( \frac{dr}{dt} \right)^2 + r^2 \left( \frac{d\theta}{dt} \right)^2\right) + V(r) &= 0 \\
+			\frac{1}{2} \left( \frac{d\theta}{dt} \right)^2 \left(\left( \frac{dr}{d\theta} \right)^2 + r^2 \right) - k\left( \frac{2}{r^2} + \frac{a^2}{4r^2} \right) &= 0 \\
+			\left( \frac{dr}{d\theta} \right)^2 + r^2 &= 2k \frac{2r^4}{9k} \left( \frac{2}{r^2} + \frac{a^2}{4r^2} \right) = \frac{8r^2}{9} + \frac{a^2}{9} \\
+			\left( \frac{dr}{d\theta} \right)^2 &= \frac{1}{9}(a^2 - r^2)  \\
+		\end{split}
+	\end{equation}
+	As the particle is in orbit in a polar coordinate system, $ r $ and $ a $ are related in this way: $ r = a \cos (\omega\theta) $ where $\frac{dr}{d\theta} = -a\omega \sin (\omega\theta) $.
+		\begin{equation}
+		\begin{split}
+			\left( -a\omega \sin (\omega\theta) \right)^2 &= \frac{1}{9}(a^2 - a^2 \cos^2 (\omega\theta))  \\
+			-a\omega \sin (\omega\theta) &= \frac{a}{3} \sqrt{1 - \cos^2 (\omega\theta)} \\
+			\omega &= -\frac{1}{3} \\
+			r &= a \cos (-\frac{1}{3} \theta) = a \cos (\frac{1}{3} \theta) \\
+		\end{split}
+	\end{equation}
+	\\
+	\bd{(b)} How long does it take the particle to travel through an angle $ 3\pi / 2 $? Where is the particle at that time? \\
+
+	\bd{Solution}
+	\begin{equation}
+		\begin{split}
+			\frac{d\theta}{dt} = \frac{l}{r^2} = \frac{av_0}{a^2 \cos^2 (\frac{1}{3} \theta)} &= \sqrt{\frac{9k}{2a^2}} \frac{1}{a \cos^2 (\frac{1}{3} \theta)} \\
+			dt &= \frac{a^2\sqrt{2}}{3\sqrt{k}} \cos^2 (\frac{1}{3} \theta) \, d\theta \\
+			t &= \frac{a^2\sqrt{2}}{3\sqrt{k}} \int_{0}^{\frac{3\pi}{2}} \cos^2 (\frac{1}{3} \theta) \, d\theta = \frac{a^2\sqrt{2}}{3\sqrt{k}} \frac{3\pi}{4} = \frac{\pi a^2}{4} \sqrt{\frac{2}{k}} \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			r &= a \cos (\frac{1}{3} \frac{3\pi}{2}) = 0, \text{ the particle is at the origin of the central force.} \\
+		\end{split}
+	\end{equation}
+	\\
+	\bd{(c)} What is the velocity of the particle at that time? \\
+	
+	\bd{Solution} Due to conservation of angular momentum, $ l = rv = av_0 = constant $. As $r$ approaches 0, $v$ approaches $\infty$ to keep angular momentum constant.
+	
+
+	\section{Problem 25}
+	
+	Find the condition for which circular orbits are stable if the force function is of the form
+	\begin{equation}
+		\begin{split}
+			f(r) &= -\frac{k}{r^2} - \frac{\epsilon}{r^4} 
+		\end{split}
+	\end{equation} 
+	\bd{Solution} Equation 6.12.7 for stable orbits.
+	
+	\begin{equation}
+		\begin{split}
+			f(a) + \frac{a}{3}f'(a) &< 0 \\
+			-ka^{-2} - \epsilon a^{-4} + \frac{a}{3}(2ka^{-3} + 4\epsilon a^{-5}) &< 0 \\
+			-\frac{1}{3}ka^{-2} + \frac{1}{3}\epsilon a^{-4} &< 0 \\
+			\epsilon a^{-2} &< k \\
+			a &> \sqrt{\frac{\epsilon}{k}} \\
+		\end{split}
+	\end{equation}
+		
+	\section{Problem 33}
+	
+	Show that the differential scattering cross section for a particle of mass $ m $ subject to a central force field $ f(r) = k / r^3 $ is given by the expression
+	\begin{equation}
+		\begin{split}
+			\sigma(\theta_s) \, d\Omega = 2\pi \left| bdb \right| = \frac{k\pi^3}{E} \left[ \frac{\pi - \theta_s}{(2\pi - \theta_s)^2 \theta_s^2} \right] \, d\theta_s 
+		\end{split}
+	\end{equation}
+
+	\bd{Solution} This is a repulsive force with an inverse cube. First to find the orbit equation.
+	
+	\begin{equation}
+		\begin{split}
+			\frac{d^2u}{d\theta^2} &+ u = -\frac{f(u^{-1})}{ml^2u^2} = -\frac{ku}{ml^2} \\
+			\frac{d^2u}{d\theta^2} &+ u\left(1 + \frac{k}{ml^2}\right) = 0 \\
+			\frac{1}{r} &= u = Asin(\omega \theta + \alpha) \\
+		\end{split}
+	\end{equation}
+	Now to find constants at $ r = \infty $. \\
+	At  $ r = \infty, u = 0 $ and $ \theta = 0 $, then $ \alpha = 0 $. Also, $ E = \frac{1}{2}m\dot{r}_\infty^2 $ and $ l = r^2\dot{\theta} $, defining $\dot{r}$ in terms of $u$.
+	\begin{equation}
+		\begin{split}
+			\dot{r}_\infty = \frac{dr}{d\theta} \frac{d\theta}{dt} = \frac{dr}{d\theta} \frac{l}{r^2} = l \frac{du}{d\theta} = lA\omega \cos(\omega\theta) &= lA\omega = \sqrt{\frac{2E}{m}} \\
+			A &= \frac{1}{l\omega} \sqrt{\frac{2E}{m}} \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			r^{-1} &= u = \frac{1}{l\omega} \sqrt{\frac{2E}{m}} sin(\omega \theta) \\
+		\end{split}
+	\end{equation}
+	To find $ \theta_s $, $ u_{max} $ occurs when $ \sin(\omega \theta_0) = 1 $ at closest approach, so $ \theta_0 = \frac{\pi}{2\omega} $. Where $ \omega = \sqrt{1 + \frac{k}{ml^2}}$ \\
+	\begin{equation}
+		\begin{split}
+			r_{min}^{-1} &= u_{max} = \frac{1}{l\omega} \sqrt{\frac{2E}{m}} sin(\omega (\frac{\pi}{2\omega})) = \frac{1}{l\omega} \sqrt{\frac{2E}{m}} \\
+			\theta_s &= \pi - 2\theta_0 = \pi\left(1 - \frac{1}{\omega}\right) = \pi\left(1 - \frac{1}{\sqrt{1 + \frac{k}{ml^2}}}\right) \\
+			1 - \frac{\theta_s}{\pi} &= \left(1 + \frac{k}{ml^2} \right)^{-\frac{1}{2}} \\
+		\end{split}
+	\end{equation}
+	Due to conservation of angular momentum, $ l = b\dot{r}_\infty = r_{min}v $, so $ l^2 = b^2 \dot{r}_\infty^2 = \frac{2b^2E}{m} $. $b$ cannot be negative.
+	\begin{equation}
+		\begin{split}
+			1 - \frac{\theta_s}{\pi} &= \left(1 + \frac{k}{2b^2E} \right)^{-\frac{1}{2}} \\
+			b^2 &= \frac{k}{E} \frac{(\pi - \theta_s)^2}{(2\pi - \theta_s)2\theta_s} \\
+			b &= \left( \frac{k}{E} \frac{(\pi - \theta_s)^2}{(2\pi - \theta_s)2\theta_s} \right)^{\frac{1}{2}} \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			\frac{db}{d\theta_s} &=  \sqrt{\frac{k}{2E}} \frac{d}{d\theta_s}\left[ \left( \frac{(\pi - \theta_s)^2}{(2\pi - \theta_s)\theta_s} \right)^{\frac{1}{2}} \right]
+			= \sqrt{\frac{k}{2E}} \left[ \frac{1}{2\left( \frac{(\pi - \theta_s)^2}{(2\pi - \theta_s)\theta_s} \right)^\frac{1}{2}} \frac{d}{d\theta} \left( \frac{(\pi - \theta_s)^2}{(2\pi - \theta_s)\theta_s} \right) \right] \\
+			\frac{d}{d\theta_s} \left( \frac{(\pi - \theta_s)^2}{(2\pi - \theta_s)\theta_s} \right)
+			&= \left( \frac{-2(\pi - \theta_s)((2\pi - \theta_s)\theta_s) - (\pi - \theta_s)^2(2\pi - 2\theta_s)}{(2\pi - \theta_s)^2\theta^2_s} \right)
+			= \left( \frac{-2\pi^2(\pi - \theta_s)}{(2\pi - \theta_s)^2\theta^2_s} \right) \\
+			\frac{db}{d\theta_s} &= \sqrt{\frac{k}{2E}} \left[ \frac{1}{2\left( \frac{(\pi - \theta_s)^2}{(2\pi - \theta_s)\theta_s} \right)^\frac{1}{2}} \left( \frac{-2\pi^2(\pi - \theta_s)}{(2\pi - \theta_s)^2\theta^2_s} \right) \right]
+			= -\sqrt{\frac{k}{2E}} \left[\frac{\pi^2}{(2\pi-\theta_s)^\frac{3}{2} \theta^\frac{3}{2}_s} \right] \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			\sigma(\theta_s) = \frac{b}{\sin \theta_s} \left| \frac{db}{d\theta_s} \right|
+			&= \frac{\left( \frac{\sqrt{k}(\pi - \theta_s)}{\sqrt{2}\sqrt{E}(2\pi - \theta_s)^\frac{1}{2}\theta^\frac{1}{2}_s} \right)}{\sin \theta_s} \left[\frac{\sqrt{k}\pi^2}{\sqrt{2}\sqrt{E}(2\pi-\theta_s)^\frac{3}{2} \theta^\frac{3}{2}_s} \right] \\
+			&= \frac{1}{\sin \theta_s} \frac{k}{2E} \left( \frac{\pi^2(\pi - \theta_s)}{(2\pi - \theta_s)^2\theta^2_s} \right) \\
+		\end{split}
+	\end{equation}
+	\begin{equation}
+		\begin{split}
+			\sigma(\theta_s) \, d\Omega &= \frac{1}{\sin \theta_s} \frac{k}{2E} \left( \frac{\pi^2(\pi - \theta_s)}{(2\pi - \theta_s)^2\theta^2_s} \right) 2\pi \sin \theta_s \, d\theta_s
+			= \frac{k\pi^3}{E} \left[ \frac{\pi - \theta_s}{(2\pi - \theta_s)^2 \theta_s^2} \right] \, d\theta_s \\
+		\end{split}
+	\end{equation}
+
+\end{document}

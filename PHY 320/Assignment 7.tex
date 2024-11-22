@@ -1,0 +1,205 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+\usepackage{tikz}
+\usepackage{titling}
+\usepackage{siunitx}
+\usepackage{physics}
+
+
+\setlength{\droptitle}{-10em}
+
+\title{PHY 320 - Assignment 7}
+\author{Khalifa Salem Almatrooshi b00090847}
+\date{01/12/2022}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+\newcommand\sep[1]{%
+	\leavevmode\unskip\unskip 
+	\nobreak % optional
+	\hspace{#1}\ignorespaces
+}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Problem 1d}
+	
+	Find the center of mass of the volume bounded by a paraboloid of revolution $ z = \frac{(x^2 + y^2)}{b} $ and the plane $ z = b $.\\
+	
+	\bd{Solution} From symmetry, the center of mass lies on the $z$ axis. With $b$ being a parameter that determines the width of the paraboloid, and volume is constrained by $z=b$. $b$ has to be part of the final expression.
+	
+	\begin{equation}
+		\begin{aligned}
+			z_{cm} &= \frac{\int \rho z dV}{\int \rho dV} & dV &= \pi r^2 dz = \pi (x^2 + y^2) dz = \pi bz \, dz \\
+			z_{cm} &= \frac{\int_{0}^{b} z^2 \pi b \, dz}{\int_{0}^{b} \pi bz \, dz} = \frac{\int_{0}^{b} z^2 \, dz}{\int_{0}^{b} z \, dz} = \frac{2b}{3} \\
+		\end{aligned}
+	\end{equation}
+	
+	\section{Problem 3}
+	
+	A solid uniform sphere of radius $a$ has a spherical cavity of radius $a/2$ centered at a point $a/2$ from the center of the sphere. Find the center of mass. \\
+	
+	\bd{Solution} Volume inside $x^2 + y^2 + (z - a)^2 = a^2$, outside $x^2 + y^2 + (z - \frac{a}{2})^2 = \left( \frac{a}{2} \right)^2$. From symmetry, the center of mass lies on the $z$ axis.
+	
+	\begin{center}
+		\includegraphics[scale=0.1]{2.png}
+	\end{center}
+
+	\begin{equation}
+		\begin{aligned}
+			x^2 + y^2 + z^2 - 2az + a^2 &= a^2 & x^2 + y^2 + z^2 - az + \left( \frac{a}{2} \right)^2 &= \left( \frac{a}{2} \right)^2 \\
+			x^2 + y^2 + z^2 &= 2az & x^2 + y^2 + z^2 &= az \\
+			r^2 &= 2arcos \theta & r^2 &= arcos \theta \\
+			r_a &= 2acos \theta & r_{\frac{a}{2}} &= acos \theta \\
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{split}
+				z_{cm} = \frac{\int \rho z dV}{\int \rho dV} &= \frac{\int_{0}^{2\pi} \int_{0}^{\frac{\pi}{2}} \int_{a \cos \theta}^{2a \cos \theta} r^3 \cos \theta \sin \theta \, dr \, d\theta \, d\phi}{\int_{0}^{2\pi} \int_{0}^{\frac{\pi}{2}} \int_{a \cos \theta}^{2a \cos \theta} r^2 \sin \theta \, dr \, d\theta \, d\phi} = \frac{\int_{0}^{\frac{\pi}{2}} \left[ \frac{r^4}{4} \cos \theta \sin \theta \right]^{r = 2a \cos \theta}_{r = a \cos \theta} \, d\theta}{\int_{0}^{\frac{\pi}{2}} \left[ \frac{r^3}{3} \sin \theta \right]^{r = 2a \cos \theta}_{r = a \cos \theta} \, d\theta} \\
+				&= \frac{\int_{0}^{\frac{\pi}{2}} \left[ \frac{(2a \cos \theta)^4}{4} \cos \theta \sin \theta - \frac{(a \cos \theta)^4}{4} \cos \theta \sin \theta \right] \, d\theta}{\int_{0}^{\frac{\pi}{2}} \left[ \frac{(2a \cos \theta)^3}{3} \sin \theta - \frac{(a \cos \theta)^3}{3} \sin \theta \right] \, d\theta} \\
+				&=  \frac{ \frac{15a^4}{4} \int_{0}^{\frac{\pi}{2}} \cos^5 \theta \sin \theta \, d\theta}{ \frac{7a^3}{3}\int_{0}^{\frac{\pi}{2}} \cos^3 \theta \sin \theta \, d\theta} = \frac{ \frac{15a^4}{4} \left[ \frac{\cos^6 \theta}{6} \right]^{\theta = \frac{\pi}{2}}_{0} }{ \frac{7a^3}{3} \left[ \frac{\cos^4 \theta}{4} \right]^{\theta = \frac{\pi}{2}}_{0}} = \frac{ \frac{15a^4}{4} (-\frac{1}{6}) }{ \frac{7a^3}{3} (-\frac{1}{4})} = \frac{15a}{14} \approx 1.071a \\
+		\end{split}
+	\end{equation}
+	
+	\section{Problem 17}
+	
+	A uniform ladder leans against a smooth vertical wall. If the floor is smooth, and the initial angle between the floor and the ladder is $\theta_0$, show that the ladder, in sliding down, will lose contact with the wall when the angle between the floor and the ladder is $\sin^{-1}(\frac{2}{3}\sin \theta_0)$. \\
+	
+	\bd{Solution} The ladder loses contact with the wall when the normal force from the wall equals $0$, $N_W = 0$. 
+	
+	\begin{center}
+		\includegraphics[scale = 0.35]{3.jpg}
+	\end{center}
+	\begin{equation}
+		\begin{aligned}
+			m\ddot{x} &= N_W & m\ddot{y} &= N_G - mg & mgy_0 = \frac{1}{2}mv^2_{cm} + \frac{1}{2} I \omega^2 + mgy \\			
+		\end{aligned}
+	\end{equation}
+
+	\begin{equation}
+		\begin{aligned}
+			x_{cm} &= \frac{l}{2} \cos \theta & y_{cm} &= \frac{l}{2} \sin \theta \\
+			\dot{x}_{cm} &= -\frac{l}{2} \dot{\theta} \sin \theta & \dot{y}_{cm} &= \frac{l}{2} \dot{\theta} \cos \theta \\
+		\end{aligned}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			\ddot{x}_{cm} &= -\frac{l}{2} \left[ \ddot{\theta} \sin \theta + \dot{\theta}^2 \cos \theta \right] \\
+			I_{rod} &= \frac{ml^2}{12} \\
+		\end{split}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			mgy_0 &= \frac{1}{2}m(\dot{x}^2_{cm} + \dot{y}^2_{cm}) + \frac{1}{2} I \omega^2 + mgy \\
+			\frac{mgl}{2} \sin \theta_0 &= \frac{1}{2}m \left( (-\frac{l}{2} \dot{\theta} \sin \theta)^2 + (\frac{l}{2} \dot{\theta} \cos \theta)^2 \right) + \frac{1}{2} \left( \frac{ml^2}{12} \right) \dot{\theta}^2 + mg\frac{l}{2} \sin \theta \\
+			\frac{mgl}{2} (\sin \theta_0 - \sin \theta) &= \frac{ml^2\dot{\theta}^2}{8} + \frac{ml^2\dot{\theta}^2}{24} = \frac{ml^2\dot{\theta}^2}{6} \\
+			\dot{\theta} &= \left( \frac{3g}{l}(\sin \theta_0 - \sin \theta) \right)^\frac{1}{2} \\
+			\ddot{\theta} &= \left( \frac{1}{2} \right) \left( \frac{3g}{l}(\sin \theta_0 - \sin \theta) \right)^{-\frac{1}{2}} \left( -\frac{3g\dot{\theta}}{l} \cos \theta \right) = -\frac{3g}{2l} \cos \theta \\
+		\end{split}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			m\ddot{x} &= -\frac{ml}{2} \left[ \ddot{\theta} \sin \theta + \dot{\theta}^2 \cos \theta \right] = -\frac{ml}{2} \left[ \left( -\frac{3g}{2l} \cos \theta \right) \sin \theta + \left( \frac{3g}{l}(\sin \theta_0 - \sin \theta) \right) \cos \theta \right] \\
+			0 &= \frac{3mg}{4} \cos \theta \sin \theta - \frac{3mg}{2}(\sin \theta_0 - \sin \theta) \cos \theta = \frac{3mg}{2} \cos \theta \left( \frac{1}{2} \sin \theta - \sin \theta_0 + \sin \theta \right) \\
+		\end{split}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			\frac{1}{2} \sin \theta - \sin \theta_0 + \sin \theta &= 0 \\
+			\frac{3}{2} \sin \theta &= \sin \theta_0 \\
+			\theta &= \sin^{-1}\left( \frac{2}{3} \sin \theta_0 \right) \\
+		\end{split}
+	\end{equation}
+	
+	\section{Problem 20}
+	
+	A billiard ball of radius $a$ is initially spinning about a horizontal axis with angular speed $\omega_0$ and with zero forward speed. If the coefficient of sliding friction between the ball and the billiard table is $\mu_k$, find the distance the ball travels before slipping ceases to occur. \\
+	
+	\bd{Solution} The ball spinning about a horizontal axis implies a force along said axis. Slipping occurs when translational motion exceeds rotational motion, so slipping ceases to occur $\dot{x}_{cm} - a\omega = 0$ at the point of contact between the ball and the ground.
+	
+	\begin{center}
+		\includegraphics[scale=0.4]{4.jpg}
+	\end{center}
+	\begin{equation}
+		\begin{aligned}
+			m\ddot{x}_{cm} &= F_f = \mu_k m g & I_{ball} &= \frac{2ma^2}{5} \\
+		\end{aligned}
+	\end{equation}
+	\begin{equation}
+		\begin{aligned}
+			\ddot{x}_{cm} &= \mu_k g & \dot{x}_{cm} &= \mu_k g t & x_{cm} &= \frac{1}{2} \mu_k g t^2 \\
+			\dot{\omega} &= \frac{\mu_k g}{a} & \omega &= \frac{\mu_k gt}{a} \\
+		\end{aligned}
+	\end{equation}
+	In terms of rotational motion, the frictional force opposes angular velocity at the point of contact between the ball and the ground.
+	\begin{equation}
+		\begin{split}
+			I_{ball} \dot{\omega} &= -a \mu_k mg \\
+			\dot{\omega} &= -\frac{5 \mu_k g}{2a} \\
+			\omega - \omega_0 &= -\frac{5 \mu_k g}{2a} t \\
+			\omega &= \omega_0 - \frac{5 \mu_k g}{2a} t \\
+		\end{split}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			\dot{x}_{cm} - a\omega &= 0 \\
+			\mu_k g t - a\omega_0 - \frac{5 \mu_k g}{2} t &= 0 \\
+			\frac{7 \mu_k g}{2} t &= a\omega_0 \\
+			t &= \frac{2 a \omega_0}{7\mu_k g} \\
+		\end{split}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			x_{cm} &= \frac{1}{2} \mu_k g t^2 = \frac{1}{2} \mu_k g \frac{4 a^2 \omega^2_0}{49\mu^2_k g^2} = \frac{2 a^2 \omega^2_0}{49\mu_k g}\\
+		\end{split}
+	\end{equation}
+
+	\clearpage
+
+	\section{Problem 24}
+	
+	A ballistic pendulum is made of a long plank of length $l$ and mass $m$. It is free to swing about one end $O$ and is initially at rest in a vertical position. A bullet of mass $m'$ is fired horizontally into the pendulum at a distance $l'$ below $O$, the bullet coming to rest in the plank. If the resulting amplitude of oscillation of the pendulum is $\theta_0$, find the speed of the bullet. \\
+	
+	\bd{Solution} Conservation of angular momentum and energy.
+	
+	\begin{center}
+		\includegraphics[scale = 0.5]{5.jpg}
+	\end{center}
+
+	\begin{equation}
+		\begin{aligned}
+			L&: & I \dot{\theta} &= m' v_B l' \\
+			E&: & \frac{1}{2} I \dot{\theta}^2 - mg \frac{l}{2} - m'gl' &= - mg \frac{l}{2} \cos \theta_0 - m'g l' \cos \theta_0 \\
+			I&: & I = I_{plank} + I_{bullet} &= \frac{1}{3}ml^2 + m' l'^2 \\
+		\end{aligned}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			\frac{1}{2} I \dot{\theta}^2 &= g \left[ m \frac{l}{2} + m'l' - \cos \theta_0 \left( m \frac{l}{2} + m' l' \right)  \right] = g \left( m \frac{l}{2} + m'l' \right) \left( 1 - \cos \theta_0 \right) \\
+			\frac{1}{2} I \frac{m'^2 v^2_B l'^2}{I^2} &= g \left( m \frac{l}{2} + m'l' \right) \left( 1 - \cos \theta_0 \right) \\
+			v^2_B &= \frac{2g}{m'^2 l'^2} I \left( m \frac{l}{2} + m'l' \right) \left( 1 - \cos \theta_0 \right) \\
+			v^2_B &= \frac{2g}{m'^2 l'^2} \left( \frac{1}{3}ml^2 + m' l'^2 \right) \left( m \frac{l}{2} + m'l' \right) \left( 1 - \cos \theta_0 \right) \\
+			v_B &= \frac{1}{m' l'} \left[ 2g \left( \frac{1}{3}ml^2 + m' l'^2 \right) \left( m \frac{l}{2} + m'l' \right) \left( 1 - \cos \theta_0 \right) \right]^{\frac{1}{2}} \\
+		\end{split}
+	\end{equation}
+	
+
+\end{document}

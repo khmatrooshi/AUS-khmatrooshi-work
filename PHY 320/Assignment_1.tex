@@ -1,0 +1,192 @@
+\documentclass[]{article}
+
+\usepackage[margin=1.0in]{geometry}
+\usepackage{amsmath, amsfonts, amssymb, amsthm}
+\usepackage{bbold}
+\usepackage{graphicx, wrapfig}
+
+\title{PHY 320 - Assignment 1}
+\author{Khalifa Salem Almatrooshi b00090847}
+\date{12/09/2022}
+
+\newcommand{\bd}{\textbf}
+\newcommand{\ih}{\bd{i}}
+\newcommand{\jh}{\bd{j}}
+\newcommand{\kh}{\bd{k}}
+\newcommand{\ehr}{\hat{e}_r}
+\newcommand{\ehth}{\hat{e}_\theta}
+
+\begin{document}
+	
+\maketitle
+
+\section{Problem 2c}
+Given the three vectors
+$ \bd{A = 2i + j, B = i + k, C = 4j,} $
+find the following:
+
+$ \bd{A} \times (\bd{B} \times \bd{C}) $ and $ (\bd{A} \times \bd{B}) \times \bd{C} $
+\\\\
+\bd{Solution} By using the BAC - CAB Rule
+\begin{equation}
+\begin{split}
+\bd{A} \times (\bd{B} \times \bd{C}) &= \bd{B}(\bd{A} \cdot \bd{C}) - \bd{C}(\bd{A} \cdot \bd{B}) \\
+&=(\ih + \kh)[(2 * 0) + (1 * 4) + (0 * 0)] - (\bd{4j})[(2 * 1) + (1 * 0) + (0 * 1)] \\
+&=(\ih + \kh)(4) - (\bd{4j})(2) \\
+&=4\ih - 8\jh + 4\kh \\
+\end{split}
+\end{equation}
+For the second equation, the order matters in the cross product as it is nonassociative. Also to have the equation resemble the first to easily apply the BAC - CAB rule.
+\begin{equation}
+\begin{split}
+(\bd{A} \times \bd{B}) \times \bd{C} &= \bd{-C} \times (\bd{A} \times \bd{B}) \\
+&=\bd{-A}(\bd{C} \cdot \bd{B}) + \bd{B}(\bd{C} \cdot \bd{A}) \\
+&=-(2\ih + \jh)[(0 * 1) + (4 * 0) + (0 * 1)] + (\ih + \kh)[(0 * 2) + (4 * 1) + (0 * 0)] \\
+&=(-2\ih - \jh)(0) + (\ih + \kh)(4) \\
+&=\bd{4j} + \bd{4k} \\
+\end{split}
+\end{equation}
+
+\section{Problem 4d}
+\begin{wrapfigure}[10]{r}{6cm}
+\includegraphics[scale=0.5]{Screenshot 2022-09-09 164407.jpg}
+\end{wrapfigure}
+The vector \bd{A} extends from the origin along a major diagonal of the cube. The vector \bd{B} extends from the origin along the diagonal of the lower face of the cube. Find the angle between vectors \bd{A} and \bd{B}:
+\\\\
+\bd{Solution} By finding their respective vectors, the definition of the dot product can be used to find the angle between them.
+\begin{equation}
+\begin{split}
+\bd{A} &= \ih + \jh + \kh \\
+\bd{B} &= \ih + \jh \\
+\cos \theta &= \frac{\bd{A} \cdot \bd{B}}{\left\lvert \bd{A} \right\rvert \left\lvert \bd{B} \right\rvert} \\
+\cos \theta &= \frac{[(1 * 1) + (1 * 1) + (1 * 0)]}{[(\sqrt{1 + 1 + 1})(\sqrt{1 + 1 + 0})]} \\
+\theta &= \arccos \left( \frac{2}{(\sqrt{3} \sqrt{2})} \right) \\
+\theta &= 35.3^\circ = 0.616 \text{ rads}
+\end{split}
+\end{equation}
+
+\section{Problem 7}
+For what value (or values) of \textit{q} is the vector $ \bd{A} = q\ih + 3\jh + \kh $ perpendicular to the vector $ \bd{B} = q\ih - q\jh + 2\kh $ 
+\\\\
+\bd{Solution} Vectors are said to be perpendicular if their dot product equates to 0. $ (\bd{A} \cdot \bd{B} = 0) $
+\begin{equation}
+\begin{split}
+\bd{A} \cdot \bd{B} &= A_xB_x + A_yB_y + A_zB_z \\
+&=(q * q) + (3 * -q) + (1 * 2) \\
+&=q^2 - 3q + 2 \\
+&=(q - 2)(q - 1) = 0 \\
+q &= 1, 2 \\
+\end{split}
+\end{equation}
+
+\section{Problem 19}
+A bee goes out from its hive in a spiral path given in plane polar coordinated by $ r = be^\text{kt} $ and $ \theta = ct $, where b, k, and c are positive constants. Show that the angle between the velocity vector and the acceleration vector remains constant as the bee moves outward. (Hint: Find $ \bd{v} \cdot \bd{a} / va $)
+\\\\
+\bd{Solution} With the hint, $ \cos \theta $ from the definition of the dot product has to equal an expression consisting of only the provided constants to show that the angle is constant. In plane polar coordinates, the velocity and acceleration vectors are given by:
+\begin{equation}
+\begin{split}
+\bd{v} = \dot{r}\ehr + r\dot{\theta}\ehth \text{ and } \bd{a} = (\ddot{r} - r\dot{\theta}^2)\ehr + (r\ddot{\theta} + 2\dot{r}\dot{\theta})\ehth \\
+\end{split}
+\end{equation}
+In this case:
+\begin{equation}
+\begin{split}
+\dot{r} = \frac{dr}{dt} = \frac{d}{dt}be^\text{kt} = bke^\text{kt} \text{ and } \ddot{r} = \frac{d\dot{r}}{dt} = \frac{d}{dt}bke^\text{kt} = bk^2e^\text{kt}
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\dot{\theta} = \frac{dr}{dt} = \frac{d}{dt}ct = c \text{ and } \ddot{\theta} = \frac{d\dot{\theta}}{dt} = \frac{d}{dt}c = 0
+\end{split}
+\end{equation}
+Then:
+\begin{equation}
+\begin{split}
+\bd{v} = (bke^\text{kt})\ehr + (bce^\text{kt})\ehth \text{ and } \bd{a} = (bk^2e^\text{kt} - bc^2e^\text{kt})\ehr + (2bcke^\text{kt})\ehth \\
+\end{split}
+\end{equation}
+Now to find $ \bd{v} \cdot \bd{a} / va $
+\\\\
+\begin{equation}
+\begin{split}
+\frac{\bd{v} \cdot \bd{a}}{va} &= 
+\frac{[(bke^\text{kt})(bk^2e^\text{kt} - bc^2e^\text{kt})] + [(bce^\text{kt})(2bcke^\text{kt})]}
+{({(bke^\text{kt})^2 + (bce^\text{kt})^2})^\frac{1}{2} ({(bk^2e^\text{kt} - bc^2e^\text{kt})^2 + (2bcke^\text{kt})^2})^\frac{1}{2}} \\
+&= 
+\frac{(b^2k^3e^\text{2kt} - b^2c^2ke^\text{2kt}) + (2b^2c^2ke^\text{2kt})}
+{({b^2k^2e^\text{2kt} + b^2c^2e^\text{2kt}})^\frac{1}{2} ({b^2k^4e^\text{2kt} - 2b^2c^2k^2e^\text{2kt} + b^2c^4e^\text{2kt} + 4b^2c^2k^2e^\text{2kt}})^\frac{1}{2}} \\
+&= 
+\frac{(b^2k^3e^\text{2kt} + b^2c^2ke^\text{2kt})}
+{({b^2k^2e^\text{2kt} + b^2c^2e^\text{2kt}})^\frac{1}{2} ({b^2k^4e^\text{2kt} + 2b^2c^2k^2e^\text{2kt} + b^2c^4e^\text{2kt}})^\frac{1}{2}} \\
+&= 
+\frac{(b^2ke^\text{2kt})(k^2 + c^2)}
+{((b^2e^\text{2kt})(k^2 + c^2))^\frac{1}{2} ((b^2e^\text{2kt})(k^4 + 2c^2k^2 + c^4))^\frac{1}{2}} \\
+&= 
+\frac{(b^2ke^\text{2kt})(k^2 + c^2)}
+{(be^\text{kt})({k^2 + c^2})^\frac{1}{2} (be^\text{kt})({(k^2 + c^2)^2})^\frac{1}{2}} \\
+&= 
+\frac{(b^2ke^\text{2kt})(k^2 + c^2)}
+{(b^2e^\text{2kt})({k^2 + c^2})^\frac{1}{2}(k^2 + c^2)} \\
+&= 
+\frac{k}
+{({k^2 + c^2})^\frac{1}{2}} = \cos \theta \\
+\end{split}
+\end{equation}
+
+\section{Problem 29}
+What is the value of x that makes the following transformation \bd{R} orthogonal? What transformation is represented by \bd{R}?
+\begin{equation}
+\begin{split}
+\bd{R} =
+\begin{pmatrix}
+x&x&0\\
+-x&x&0\\
+0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+\ih \cdot \ih'&\jh \cdot \ih'&\kh \cdot \ih'\\
+\ih \cdot \jh'&\jh \cdot \jh'&\kh \cdot \jh'\\
+\ih \cdot \kh'&\jh \cdot \kh'&\kh \cdot \kh'
+\end{pmatrix}
+\end{split}
+\end{equation}
+\bd{Solution} Orthogonal transformations are linear transformations. If they are linear, there must be an \textit{identity} operator that defines them. The identity operator is found by multiplying a transformation matrix by it's transposed counterpart, $ \bd{I} = \bd{R} \bd{R}^\text{-1} $. Note that $ \left\lvert \bd{R} \bd{R}^\text{-1} \right\rvert = 1 $
+\begin{equation}
+\begin{split}
+\bd{I} =
+\begin{pmatrix}
+x&x&0\\
+-x&x&0\\
+0&0&1
+\end{pmatrix}
+\begin{pmatrix}
+x&-x&0\\
+x&x&0\\
+0&0&1
+\end{pmatrix}
+=
+\begin{pmatrix}
+2x^2&0&0\\
+0&2x^2&0\\
+0&0&1
+\end{pmatrix}
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\begin{pmatrix}
+2x^2&0&0\\
+0&2x^2&0\\
+0&0&1
+\end{pmatrix}
+&= 1 \\
+2x^2(2x^2 - 0) &= 1 \\
+4x^4 &= 1 \\
+x &= \sqrt[4]{\frac{1}{4}} \\
+x &= \frac{1}{\sqrt{2}}
+\end{split}
+\end{equation}
+By examining \bd{R}: A value of 1 at $ \kh \cdot \kh' $ implies a rotation about the z axis. With the value for x, $ \arcsin(\frac{1}{\sqrt{2}}) = \arccos(\frac{1}{\sqrt{2}}) = 45^\circ$. Also the negative sign at $ \ih \cdot \jh' $ implies a counterclockwise rotation (draw an arrow from $ \ih \text{ to } \jh $). Thus I can conclude that \bd{R} represents a CCW rotation about the z axis through 45$^\circ$.
+
+\end{document} 
