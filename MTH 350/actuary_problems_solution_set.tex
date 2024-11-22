@@ -1,0 +1,1096 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/6_F23/preamble.tex}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\newcommand{\chpline}{\par\noindent\rule[1cm]{\textwidth}{0.4pt}}
+\newcommand{\qline}{\par\noindent\rule{4.5in}{1pt}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\titleformat{\section}{\normalfont\LARGE\bfseries}{}{0pt}{}
+
+\renewcommand{\contentsname}{\LARGE Contents}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE,LO]{\large \textit{\leftmark}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,
+	urlcolor=cyan,
+	pdftitle={MTH 350 - Actuary Problem Set},
+	pdfpagemode=FullScreen,
+}
+
+\setlength{\droptitle}{8cm}
+
+\title{Actuary Problems Solution Set \\
+	\Large Probability for Risk Management}
+\author{\\Khalifa Salem Almatrooshi \\
+	American University of Sharjah}
+\date{November 2023}
+
+\begin{document}
+
+	\begin{titlepage}
+		\maketitle
+	\end{titlepage}
+
+	\tableofcontents
+
+	\clearpage
+
+
+	\section[Chapter 2: Counting for Probability]{Chapter 2 \\
+		Counting for Probability}
+
+		\subsection*{2-47}
+
+		\begin{figure}[!h]
+			\centering
+			\begin{tikzpicture}
+				%\draw[help lines] (-6,6) grid (6,-6);
+				\draw (-5,5) rectangle (5,-6);
+				\draw[draw = black] (-1.5,1) circle (3);
+				\draw[draw = black] (1.5,1) circle (3);
+				\draw[draw = black] (0,-2) circle (3);
+				\node at (-3,4.5) {\LARGE\textbf{Young}};
+				\node at (3,4.5) {\LARGE\textbf{Married}};
+				\node at (-3,-4.5) {\LARGE\textbf{Male}};
+				\node at (-3,1) {$P(Y \cap R^\prime \cap M^\prime)$};
+				\node at (0,2) {$P(Y \cap R)$};
+				\node at (-1.8,-1) {$P(Y \cap M)$};
+				\node at (0,0) {$P(Y \cap R \cap M)$};
+			\end{tikzpicture} \par
+			According to the constructed venn diagram, we want $P(Y \cap R^\prime \cap M^\prime)$.
+		\end{figure}
+
+		\begin{align*}
+			P(Y \cap R \cap M) &= 600 \\
+			P(Y \cap R) &= 1400 - 600 = 800 \\
+			P(Y \cap M) &= 1320 - 600 = 720 \\
+			P(Y \cap R^\prime \cap M^\prime) &= 3000 - (600 + 800 + 720) = \boxed{880}
+		\end{align*}
+
+	\clearpage
+
+	\section[Chapter 3: Elements of Probability]{Chapter 3 \\
+		Elements of Probability}
+
+		\subsection*{3-46}
+
+			\begin{figure}[!h]
+				\centering
+				\begin{tikzpicture}
+					%\draw[help lines] (-4,-3) grid (4,3);
+					\draw (-4,-3) rectangle (4,3);
+					\draw[draw = black] (-1,0) circle (2);
+					\draw[draw = black] (1,0) circle (2);
+					\node at (-2,2.5) {\Large\textbf{Lab Work}};
+					\node at (2,2.5) {\Large\textbf{Specialist}};
+					\node at (0,0) {$P(L \cap S)$};
+					\node at (1.5,-2.5) {$P(L^\prime \cap S^\prime)$};
+					\node at (-2,0) {$P(L \cap S^\prime)$};
+					\node at (2,0) {$P(L^\prime \cap S)$};
+				\end{tikzpicture} \par
+				According to the constructed venn diagram, we want $P(L \cap S)$.
+			\end{figure}
+			\[
+				P(L^\prime \cap S^\prime) = 0.35 = P(L \cup S)^\prime
+			\]
+			\[
+				P(L) = 0.40 \quad P(S) = 0.30
+			\]
+			\[
+				P(L^\prime) = 0.60 \quad P(S^\prime) = 0.70
+			\]
+			\begin{align*}
+				P(L \cap S) &= P(L) + P(S) - P(L \cup S) \\
+							&= \left[ 1 - P(L^\prime) \right] + \left[ 1 - P(S^\prime) \right] - \left[ 1 - P(L \cup S)^\prime \right] \\
+							&= \left[ 1 - 0.60 \right] + \left[ 1 - 0.70 \right] - \left[ 1 - 0.35 \right] \\
+							&= \boxed{0.05}
+			\end{align*}
+
+	\qline
+
+		\subsection*{3-47}
+
+			\begin{equation*}
+				\begin{split}
+					P(A \cup B) = 0.7 &= P(A) + P(B) - P(A \cap B) \\
+					P(A \cup B^{\prime}) = 0.9 &= P(A) + P(B^{\prime}) - P(A \cap B^{\prime}) \\\\
+					1.6 &= 2P(A) + P(B) + P(B^\prime) - P(A \cap B) - P(A \cap B^\prime) \\
+					1.6 &= 2P(A) + P(B) + \left[ 1 - P(B) \right] - P(A \cap B) - \left[ P(A) - P(A \cap B) \right] \\
+					1.6 &= P(A) + 1 \\
+					P(A) &= \boxed{0.6}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{3-48}
+
+			\[
+				P(>1) = 0.64 \quad P(S) = 0.2
+			\]
+			\[
+				P(1) = 0.36 \quad P(S^\prime) = 0.8
+			\]
+			\begin{align*}
+				P(S^\prime) &= P(>1 \cap S^\prime) + P(1 \cap S^\prime) \\
+				P(1 \cap S^\prime) &= P(S^\prime) - P(>1 \cap S^\prime) \\
+				&= 0.8 - (0.64 \times 0.85) \\
+				&= \boxed{0.256}
+			\end{align*}
+
+	\clearpage
+
+		\subsection*{3-49}
+
+		\begin{figure}[!h]
+			\centering
+			\begin{tikzpicture}
+				%\draw[help lines] (-4,-3) grid (4,3);
+				\draw (-4,-3) rectangle (4,3);
+				\draw[fill = blue, fill opacity=0.4, draw = black] (-1,0) circle (2);
+				\draw[draw = black] (1,0) circle (2);
+				\node at (-2,2.5) {\Large\textbf{Physical}};
+				\node at (2,2.5) {\Large\textbf{Chiropractor}};
+				\node at (0,0) {$P(P \cap C)$};
+				\node at (1.5,-2.5) {$P(P \cup C)^\prime$};
+				\node at (-2,0) {$P(P \cap C^\prime)$};
+				\node at (2,0) {$P(P^\prime \cap C)$};
+			\end{tikzpicture} \par
+			According to the constructed venn diagram, we want the blue shaded area $P(P)$.
+		\end{figure}
+		\[
+			P(P \cap C) = 0.22 \quad P(P \cup C)^\prime	= 0.12
+		\]
+		\[
+			P(C) = P(P) + 0.14
+		\]
+		\begin{align*}
+			P(P \cap C) &= P(P) + P(C) - P(P \cup C) \\
+			0.22 &= P(P) + \left[ P(P) + 0.14 \right] - \left[ 1 - 0.12 \right] \\
+			P(P) &= \boxed{0.48}
+		\end{align*}
+
+	\clearpage
+
+	\subsection*{3-50}
+
+		\begin{figure}[!h]
+			\centering
+			\begin{tikzpicture}
+				%\draw[help lines] (-6,6) grid (6,-6);
+				\draw (-5,5) rectangle (5,-6);
+				\draw[draw = black] (-1.5,1) circle (3);
+				\draw[draw = black] (1.5,1) circle (3);
+				\draw[draw = black] (0,-2) circle (3);
+				\node at (-3,4.5) {\LARGE\textbf{Gymnastics}};
+				\node at (3,4.5) {\LARGE\textbf{Baseball}};
+				\node at (-3,-4.5) {\LARGE\textbf{Soccer}};
+				\node at (-3,1) {$P(G \cap B^\prime \cap S^\prime)$};
+				\node at (3,1) {$P(G^\prime \cap B \cap S^\prime)$};
+				\node at (0,-3) {$P(G^\prime \cap B^\prime \cap S)$};
+				\node at (3.2,-4.5) {$P(G^\prime \cap B^\prime \cap S^\prime)$};
+				\node at (0,2) {$P(G \cap B \cap S^\prime)$};
+				\node at (-1.8,-1.2) {\footnotesize$P(G \cap B^\prime \cap S)$};
+				\node at (1.8,-1.2) {\footnotesize$P(G^\prime \cap B \cap S)$};
+				\node at (0,0) {$P(G \cap B \cap S)$};
+			\end{tikzpicture} \par
+			According to the constructed venn diagram, we want $P(G^\prime \cap B^\prime \cap S^\prime)$.
+		\end{figure}
+
+		\begin{align*}
+			P(G \cap B \cap S) &= 0.08 \\\\
+			P(G \cap B^\prime \cap S) &= 0.10 - 0.08 = 0.02 \\
+			P(G^\prime \cap B \cap S) &= 0.12 - 0.08 = 0.04 \\
+			P(G \cap B \cap S^\prime) &= 0.14 - 0.08 = 0.06	\\\\
+			P(G \cap B^\prime \cap S^\prime) &= 0.28 - 0.06 - 0.02 - 0.08 = 0.12 \\
+			P(G^\prime \cap B \cap S^\prime) &= 0.29 - 0.06 - 0.04 - 0.08 = 0.11 \\
+			P(G^\prime \cap B^\prime \cap S) &= 0.19 - 0.02 - 0.04 - 0.08 = 0.05 \\\\
+			P(G^\prime \cap B^\prime \cap S^\prime) &= 1 - (0.05 + 0.11 + 0.12 + 0.06 + 0.04 + 0.02) = \boxed{0.52}
+		\end{align*}
+
+	\clearpage
+
+	\subsection*{3-51}
+
+		The events are independent and that $P(C)=2P(D)$.
+		\begin{align*}
+			P(C \cap D) = P(C) \cdot P(D) &= 0.15 \\
+			2P(D) \cdot P(D) &= 0.15 \\
+			P(D) &= \sqrt{\frac{0.15}{2}} = 0.274 \\
+			P(C) &= 2 \cdot 0.274 = 0.548
+		\end{align*}
+		\begin{align*}
+			P(C \cup D) &= P(C) + P(D) - P(C \cap D) \\
+			1 - P(C \cup D)^\prime &= 0.548 + 0.274 - 0.15 \\
+			P(C \cup D)^\prime &= \boxed{0.328}
+		\end{align*}
+
+	\qline
+
+	\subsection*{3-52}
+
+		The events are independent.
+		\[
+			P(E \cup O) = 0.85
+		\]
+		\[
+			P(E^\prime) = 0.25 \quad P(E) = 0.75
+		\]
+		\begin{align*}
+			P(E \cup O) &= P(E) + P(O) - P(E \cap O) \\
+			0.85 &= 0.75 + P(O) - 0.75 \cdot P(O) \\
+			P(O) &= \boxed{0.4}
+		\end{align*}
+
+	\qline
+
+	\subsection*{3-53}
+
+		\begin{center}
+			\renewcommand\arraystretch{1.2}
+			\begin{tabular}{c|c|c|c|c|c}
+				N & $0$ & $1$ & $2$ & $3$ & $4$ \\ \hline
+				p(n) & $\frac{1}{2}$ & $\frac{1}{6}$ & $\frac{1}{12}$ & $\frac{1}{20}$ & $\frac{1}{30}$ \\
+			\end{tabular}
+		\end{center}
+
+		\begin{align*}
+			P(N \geq 1 | N \leq 4) &= \frac{P(N \geq 1 \cap N \leq 4)}{P(N \leq 4)}
+			= \dfrac{\frac{1}{6} + \frac{1}{12} + \frac{1}{20} + \frac{1}{30}}{\frac{1}{2} + \frac{1}{6} + \frac{1}{12} + \frac{1}{20} + \frac{1}{30}}
+			= \boxed{\frac{2}{5}}
+		\end{align*}
+
+	\qline
+
+	\subsection*{3-54}
+
+		We want $ P(H | P^\prime) = \dfrac{P(H \cap P^\prime)}{P(P^\prime)} $
+		\[ P(H) = \frac{210}{937} = P(H \cap P) + P(H \cap P^\prime) \]
+		\[ P(P) = \frac{312}{937} \quad P(H \cap P) = \frac{102}{937} \]
+		\[ P(H \cap P^\prime) = \dfrac{ \dfrac{210}{937} - \dfrac{102}{937} }{\dfrac{625}{937}} = \frac{108}{625} = \boxed{0.1728} \]
+
+	\clearpage
+
+	\subsection*{3-55}
+
+		\begin{figure}[!h]
+			\centering
+			\begin{tikzpicture}
+				%\draw[help lines] (-4,-4) grid (4,4);
+				\draw[draw = black] (2.5,0) circle (2);
+				\draw[draw = black] (-2.5,0) circle (2);
+				\node at (-2.5,2.5) {\LARGE \textbf{Urn A}};
+				\node[align=center] at (-2.5,0) {\large 4 R \\ \large 16 B};
+				\node at (2.5,2.5) {\LARGE \textbf{Urn B}};
+				\node[align=center] at (2.5,0) {\large 16 R \\ \large $x$ B};
+			\end{tikzpicture}
+		\end{figure}
+
+	\clearpage
+
+	\subsection*{3-56}
+
+		\begin{figure}[!h]
+			\centering
+			\begin{tikzpicture}
+				%\draw[help lines] (-6,6) grid (6,-6);
+				\draw (-5,5) rectangle (5,-6);
+				\draw[draw = black] (-1.5,1) circle (3);
+				\draw[draw = black] (1.5,1) circle (3);
+				\draw[draw = black] (0,-2) circle (3);
+				\node at (-3,4.5) {\LARGE\textbf{A}};
+				\node at (3,4.5) {\LARGE\textbf{B}};
+				\node at (-3,-4.5) {\LARGE\textbf{C}};
+				\node at (-3,1) {\LARGE$0.1$};
+				\node at (3,1) {\LARGE$0.1$};
+				\node at (0,-3) {\LARGE$0.1$};
+				\node at (3.2,-5) {$P(A^\prime \cap B^\prime \cap C^\prime)$};
+				\node at (0,2) {\LARGE$0.12$};
+				\node at (-1.8,-1) {\LARGE$0.12$};
+				\node at (1.8,-1) {\LARGE$0.12$};
+				\node at (0,0) {$P(A \cap B \cap C)$};
+			\end{tikzpicture} \par
+		\end{figure}
+
+		We want $ P((A^\prime \cap B^\prime \cap C^\prime) | A^\prime) = \dfrac{P((A^\prime \cap B^\prime \cap C^\prime) \cap A^\prime)}{P(A^\prime)} = \dfrac{P(A^\prime \cap B^\prime \cap C^\prime)}{P(A^\prime)} $
+		\[ 0.10 = P(A \cap B^\prime \cap C^\prime) = P(A^\prime \cap B \cap C^\prime) = P(A^\prime \cap B^\prime \cap C)  \]
+		\[ 0.12 = P(A \cap B \cap C^\prime) = P(A \cap B^\prime \cap C) = P(A^\prime \cap B \cap C)  \]
+		\[ \frac{1}{3} = P(A \cap B \cap C | A \cap B) = \frac{P(A \cap B \cap C \cap A \cap B)}{P(A \cap B)} = \frac{P(A \cap B \cap C)}{P(A \cap B)} = \frac{P(A \cap B \cap C)}{P(A \cap B \cap C) + 0.12} \]
+		\begin{align*}
+			P(A \cap B \cap C | A \cap B) = \frac{P(A \cap B \cap C \cap A \cap B)}{P(A \cap B)} = \frac{P(A \cap B \cap C)}{P(A \cap B)} &= \frac{1}{3} \\
+			\frac{P(A \cap B \cap C)}{P(A \cap B \cap C) + 0.12} &= \frac{1}{3} \\
+			P(A \cap B \cap C) &= 0.06
+		\end{align*}
+		\begin{align*}
+			\frac{P(A^\prime \cap B^\prime \cap C^\prime)}{P(A^\prime)} = \frac{1 - (3(0.1) + 3(0.12) + 0.06)}{1 - (0.1 + 2(0.12) + 0.06)} = \frac{0.28}{0.6} = \boxed{0.467}
+		\end{align*}
+
+	\clearpage
+
+		\subsection*{3-57}
+
+			\begin{figure}[!h]
+				\centering
+				\begin{tikzpicture}
+					%\draw[help lines] (-6,6) grid (6,-6);
+					\draw (-5,5) rectangle (5,-6);
+					\draw[draw = black] (-1.5,1) circle (3);
+					\draw[draw = black] (1.5,1) circle (3);
+					\draw[draw = black] (0,-2) circle (3);
+					\node at (-3,4.5) {\LARGE\textbf{A}};
+					\node at (3,4.5) {\LARGE\textbf{B}};
+					\node at (-3,-4.5) {\LARGE\textbf{C}};
+					\node at (-3,1) {\LARGE$0$};
+					\node at (3,1) {\LARGE$0$};
+					\node at (0,-3) {\LARGE$0$};
+					\node at (3.2,-5) {$P(A^\prime \cap B^\prime \cap C^\prime)$};
+					\node at (0,2) {$P(A \cap B \cap C^\prime)$};
+					\node at (-1.8,-1.2) {\footnotesize$P(A \cap B^\prime \cap C)$};
+					\node at (1.8,-1.2) {\footnotesize$P(A^\prime \cap B \cap C)$};
+					\node at (0,0) {\LARGE$0$};
+				\end{tikzpicture} \par
+			\end{figure}
+
+			\begin{align*}
+				P(A) &= \frac{1}{4} = P(A \cap B \cap C^\prime) + P(A \cap B^\prime \cap C) \\
+				P(B) &= \frac{1}{3} = P(A^\prime \cap B \cap C) + P(A \cap B \cap C^\prime) \\
+				P(C) &= \frac{5}{12} = P(A^\prime \cap B \cap C) + P(A \cap B^\prime \cap C) \\
+				P(A^\prime \cap B^\prime \cap C^\prime) &= 1 - \left[ P(A \cap B \cap C^\prime) + P(A \cap B^\prime \cap C) + P(A^\prime \cap B \cap C) \right] \\
+ 			\end{align*}
+
+
+
+	\section[Chapter 4: Discrete Random Variables]{Chapter 4 \\
+		Discrete Random Variables}
+
+		\subsection*{4-18}
+
+	\clearpage
+
+	\section[Chapter 5: Commonly Used Discrete Distributions]{Chapter 5 \\
+		Commonly Used Discrete Distributions}
+
+		\subsection*{5-36}
+
+	\clearpage
+
+	\section[Chapter 6: Applications for Discrete Random Variables]{Chapter 6 \\
+		Applications for Discrete Random Variables}
+	\vspace{-0.2cm}
+	\hrule
+	\vspace{0.5cm}
+		\subsection*{6-17}
+
+			\begin{center}
+				\begin{tabular}{c|c|c|c|c|c}
+					x & $0$ & $1$ & $2$ & $3$ & $\cdots$ \\
+					\hline
+					p(x) &  &  &  &  & $\cdots$ \\
+				\end{tabular} $\Rightarrow$
+				\begin{tabular}{c|c|c|c|c|c}
+					y & $0$ & $1000$ & $2000$ & $2000$ & $\cdots$ \\
+					\hline
+					p(y) &  &  &  &  & $\cdots$ \\
+				\end{tabular}
+				\\
+				\begin{tabular}{c|c|c|c|c|c}
+					2000x & $0$ & $2000$ & $2000$ & $2000$ & $\cdots$ \\
+					\hline
+					p(x) &  &  &  &  & $\cdots$ \\
+				\end{tabular}
+			\end{center}
+
+	\clearpage
+
+	\section[Chapter 7: Continuous Random Variables]{Chapter 7 \\
+		Continuous Random Variables}
+
+		\subsection*{7-12}
+
+			\begin{equation*}
+				\begin{split}
+					f(x) &\propto \left( 10 + x \right)^{-2} \\
+					f(x) &= K \left( 10 + x \right)^{-2} \quad ; \quad 0 \leq x \leq 40
+				\end{split}
+			\end{equation*}
+
+			\begin{equation*}
+				\begin{split}
+					\int_{0}^{40} K \left( 10 + x \right)^{-2} &= 1 \\
+					1 &= K \left[ \frac{(10 + x)^{-1}}{-1} \right]^{40}_0 \\
+					\frac{1}{K} &= \left[ \left(-\frac{1}{50}\right) - \left(-\frac{1}{10}\right) \right] = \frac{2}{25} \\
+					K &= \frac{25}{2}
+				\end{split}
+			\end{equation*}
+
+			\[
+				f(x) = \frac{25}{2} \left( 10 + x \right)^{-2} \quad ; \quad 0 \leq x \leq 40
+			\]
+
+			\begin{equation*}
+				\begin{split}
+					P(X < 6) &= \int_{0}^{6} \frac{25}{2} \left( 10 + x \right)^{-2} \\
+					&= \frac{25}{2} \left[ -(10 + x)^{-1} \right]^{6}_0 \\
+					&= \frac{25}{2} \left[ \left(-\frac{1}{16}\right) - \left(-\frac{1}{10}\right) \right] \\
+					&= \frac{15}{32} = \boxed{\num{0.46875}}
+				\end{split}
+			\end{equation*}
+
+		\subsection*{7-13}
+
+			\begin{equation*}
+				\begin{split}
+					k^{th} \text{ Percentile : } \int_{200}^{P_{k}} \frac{2.5 (200)^{2.5}}{x^{3.5}} \ dx &= \frac{k}{100} \\
+					\frac{k}{100} &= (2.5 (200)^{2.5}) \int_{200}^{P_{k}} x^{-3.5} \\
+					\frac{k}{100(2.5 (200)^{2.5})} &= \left[ \frac{x^{-2.5}}{-2.5} \right]^{P_{k}}_{200} \\
+					\frac{(k)(-2.5)}{100(2.5 (200)^{2.5})} &= \left[ P_{k}^{-2.5} - 200^{-2.5} \right] \\
+					P_{k}^{-2.5} &= 200^{-2.5} - \frac{k}{100(200)^{2.5}} = \frac{100(200)^{2.5}(200)^{-2.5} - k}{100(200)^{2.5}} \\
+					P_{k}^{2.5} &= \frac{100(200)^{2.5}}{100 - k} \\
+					P_{k} &= \left[\frac{100(200)^{2.5}}{100 - k}\right]^{1/2.5} \\
+				\end{split}
+			\end{equation*}
+
+			\[
+				P_{70} - P_{30} = 323.73 - 230.670 = \boxed{93.06}
+			\]
+
+	\clearpage
+
+		\subsection*{7-14}
+
+			\begin{equation*}
+				\begin{split}
+					f(x) &\propto \left( 1 + x \right)^{-4} \\
+					f(x) &= K \left( 1 + x \right)^{-4} \quad ; \quad 0 \leq x \leq \infty
+				\end{split}
+			\end{equation*}
+
+			\begin{equation*}
+				\begin{split}
+					\int_{0}^{\infty} K \left( 1 + x \right)^{-4} &= 1 \\
+					1 &= K \left[ \frac{(1 + x)^{-3}}{-3} \right]^{\infty}_0 \\
+					\frac{1}{K} &= \left[ 0 -  \left(-\frac{1}{3}\right) \right] = \frac{1}{3} \\
+					K &= 3
+				\end{split}
+			\end{equation*}
+
+			\[
+				f(x) = 3 \left( 1 + x \right)^{-4} \quad ; \quad 0 \leq x \leq \infty
+			\]
+			\begin{equation*}
+				\begin{split}
+					E\left[X\right] &= \int_{0}^{\infty} 3x\left( 1 + x \right)^{-4} \\
+					&= 3 \left[ \frac{(1 + x)^{-3} (1-3x)}{6} \right]^{\infty}_0 = \left[ 0 - \left( \frac{1}{2} \right) \right] = \boxed{\frac{1}{2}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{7-15}
+
+			\[
+				f(x) = \frac{\abs{x}}{10} \quad \text{for } -2 \leq x \leq 4
+				\begin{cases}
+					\dfrac{-x}{10}  &  \text{for } -2 \leq x \leq 0 \\
+					\\
+					\dfrac{x}{10}   &  \text{for } 0  \leq x \leq 4
+				\end{cases}
+			\]
+
+			\begin{equation*}
+				\begin{split}
+					E\left[X\right] &= \int_{-2}^{0} \frac{-x^2}{10} \ dx + \int_{0}^{4} \frac{x^2}{10} \ dx \\
+					&= \left[ \frac{-x^3}{30} \right]^0_{-2} + \left[ \frac{x^3}{30} \right]^4_{0} = \left[ \left( \frac{0}{30} \right) - \left( \frac{8}{30} \right) \right] + \left[ \left( \frac{64}{30} \right) - \left( \frac{0}{30} \right) \right] = \boxed{\frac{28}{15}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{7-16}
+
+			\[
+				P(X > 16 \ | \ X > 8) = \frac{P(X > 16)}{P(X > 8)} = \frac{1 - P(X < 16)}{1 - P(X < 8)} = \frac{1 - \int_{0}^{16} 0.005(20 - x) \ dx}{1 - \int_{0}^{8} 0.005(20 - x) \ dx}
+			\]
+
+			\begin{equation*}
+				\begin{split}
+					P(X < x) &= \int_{0}^{x} 0.005(20 - x) \ dx = 0.005 \left[ \int_{0}^{x} 20 \ dx - \int_{0}^{x} x \ dx \right] \\
+					&= 0.005 \left[ \left[ 20x \right]^x_0 - \left[ \frac{x^2}{2} \right]^x_0 \right] = 0.1x - 0.0025x^2 \\
+				\end{split}
+			\end{equation*}
+
+			\[
+				P(X > 16 \ | \ X > 8) = \frac{1 - 0.96}{1 - 0.64} = \boxed{\frac{1}{9}}
+			\]
+
+	\qline
+
+		\subsection*{7-17}
+
+			\[
+				P(X < 2 \ | \ X \geq 1.5) = \frac{P(1.5 \leq X \leq 2)}{P(X \geq 1.5)} = \frac{P(1.5 < X < 2)}{1 - P(X < 1.5)} = \frac{\int_{1.5}^{2} 3x^{-4} \ dx}{1 - \int_{1}^{1.5} 3x^{-4} \ dx}
+			\]
+
+			\begin{equation*}
+				\begin{split}
+					P(a \leq X \leq b) = \int_{a}^{b} 3x^{-4} \ dx = \left[ -x^{-3} \right]^a_b = (b)^{-3} - (a)^{-3}
+				\end{split}
+			\end{equation*}
+
+			\[
+				P(X < 2 \ | \ X \geq 1.5) = \frac{\left( \dfrac{37}{216} \right)}{1 - \left( \dfrac{19}{27} \right)} = \frac{37}{64} = \boxed{0.578125}
+			\]
+
+	\clearpage
+
+	\section[Chapter 8: Commonly Used Continuous Distributions]{Chapter 8 \\
+		Commonly Used Continuous Distributions}
+
+		\subsection*{8-56}
+
+			\begin{equation*}
+				\begin{split}
+					F(4) = 1 - e^{-4\lambda} &= 0.5 \\
+					\lambda &= -\frac{\ln(0.5)}{4}
+				\end{split}
+			\end{equation*}
+
+			\begin{equation*}
+				\begin{split}
+					P(X \geq 5) &= 1 - P(X \leq 5) \\
+					&= 1 - \left( 1 - e^{-5\left( -\frac{\ln(0.5)}{4} \right)} \right) \\
+					&= \boxed{\num{0.42045}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{8-57}
+
+			\begin{equation*}
+				\begin{split}
+					E[G] &= 6 = \frac{1}{\lambda_\mathrm{G}} \Rightarrow \lambda_\mathrm{G} = \frac{1}{6} \\
+					E[B] &= 3 = \frac{1}{\lambda_\mathrm{B}} \Rightarrow \lambda_\mathrm{B} = \frac{1}{3}
+				\end{split}
+			\end{equation*}
+
+			\begin{equation*}
+				\begin{split}
+					P(G \leq 3 \cap V \leq 2) &= P(G \leq 3) \cdot P(V \leq 2) \\
+					&= F_\mathrm{G}(3) \cdot F_\mathrm{B}(2) \\
+					&= \left( 1 - e^{-\frac{3}{6}} \right) \cdot \left( 1 - e^{-\frac{2}{3}} \right) \\
+					&= \boxed{\num{0.19146}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{8-58}
+
+			\[
+				E[G] = 2 = \frac{1}{\lambda} \Rightarrow \lambda = \frac{1}{2}
+			\]
+			\[
+				F(x) = 1 - e^{-\frac{1}{2} x}
+			\]
+			\begin{center}
+				\textbf{Probability model for each printer} \\
+				\vspace{5mm}
+				\begin{tabular}{c|c|c}
+					$x$ & $1$ & $2$ \\
+					\hline
+					p(x) & $F(1)$ & $F(2)-F(1)$ \\
+				\end{tabular}
+				$\quad \Rightarrow \quad$
+				\begin{tabular}{c|c|c}
+					y & $200$ & $100$ \\
+					\hline
+					p(y) & $F(1)$ & $F(2)-F(1)$ \\
+				\end{tabular}
+			\end{center}
+			\par
+			\begin{equation*}
+				\begin{split}
+					E[Y] &= \sum Y \cdot P(Y) \\
+					&= 200 \left( 1 - e^{-\frac{1}{2}} \right) + 100 \left[ \left( 1 - e^{-1} \right) - \left( 1 - e^{-\frac{1}{2}} \right)\right] \\
+					&= 102.56 \\
+					100 \cdot E[Y] &= \boxed{\num{10256}}
+				\end{split}
+			\end{equation*}
+
+	\clearpage
+
+		\subsection*{8-59}
+
+			\[
+				P(X \leq 50) = 0.3
+			\]
+			\begin{equation*}
+				\begin{split}
+					F(50) = 1 - e^{\frac{-50}{\lambda}} &= 0.3 \\
+					\lambda &= -\frac{50}{\ln(0.7)}
+				\end{split}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					P(X \leq 80) = F(80) &= 1 - e^{\frac{-80}{\lambda}} \\
+					&= 1 - e^{\frac{-80}{\left(-\frac{50}{\ln(0.7)}\right)}} \\
+					&= \boxed{\num{0.43486}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{8-60}
+
+			\[
+				f(x) = c e^{-0.004x} \text{ for } x \geq 0
+			\]
+			\[
+				f(x) = \lambda e^{-\lambda x} \text{ for } x \geq 0
+			\]
+			\[
+				c = 0.004
+			\]
+			\begin{equation*}
+				\begin{split}
+					f(x) &= 0.004e^{-0.004x} \\
+					F(x) &= 1 - e^{-0.004x}
+				\end{split}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					F(M) = 1 - e^{-0.004M} &= 0.5 \\
+					M &= \frac{\ln(0.5)}{-0.004} \\
+					&= \boxed{\num{173.29}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{8-61}
+
+			\begin{center}
+				\renewcommand\arraystretch{1.2}
+				\begin{tabular}{c|c|c|c}
+					N & $0$ & $1$ & $>1$ \\ \hline
+					p(n) & $\frac{1}{2}$ & $\frac{1}{3}$ & $\frac{1}{6}$ \\
+				\end{tabular} \vspace{5mm}
+				\par
+				Three different probability densities for each $N$. $P(4 < S < 8)$ means at least 1 claim was insured for a given year, therefore $P(N=0)$ is not included.
+			\end{center}
+
+			\begin{equation*}
+				\begin{split}
+					F_{\exp(5)}(x) &= 1 - e^{-\frac{x}{5}} \\
+					F_{\exp(8)}(x) &= 1 - e^{-\frac{x}{8}} \\
+				\end{split}
+			\end{equation*}
+
+			\begin{equation*}
+				\begin{split}
+					P(4 < S < 8) &= \frac{1}{3} \left[ F_{\exp(5)}(8) - F_{\exp(5)}(4) \right] + \frac{1}{6} \left[ F_{\exp(8)}(8) - F_{\exp(8)}(4) \right] \\
+					&= \frac{1}{3} \left[ \left( 1 - e^{-\frac{8}{5}} \right) - \left( 1 - e^{-\frac{4}{5}} \right) \right] + \frac{1}{6} \left[ \left( 1 - e^{-\frac{8}{8}} \right) - \left( 1 - e^{-\frac{4}{8}} \right) \right] \\
+					&= \boxed{\num{0.12225}}
+				\end{split}
+			\end{equation*}
+
+	\clearpage
+
+		\subsection*{8-62}
+
+			\[
+				X \sim Po(2) \quad \lambda = 2 = \sigma^2
+			\]
+			\[
+				n\lambda = 1250 \cdot 2 = 2500 = \sigma^2 \quad \Rightarrow \quad \sigma = 50
+			\]
+			\[
+				P(2450 \leq X \leq 2600)
+			\]
+			\begin{center}
+				Since independence is assumed, the Central Limit Theorem can be used.
+			\end{center}
+			\[
+				P(z_1 \leq z \leq z_2)
+			\]
+			\[
+				z_1 = \frac{2450 - 2500}{50} = -1 \quad,\quad z_2 = \frac{2600 - 2500}{50} = 2
+			\]
+			\[
+				P(-1 \leq z \leq 2) = 0.9772 - (1 - 0.8413) = \boxed{0.8185}
+			\]
+
+	\qline
+
+		\subsection*{8-63}
+
+			\[
+				f(x) = \frac{1}{1000} e^{-\dfrac{x}{1000}} \quad \Rightarrow \quad \lambda = 1000
+			\]
+
+			\[
+				P(x) = E[X] + 100 = 1100
+			\]
+			\begin{equation*}
+				\begin{split}
+					100P(x) &= 100 \cdot 1100 = 110000 \\
+					100E[X] &= 100 \cdot 1000 = \num{e5} \\
+					100Var(X) &= 100 \cdot 1000^2 = \num{e8} \\
+					\sigma &= \sqrt{\num{e8}} = \num{e4}
+				\end{split}
+			\end{equation*}
+
+			\[
+				X \sim N(\num{e5}, \num{e4}) \quad P(X > 110000)
+			\]
+			\[
+				z = \frac{110000 - 100000}{10000} = 1
+			\]
+			\[
+				P(z > 1) = 1 - P(z < 1) = 1 - 0.8413 = \boxed{\num{0.1587}}
+			\]
+
+	\qline
+
+		\subsection*{8-64}
+
+			\begin{center}
+				\begin{tabular}{c|c|c|c}
+					x & $0$ & $1$ & $2$ \\ \hline
+					p(x) & $0.6$ & $0.1$ & $0.3$ \\
+				\end{tabular}
+				\begin{equation*}
+					\begin{split}
+						E[X] &= 0.7 = \mu \\
+						E[X^2] &= 1.3 \\
+						Var(X) &= 0.81 \\
+						\sigma &= 0.9
+					\end{split}
+				\end{equation*}
+			\end{center}
+
+			\begin{equation*}
+				\begin{split}
+					100 \cdot \mu &= 70 \\
+					100 \cdot Var(X) &= 81 \\
+					\sigma &= 9
+				\end{split}
+			\end{equation*}
+
+			\[
+				X \sim N(70, 9) \quad P(X \leq 90)
+			\]
+			\begin{center}
+				Since we approximate a discrete random variable with a continuous one, an adjustment is needed by continuity correction, which includes the entire block of probability for that value.
+			\end{center}
+			\[
+				P(X \leq 90) \Rightarrow  P(X \leq 90.5)
+			\]
+			\[
+				z = \frac{90.5 - 70}{9} = 2.28
+			\]
+			\[
+				P(z \leq 2.28) = \boxed{0.9887}
+			\]
+
+	\clearpage
+
+		\subsection*{8-65}
+
+			\[
+				X \sim U(-2.5,2.5) \quad,\quad \mu = 0 \quad,\quad \sigma^2 = \frac{25}{12}
+			\]
+
+			\begin{center}
+				Because the sample size $n=48$ is large, the sample mean $\bar{x}$ is approximately normally distributed, with mean $\mu$ and standard deviation $\frac{\sigma}{\sqrt{n}}$.
+			\end{center}
+
+			\begin{equation*}
+				\begin{split}
+					 P(-0.25 \leq \bar{x} \leq 0.25) &= P\left( \frac{-0.25 - \mu}{\frac{\sigma}{\sqrt{n}}} \leq z \leq \frac{0.25 - \mu}{\frac{\sigma}{\sqrt{n}}} \right) \\
+					 &= P(-1.2 \leq z \leq 1.2) \\
+					 &= 0.8849 - (1 - 0.8849) \\
+					 &= \boxed{\num{0.7698}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{8-66}
+
+			\begin{center}
+				For individual contributions:
+				\[
+					\mu = 3125 \quad,\quad \sigma = 250 \quad,\quad Var(x) = \sigma^2 = 62500
+				\]
+				For $n = 2025$:
+				\[
+					n\mu = 6328125 \quad,\quad nVar(x) = 126562500 \quad,\quad \sigma = 11250
+				\]
+			\end{center}
+
+			\[
+				X \sim N(6328125, 11250) \quad,\quad P(X \leq z) = 0.9
+			\]
+			\begin{center}
+				$0.9$ is found between $z=1.28$ and $z=1.29$, with z-scores $0.8997$ and $0.9015$ respectively. \\
+				\[
+					(0.01)(\frac{0.0003}{0.9015-0.8997}) = \frac{1}{600}
+				\]
+			\end{center}
+			\par
+			\begin{equation*}
+				\begin{split}
+					z = \frac{x - 6328125}{11250} &= 1.28 + \frac{1}{600} \\
+					x &= \boxed{\num{6342543.75}}
+				\end{split}
+			\end{equation*}
+
+
+	\clearpage
+
+	\section[Chapter 9: Applications for Continuous Random Variables]{Chapter 9 \\
+		Applications for Continuous Random Variables}
+
+		\subsection*{9-26}
+
+			\[
+				P(Y < 0.5) = 0.64 \quad;\quad Y = X - C
+			\]
+			\begin{equation*}
+				\begin{split}
+					P(X-C < 0.5) &= 0.64 \\
+					P(X < 0.5 + C) &= 0.64 \\
+					0.64 &= \int_{0}^{0.5 + C} 2x \ dx = \left[ x^2 \right]^{0.5 + C}_0 \\
+					0.64 &= (0.5 + C)^2 \\
+					C &= \pm 0.8 - 0.5 \quad;\quad 0 < C < 1 \\
+					C &= \boxed{0.3}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{9-27}
+
+			\[
+				\text{Set } Y = \text{losses paid by the manufacturer with deductible}
+			\]
+			\begin{equation*}
+				Y =
+				\begin{cases}
+					\ X  &; \quad  0.6 < x \leq 2 \\
+					\ 2  &; \quad  x > 2
+				\end{cases}
+			\end{equation*}
+			\begin{equation*}
+				\begin{split}
+					E[Y] &= \int_{0.6}^{2} x\left( \frac{2.5(0.6)^{2.5}}{x^{3.5}} \right) + \int_{2}^{\infty} 2\left( \frac{2.5(0.6)^{2.5}}{x^{3.5}} \right) \\
+					&= 2.5(0.6)^{2.5} \left[ \left( \frac{1}{-1.5(2)^{1.5}} - \frac{1}{-1.5(0.6)^{1.5}} \right) + \left( 0 - \frac{2}{-2.5(2)^{2.5}} \right) \right] \\
+					E[Y] &= \boxed{0.93427}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{9-28}
+
+			\[
+				X \sim U[0, 1000] \quad,\quad f(x) = \frac{1}{1000 - 0} = \frac{1}{1000} \quad,\quad E[X] = \frac{1000 + 0}{2} = 500
+			\]
+			\par
+			\[
+				E[Y] = 0.25 \cdot E[X] = 125
+			\]
+			\begin{equation*}
+				\begin{split}
+					E[Y] &= \int_{0}^{d} (0)\left( \frac{1}{1000} \right) \ dx + \int_{d}^{1000} (x - d)\left( \frac{1}{1000} \right) \ dx = 125 \\
+					125 &= \left[ \frac{(x-d)^2}{2000} \right]^{1000}_d \\
+					125 &= \left[ \left( \frac{(1000-d)^2}{2000} \right) - \left( \frac{(d-d)^2}{2000} \right) \right] \\
+					(1000-d)^2 &= 250000 \\
+					1000 - d &= \pm 500 \\
+					d &= 1000 \pm 500 \quad;\quad 0 < d < 1000 \\
+					d &= \boxed{500}
+				\end{split}
+			\end{equation*}
+
+	\clearpage
+
+		\subsection*{9-29}
+
+			\[
+				X \sim \exp(10) \quad;\quad f(x) = \frac{1}{10} \exp(-\frac{x}{10})
+			\]
+
+			\begin{center}
+				\begin{tabular}{c|c|c|c|c|c}
+					Y & $1$ & $2$ & $3$ & $4$ & $\cdots$ \\ \hline
+					p(y) & $x$ & $\frac{x}{2}$ & $\frac{x}{2}$ & $0$ & $\cdots$ \\
+				\end{tabular}
+			\end{center}
+
+			\begin{equation*}
+				\begin{split}
+					E[Y] &= \int_{0}^{1} x \cdot \frac{1}{10} \exp(-\frac{t}{10}) \ dt + \int_{1}^{3} \frac{x}{2} \cdot \frac{1}{10} \exp(-\frac{t}{10}) + \int_{3}^{\infty} 0 \cdot \frac{1}{10} \exp(-\frac{t}{10}) \ dt \\
+					1000 &= x \left[ -\exp\left( -\frac{t}{10} \right) \right]^1_0 + x \left[ -\frac{1}{2} \exp\left( -\frac{t}{10} \right) \right]^3_1 \\
+					1000 &= x \left[ \left( -\exp\left( -\frac{1}{10} \right) + 1 \right) + \left( -\frac{1}{2} \exp\left( -\frac{3}{10} \right) + \frac{1}{2} \exp\left( -\frac{1}{10} \right) \right) \right] \approx 0.17717x \\
+					x &= \boxed{\num{5664.3}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{9-30}
+
+			\[
+				X \sim \exp(3) \quad;\quad f(x) = \frac{1}{3} \exp\left( -\frac{x}{3} \right) \quad;\quad F(x) = 1 - \exp\left( -\frac{x}{3} \right)
+			\]
+
+			\begin{equation*}
+				\begin{split}
+					E[X] &= \int_{0}^{2} 2 \cdot \frac{1}{3} \exp\left( -\frac{x}{3} \right) \ dx + \int_{2}^{\infty} x \cdot \frac{1}{3} \exp\left( -\frac{x}{3} \right) \ dx \\
+					&= 2\left[ 1 - \exp\left( -\frac{2}{3} \right) \right] + \frac{1}{3} \left[ -3x\exp\left( -\frac{x}{3} \right) - 9\exp\left( -\frac{x}{3} \right) \right]^{\infty}_2 \\
+					&= \left[ 2 - 2\exp\left( -\frac{2}{3} \right) \right] + \left[ 2\exp\left( -\frac{2}{3} \right) + 3\exp\left( -\frac{2}{3} \right) \right] \\
+					E[X] &= 2 + 3\exp\left( -\frac{2}{3} \right) \approx \boxed{\num{3.5403}} \\
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{9-31}
+
+			\begin{equation*}
+				\begin{split}
+					E[Y] &= \int_{1}^{10} y \cdot 2y^{-3} \ dy + \int_{10}^{\infty} 10 \cdot 2y^{-3} \ dy \\
+					&= \left[ -\frac{2}{y} \right]^{10}_1 + \left[ -\frac{10}{y^2} \right]^{\infty}_{10} \\
+					&= \left( -\frac{2}{10} + \frac{2}{1} \right) + \left( 0 + \frac{10}{100} \right) \\
+					E[Y] &= \boxed{\num{1.9}}
+				\end{split}
+			\end{equation*}
+
+	\clearpage
+
+		\subsection*{9-32}
+
+			\begin{equation*}
+				\begin{split}
+					E[Y] &= \int_{0}^{4} x \cdot \frac{1}{5} \ dx + \int_{4}^{5} 4 \cdot \frac{1}{5} \ dx \\
+					&= \left[ \frac{x^2}{10} \right]^4_0 + \left[ \frac{4x}{5} \right]^5_4 \\
+					E[Y] &= \frac{12}{5} \\
+					E[Y^2] &= \int_{0}^{4} x^2 \cdot \frac{1}{5} \ dx + \int_{4}^{5} 4^2 \cdot \frac{1}{5} \ dx \\
+					&= \left[ \frac{x^3}{15} \right]^4_0 + \left[ \frac{16x}{5} \right]^5_4 \\
+					E[Y^2] &= \frac{112}{15} \\
+					Var(Y) &= E[Y^2] - \left( E[Y] \right)^2 \\
+					&= \frac{112}{15} - \left( \frac{12}{5} \right)^2 \\
+					Var(Y) &= \frac{128}{75} \approx \boxed{\num{1.7067}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{9-33}
+
+			\[
+				X \sim U(0, 1500) \quad,\quad f(x) = \frac{1}{1500 - 0} = \frac{1}{1500}
+			\]
+
+			\begin{equation*}
+				\begin{split}
+					E[Y] &= \int_{0}^{250} 0 \cdot \frac{1}{1500} \ dx + \int_{250}^{1500} (x-250) \cdot \frac{1}{1500} \ dx \\
+					&= \left[ \frac{(x-250)^2}{3000} \right]^{1500}_{250} \\
+					E[Y] &= \frac{3125}{6} \\
+					E[Y^2] &= \int_{0}^{250} 0^2 \cdot \frac{1}{1500} \ dx + \int_{250}^{1500} (x-250)^2 \cdot \frac{1}{1500} \ dx \\
+					&= \left[ \frac{(x-250)^3}{4500} \right]^{1500}_{250} \\
+					E[Y^2] &= \frac{3906250}{9} \\
+					Var(Y) &= E[Y^2] - \left( E[Y] \right)^2 \\
+					&= \frac{3906250}{9} - \left( \frac{3125}{6} \right)^2 \\
+					Var(Y) &= \num{162760.4167} = \sigma^2 \\
+					\sigma &= \sqrt{\num{162760.4167}} = \boxed{\num{403.436}}
+				\end{split}
+			\end{equation*}
+
+	\clearpage
+
+		\subsection*{9-34}
+
+			\[
+				X \sim \exp(300) \quad,\quad f(x) = \frac{1}{300} \exp\left( -\frac{x}{300} \right) \quad,\quad F(x) = 1 - \exp\left( -\frac{x}{300} \right)
+			\]
+
+			\begin{equation*}
+				\begin{split}
+					P(X > x | X > 100) = 0.95 &= \frac{P(X > x \cap X > 100)}{P(X > 100)} \\
+					0.95 &= \frac{\int_{100}^{x} \frac{1}{300} \exp\left( -\frac{x}{300} \right)}{\int_{100}^{\infty} \frac{1}{300} \exp\left( -\frac{x}{300} \right)} = \frac{\left[ -\exp\left( -\frac{x}{300} \right) \right]^x_{100}}{\left[ -\exp\left( -\frac{x}{300} \right) \right]^{\infty}_{100}} = \frac{-\exp\left( -\frac{x}{300} \right) + \exp\left( -\frac{1}{3} \right)}{0 + \exp\left( -\frac{1}{3} \right)} \\
+					0.95 &= \frac{-\exp\left( -\frac{x}{300} \right)}{\exp\left( -\frac{1}{3} \right)} + 1 \\
+					\exp\left( -\frac{x}{300} \right) &= 0.05 \exp\left( -\frac{1}{3} \right) \\
+					x &= -300\ln\left[ 0.05 \exp\left( -\frac{1}{3} \right) \right] \approx \boxed{\num{998.72}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{9-35}
+
+			\begin{equation*}
+				\begin{split}
+					G(y) &= P(Y < y) = P(T^2 < y) = P(T < \pm\sqrt{y}) \quad,\quad y > 4 \\
+					G(y) &= P(T < \sqrt{y}) = F(\sqrt{y}) = 1 - \left( \frac{2}{\sqrt{y}} \right)^2 \\
+					g(y) = G^\prime(y) &= F^\prime(\sqrt{y}) = \frac{d}{dy}\left[ 1 - \frac{4}{y} \right] = \boxed{\frac{4}{y^2}}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{9-36}
+
+			\[
+				R \sim \left( 0.04, 0.08 \right) \quad,\quad f(x) = \frac{1}{0.08-0.04} = 25
+			\]
+			\begin{equation*}
+				\begin{split}
+					F(v) &= P(V < v) = P(10000\exp(R) < v) = P(R < \ln\left( \frac{v}{10000} \right)) \\
+					F(v) &= \int_{0.04}^{\ln\left( \frac{v}{10000} \right)} 25 \ dx = \boxed{25 \left[ \ln\left( \frac{v}{10000} \right) - 0.04 \right]}
+				\end{split}
+			\end{equation*}
+
+	\qline
+
+		\subsection*{9-37}
+
+			\[
+				X \sim \exp(1) \quad,\quad f(x) = \exp\left( -x \right) \quad,\quad F(x) = 1 - \exp\left( -x \right)
+			\]
+			\begin{equation*}
+				\begin{split}
+					G(y) &= P(Y < y) = P(10X^{0.8} < y) = P\left( X < \left( \frac{y}{10} \right)^{1.25} \right) = F\left( \left( \frac{y}{10} \right)^{1.25} \right) \\
+					G(y) &= F\left( \left( \frac{y}{10} \right)^{1.25} \right) = 1 - \exp\left( -\left( \frac{y}{10} \right)^{1.25} \right) \\
+					g(y) = G^\prime(y) &= \frac{d}{dy} \left[ 1 - \exp\left( -\left( \frac{y}{10} \right)^{1.25} \right) \right] = -\left[ -(1.25)\left( \frac{y}{10} \right)^{0.25} \left( \frac{1}{10} \right) \right]\exp\left( - \left( \frac{y}{10} \right)^{1.25} \right) \\
+					g(y) &= \boxed{0.125 \exp\left( \left(-0.1y\right)^{1.25} \right)(0.1y)^{0.25}}
+				\end{split}
+			\end{equation*}
+
+	\clearpage
+
+		\subsection*{9-38}
+
+
+
+	\clearpage
+
+	\section[Chapter 10: Multivariate Distributions]{Chapter 10 \\
+	Multivariate Distributions}
+
+		\subsection*{10-27}
+
+	\clearpage
+
+
+\end{document}
