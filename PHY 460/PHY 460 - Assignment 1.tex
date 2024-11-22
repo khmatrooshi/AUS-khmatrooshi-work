@@ -1,0 +1,164 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={PHY 460 - Assignment 1},
+	pdfpagemode=FullScreen,
+}
+
+
+\usepackage[shortconst]{physconst}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		\textbf { \large PHY 460 --- Thermodynamics and Statistical Physics}
+		\vspace{0.4cm}
+	\end{center}
+		\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 15 Feb 2023 \\
+		\bd{Student Number:} \ @00090847 \hspace{\fill} \bd{Assignment:} 1 \\
+		\hrule	
+	
+	\section*{Problem 1}
+	Consider a two-level system consisting of $N$ independent distinguishable particles. Let $N_u$ denote the number of particles in the upper state whose energy is $\varepsilon_u = w$ and $N_d$ the number of particles in the lower state whose energy is $\varepsilon_d = 0$.
+	\begin{enumerate}
+		\item[(a)] Determine the entropy $\sigma$ in terms of the total energy of the system $E$.
+		\paragraph{Solution} This question is similar to an exercise we did in class for a single quantum particle. This time there are $N$ independent distinguishable particles. The following conditions apply:
+		\begin{align*}
+			N &= N_u + N_d \\
+			E &= N_u \varepsilon_s + N_d \varepsilon_d = N_u w
+		\end{align*}
+		The first step is to find the multiplicity $g$ in this model. Since this is a binary model we can use the binomial formula to represent the possibilities. 
+		\begin{align*}
+			(N_u + N_d)^N &= \underbrace{\binom{N}{N_d}}_{g} N_u^{N_d} N_d^{N-N_d} \\
+			g &= \frac{N!}{N_d! \left( N - N_d \right)!} = \frac{N!}{N_d! N_u!}
+		\end{align*}
+		\begin{align*}
+			\sigma &= \ln(g) = \ln(\frac{N!}{N_d! N_u!}) = \ln(N!) - \ln(N_d!) - \ln(N_u!)
+		\end{align*}
+		We apply the Stirling Approximation here, $ \ln(n!) = n\ln(n) - n $.
+		\begin{align*}
+			\sigma &= N\ln(N) - N - N_d\ln(N_d) + N_d - N_u\ln(N_u) + N_u \\
+			&= N\ln(N) - \left( N - N_u \right)\ln(N - N_u) - N_u\ln(N_u) \\
+			\sigma &= N\ln(N) - \left( N - \frac{E}{w} \right)\ln(N - \frac{E}{w}) - \frac{E}{w}\ln(\frac{E}{w})
+		\end{align*}
+		\item[(b)] Exploit the relation between entropy $\sigma$ and temperature $\tau$, to find an expression of the energy $E$ in terms of $\tau$. 
+		\paragraph{Solution} I will do a change of variables to simplify the computation by exploiting the relationship $E = N_u w$.
+		%\begin{align*}
+		%	\frac{1}{\tau} = \frac{\partial \sigma}{\partial E} &= \frac{\partial}{\partial E} \left[ N\ln(N) - \left( N - \frac{E}{w} \right)\ln(N - \frac{E}{w}) - \frac{E}{w}\ln(\frac{E}{w}) \right] \\
+		%	&= -\left[ \left( 0 - \frac{1}{w} \right)\left( \ln(N - \frac{E}{w}) \right) + \left( N - \frac{E}{w} \right)\left( \frac{0 - \frac{1}{w}}{N - \frac{E}{w}} \right) \right] - \left[ \left( \frac{1}{w} \right)\left( \ln(\frac{E}{w}) \right) + \left( \frac{E}{w} \right)\left( \frac{\frac{1}{w}}{\frac{E}{w}} \right) \right] \\
+		%	&= \left[ \frac{1}{w} \ln(N - \frac{E}{w}) + \frac{1}{w} \right] - \left[ \frac{1}{w} \ln(\frac{E}{w}) + \frac{1}{w} \right] \\
+		%	\frac{w}{\tau} &= \ln(N - \frac{E}{w}) - \ln(\frac{E}{w}) = \ln(\frac{N - \frac{E}{w}}{\frac{E}{w}})
+		%\end{align*}
+		\[
+			\frac{1}{\tau} = \frac{\partial \sigma}{\partial E} = \frac{1}{w} \frac{\partial \sigma}{\partial N_u} 
+		\]
+		\begin{align*}
+			\frac{w}{\tau} &= \frac{\partial}{\partial N_u} \left[ N\ln(N) - \left( N - N_u \right)\ln(N - N_u) - N_u\ln(N_u) \right] \\
+			&= - \left[ \left( 0 - 1 \right)\left( \ln(N - N_u) \right) + \left( N - N_u \right)\left( \frac{0 - 1}{N - N_u} \right) \right] - \left[ \left( 1 \right)\left( \ln(N_u) \right) + \left( N_u \right)\left( \frac{1}{N_u} \right) \right] \\ 
+			&= \ln(N - N_u) - 1 - \ln(N_u) + 1 \\
+			\frac{w}{\tau} &= \ln(\frac{N - N_u}{N_u}) \\
+			\exp(\frac{w}{\tau}) &= \frac{Nw}{E} - 1 \\
+			E &= \boxed{\frac{Nw}{\exp(\frac{w}{\tau}) + 1}}
+		\end{align*}
+		
+		The result is similar to the energy of a quantum particle as found in lecture, but this time multiplied by $N$ independent and distinguishable particles for the total energy of such a system.
+	\end{enumerate}
+		
+		
+		
+	\section*{Problem 2}
+	An ideal crystal has $N$ lattice sites and $M$ interstitial locations. Assume that it costs an amount of energy $\Delta E$ to remove an atom from a site and place it in an interstitial location when the number $n$ of displaced atoms is much smaller than $N$ or $M$ $\left(n << N, n << M \right)$.
+	\begin{enumerate}
+		\item[(a)] Obtain an expression of the number of ways of removing $n$ atoms from $N$ sites.
+		\paragraph{Solution} In this case we can assume that both sites are independent and are only connected by the $\Delta E$. Therefore this is also a binary model as there is either an atom at a site $N$ or not.
+		\begin{align*}
+			%(N + n)^k &= \underbrace{\binom{N}{n}}_{g} N_u^{N_d} N_d^{N-N_d} \\
+			g_N &= \boxed{\frac{N!}{n! \left( N - n \right)!}}
+		\end{align*}
+		
+		\item[(b)] Obtain an expression of the number of ways of placing $n$ atoms on $M$ interstitial locations.
+		\paragraph{Solution} Same idea as part a.
+		\begin{align*}
+			%(M + n)^N &= \underbrace{\binom{N}{N_d}}_{g} N_u^{N_d} N_d^{N-N_d} \\
+			g_M &= \boxed{\frac{M!}{n! \left( M - n \right)!}}
+		\end{align*}
+		
+		\item[(c)] Determine the entropy $\sigma$ as a function of total energy $U = n \Delta E$ (use Stirling approximation). 
+		\paragraph{Solution} We need the multiplicity of the entire system as a canonical ensemble, which is easily done by multiplying the multiplicities from part a and part b to find the total number of ways of removing n atoms from both N sites and M interstitial locations. Using the general formula $\sigma = \ln g$ and the Stirling approximation $ \ln(n!) = n\ln(n) - n $.
+		\begin{align*}
+			g_{N+M} &= g_N \cdot g_M = \frac{N! M!}{(n!)^2(N-n)!(M-n)!}
+		\end{align*}
+		\begin{align*}
+			\sigma &= \ln(g_{N+M}) \\
+			&= \left[N\ln(N) - N\right] + \left[M\ln(M) - M\right] - \left[2n\ln(n) - 2n\right] \\
+			&\quad- \left[(N-n)\ln(N-n) - (N-n)\right] - \left[(M-n)\ln(M-n) - (M-n)\right] \\
+			&= N\ln(N) + M\ln(M) - (N-n)\ln(N-n) - n\ln(n) - (M-n)\ln(M-n) - n\ln(n) \\
+			&= N\ln(N) + M\ln(M) \\
+			&\quad- (N-n)\ln(1 - \frac{n}{N}) - (N-n)\ln(N) - n\ln(n) \\
+			&\quad- (M-n)\ln(1 - \frac{n}{M}) - (M-n)\ln(M) - n\ln(n) \\
+			&= N\ln(N) + M\ln(M) \\
+			&\quad- (N-n)\ln(1 - \frac{n}{N}) - N\ln(N) + n\ln(N) - n\ln(n) \\
+			&\quad- (M-n)\ln(1 - \frac{n}{M}) - M\ln(M) + n\ln(M) - n\ln(n) \\
+			&= n\ln(\frac{N}{n}) - (N-n)\ln(1 - \frac{n}{N}) + n\ln(\frac{M}{n}) - (M-n)\ln(1 - \frac{n}{M}) \\
+			\sigma &= \frac{U}{\Delta E} \ln(\frac{\Delta E N}{U}) - (N-\frac{U}{\Delta E})\ln(1 - \frac{U}{\Delta E N}) + \frac{U}{\Delta E}\ln(\frac{\Delta E M}{U}) - (M-\frac{U}{\Delta E})\ln(1 - \frac{U}{\Delta E M}) \\
+		\end{align*}
+		If we apply the approximation $n << N,M$.
+		\begin{align*}
+			\sigma &= n\ln(\frac{N}{n}) + n\ln(\frac{M}{n}) = \frac{U}{\Delta E}\ln(\frac{\Delta E N}{U}) + \frac{U}{\Delta E} \ln(\frac{\Delta E M}{U}) \\
+		\end{align*}
+		
+\clearpage
+		
+		\item[(d)] Determine the temperature $\tau$.
+		\paragraph{Solution} Using the relation between the temperature $\tau$ and $\sigma$. I will use the non approximated $\sigma$ from last part. It seems that approximating within the logarithm is bad practice.
+		%\begin{align*}
+		%	\frac{1}{\tau} &= \frac{\partial \sigma}{\partial U} \\
+		%	&= \frac{\partial}{\partial U}\left[ N\ln(N) + M\ln(M) - \frac{2U}{\Delta E}\ln(\frac{U}{\Delta E}) - (N-\frac{U}{\Delta E})\ln(N-\frac{U}{\Delta E}) - (M-\frac{U}{\Delta E})\ln(M-\frac{U}{\Delta E}) \right] \\
+		%	&= - \left[ \left( \frac{2}{\Delta E} \right)\left( \ln(\frac{U}{\Delta E}) \right) + \left( \frac{2U}{\Delta E} \right)\left( \frac{1/\Delta E}{U/\Delta E} \right) \right] \\
+		%	&- \left[ \left( 0 - \frac{1}{\Delta E} \right)\left( \ln(N-\frac{U}{\Delta E}) \right) + \left( N-\frac{U}{\Delta E} \right)\left( \frac{0-\frac{1}{\Delta E}}{N-\frac{U}{\Delta E}} \right) \right] \\
+		%	&- \left[ \left( 0 - \frac{1}{\Delta E} \right)\left( \ln(M-\frac{U}{\Delta E}) \right) + \left( M-\frac{U}{\Delta E} \right)\left( \frac{0-\frac{1}{\Delta E}}{M-\frac{U}{\Delta E}} \right) \right] \\
+		%	&= -\frac{2}{\Delta E} \ln(\frac{U}{\Delta E}) - \frac{2}{\Delta E} + \frac{1}{\Delta E} \ln(N-\frac{U}{\Delta E}) + \frac{1}{\Delta E} + \frac{1}{\Delta E} \ln(M-\frac{U}{\Delta E}) + \frac{1}{\Delta E} \\
+		%	\frac{\Delta E}{\tau} &= -2\ln(\frac{U}{\Delta E}) + \ln(N-\frac{U}{\Delta E}) + \ln(M-\frac{U}{\Delta E}) \\
+		%	\tau &= \frac{\Delta E}{\ln(N-\frac{U}{\Delta E}) + \ln(M-\frac{U}{\Delta E}) - 2\ln(\frac{U}{\Delta E})} = \dfrac{\Delta E}{\ln(N-n) + \ln(M-n) - 2\ln(n)} \quad \text{Applying } n << N, M \\
+		%	\tau &= -\frac{\Delta E}{2\ln(n)} = -\frac{\Delta E}{2\ln(\frac{U}{\Delta E})}
+		%\end{align*}
+		\[
+			\frac{1}{\tau} = \frac{\partial \sigma}{\partial U} = \frac{1}{\Delta E} \frac{\partial \sigma}{\partial n}
+		\]
+		\begin{align*}
+			\frac{\Delta E}{\tau} &= \frac{\partial}{\partial n} \left[ n\ln(\frac{N}{n}) - (N-n)\ln(1 - \frac{n}{N}) + n\ln(\frac{M}{n}) - (M-n)\ln(1 - \frac{n}{M}) \right] \\
+			&= \left[ \left( 1 \right) \left( \ln(\frac{N}{n}) \right) + \left( n \right) \left( \frac{-N/n^2}{N/n} \right) \right] - \left[ \left( 0 - 1 \right) \left( \ln(1 - \frac{n}{N}) \right) + \left( N - n \right) \left( \frac{0 - \frac{1}{N}}{1 - \frac{n}{N}} \right) \right] \\
+			&\quad- \left[ \left( 1 \right) \left( \ln(\frac{M}{n}) \right) + \left( n \right) \left( \frac{-M/n^2}{M/n} \right) \right] - \left[ \left( 0 - 1 \right) \left( \ln(1 - \frac{n}{M}) \right) + \left( M - n \right) \left( \frac{0 - \frac{1}{M}}{1 - \frac{n}{M}} \right) \right] \\
+			&= \ln(\frac{N}{n}) - 1 + \ln(1 - \frac{n}{N}) + 1 + \ln(\frac{M}{n}) - 1 + \ln(1 - \frac{n}{M}) + 1 \\
+			\frac{\Delta E}{\tau} &= \boxed{\ln(\frac{N}{n} - 1) + \ln(\frac{M}{n} - 1)}
+		\end{align*}
+		
+		\item[(e)] Determine an expression for the average number of displaced atoms $n$ in terms of $\tau$ and $\Delta E$. 
+		\paragraph{Solution} Continuing on from the answer from part d. We can apply the approximation $n << N,M$ here.
+		\begin{align*}
+			\frac{\Delta E}{\tau} &= \ln(\frac{N}{n} - 1) + \ln(\frac{M}{n} - 1) \\
+			\exp\left[ \frac{\Delta E}{\tau} \right] &= \left(\frac{N}{n} - 1\right)\left(\frac{M}{n} - 1\right) \\
+			\exp\left[ \frac{\Delta E}{\tau} \right] &= \frac{(N-n)(M-n)}{n^2} \approx \frac{NM}{n^2} \\
+			n &= \boxed{\sqrt{NM} \exp[-\frac{\Delta E}{2\tau}]}
+		\end{align*}
+		
+		\item[(f)] Use this model for defects in a solid with $N = M$ and $\Delta E = \qty{1}{\electronvolt}$ to find the defect concentration $\frac{n}{N}$ at $T = 300 K$ and at $T = 1000 K$. (Note that $\tau = k_\mathrm{B} T$).
+		\paragraph{Solution} Applying the conditions to the formula found in part e.
+		\begin{align*}
+			n &= \sqrt{N^2} \exp[-\frac{\qty{1}{\electronvolt}}{2 k_\mathrm{B} T}] \\
+			\frac{n}{N}(T) &= \exp[-\frac{\qty{1}{\electronvolt}}{2 k_\mathrm{B} T}] \\
+			\frac{n}{N}(\qty{300}{\kelvin}) &= \exp[-\frac{\qty{1}{\electronvolt}}{2(\qty{8.63e-5}{\electronvolt\per\kelvin})(\qty{300}{\kelvin})}] = \boxed{\num{4.1e-9}} \\
+			\frac{n}{N}(\qty{1000}{\kelvin}) &= \exp[-\frac{\qty{1}{\electronvolt}}{2(\qty{8.63e-5}{\electronvolt\per\kelvin})(\qty{1000}{\kelvin})}] = \boxed{\num{3.05e-3}}
+		\end{align*}
+		
+	\end{enumerate}
+			
+	
+\end{document}

@@ -1,0 +1,314 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\hypersetup{
+	pdftitle={PHY 460 - Assignment 2},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+\titleformat{\section}{\normalfont\LARGE\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0pt}{}
+
+\usepackage[shortconst]{physconst}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		\textbf { \large PHY 460 --- Thermodynamics and Statistical Physics}
+		\vspace{0.4cm}
+	\end{center}
+		\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 27 Feb 2023 \\
+		\bd{Student Number:} \ @00090847 \hspace{\fill} \bd{Assignment:} 2 \\
+		\hrule	
+	
+	\section[Problem 1]{Problem 1: Free energy of a simple harmonic oscillator}
+	A simple harmonic oscillator has energies $\epsilon_n = n\hbar\omega$, where $n=0,1,2,\cdots$ (neglecting the zero-point energy of $(1/2)\hbar\omega$ which is not important here).
+	(neglecting the zero-
+	\begin{enumerate}
+		\item[(a)] Show that the free energy is equal to
+		\begin{equation}
+			F = k_\mathrm{B}T \log\left[ 1 - \exp(-\hbar\omega/k_\mathrm{B}T) \right]. \label{FreeEnergyQuestion}
+		\end{equation}
+		\paragraph{Solution} One formula for the free energy is 
+		
+		\begin{equation}
+			F = -k_\mathrm{B}T \ln Z, \label{FreeEnergySigma}
+		\end{equation}
+		where we need to find the partition function $Z$.
+		\begin{equation}
+			\begin{split}
+				Z &= \sum_{s} \exp(-\beta\epsilon_s) \\
+				&= \exp(0) + \exp(-\beta\hbar\omega) + \exp(-2\beta\hbar\omega) + \cdots, \qquad x = \exp(-\beta\hbar\omega) \\
+				&= 1 + x + x^2 + \cdots \\
+				&= \frac{1}{1 - x} \\
+				Z &= \frac{1}{1 - \exp(-\beta\hbar\omega)}
+			\end{split} \label{P1Partition}
+		\end{equation}
+		Therefore the free energy is
+		\begin{equation}
+			\begin{split}
+				F &= -k_\mathrm{B}T\log\left[ 1 - \exp(-\beta\hbar\omega) \right]^{-1} \qquad \beta = \frac{1}{\tau} = \frac{1}{k_\mathrm{B}T} \\
+				\Aboxed{F &= k_\mathrm{B}T\log\left[ 1 - \exp(-\hbar\omega/k_\mathrm{B}T) \right]}
+			\end{split} \label{P1FreeEnergyAnswer}
+		\end{equation}
+		
+		\item[(b)] From this expression, show that the entropy is given by
+		\begin{equation}
+			\sigma \equiv \frac{S}{k_\mathrm{B}} = \frac{(\hbar\omega/k_\mathrm{B}T)}{\exp(\hbar\omega/k_\mathrm{B}T) - 1} - \log\left[ 1 - \exp(-\hbar\omega/k_\mathrm{B}T) \right].
+		\end{equation}
+		\paragraph{Solution} The free energy gives us a way to find the entropy and pressure of a system. The formula for entropy from free energy is
+		
+		\begin{equation}
+			\sigma = -\left( \frac{\partial F}{\partial \tau} \right)_V.
+		\end{equation}
+		Applying this to the free energy (\ref{P1FreeEnergyAnswer}) found in the previous part, knowing that $\tau = k_\mathrm{B}T$.
+		\begin{equation}
+			\begin{split}
+				\sigma &= -\frac{\partial}{\partial \tau} \left[ \tau \log\left[ 1 - \exp(-\hbar\omega/\tau) \right] \right] \\
+				       &= - \left[ \left( 1 \right)\left( \log\left[ 1 - \exp(-\hbar\omega/\tau) \right] \right) + \left( \tau \right)\left( \frac{0 - \dfrac{\hbar\omega}{\tau^2}\exp(-\hbar\omega/\tau)}{1 - \exp(-\hbar\omega/\tau)} \right) \right] \\
+				       &= \frac{\hbar\omega}{\tau} \frac{\exp(-\hbar\omega/\tau)}{1 - \exp(-\hbar\omega/\tau)} - \log\left[ 1 - \exp(-\hbar\omega/\tau) \right] \qquad \Rightarrow \times \left( \frac{\exp(\hbar\omega/\tau)}{\exp(\hbar\omega/\tau)} \right) \\
+				\Aboxed{\sigma &=  \frac{\hbar\omega/k_\mathrm{B}T}{\exp(\hbar\omega/k_\mathrm{B}T) - 1} - \log\left[ 1 - \exp(-\hbar\omega/k_\mathrm{B}T) \right]}
+			\end{split}
+		\end{equation}
+		
+		
+		
+	\end{enumerate}
+		
+\clearpage
+		
+	\section[Problem 2]{Problem 2: Rotation of diatomic molecules}
+	Diatomic molecules can rotate which gives a contribution to the energy in addition to that from	translational motion. According to quantum mechanics the energy is quantized and given by
+	\[
+		\epsilon_j = j(j+1)\epsilon_0
+	\]
+	where $j=0,1,2,\cdots$ is the angular momentum quantum number, and $\epsilon_0$ is related to the moment of inertia and Planck's constant. The multiplicity (degeneracy) of each level is $2j+1$.
+	\begin{enumerate}
+		\item[(a)] Write down an expression for the partition function as a sum over $j$. \textit{Note:} It is important to understand that the sum in the partition function is over all \textit{states}, not energies, and the degeneracy matters.
+		\paragraph{Solution} Using the note, and remembering the reasoning with the density of states done in lecture, we multiply the partition function by the degeneracy of each level. This means that for a single energy level (macro state), there are multiple micro states that correspond to it.
+		
+		\begin{equation}
+			\begin{split}
+				Z &= \sum_{j} \exp(-\beta\epsilon_j) \\
+				\Aboxed{Z &= \sum_{j} (2j + 1) \exp(-\beta j(j+1) \epsilon_0)} \\
+			\end{split}
+		\end{equation}
+		
+		\item[(b)] Evaluate the partition function approximately for high temperatures, $k_\mathrm{B}T \gg \epsilon_0$, by replacing the sum by an integral.
+		\paragraph{Solution} To start with we replace the sum by an integral. If we set $j=0$ we find that there is a value for Z, meaning that the curve potentially exists in the negative part of the $j$ axis, easily found by setting $Z=0$.
+		
+		\begin{equation}
+			\begin{split}
+				0 &= (2j + 1) \exp(-\beta j(j+1) \epsilon_0) \\
+				j &= -\frac{1}{2}
+			\end{split}
+		\end{equation}
+				
+		%\begin{equation}
+		%	\begin{split}
+		%		Z &= \int_{-1/2}^{\infty} (2j + 1) \exp(-\beta j(j+1) \epsilon_0) \ dj \qquad \begin{aligned}
+		%			 u &= \beta(j^2+j)\epsilon_0 \\
+		%			du &= \beta(2j+1)\epsilon_0 \ dj
+		%		\end{aligned} \\
+		%		  &= \frac{1}{\beta\epsilon_0} \int_{-\beta\epsilon_0/4}^{\infty} \exp(-u) \ du \\
+		%		  &= \frac{1}{\beta\epsilon_0} \left[ -\exp(-\infty) + \exp(\beta\epsilon_0/4) \right] \\
+		%		  &= \frac{\tau}{\epsilon_0} \left[ \exp(\frac{\epsilon_0}{4\tau}) \right] \\
+		%		  &= \frac{\tau}{\epsilon_0} \left[ 1 + \frac{\epsilon_0}{4\tau} \right] \\
+		%		\Aboxed{Z &= \frac{1}{\beta\epsilon_0}, \quad k_\mathrm{B}T \gg \epsilon_0}
+		%	\end{split}
+		%\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				Z &= \int_{-1/2}^{\infty} (2j + 1) \exp(-\beta j(j+1) \epsilon_0) \ dj \qquad \begin{aligned}
+					u &= \beta(j^2+j)\epsilon_0 \\
+					du &= \beta(2j+1)\epsilon_0 \ dj
+				\end{aligned} \\
+				&= \frac{1}{\beta\epsilon_0} \int_{-\beta\epsilon_0/4}^{\infty} \exp(-u) \ du \\ 
+				&= \frac{1}{\beta\epsilon_0} \left[ -\exp(-\infty) + \exp(\beta\epsilon_0/4) \right] \\ 
+				&= \frac{\tau}{\epsilon_0} \left[ \exp(\frac{\epsilon_0}{4\tau}) \right] \\		
+			\end{split}
+		\end{equation}
+		If we apply the condition for high temperatures, $k_\mathrm{B}T \gg \epsilon_0$, we find that the exponential approaches zero. Therefore we can apply Taylor series expansion
+		\begin{equation}
+			\begin{split}
+				Z &= \frac{\tau}{\epsilon_0} \left[ 1 + \frac{\epsilon_0}{4\tau} \right] \\
+				\Aboxed{Z &= \frac{\tau}{\epsilon_0} + \frac{1}{4}, \quad \tau \gg \epsilon_0}
+			\end{split}
+		\end{equation}
+		
+		
+		\item[(c)] Evaluate the partition function approximately for low temperatures, $k_\mathrm{B}T \ll \epsilon_0$, by just considering the first two terms in the sum.
+		\paragraph{Solution} Starting with finding the first two terms in the sum.
+		
+		\begin{equation}
+			\begin{split}
+				Z &= \sum_{j} (2j + 1) \exp(-\beta j(j+1) \epsilon_0) \\
+				\Aboxed{Z &= 1 + 3\exp\left[ -2\epsilon_0/\tau \right], \quad \tau \ll \epsilon_0}
+			\end{split}
+		\end{equation}
+		The reason we can drop the rest of the terms is that most of the diatomic molecules are in their ground state, and few in the first excited state. Also that the other terms go to $0$ faster than the second term as $\tau \to 0$.
+		
+\clearpage
+		
+		\item[(d)] Determine the energy $U$ and heat capacity $C$ in these two limits. \textit{Note:} You should find that $C$ approaches $k_\mathrm{B}$ at high temperatures (unity in Kittel's units).
+		\paragraph{Solution} The equation for energy and heat capacity in this case is
+		\begin{equation}
+			U = \tau^2 \frac{\partial \ln Z}{\partial \tau},
+		\end{equation}
+		starting with the high temperature case.
+		\begin{equation}
+			\begin{split}
+				U &= \tau^2 \frac{\partial}{\partial \tau} \left[ \ln(\frac{\tau}{\epsilon_0} + \frac{1}{4}) \right] \\
+				  &= \tau^2 \frac{\frac{1}{\epsilon_0}}{\frac{\tau}{\epsilon_0} + \frac{1}{4}} = \frac{\tau^2}{\tau + \frac{\epsilon_0}{4}} = \frac{\tau}{1 + \frac{\epsilon_0}{4\tau}} \\
+			\end{split}
+		\end{equation}
+		Since the condition is $1 \gg \dfrac{\epsilon_0}{\tau}$, we can apply an approximation here where $\dfrac{1}{1 + x} \approx 1 - x$, for small $x$.
+		\begin{equation}
+			\begin{split}
+				U &\approx \tau \left( 1 - \frac{\epsilon_0}{4\tau} \right) \\
+				\Aboxed{U &= \tau - \frac{\epsilon_0}{4}} \\
+				%C = \frac{U}{T} &= k_\mathrm{B} - \frac{\epsilon_0}{4T}
+				C &= \left( \frac{\partial U}{\partial T} \right)_V = k_\mathrm{B} \left( \frac{\partial U}{\partial \tau} \right)_V \\
+				\Aboxed{C &= k_\mathrm{B}} 
+			\end{split}
+		\end{equation}
+		%Using the same condition $k_\mathrm{B} \gg \dfrac{\epsilon_0}{T}$, $k_\mathrm{B}$ overwhelms the second term as $T$ increases, so we can drop it.
+		%\begin{equation}
+		%	\boxed{C = k_\mathrm{B}}
+		%\end{equation}
+		Now for the low temperature case.
+		\begin{equation}
+			\begin{split}
+				U &= \tau^2 \frac{\partial}{\partial \tau} \left[ \ln(1 + 3\exp\left[ -2\epsilon_0/\tau \right]) \right] \\
+				&= \tau^2 \frac{ \dfrac{6\epsilon_0}{\tau^2}\exp\left[ -2\epsilon_0/\tau \right]}{1 + 3\exp\left[ -2\epsilon_0/\tau \right]} \\
+				\Aboxed{U &= \frac{6\epsilon_0\exp\left[ -2\epsilon_0/\tau \right]}{1 + 3\exp\left[ -2\epsilon_0/\tau \right]}}
+			\end{split}
+		\end{equation}
+		Using a similar reasoning as the high temperature case, with the condition $1 \ll \frac{\epsilon_0}{\tau}$, the exponential in the denominator approaches $0$, leading to a $1$ in the denominator.
+		\begin{equation}
+			\boxed{U \approx 6\epsilon_0\exp\left[ -2\epsilon_0/\tau \right]}
+		\end{equation}
+		\begin{equation}
+			\begin{split}
+				C &= k_\mathrm{B} \frac{\partial}{\partial \tau} \left[ 6\epsilon_0\exp\left[ -2\epsilon_0/\tau \right] \right] \\
+				  &= k_\mathrm{B} \left[ 6\epsilon_0 \frac{2\epsilon_0}{\tau^2} \exp\left[ -2\epsilon_0/\tau \right] \right] \\
+				\Aboxed{C &= \frac{12\epsilon^2_0 k_\mathrm{B}}{\tau^2} \exp\left[ -2\epsilon_0/\tau \right]}
+			\end{split}
+		\end{equation}
+		%\begin{equation}
+		%	\begin{split}
+		%		C &= k_\mathrm{B} \frac{\partial}{\partial \tau} \left[ \frac{6\epsilon_0\exp\left[ -2\epsilon_0/\tau \right]}{1 + 3\exp\left[ -2\epsilon_0/\tau \right]} \right] \\
+		%		&= 6\epsilon_0 k_\mathrm{B} \left[ \frac{ \left( (\dfrac{2\epsilon_0}{\tau^2})\exp\left[ -2\epsilon_0/\tau \right] \right)\left( 1 + 3\exp\left[ -2\epsilon_0/\tau \right] \right) - \left( \exp\left[ -2\epsilon_0/\tau \right] \right)\left( (\dfrac{2\epsilon_0}{\tau^2}) 3\exp\left[ -2\epsilon_0/\tau \right] \right) }{ (1 + 3\exp\left[ -2\epsilon_0/\tau \right])^2 } \right] \\
+		%		&= 6\epsilon_0 k_\mathrm{B} \frac{2\epsilon_0}{\tau^2} \exp\left[ -2\epsilon_0/\tau \right] \left[ \frac{ \left( 1 + 3\exp\left[ -2\epsilon_0/\tau \right] \right) - \left( 3\exp\left[ -2\epsilon_0/\tau \right] \right) }{ (1 + 3\exp\left[ -2\epsilon_0/\tau \right])^2 } \right] \\
+		%		&= \frac{12\epsilon^2_0 k_\mathrm{B}}{\tau^2} \exp\left[ -2\epsilon_0/\tau \right] \left[ \frac{ 1 }{ (1 + 3\exp\left[ -2\epsilon_0/\tau \right])^2 } \right] \\
+		%	\end{split}
+		%\end{equation}
+		%
+		%\begin{equation}
+		%	\boxed{C = \frac{12\epsilon^2_0 k_\mathrm{B}}{\tau^2} \exp\left[ -2\epsilon_0/\tau \right]}
+		%\end{equation}
+		
+\clearpage
+		
+		\item[(e)] Sketch the behavior of $U$ and $C$ as a function of temperature, indicating the limiting behaviors for $T \to 0$ and $T \to \infty$.
+		\paragraph{Solution} I used Desmos to plot the graphs, \href{https://www.desmos.com/calculator/mys8m9lrz8}{https://www.desmos.com/calculator/mys8m9lrz8}
+		
+		\begin{figure}[htbp]
+			\centering
+			\caption{Energy $U$ Sketch}
+			\includegraphics[width=0.8\textwidth]{EnergyGraph.jpg}
+		\end{figure}
+		\begin{figure}[htbp]
+			\centering
+			\caption{Heat Capacity $C_V$ Sketch}
+			\includegraphics[width=0.8\textwidth]{HeatCapacityGraph.jpg}
+		\end{figure}
+		
+		
+	\end{enumerate}
+	
+\clearpage
+	
+	\section[Problem 3]{Problem 3: Heat capacity of a diatomic gas}
+	The energy of a diatomic molecule in a gas can be written as the sum of three translational, two rotational, and two vibrational terms, giving seven modes in total. Considering that the modes are independent, determine:
+	\begin{enumerate}
+		\item[(a)] the partition function of a diatomic molecule.
+		\paragraph{Solution} Since the modes are independent, we can write $Z$ as a product of the partition function for each term, where
+		
+		\begin{equation}
+			Z = Z_{trans}Z_{vib}Z_{rot}
+		\end{equation}
+		Each term was found in previous lectures and in this assignment. Following the notes provided on this concept, the zero-point energy of the simple harmonic oscillator is included here to be thorough.
+		\begin{equation}
+			\begin{split}
+				Z &= \left( \frac{V}{\lambda^3_{th}} \right) \left( \frac{\exp(-\beta\hbar\omega/2)}{1 - \exp(\beta\hbar\omega)} \right) \left( \frac{1}{\beta\epsilon_0} \right)
+			\end{split}
+		\end{equation}
+		Noting that $\lambda_{th} = \dfrac{h}{\sqrt{2\pi m k_\mathrm{B} T}} = \sqrt{\beta} \dfrac{h}{\sqrt{2\pi m}}$.
+		\begin{equation}
+			\begin{split}
+				Z &= \left( V  \dfrac{\sqrt{2\pi m}}{h\sqrt{\beta}} \right) \left( \frac{\exp(-\beta\hbar\omega/2)}{1 - \exp(\beta\hbar\omega)} \right) \left( \frac{1}{\beta\epsilon_0} \right) \\
+				\Aboxed{Z &= \left( V\dfrac{\sqrt{2\pi m}}{h\epsilon_0} \right) \left( \frac{\exp(-\beta\hbar\omega/2)}{1 - \exp(\beta\hbar\omega)} \right) \left( \frac{1}{\beta^{3/2}} \right)}
+			\end{split}
+		\end{equation}
+		
+		
+		\item[(b)] the mean energy $U$ of such a diatomic molecule.
+		\paragraph{Solution} I will use $U = -\dfrac{\partial \ln Z}{\partial \beta}$.
+		
+		\begin{equation}
+			\begin{split}
+				\ln Z &= \ln\left( V\dfrac{\sqrt{2\pi m}}{h\epsilon_0} \right) + \ln\left( \frac{\exp(-\beta\hbar\omega/2)}{1 - \exp(\beta\hbar\omega)} \right) + \ln\left( \frac{1}{\beta^{3/2}} \right) \\
+				\ln\left( \frac{\exp(-\beta\hbar\omega/2)}{1 - \exp(\beta\hbar\omega)} \right) &= -\beta\hbar\omega/2 - \ln(1 - \exp(\beta\hbar\omega))
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				U &= \frac{\partial}{\partial \beta} \left[ \frac{\beta\hbar\omega}{2} + \ln(1 - \exp(\beta\hbar\omega)) - \ln\left( \frac{1}{\beta^{3/2}} \right) \right] \\
+				  &= \frac{\hbar\omega}{2} + \frac{-\hbar\omega\exp(\beta\hbar\omega)}{1 - \exp(\beta\hbar\omega)} - \frac{\frac{3}{2}\beta^{1/2}}{\beta^{3/2}} \\
+				  \Aboxed{U &= \frac{\hbar\omega}{2} + \frac{\hbar\omega\exp(\beta\hbar\omega)}{\exp(\beta\hbar\omega) - 1} - \frac{3}{2\beta}}
+			\end{split}
+		\end{equation}
+		
+		
+		\item[(c)] The heat capacity $C_\mathrm{V}$.
+		\paragraph{Solution} $C_\mathrm{V} = \left( \dfrac{\partial U}{\partial T} \right)_V = k_\mathrm{B} \left( \dfrac{\partial U}{\partial \tau} \right)_V = -k_\mathrm{B} \beta^2 \left( \dfrac{\partial U}{\partial \beta} \right)_V $
+		
+		\begin{equation}
+			\begin{split}
+				C_\mathrm{V} &= -k_\mathrm{B} \beta^2 \frac{\partial}{\partial \beta} \left[ \frac{\hbar\omega\exp(\beta\hbar\omega)}{\exp(\beta\hbar\omega) - 1} - \frac{3}{2\beta} \right] \\
+				\frac{\partial}{\partial \beta} \left[ \frac{\hbar\omega\exp(\beta\hbar\omega)}{\exp(\beta\hbar\omega) - 1} \right] &=  \hbar \omega \left[ \dfrac{\left( \hbar\omega \exp(\beta\hbar\omega) \right)\left( \exp(\beta\hbar\omega) - 1 \right) - \left( \exp(\beta\hbar\omega) \right)\left( \hbar\omega \exp(\beta\hbar\omega) \right)}{(\exp(\beta\hbar\omega) - 1)^2} \right] \\
+				&= (\hbar \omega)^2 \left[ \dfrac{\left( \exp(2\beta\hbar\omega) - \exp(\beta\hbar\omega) \right) - \left( \exp(2\beta\hbar\omega) \right)}{(\exp(\beta\hbar\omega) - 1)^2} \right] \\
+				&= -(\hbar \omega)^2 \left[ \dfrac{ \exp(\beta\hbar\omega) }{(\exp(\beta\hbar\omega) - 1)^2} \right] \\
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				C_\mathrm{V} &= -k_\mathrm{B} \beta^2 \left[ -(\hbar \omega)^2 \left[ \dfrac{ \exp(\beta\hbar\omega) }{(\exp(\beta\hbar\omega) - 1)^2} \right] + \frac{3}{2\beta^2} \right]
+				= k_\mathrm{B}(\hbar \omega \beta)^2 \left[ \dfrac{ \exp(\beta\hbar\omega) }{(\exp(\beta\hbar\omega) - 1)^2} \right] - \frac{3 k_\mathrm{B}}{2}
+			\end{split}
+		\end{equation}
+		
+		
+	\end{enumerate}
+			
+	
+\end{document}

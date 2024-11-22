@@ -1,0 +1,262 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7_S24/preamble.tex}
+
+\usepackage{microtype}
+
+\hypersetup{
+	pdftitle={PHY 460 - Assignment 3},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+\titleformat{\section}{\normalfont\LARGE\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{0pt}{}
+
+\usepackage[shortconst]{physconst}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		\textbf { \large PHY 460 --- Thermodynamics and Statistical Physics}
+		\vspace{0.4cm}
+	\end{center}
+		\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 7 May 2024 \\
+		\bd{Student Number:} \ @00090847 \hspace{\fill} \bd{Assignment:} 3 \\
+		\hrule	
+	
+	\section*{Statement of the Problem}
+	
+	Consider a system of non-interacting electrons, each with a Hamiltonian $ \mathcal{H}_1 = \dfrac{\hbar^2 \bm{k}^2}{2m} - \mu_0 \ \bm{\sigma} \cdot \bm{B} $, where $\mu_0 = \dfrac{e\hbar}{2mc}$ and the eignevalues of $\bm{\sigma} \cdot \bm{B}$ are $\pm B$. ($\bm{B}$ is an external magnetic field) The energy of the electron system can be written as
+	\begin{equation}
+		E = \sum_{\vec{k}} \left( \frac{\hbar^2 \bm{k}^2}{2m} - \mu_0 B \right) n_k^+ + \left( \frac{\hbar^2 \bm{k}^2}{2m} + \mu_0 B \right) n_k^-
+	\end{equation}
+	\begin{enumerate}
+		\item[(a)] Compute the grand potential $\mathcal{G} = - k_\mathrm{B} T \ln \mathcal{Z} $ where $\mathcal{Z}$ is the grand partition function of the system at a chemical potential $\mu$. (Do not confuse $\mu$ with $\mu_0$)
+		\paragraph{Solution} In lecture we have derived the grand partition function $\mathcal{Z}$ for a system of non-interacting bodies in finding the trace of $\mathcal{Z}$, $\trace\left(\exp(-\beta \hat{H} + \beta \hat{N})\right)$, by working with the Fock basis. I will use those steps to find $\mathcal{Z}$ of this system.
+		
+		%\begin{align}
+		%	\mathcal{Z} &= \sum_{n_q} \exp\left\{ -\beta \sum_{q} \varepsilon_q \hat{n}_q + \beta\mu \sum_{q} \hat{n}_q \right\} = \cdots = \prod_{q} \sum_{n_q} \exp \left\{ (-\beta \varepsilon_q + \beta\mu)n_q \right\} \\
+		%	\intertext{For $n_q$, we only iterate over $n^+_k$ and $n^-_k$.}
+		%	\mathcal{Z} &= \sum_{n^+_k} \sum_{n^-_k} \exp\left\{ -\beta \sum_{k} \left[ \left( \frac{\hbar^2 \bm{k}^2}{2m} - \mu_0 B \right) n_k^+ + \left( \frac{\hbar^2 \bm{k}^2}{2m} + \mu_0 B \right) n_k^- \right] + \beta \mu \sum_{k} (n_k^+ + n_k^-)  \right\} \\
+		%	\intertext{Combing all $n_k$ terms.}
+		%	\mathcal{Z} &= \sum_{n^+_k} \sum_{n^-_k} \exp\left\{ \beta \sum_{k} \left[ \left( \mu + \mu_0 B - \frac{\hbar^2 \bm{k}^2}{2m} \right) n_k^+ + \left( \mu - \mu_0 B - \frac{\hbar^2 \bm{k}^2}{2m} \right) n_k^- \right] \right\} \\
+		%	\intertext{The sum of the exponents in an exponential is equivalent to the product of exponentials.}
+		%	\mathcal{Z} &= \prod_{k} \sum_{n^+_k} \sum_{n^-_k} \exp\left\{ \beta \left( \mu + \mu_0 B - \frac{\hbar^2 \bm{k}^2}{2m} \right) n_k^+ + \beta \left( \mu - \mu_0 B - \frac{\hbar^2 \bm{k}^2}{2m} \right) n_k^- \right\} \\
+		%	\intertext{For fermions the occupation number $n_k$ can only take the values $0$ or $1$ due to the Pauli exclusion principle.}
+		%	\mathcal{Z} &= \prod_{k} \left( 1 + \exp\left\{ \beta \left( \mu + \mu_0 B - \frac{\hbar^2 \bm{k}^2}{2m} \right) \right\} \right) \left( 1 + \exp\left\{ \beta \left( \mu - \mu_0 B - \frac{\hbar^2 \bm{k}^2}{2m} \right) \right\} \right) \\
+		%	\mathcal{Z} &= \prod_{k} \left[Z^+_k \cdot Z^-_k\right] \\
+		%	\ln(\mathcal{Z}) &= \sum_{k} \left[ \ln(Z^+_k) + \ln(Z^-_k) \right]
+		%\end{align}
+		\begin{align}
+			\mathcal{Z} &= \sum_{n_q} \exp\left\{ -\beta \sum_{q} \varepsilon_q \hat{n}_q + \beta\mu \sum_{q} \hat{n}_q \right\} = \cdots = \prod_{q} \sum_{n_q} \exp \left\{ (-\beta \varepsilon_q + \beta\mu)n_q \right\} \\
+			\intertext{For $n_q$, we only iterate over $n^+_k$ and $n^-_k$. Let $\varepsilon_k^{\pm} = \frac{\hbar^2 \bm{k}^2}{2m} \mp \mu_0 B$}
+			\mathcal{Z} &= \sum_{n^+_k} \sum_{n^-_k} \exp\left\{ -\beta \sum_{k} \left[ \varepsilon_k^+ n_k^+ + \varepsilon_k^- n_k^- \right] + \beta \mu \sum_{k} (n_k^+ + n_k^-)  \right\} \\
+			\intertext{Combing all $n_k$ terms.}
+			\mathcal{Z} &= \sum_{n^+_k} \sum_{n^-_k} \exp\left\{ \beta \sum_{k} \left[ \left( \mu - \varepsilon_k^+ \right) n_k^+ + \left( \mu - \varepsilon_k^- \right) n_k^- \right] \right\} \\
+			\intertext{The sum of the exponents in an exponential is equivalent to the product of exponentials.}
+			\mathcal{Z} &= \prod_{k} \sum_{n^+_k} \sum_{n^-_k} \exp\left\{ \beta \left( \mu - \varepsilon_k^+ \right) n_k^+ + \beta \left( \mu - \varepsilon_k- \right) n_k^- \right\} \\
+			\intertext{For fermions the occupation number $n_k$ can only take the values $0$ or $1$ due to the Pauli exclusion principle.}
+			\mathcal{Z} &= \prod_{k} \left( 1 + \exp\left\{ -\beta \left( \varepsilon_k^+ - \mu \right) \right\} \right) \left( 1 + \exp\left\{ -\beta \left( \varepsilon_k^- - \mu \right) \right\} \right) \\
+			\mathcal{Z} &= \prod_{k} \left[Z^+_k \cdot Z^-_k\right] \\
+			\ln(\mathcal{Z}) &= \sum_{k} \left[ \ln(Z^+_k) + \ln(Z^-_k) \right]
+		\end{align}
+		Now we have the final expression for the grand potential $G$. $\beta = \frac{1}{\tau} = \frac{1}{k_\mathrm{B}T}$
+		\begin{align}
+			G &= -\frac{1}{\beta} \sum_{k} \left[ \ln(Z^+_k) + \ln(Z^-_k) \right] \\
+			G &= G_+ + G_-
+		\end{align}
+		At this point we convert the summation to an integral by taking the first term in the Euler–Maclaurin approximation.
+		\begin{equation}
+			\sum_{i=m}^{n} f(i) = \int_{m}^{n} f(x) \ dx + \frac{f(n) + f(m)}{2} + \cdots + R_p
+		\end{equation}
+		This introduces the density of states $g(k)$ and the spin degeneracy \(2S+1\) (inside $g(k)$).
+		\begin{equation}
+			G = -\frac{1}{\beta} \int_k g(k) \left[ G_+ + G_- \right] \ dk
+		\end{equation}
+	
+\clearpage
+		
+		The density of states $g(k)$ can found by considering a quantum gas in a box with length $L$ and corner at the origin.
+		\begin{align}
+			g(k) \ dk &= \frac{\text{Volume in k-space of one octant of a spherical shell}}{\text{Volume of k-space occupied per allowed state}} \\
+			&= \frac{\frac{1}{8} \cdot 4\pi k^2 \ dk}{(\pi/L)^3} = \frac{V k^2 \ dk}{2\pi^2}
+		\end{align}
+		We add the spin degeneracy $2S+1$, but in a magnetic field the spin degeneracy is lifted because of the Zeeman effect, where the energy levels of the spin states split.
+		\begin{equation}
+			g(k) \ dk = \frac{V k^2 \ dk}{2\pi^2}
+		\end{equation}
+		%We can transform $g(k)$ into $g(\varepsilon)$ from $\varepsilon_k^{\pm} = \dfrac{\hbar^2 \bm{k}^2}{2m} \mp \mu_0 B$, $k = \sqrt{\dfrac{2m}{\hbar^2}} \sqrt{\varepsilon^{\pm}_k \pm \mu_0 B}$, $dk = \sqrt{\dfrac{2m}{{\hbar^2}}} \dfrac{d\varepsilon}{2\sqrt{\epsilon^{\pm}_k \pm \mu_0 B}}$.
+		%\begin{align}
+		%	g(\varepsilon) \ d\varepsilon &= \frac{V}{\pi^2} \frac{2m}{\hbar^2} (\varepsilon^{\pm}_k \pm \mu_0 B) \sqrt{\frac{2m}{{\hbar^2}}} \frac{d\varepsilon}{2\sqrt{\varepsilon^{\pm}_k \pm \mu_0 B}} \\
+		%	g(\varepsilon) \ d\varepsilon &= \frac{V}{2\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \sqrt{\varepsilon^{\pm}_k \pm \mu_0 B} \ d\varepsilon
+		%\end{align}
+		%Inserting this back into $G$ and factoring out common terms.
+		%\begin{align}
+		%	G = -\frac{V}{2\beta\pi^2} \left( \frac{2m}{\hbar^2} \right)^{3/2} \biggl[ &\int_{-\mu_0 B}^\infty \sqrt{\varepsilon^{+}_k + \mu_0 B} \ln\left( 1 + \exp\left\{ -\beta \left( \varepsilon_k^+ - \mu \right) \right\} \right) \ d\varepsilon \\
+		%	+ &\int_{\mu_0 B}^\infty \sqrt{\varepsilon^{-}_k - \mu_0 B} \ln\left( 1 + \exp\left\{ -\beta \left( \varepsilon_k^- - \mu \right) \right\} \right) \ d\varepsilon \biggr] \\
+		%\end{align}
+		\begin{align}
+			G = -\frac{V}{2\beta\pi^2} \biggl[ \int_0^\infty k^2 \ln\left( 1 + \exp\left\{ -\beta \left( \varepsilon_k^+ - \mu \right) \right\} \right) \ dk + \int_0^\infty k^2 \ln\left( 1 + \exp\left\{ -\beta \left( \varepsilon_k^- - \mu \right) \right\} \right) \ dk \biggr]
+		\end{align}
+		We can define the fugacity $\lambda \equiv \exp(\beta \mu)$. Also I will merge the integrals together to simplify computation.
+		\begin{align}
+			G &= -\frac{V}{2\beta\pi^2} \int_0^\infty k^2 \ln\left( 1 + \lambda \exp\left\{ -\beta \left( \frac{\hbar^2 \bm{k}^2}{2m} \mp \mu_0 B \right) \right\} \right) \ dk \\
+			G &= -\frac{V}{2\beta\pi^2} \int_0^\infty k^2 \ln\left( 1 + \lambda e^{\pm \beta \mu_0 B} \exp\left\{ -\beta \frac{\hbar^2 \bm{k}^2}{2m} \right\} \right) \ dk
+		\end{align}
+		A change of variables, $x = \beta \frac{\hbar^2 k^2}{2m}$. 
+		\begin{align}
+			G &= -\frac{V}{2\beta\pi^2} \int_0^\infty k^2 \ln\left( 1 + \lambda e^{\pm \beta \mu_0 B} e^{-x} \right) \frac{m}{\beta \hbar^2 k} \ dx \\
+			G &= -\frac{V}{2\beta\pi^2} \frac{m}{\beta \hbar^2} \sqrt{\frac{2m}{\beta \hbar^2}} \int_0^\infty \sqrt{x} \ln\left( 1 + \lambda e^{\pm \beta \mu_0 B} e^{-x} \right)  \ dx \\
+			G &= -\frac{V\sqrt{2}}{2\beta\pi^2} \left( \frac{m}{\beta \hbar^2} \right)^{3/2} \int_0^\infty \sqrt{x} \ln\left( 1 + \lambda e^{\pm \beta \mu_0 B} e^{-x} \right)  \ dx
+			\intertext{We can rearrange to find $\lambda_{th} = \sqrt{\frac{h^2}{2\pi m k_\mathrm{B} T}} = \sqrt{\frac{2\pi \hbar^2 \beta}{m}}$.} 
+			G &= -\frac{V 2^{1/2} 2^{3/2} \sqrt{\pi}}{2\beta\pi^2} \left( \frac{m}{2 \pi \beta \hbar^2} \right)^{3/2} \int_0^\infty \sqrt{x} \ln\left( 1 + \lambda e^{\pm \beta \mu_0 B} e^{-x} \right)  \ dx \\
+			G &= -\frac{V}{\beta\lambda^3_{th}} \frac{2}{\sqrt{\pi}} \int_0^\infty \sqrt{x} \ln\left( 1 + \lambda e^{\pm \beta \mu_0 B} e^{-x} \right)  \ dx
+		\end{align}
+		Integrating by parts, $u = \ln\left( 1 + \lambda e^{\pm \beta \mu_0 B} e^{-x} \right)$,  $dv = \sqrt{x}$.
+		\begin{align}
+			G &= -\frac{V}{\beta \lambda^3_{th}} \frac{2}{\sqrt{\pi}} \left[ \ln\left( 1 + \lambda e^{\pm \beta \mu_0 B} e^{-x} \right) \frac{2}{3} x^{3/2} \biggr|_0^\infty - \int_{0}^{\infty} \frac{2}{3} x^{3/2} \frac{-\lambda e^{\pm\beta \mu_0 B} e^{-x}}{1 + \lambda e^{\pm\beta \mu_0 B} e^{-x}} \ dx \right] \\
+			G &= -\frac{V}{\beta \lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \left[ \int_{0}^{\infty} \frac{x^{3/2}}{(\lambda e^{\pm\beta \mu_0 B})^{-1} e^{x} + 1} \ dx \right] \\
+			G &= -\frac{V}{\beta \lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \left[ \int_{0}^{\infty} \frac{x^{3/2}}{(\lambda e^{\beta \mu_0 B})^{-1} e^{x} + 1} \ dx + \int_{0}^{\infty} \frac{x^{3/2}}{(\lambda e^{-\beta \mu_0 B})^{-1} e^{x} + 1} \ dx \right]
+		\end{align}
+		From appendix C in Concepts in Thermal Physics by Katherine Blundell and Stephen Blundell. The integrals can be written in terms of the polylogarithm function $\mathrm{Li}_n(z)$.
+		\begin{equation}
+			\int_{0}^{\infty} \frac{x^{n-1} \ dx}{z^{-1} e^x \pm 1} = \mp \Gamma(n) \mathrm{Li}_n(\mp z)
+		\end{equation}
+		\begin{equation}
+			G = \frac{V}{\beta \lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \Gamma(\tfrac{5}{2}) \left[ \mathrm{Li}_{\frac{5}{2}}(-\lambda e^{\beta \mu_0 B}) + \mathrm{Li}_{\frac{5}{2}}(-\lambda e^{-\beta \mu_0 B}) \right]
+		\end{equation}
+		We can further simplify by $\lambda^\pm = \lambda e^{\pm\beta \mu_0 B}$ and $\Gamma(\tfrac{5}{2}) = 3\sqrt{\pi}/4$.
+		\begin{equation}
+			\boxed{G = \frac{V}{\beta \lambda^3_{th}} \left[ \mathrm{Li}_{\frac{5}{2}}(-\lambda^+) + \mathrm{Li}_{\frac{5}{2}}(-\lambda^-) \right]}
+		\end{equation}
+		
+\clearpage
+		
+		
+		\item[(b)] Calculate the densities $n^+ = \dfrac{N^+}{V}$ and $n^+ = \dfrac{N^+}{V}$ of electrons pointing parallel and anti-parallel to the field.
+		\paragraph{Solution} The average number of particles is found by
+		\begin{equation}
+			\expval{\hat{N}} = \frac{1}{\beta} \frac{\partial}{\partial \mu} \ln(\mathcal{Z}) = -\frac{\partial}{\partial \mu} G
+		\end{equation}
+		Working from equation 21 as working with a logarithm is easier.
+		\begin{align}
+			-\frac{\partial}{\partial \mu} G &= \frac{V}{\beta \lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \int_0^\infty \sqrt{x} \frac{\partial}{\partial \mu} \left( \ln\left( 1 + e^{\mu \beta} e^{\pm \beta \mu_0 B} e^{-x} \right) \right)  \ dx \\
+			&= \frac{V}{\beta \lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \int_0^\infty \sqrt{x} \frac{\beta e^{\mu \beta} e^{\pm\beta \mu_0 B} e^{-x}}{1 + e^{\mu \beta} e^{\pm \beta \mu_0 B} e^{-x}} \ dx \\
+			N^\pm &= \frac{V}{\lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \int_0^\infty \frac{x^{1/2}}{(\lambda e^{\pm\beta \mu_0 B})^{-1} e^{x} + 1} \ dx \\
+			n^\pm &= \frac{1}{\lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \int_0^\infty \frac{x^{1/2}}{(\lambda e^{\pm\beta \mu_0 B})^{-1} e^{x} + 1} \ dx
+		\end{align}
+		Converting to polylogarithm and $\lambda^\pm$.
+		\begin{equation}
+			\boxed{n^\pm = \frac{1}{\lambda^3_{th}} \mathrm{Li}_{\frac{3}{2}}(-\lambda^\pm)}
+		\end{equation}
+		\begin{equation}
+			N = N^+ + N^- = \frac{V}{\lambda^3_{th}} \left[ \mathrm{Li}_{\frac{3}{2}}(-\lambda^+) + \mathrm{Li}_{\frac{3}{2}}(-\lambda^-) \right]
+		\end{equation}
+		%\begin{align}
+		%	-\frac{\partial}{\partial \mu} G &= \frac{V\sqrt{2}}{\beta\pi^2} \frac{2}{3} \left( \frac{m}{\beta \hbar^2} \right)^{3/2} \left[ \int_{0}^{\infty} \frac{\partial}{\partial \mu} \left( \frac{x^{3/2}}{(\lambda e^{\pm\beta \mu_0 B})^{-1} e^{x} + 1} \right) \ dx \right]
+		%\end{align}
+		%\begin{align}
+		%	\frac{\partial}{\partial \mu} \left( \frac{x^{3/2}}{(\lambda e^{\pm\beta \mu_0 B})^{-1} e^{x} + 1} \right) &= x^{3/2} \frac{\partial}{\partial \mu} \left( e^{-\mu\beta} e^{\mp\beta \mu_0 B} e^{x} + 1 \right)^{-1} \\
+		%	&= x^{3/2} (-1) \left( e^{-\mu\beta} e^{\mp\beta \mu_0 B} e^{x} + 1 \right)^{-2} (-\mu e^{-\mu\beta} e^{\mp\beta \mu_0 B} e^{x}) \\
+		%	&= x^{3/2} \frac{\mu (e^{\mu\beta} e^{\pm\beta \mu_0 B})^{-1} e^{x}}{((e^{\mu\beta} e^{\pm\beta \mu_0 B})^{-1} e^{x} + 1)^2} \\
+		%	&= x^{3/2} \frac{\mu (\lambda e^{\pm\beta \mu_0 B})^{-1} e^{x}}{((\lambda e^{\pm\beta \mu_0 B})^{-1} e^{x} + 1)^2} 
+		%\end{align}
+		
+		\item[(c)] Determine an expression of the magnetization $M=\mu_0 (N_+ - N_-)$ and expand the result for small magnetic field $B$.
+		\paragraph{Solution}
+		%\begin{align}
+		%	M &= \frac{V \mu_0}{\lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \left[ \int_0^\infty \frac{x^{1/2}}{(\lambda e^{\beta \mu_0 B})^{-1} e^{x} + 1} \ dx - \int_0^\infty \frac{x^{1/2}}{(\lambda e^{-\beta \mu_0 B})^{-1} e^{x} + 1} \ dx \right]
+		%\end{align}
+		\begin{align}
+			M &= \frac{V\mu_0}{\lambda^3_{th}} \left[ \mathrm{Li}_{\frac{3}{2}}(-\lambda^+) - \mathrm{Li}_{\frac{3}{2}}(-\lambda^-) \right] \\
+			M &= \frac{V\mu_0}{\lambda^3_{th}} \left[ \mathrm{Li}_{\frac{3}{2}}(-\lambda e^{\beta \mu_0 B}) - \mathrm{Li}_{\frac{3}{2}}(-\lambda e^{-\beta \mu_0 B}) \right]
+		\end{align}
+		The only term affected by the magnetic field $B$ is the exponential. At small magnetic field $B$, the exponential can be approximated by the first few terms of its taylor series, $e^x = \sum \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \cdots$. For simplicity we take the first two terms.
+		\begin{align}
+			M &= \frac{V\mu_0}{\lambda^3_{th}} \left[ \mathrm{Li}_{\frac{3}{2}}(-\lambda (1 + \beta \mu_0 B)) - \mathrm{Li}_{\frac{3}{2}}(-\lambda (1 - \beta \mu_0 B)) \right] \\
+			M &= \frac{V\mu_0}{\lambda^3_{th}} \left[ \mathrm{Li}_{\frac{3}{2}}( -\lambda -\lambda\beta \mu_0 B) - \mathrm{Li}_{\frac{3}{2}}(-\lambda + \lambda\beta \mu_0 B) \right]
+		\end{align}
+		The polylogarithm function can also be expanded for small $B$ by approximating with the first order taylor expansion, $f(x\pm \Delta x) \approx f(x) \pm \Delta x f^\prime(x)$.
+		\begin{align}
+			M &= \frac{V\mu_0}{\lambda^3_{th}} \left[ \mathrm{Li}_{\frac{3}{2}}(-\lambda) + \lambda\beta \mu_0 B \frac{\partial}{\partial\lambda} \mathrm{Li}_{\frac{3}{2}}(-\lambda) - \left( \mathrm{Li}_{\frac{3}{2}}(-\lambda) - \lambda\beta \mu_0 B \frac{\partial}{\partial\lambda} \mathrm{Li}_{\frac{3}{2}}(-\lambda) \right) \right] \\
+			M &= \frac{V\mu_0}{\lambda^3_{th}} \left[ 2  \lambda\beta \mu_0 B \frac{\partial}{\partial\lambda} \mathrm{Li}_{\frac{3}{2}}(-\lambda) \right]
+		\end{align}
+		From \href{https://mathworld.wolfram.com/Polylogarithm.html}{https://mathworld.wolfram.com/Polylogarithm.html}, we can easily find the derivative of the polylogarithm function where $x \partial_x \mathrm{Li}_n(x) = \mathrm{Li}_{n-1}(x)$.
+		\begin{align}
+			\boxed{M = \frac{2V\mu^2_0 \beta B}{\lambda^3_{th}} \mathrm{Li}_{\frac{1}{2}}(-\lambda)}
+		\end{align}
+		%\begin{align}
+		%	M &= \frac{V \mu_0}{\lambda^3_{th}} \frac{4}{3\sqrt{\pi}} \left[ \int_0^\infty \frac{x^{1/2}}{(\lambda (1 + \beta \mu_0 B))^{-1} e^{x} + 1} \ dx - \int_0^\infty \frac{x^{1/2}}{(\lambda (1 - \beta \mu_0 B))^{-1} e^{x} + 1} \ dx \right]
+		%\end{align}
+		
+\clearpage
+		
+		\item[(d)] Determine the zero-field susceptibility $\mathcal{X}(T) = \dfrac{\partial M}{\partial B} \bigg|_{B=0}$ and give its behavior at low and at high temperatures.
+		\paragraph{Solution}
+		\begin{equation}
+			\frac{\partial M}{\partial B} \bigg|_{B=0} = \frac{2V\mu^2_0 \beta}{\lambda^3_{th}} \mathrm{Li}_{\frac{1}{2}}(-\lambda)
+		\end{equation}
+		We also know that $N$ depends on $B$, so from equation 36, it reduces to
+		\begin{equation}
+			N = N^+ + N^- = \frac{2V}{\lambda^3_{th}} \mathrm{Li}_{\frac{3}{2}}(-\lambda)
+		\end{equation}		
+		Starting with the high temperature limit, since $\lambda \equiv e^{\beta\mu}$, as $k_\mathrm{B}T \to \infty$ then $\beta \to 0$. We can drop the $+1$ in $\mathrm{Li}_n(-\lambda)$ as it is negligible at this limit.
+		\begin{equation}
+			\mathrm{Li}_n(-\lambda) = \frac{1}{\Gamma(n)} \int_{0}^{\infty} \frac{x^{n-1} \ dx}{\lambda^{-1} e^x + 1} \approx \frac{\lambda}{\Gamma(n)} \int_{0}^{\infty} x^{n-1} e^{-x} \ dx = \lambda
+		\end{equation}
+		\begin{equation}
+			\mathcal{X}(T \to \infty) = \frac{2V\mu^2_0}{k_\mathrm{B} T \lambda^3_{th}} \lambda
+		\end{equation}
+		We can define $\lambda$ in terms of $N$.
+		\begin{align}
+			N &= \frac{2V}{\lambda^3_{th}} \lambda \\
+			\lambda &= \frac{N\lambda^3_{th}}{2V}
+		\end{align}
+		\begin{equation}
+			\mathcal{X}(T \to \infty) = \frac{N\mu^2_0}{k_\mathrm{B} T}
+		\end{equation}
+		\begin{equation}
+			\boxed{\frac{\mathcal{X}}{N} \biggr|_{T\to\infty} = \frac{\mu_0^2}{k_\mathrm{B} T}}
+		\end{equation}
+		
+		Now the low temperature limit, since $\lambda \equiv e^{\beta\mu}$, as $k_\mathrm{B}T \to 0$ then $\beta \to \infty$.
+		\begin{align}
+			\mathrm{Li}_n(-\lambda) &= \frac{1}{\Gamma(n)} \int_{0}^{\infty} \frac{x^{n-1} \ dx}{e^{x-\beta\mu} + 1} \\
+			&= \frac{1}{\Gamma(n)} \left[ \left( e^{x-\beta\mu} + 1 \right)^{-1} \frac{x^n}{n} \biggr|_0^\infty - \int_{0}^{\infty} \frac{x^n}{n} \frac{e^{x-\beta\mu} \ dx}{\left( e^{x-\beta\mu} + 1 \right)^2}  \right] \\
+			&= \frac{1}{\Gamma(n)} \int_{0}^{\infty} \frac{x^n}{n} \frac{e^{x-\beta\mu} \ dx}{\left( e^{x-\beta\mu} + 1 \right)^2}
+		\end{align}
+		As $T$ decreases, $\mu$ approaches the Fermi energy $\epsilon_F$, so we can redefine $x$ as $x_\mathrm{F} = \beta \frac{\hbar^2 k_\mathrm{F}^2}{2m} = \beta \epsilon_\mathrm{F} = \beta k_\mathrm{B} T_\mathrm{F}$
+		\begin{equation}
+			\mathrm{Li}_n(-\lambda) = \frac{x^n_\mathrm{F}}{n\Gamma(n)} \int_{0}^{x_\mathrm{F}} \frac{e^{x-\beta\mu} \ dx}{\left( e^{x-\beta\mu} + 1 \right)^2}
+		\end{equation}
+		%From the graph of the Fermi-Dirac distribution, as $T$ decreases the distribution approaches a Heaviside step function, so it is appropriate to drop the integral as an approximation. 
+		\begin{align}
+			\frac{\mathcal{X}}{N} \biggr|_{T\to0} &= \frac{\mu_0^2}{k_\mathrm{B}T} \frac{\mathrm{Li}_{1/2}(-\lambda)}{\mathrm{Li}_{3/2}(-\lambda)} \\
+			\intertext{Since the integral in the expression is the same for both polylogarithms, they cancel out.}
+			&= \frac{\mu_0^2}{k_\mathrm{B}T} \frac{x^{1/2}_\mathrm{F}}{\tfrac{1}{2}\Gamma(\frac{1}{2})} \frac{\tfrac{3}{2}\Gamma(\tfrac{3}{2})}{x^{3/2}_\mathrm{F}} \\
+			&= \frac{3\mu_0^2}{k_\mathrm{B}T} \frac{1}{\sqrt{\pi}} \frac{\tfrac{\sqrt{\pi}}{2}}{x_\mathrm{F}} \\
+			&= \frac{3\mu_0^2}{2k_\mathrm{B}T} \frac{1}{\beta \epsilon_\mathrm{F}} \\
+			\Aboxed{\frac{\mathcal{X}}{N} \biggr|_{T\to0} &= \frac{3\mu_0^2}{2k_\mathrm{B}T_\mathrm{F}}} 
+		\end{align}
+		
+\clearpage
+		
+		\item[(e)] Graph $\dfrac{\mathcal{X}}{N \mu_0^2}$ versus T, here $N = N^+ + N^-$ is the total number of electrons.
+		\paragraph{Solution} The two limits form asymptotes for the zero-field susceptibility. The limit to infinity depends on $T$, while the limit to zero does not depend on $T$ (straight line).
+	\end{enumerate}
+	
+\end{document}
