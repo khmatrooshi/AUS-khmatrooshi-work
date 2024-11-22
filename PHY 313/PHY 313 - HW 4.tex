@@ -1,0 +1,475 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/6 - F23/preamble.tex}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={PHY 313 - HW 4},
+	pdfpagemode=FullScreen,
+}
+
+\usepackage[shortconst]{physconst}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		{\textbf { \large PHY 313 --- Satellites \& Space Science}}
+		\vspace{0.4cm}
+	\end{center}
+	{\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 23 Oct 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 4 \\
+		\hrule	
+
+	\section*{Problem 1: }
+	Using the conservation of mechanical energy and of angular momentum, and using the relation $h^2 = GMa(1-e^2)$, \\ 
+	\begin{enumerate}
+		\item[(a)] Show that $ E=-\dfrac{GMm}{2a}$ and $ v^2 = GM\left( \dfrac{2}{r} - \dfrac{1}{a} \right)$ for any object of mass $m$ in elliptical orbit around a central object of mass $M$.
+		\paragraph{Solution} Starting from conservation of mechanical energy and of angular momentum. \\
+		\[
+			\frac{1}{2} mv^2 - \frac{GMm}{r} = E = constant
+		\]
+		\[
+			\bm{r} \times \bm{p} = \bm{r} \times m\bm{v} = \bm{H} = constant
+		\]
+		$\epsilon$ is the specific total energy defined as:
+		\[
+			\frac{E}{m} = \epsilon 
+		\]
+		$\bm{h}$ is the specific angular momentum vector defined as:
+		\[
+			\frac{\bm{H}}{m} = \bm{h} = \bm{r} \times \bm{v} = constant
+		\]
+		The times product here gives the magnitude for $\bm{h}$.
+		\[
+			\norm{h} = \norm{r}\norm{v} \sin\theta
+		\]
+		It is convenient to use the apoapsis and periapsis of the elliptical orbit to find $h$ because the vectors are perpendicular to each other, simplifying the times product at known points in the orbit. For instance, at apoapsis; the farthest point of the orbit to the primary body. 
+		\[
+			h = r_\mathrm{a} v_\mathrm{a} \sin \ang{90} = r_\mathrm{a} v_\mathrm{a} = a(1+e)v_\mathrm{a}
+		\]
+		Similarly for periapsis; the closest point of the orbit to the primary body.
+		\[
+			h = r_\mathrm{p} v_\mathrm{p} \sin \ang{90} = r_\mathrm{p} v_\mathrm{p} = a(1-e)v_\mathrm{p}
+		\]
+		Thus an important relationship is apparent.
+		\[
+			h = r_\mathrm{a} v_\mathrm{a} = r_\mathrm{p} v_\mathrm{p}
+		\]
+		Now using the relation $h^2 = GMa(1-e^2)$ at apoapsis.
+		\begin{equation*}
+			\begin{split}
+				h^2 &= GMa(1-e^2) \\
+				r^2_\mathrm{a} v^2_\mathrm{a} &= GMa(1-e^2) \\
+				a^2(1+e)^2 v^2_\mathrm{a} &= GMa(1-e^2) \\
+				v^2_\mathrm{a} &= \frac{GMa(1+e)(1-e)}{a^2(1+e)^2} \\
+				v^2_\mathrm{a} &= \frac{GM(1-e)}{a(1+e)} \\
+			\end{split}
+		\end{equation*}
+		Inserting $v^2_\mathrm{a}$ into the conservation of mechanical energy equation.
+		%\begin{equation*}
+		%	\begin{split}
+		%		E &= \frac{1}{2} m\left( \frac{GM(1-e)}{a(1+e)} \right) - \frac{GMm}{r_\mathrm{a}} \\
+		%		E &= GMm\left( \frac{(1-e)}{2a(1+e)} - \frac{1}{a(1+e)} \right) \\
+		%		E &= \frac{GMm}{a}\left( \frac{(1-e)(1+e) - 2(1+e)}{2(1+e)^2} \right) \\
+		%		E &= \frac{GMm}{2a}\left( \frac{(1-e)- 2}{2(1+e)} \right) \\
+		%		E &= \frac{GMm}{2a}\left( \frac{(-1-e)}{(1+e)} \right) \\
+		%	\end{split}
+		%\end{equation*}
+		\begin{equation*}
+			\begin{split}
+				E &= \frac{1}{2} m\left( \frac{GM(1-e)}{a(1+e)} \right) - \frac{GMm}{r_\mathrm{a}} = GMm\left( \frac{(1-e)}{2a(1+e)} - \frac{1}{a(1+e)} \right) \\
+				E &= \frac{GMm}{a(1+e)}\left( \frac{(1-e)}{2} - 1 \right) \\
+				E &= \frac{GMm}{2a(1+e)}(-1-e) \\
+				E &= -\frac{GMm}{2a(1+e)}(1+e) \\
+				E &= -\frac{GMm}{2a} \\
+			\end{split}
+		\end{equation*}
+		We get the same equation for total energy $E$ if considered from periapsis.
+		
+		\clearpage
+		
+		Now to find the other equation using the conservation of mechanical energy equation and the derived total energy of an orbit.
+		\begin{equation*}
+			\begin{split}
+				E &= \frac{1}{2} mv^2 - \frac{GMm}{r} \\
+				v^2 &= \frac{2GM}{r} + \frac{2E}{m} = \frac{2GM}{r} + \frac{2}{m} \left( -\frac{GMm}{2a} \right) \\
+				v^2 &= \frac{2GM}{r} - \frac{GM}{a} \\
+				v^2 &= GM\left( \frac{2}{r} - \frac{1}{a} \right) \\
+			\end{split}
+		\end{equation*}
+			
+	
+		\item[(b)] Find the maximum and minimum speeds for an elliptical orbit of parameters $a$ and $e$.
+		
+		
+		\paragraph{Solution} Examining the equation for the speed of an orbiting body $v^2$ found in the previous part, $r$ is bounded by $r_\mathrm{p} \leq r \leq r_\mathrm{a}$. If we go back to the relationship between specific angular momentum $h$ and the apsides. \\
+		\[
+			h = r_\mathrm{a} v_\mathrm{a} = r_\mathrm{p} v_\mathrm{p} = constant \qquad r \propto \frac{1}{v}
+		\]
+		Continuing with the inequality. The inequality flips because of the proportionality.
+		
+		\renewcommand{\arraystretch}{1.5}
+			
+		\[\setlength\arraycolsep{2pt}
+			\begin{array}{rcccl} 
+				r_\mathrm{p} & \leq & r & \leq & r_\mathrm{a} \\
+				\dfrac{1}{v^2_\mathrm{p}} & \leq & \dfrac{1}{v^2} & \leq & \dfrac{1}{v^2_\mathrm{a}} \\
+				v_\mathrm{p} & \geq & v & \geq & v_\mathrm{a} \\
+				v_\mathrm{max} & \geq & v & \geq & v_\mathrm{min} \\
+			\end{array}
+		\]
+		Clearly, the maximum and minimum speeds are at the periapsis and the apoapsis, respectively. Now to find the speeds explicitly in terms of $a$ and $e$. Since we know the distances to the apsides of an ellipse from the primary body, $a(1-e) \leq r \leq a(1+e)$, we can insert each into $v^2$.
+				
+		
+		\begin{align*}
+			v^2_\mathrm{p} &= GM\left( \frac{2}{a(1-e)} - \frac{1}{a} \right) & v^2_\mathrm{a} &= GM\left( \frac{2}{a(1+e)} - \frac{1}{a} \right) \\
+			v^2_\mathrm{p} &= GM\left( \frac{2 - (1-e)}{(1-e)} \right) & v^2_\mathrm{a} &= \frac{GM}{a}\left( \frac{2 - (1+e)}{(1+e)} \right) \\
+			v^2_\mathrm{p} &= \frac{GM}{a} \frac{(1+e)}{(1-e)} & v^2_\mathrm{a} &= \frac{GM}{a} \frac{(1-e)}{(1+e)} \\
+			v_\mathrm{p} &= \sqrt{\frac{GM}{a} \frac{(1+e)}{(1-e)}} = v_\mathrm{max} & v_\mathrm{a} &= \sqrt{\frac{GM}{a} \frac{(1-e)}{(1+e)}} = v_\mathrm{min}
+		\end{align*}
+		
+		
+		
+		
+		
+		%\paragraph{Solution} Examining the equation for the speed of an orbiting body $v^2$ found in the previous part. $r$ is bounded by $r_\mathrm{p} \leq r \leq r_\mathrm{a}$, and since $v^2 \propto \frac{1}{r}$  \\
+		%\begin{equation*}
+		%	\begin{split}
+		%		\frac{1}{v_\mathrm{p}^2} \leq \frac{1}{v^2} \leq \frac{1}{v_\mathrm{a}^2} \\
+		%		v_\mathrm{p} \geq v \geq v_\mathrm{a} \\
+		%		v_\mathrm{max} \geq v \geq v_\mathrm{min} \\
+		%	\end{split}
+		%\end{equation*}
+		
+		
+	
+		
+	
+	\end{enumerate}
+	
+	\clearpage
+	
+	\section*{Problem 2: }
+	A satellite is at an altitude of $\qty{3150}{km}$ above Earth, moving at $v=\qty{7.8}{km.s^{-1}}$ with a flight-path angle of $\ang{0}$. \\
+	Determine $h,\ a,\ p,\ e,\ r_\mathrm{a},\ and \ r_\mathrm{p}$.
+	\paragraph{Solution} Starting from the flight-path angle of $\ang{0}$, $\bm{r} \perp \bm{v}$ or $\bm{v} \parallel \bm{r}_\perp$, we can deduce that the satellite is at an apsis of it's orbit. \\
+	\begin{equation*}
+		\begin{split}
+			h &= rv \\
+			&= (\qty{3150e3}{m} + \kRadiusEarth)(\qty{7.8}{km.s^{-1}}) \\
+			h &= \boxed{\qty{7.426e10}{m^2.s^{-1}}} = constant
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			\epsilon = -\frac{GM}{2a} &= \frac{1}{2} v^2 - \frac{GM}{r} \\
+			\frac{1}{a} &= \frac{2}{r} - \frac{v^2}{GM} = \frac{2GM - v^2 r}{GMr} \\
+			a &= \frac{GMr}{2GM - v^2 r} \\
+			&= \frac{(\kGravity)(\kMassEarth)(\qty{9521}{km})}{(2(\kGravity)(\kMassEarth)-(\qty{7.8}{km.s^{-1}})^2(\qty{9521}{km}))} \\
+			&= \boxed{\qty{1.746e7}{m}}
+		\end{split}
+	\end{equation*}
+	
+	The semi-latus rectum $p$ is the perpendicular distance distance from a focus to the curve.
+	
+	\[
+		p = a(1-e^2)
+	\]
+	
+	This relationship is present in the following equation.
+	
+	\[
+		h^2 = GMa(1-e^2)
+	\]
+	\begin{equation*}
+		\begin{split}
+			\frac{h^2}{GM} = a(1-e^2) = p& \\
+			p& = \frac{(\qty{7.426e10}{m^2.s^{-1}})^2}{(\kGravity)(\kMassEarth)} = \boxed{\qty{1.3849e7}{m}} \\
+			a(1-e^2)& = \qty{1.3849e7}{m} \\
+			e& = \sqrt{1 - \left(\frac{\qty{1.3849e7}{m}}{\qty{1.746e7}{m}}\right)} = \boxed{0.45477}
+		\end{split}
+	\end{equation*}
+	
+	Now $r_\mathrm{p}$ and $r_\mathrm{a}$ can be found.
+	
+	\begin{align*}
+		r_\mathrm{p} &= a(1-e) & r_\mathrm{a} &= a(1+e) \\
+		r_\mathrm{p} &= (\qty{1.746e7}{m})(1-0.45477) & r_\mathrm{a} &= (\qty{1.746e7}{m})(1+0.45477) \\
+		r_\mathrm{p} &= \boxed{\qty{9.5197e6}{m}} & r_\mathrm{a} &= \boxed{\qty{2.5400e7}{m}} \\
+	\end{align*}
+	
+	\clearpage
+	
+	\section*{Problem 3: }
+	A satellite in Earth orbit passes through its perigee at an altitude of $\qty{600}{km}$ with a velocity of $\qty{8500}{m.s^{-1}}$.  Calculate the apogee altitude, the speed of the satellite at apogee, and the eccentricity of the orbit of the satellite.
+	\paragraph{Solution} We can start with the given information to find $h$ at perigee. Then use previous equations to find each parameter. \\
+	
+	\begin{equation*}
+		\begin{split}
+			h = r_\mathrm{p} v_\mathrm{p} = (\qty{600e3}{m} + \kRadiusEarth)(\qty{8500}{m.s^{-1}}) = \qty{5.9245e10}{m^2 s^{-1}}
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			p &= \frac{h^2}{GM} \\
+			&= \frac{(\qty{5.9245e10}{m^2 s^{-1}})^2}{(\kGravity)(\kMassEarth)} = \qty{8.8146e6}{m}
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			a &= \frac{GMr}{2GM - v^2 r} \\
+			&= \frac{(\kGravity)(\kMassEarth)(\qty{6970}{km})}{(2(\kGravity)(\kMassEarth)-(\qty{8500}{m.s^{-1}})^2(\qty{6970}{km}))} = \qty{9.4785e6}{m} \\
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			e &= \sqrt{1 - \frac{p}{a}} \\
+			&= \sqrt{1 - \frac{\qty{8.8146e6}{m}}{\qty{9.4785e6}{m}}} = \boxed{0.26466}
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			r_a &= a(1+e) \\
+			&= (\qty{9.4785e6}{m})(1+0.26466) = \qty{1.1987e7}{m} \\
+			\text{Apogee altitude } &= (\qty{1.1987e7}{m}) - (\kRadiusEarth) = \boxed{\qty{5.6170e6}{m}}
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			v_a &= \frac{h}{r_a} \\
+			&= \frac{\qty{5.9245e10}{m^2 s^{-1}}}{\qty{1.1987e7}{m}} = \boxed{\qty{4.9424e3}{m.s^{-1}}}
+		\end{split}
+	\end{equation*}
+	
+	
+
+	\clearpage
+	
+	\section*{Problem 4: }
+	At a given time, a satellite is observed at the following Position $\bm{r}$ and Velocity $\bm{v}$:
+	\begin{itemize}
+		\item $\bm{r} = (\qty{8228}{\ihat} + \qty{389}{\jhat} + \qty{6888}{\khat} ) \ \unit{km}$
+		\item $\bm{v} = (\qty{-0.7000}{\ihat} + \qty{6.600}{\jhat} - \qty{0.6000}{\khat}) \ \unit{km.s^{-1}}$
+	\end{itemize}
+	Determine: the size (semi-major axis) and shape (eccentricity \bd{vector}) of this satellite's orbit; its inclination; its RAAN; its argument of perigee; its true anomaly (at that time).
+	
+	\paragraph{Solution} The size $a$ can be found with the conservation of energy equation. After that, we can calculate $\bm{h}$ to then find the rest of the COEs using the trigonometric vector equations. \\
+	
+	\begin{equation*}
+		\begin{split}
+			\epsilon = -\frac{GM}{2a} &= \frac{1}{2} v^2 - \frac{GM}{r} \\
+			a &= \frac{GMr}{2GM - v^2 r} \\
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			\norm{\bm{r}} = r &= \sqrt{ (\qty{8228e3}{m})^2 + (\qty{389e3}{m})^2 + (\qty{6888e3}{m})^2 } \\
+			&= \qty{1.0738e7}{m}
+		\end{split}
+	\end{equation*}
+
+	\begin{equation*}
+		\begin{split}
+			\norm{\bm{v}} = v &= \sqrt{ (\qty{-0.7000e3}{m.s^{-1}})^2 + (\qty{6.600e3}{m.s^{-1}})^2 + (\qty{-0.6000e3}{m.s^{-1}})^2 } \\
+			&= \qty{6.6641e3}{m.s^{-1}}
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			a &= \frac{(\kGravity)(\kMassEarth)(\qty{1.0738e7}{m})}{(2(\kGravity)(\kMassEarth)-(\qty{6.6641e3}{m.s^{-1}})^2(\qty{1.0738e7}{m}))} \\
+			&= \boxed{\qty{1.3382e7}{m}} \\
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\bm{e} = \frac{1}{GM} \left[ \left( \bm{v} \times \bm{h} \right) - \frac{GM}{r} \bm{r} \right] = \frac{1}{GM} \left[ \left( v^2 - \frac{GM}{r} \right)\bm{r} - \left( \bm{r} \cdot \bm{v} \right)\bm{v} \right] 
+	\end{equation*} \\
+	
+	I will use the former equation because $\bm{h}$ will be needed for multiple COEs.
+	
+	\begin{equation*}
+		\begin{split}
+			\bm{h} = \bm{r} \times \bm{v} =
+			\begin{vmatrix}
+				\ihat & \jhat & \khat \\
+				r_{\ihat} & r_{\jhat} & r_{\khat} \\
+				v_{\ihat} & v_{\jhat} & v_{\khat}
+			\end{vmatrix}
+			&= \begin{vmatrix}
+				r_{\jhat} & r_{\khat} \\
+				v_{\jhat} & v_{\khat}
+			\end{vmatrix} \ihat
+			- \begin{vmatrix}
+				r_{\ihat} & r_{\khat} \\
+				v_{\ihat} & v_{\khat}
+			\end{vmatrix} \jhat
+			+ \begin{vmatrix}
+				r_{\ihat} & r_{\jhat} \\
+				v_{\ihat} & v_{\jhat}
+			\end{vmatrix} \khat \\
+			\bm{h} &= \left( \qty{-45694}{\ihat} + \qty{115.20}{\jhat} + \qty{54577}{\khat} \right) \ \unit{Mm^2.s^{-1}}
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			\bm{v} \times \bm{h} &= \begin{vmatrix}
+				v_{\jhat} & v_{\khat} \\
+				h_{\jhat} & h_{\khat}
+			\end{vmatrix} \ihat
+			- \begin{vmatrix}
+				v_{\ihat} & v_{\khat} \\
+				h_{\ihat} & h_{\khat}
+			\end{vmatrix} \jhat
+			+ \begin{vmatrix}
+				v_{\ihat} & v_{\jhat} \\
+				h_{\ihat} & h_{\jhat}
+			\end{vmatrix} \khat \\
+			 &= \left( \qty{3.6028e5}{\ihat} + \qty{6.5620e4}{\jhat} + \qty{3.0150e5}{\khat} \right) \ \unit{Gm^3.s^{-2}} \\
+			 \frac{\bm{v} \times \bm{h}}{GM} &= \frac{1}{(\kGravity)(\kMassEarth)} \left[ \left( \qty{3.6028e5}{\ihat} + \qty{6.5620e4}{\jhat} + \qty{3.0150e5}{\khat} \right) \ \unit{Gm^3.s^{-2}} \right] \\
+			 &= \left( \qty{0.90477}{\ihat} + \qty{0.16479}{\jhat} + \qty{0.75716}{\khat} \right)
+		\end{split}
+	\end{equation*}
+	
+	This is a dimensionless vector as shown below, which corresponds to the eccentricity vector $\bm{e}$ being dimensionless.
+	
+	\begin{equation*}
+		\begin{split}
+			\left[ \frac{\bm{v} \times \bm{h}}{GM} \right] = \unit{N^{-1}.kg.m.s^{-2}} = \frac{\unit{kg.m.s^{-2}}}{\unit{kg.m.s^{-2}}} = 1
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			\frac{\bm{r}}{r} &= \frac{1}{\qty{1.0738e7}{m}} \left[ \left( \qty{8228e3}{\ihat} + \qty{389e3}{\jhat} + \qty{6888e3}{\khat} \right) \ \unit{m} \right] \\
+			\uvec{r} &= \left( \qty{0.76625}{\ihat} + \qty{0.036226}{\jhat} + \qty{0.64146}{\khat} \right) \\
+			%GM \ \uvec{r} &= (\kGravity)(\kMassEarth) \left( \qty{0.76625}{\ihat} + \qty{0.036226}{\jhat} + \qty{0.64146}{\khat} \right) \\
+			%&= \left( \qty{3.0512e14}{\ihat} + \qty{1.4425e13}{\jhat} + \qty{2.5543e14}{\khat} \right) \ \unit{N.kg^{-1}.m^2} \\
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			\bm{e} &= \left[ \frac{\bm{v} \times \bm{h}}{GM} - \uvec{r} \right] \\
+			&= \boxed{\left( \qty{0.13852}{\ihat} + \qty{0.12856}{\jhat} + \qty{0.11570}{\khat} \right)} \\
+			\norm{e} = e &= \sqrt{ (\num{0.13852})^2 + (\num{0.12856})^2 + (\num{0.11570})^2 } \\
+			&= 0.22159
+		\end{split}
+	\end{equation*}
+	
+	Now to start with the trigonometric vector equations. \\
+	
+	\[
+		i = \arccos \left( \frac{\uvec{k} \cdot \bm{h}}{h} \right) = \arccos \left( \uvec{k} \cdot \uvec{h} \right)
+	\]
+	\begin{equation*}
+		\begin{split}
+			\uvec{h} = \frac{\bm{h}}{h} &= \frac{\left( \qty{-45694}{\ihat} + \qty{115.20}{\jhat} + \qty{54577}{\khat} \right) \ \unit{Mm^2.s^{-1}}}{\sqrt{ (\qty{-45694}{Mm^2.s^{-1}})^2 + (\qty{115.20}{Mm^2.s^{-1}})^2 + (\qty{54577}{Mm^2.s^{-1}})^2 }} \\
+			&= \left( \qty{-6.4195e-1}{\ihat} + \qty{1.6184e-3}{\jhat} + \qty{7.6675e-1}{\khat} \right)
+		\end{split}
+	\end{equation*}
+
+	\begin{equation*}
+		\begin{split}
+			\uvec{k} \cdot \uvec{h} &= (0)(\num{-6.4195e-1}) + (0)(\num{1.6184e-3}) + (1)(\num{7.6675e-1}) = \num{7.6675e-1} \\
+			\arccos \left( \uvec{k} \cdot \uvec{h} \right) &= \qty{0.69703}{\radian} = \boxed{\ang{39.937}} \qquad \ang{0} \leq i \leq \ang{180}
+		\end{split}
+	\end{equation*} \\
+	
+	\[
+		\Omega = \arccos \left( \frac{\ihat \cdot \bm{n}}{n} \right) = \arccos \left( \ihat \cdot \uvec{n} \right)
+	\]
+	\begin{equation*}
+		\begin{split}
+			\bm{n} = \khat \times \bm{h} =
+			\begin{vmatrix}
+				\ihat & \jhat & \khat \\
+				0 & 0 & 1 \\
+				h_{\ihat} & h_{\jhat} & h_{\khat}
+			\end{vmatrix}
+			&= \begin{vmatrix}
+				0 & 1 \\
+				h_{\jhat} & h_{\khat}
+			\end{vmatrix} \ihat
+			- \begin{vmatrix}
+				0 & 1 \\
+				h_{\ihat} & h_{\khat}
+			\end{vmatrix} \jhat
+			+ \begin{vmatrix}
+				0 & 0 \\
+				h_{\ihat} & h_{\jhat}
+			\end{vmatrix} \khat \\
+			\bm{n} &= \left( \qty{-115.20}{\ihat} - \qty{45694}{\jhat} + \qty{0}{\khat} \right) \ \unit{Mm^2.s^{-1}} \\
+			\norm{n} &= \sqrt{(\qty{-115.20}{Mm^2.s^{-1}})^2 + (\qty{45694}{Mm^2.s^{-1}})^2} = \qty{4.5694e10}{m^2.s^{-1}} \\
+			\uvec{n} = \frac{\bm{n}}{\norm{n}} &= \frac{\left( \qty{-115.20}{\ihat} - \qty{45694}{\jhat} + \qty{0}{\khat} \right) \ \unit{Mm^2.s^{-1}}}{\qty{4.5694e10}{m^2.s^{-1}}} \\
+			&= \left( \qty{-2.5211e-3}{\ihat} - \qty{1}{\jhat} + \qty{0}{\khat} \right) \\
+			\ihat \cdot \uvec{n} &= (1)(\num{-2.5211e-3}) + (0)(\num{-1}) + (0)(0) = \num{-2.5211e-3} \\
+			\arccos \left( \ihat \cdot \uvec{n} \right) &= \qty{1.5733}{\radian} = \ang{90.144} \qquad \ang{0} \leq \Omega \leq \ang{360}
+		\end{split}
+	\end{equation*}
+	
+	The bound for $\Omega$ suggests two possible values for the RAAN: $\ang{90.144}$ and $\ang{360} - \ang{90.144} = \ang{269.86}$. We can use the fact that $\uvec{n}$ lies on the equatorial plane to find which is the correct angle. Looking at the equatorial plane. Since RAAN is measured anticlockwise from the $\ihat$ direction, and $\bm{n}$ direction is shown below, then $\boxed{\Omega = \ang{269.86}}$
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=7cm]{RAAN Check.jpg}
+	\end{figure}
+	
+	\clearpage
+	
+	\[
+		\omega = \arccos \left( \frac{\bm{n} \cdot \bm{e}}{ne} \right) = \arccos \left( \uvec{n} \cdot \uvec{e} \right)
+	\]
+	
+	\begin{equation*}
+		\begin{split}
+			\uvec{e} = \frac{\bm{e}}{\norm{e}} &= \frac{\left( \qty{0.13852}{\ihat} + \qty{0.12856}{\jhat} + \qty{0.11570}{\khat} \right)}{0.22159} \\
+			&= \left( \qty{0.62512}{\ihat} + \qty{0.58017}{\jhat} + \qty{0.52214}{\khat} \right)
+		\end{split}
+	\end{equation*}
+	
+	\begin{equation*}
+		\begin{split}
+			\uvec{n} \cdot \uvec{e} &= (\num{-2.5211e-3})(\num{0.62512}) + (\num{-1})(\num{0.58017}) + (0)(\num{0.52214}) = -0.58175 \\
+			\arccos \left( \uvec{n} \cdot \uvec{e} \right) &= \qty{2.1917}{\radian} = \ang{125.57} \qquad \ang{0} \leq \omega \leq \ang{360}
+		\end{split}
+	\end{equation*}
+	
+	Similar reasoning to $\Omega$. The bounds for $\omega$ suggests two possible values for the argument of perigee: $\ang{125.57}$ and $\ang{360} - \ang{125.57} = \ang{234.43}$. From the definition of the dot product, the angle is measured from the ascending node vector $\bm{n}$ in the equatorial plane, to the eccentricity vector $\bm{e}$ on the orbital plane in $\mathbb{R}^3$ space; $\bm{e}$ is constructed such that it goes from apoapsis to periapsis, essentially pointing to the periapsis of the orbit. We take the unit vector form in these equations so that we only consider their directions, and to have a common reference point at the origin. Because the vector points to the periapsis and since $\omega$ starts from the ascending node, we can tell if the perigee is above or below the equatorial plane by the sign of the $\khat$ component in the $\bm{e}$ vector. A positive value would mean $\omega$ is bounded by $\ang{0} \leq \omega \leq \ang{180}$. A negative value would mean $\omega$ is bounded by $\ang{180} < \omega < \ang{360}$. In this case, $\bm{e}_{\khat}$ is positive, therefore $\boxed{\omega = \ang{125.57}}$. \\
+	
+	\[
+		\theta = \arccos \left( \frac{\bm{e} \cdot \bm{r}}{er} \right) = \arccos \left( \uvec{e} \cdot \uvec{r} \right)
+	\]
+	
+	\begin{equation*}
+		\begin{split}
+			\uvec{e} \cdot \uvec{r} &= (\num{0.62512})(\num{0.76625}) + (\num{0.58017})(\num{0.036226}) + (\num{0.52214})(\num{0.64146}) = \num{0.83495} \\
+			\arccos \left( \uvec{e} \cdot \uvec{r} \right) &= \qty{0.58275}{\radian} = \ang{33.389} \qquad \ang{0} \leq \theta \leq \ang{360}
+		\end{split}
+	\end{equation*}
+	
+	The bounds for $\theta$ suggests two possible values for the true anomaly: $\ang{33.389}$ and $\ang{360} - \ang{33.389} = \ang{326.61}$. The true anomaly is the angle from periapsis to location of the satellite in orbit, meaning that $\ang{0} \leq \theta \leq \ang{180}$ is the spaceraft heading away from perigee, and $\ang{180} < \theta < \ang{360}$ is the spacecraft heading toward perigee. To determine which side of the orbit the spacecraft is, we can look at the flight path angle or just use the conic equation to solve for $\theta$.
+	
+	\begin{equation*}
+		\begin{split}
+			r &= \frac{a(1-e^2)}{1 + e \cos \theta} \\
+			\cos \theta &= \frac{a(1-e^2)}{er} - \frac{1}{e} \\
+			&= \frac{(\qty{1.3382e7}{m})(1-(0.22159)^2)}{(0.22159)(\qty{1.0738e7}{m})} - \frac{1}{(0.22159)} \\
+			\theta &= \arccos \left( 0.835 \right) = \boxed{\ang{38.384} \approx \ang{33.389}}
+		\end{split}
+	\end{equation*}
+
+	
+	
+\end{document}

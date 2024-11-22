@@ -1,0 +1,267 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/6 - F23/preamble.tex}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={PHY 313 - HW 5},
+	pdfpagemode=FullScreen,
+}
+
+
+\usepackage[shortconst]{physconst}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		\textbf { \large PHY 313 --- Satellites \& Space Science}
+		\vspace{0.4cm}
+	\end{center}
+		\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 10 Nov 2023 \\
+		\bd{Student Number:} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 5 \\
+		\hrule	
+	
+	\section*{Problem 1: }
+	A satellite is in an orbit with a semi-major axis of $\qty{6750}{\kilo\meter}$, an inclination of $\ang{35}$, and an eccentricity of $\num{0.05}$.  Calculate the J2 perturbations to the longitude of the ascending node and to the argument of perigee.
+		\paragraph{Solution} The formulas are taken from the slides. \hyperlink{https://www.desmos.com/calculator/azhgfmdir8}{https://www.desmos.com/calculator/azhgfmdir8} \\
+			
+			\begin{equation*}
+				\begin{split}
+					\dot{\Omega}_\mathrm{J_2} &= -1.5 \sqrt{\frac{GM}{a^3}} J_2 \left( \frac{R_\mathrm{E}}{a} \right)^2 \cos(i) \left( 1-e^2 \right)^{-2} = \qty{-1.3591e-6}{degrees/sec} = \qty{-0.11743}{degrees/day} \\
+					&\approx \num{-2.06474e14} \ a^{-\frac{7}{2}} \cos(i) (1 - e^2)^{-2} \approx \boxed{\qty{-6.727}{degrees/day}}
+				\end{split}
+			\end{equation*}
+			The negative sign implies that the ascending node moves opposite to the direction of flight.
+			\begin{equation*}
+				\begin{split}
+					\dot{\omega}_\mathrm{J_2} &= 0.75 \sqrt{\frac{GM}{a^3}} J_2 \left( \frac{R_\mathrm{E}}{a} \right)^2 \left( 4 - 5\sin^2(i) \right) \left( 1-e^2 \right)^{-2} = \qty{-1.8234e-6}{degrees/sec} = \qty{-0.15755}{degrees/day} \\
+					&\approx \num{1.03237e14} \ a^{-\frac{7}{2}} (4-5\sin^2(i)) (1 - e^2)^{-2} \approx \boxed{\qty{9.670}{degrees/day}}
+				\end{split}
+			\end{equation*}
+			The initial equation for both parameters fails to give the same value as the approximate one. Could be a missing parameter.
+			\[
+				[\dot{\Omega}_\mathrm{J_2}] = \frac{(\unit{m^{3/2}.kg^{-1/2}.s^{-2/2}})(\unit{kg}^{1/2})}{(\unit{m^{3/2}})} = \unit{s^{-1}} \Rightarrow \unit{degrees/sec}
+			\]
+	
+	\section*{Problem 2: }
+	Estimate the fraction of free electrons to neutral atoms/molecules on Earth at room temperature and in the magnetosphere, assuming both gases/plasmas are in equilibrium (ignore radiation).
+		\paragraph{Solution} Manipulating the Saha equation similar to how it was discussed in lecture. \\
+		
+		\[
+			\frac{n^2_\mathrm{e}}{n-n_\mathrm{e}} = \left( \frac{2\pi m_\mathrm{e} k_\mathrm{B}T}{h^2} \right)^\frac{3}{2} \frac{2g_i}{g_0} \exp\left( -\frac{E_i}{k_\mathrm{B}T} \right)
+		\]
+		Let the ratio $\dfrac{n_e}{n} = x_i$.
+		\begin{equation*}
+			\begin{split}
+				\frac{ n^2 \left( \frac{n_\mathrm{e}}{n} \right)^2}{n\left( 1 - \frac{n_\mathrm{e}}{n} \right)} &= \left( \frac{2\pi m_\mathrm{e} k_\mathrm{B}T}{h^2} \right)^\frac{3}{2} \frac{2g_i}{g_0} \exp\left( -\frac{E_i}{k_\mathrm{B}T} \right) \\
+				\frac{x^2_i}{1 - x_i} &= \frac{1}{n} \left[ \left( \frac{2\pi m_\mathrm{e} k_\mathrm{B}T}{h^2} \right)^\frac{3}{2} \frac{2g_i}{g_0} \exp\left( -\frac{E_i}{k_\mathrm{B}T} \right) \right] \\
+			\end{split}
+		\end{equation*}
+		Multiply the right side of the equation by $\dfrac{c^3}{c^3}$.
+		\[
+			\frac{x^2_i}{1 - x_i} = \frac{1}{n} \left[ \left( \frac{2\pi (m_\mathrm{e}c^2) k_\mathrm{B}T}{(hc)^2} \right)^\frac{3}{2} \frac{2g_i}{g_0} \exp\left( -\frac{E_i}{k_\mathrm{B}T} \right) \right]	
+		\]
+		The transformations simplify the expression and allows the use of $\unit{\electronvolt}$ in computation.
+		\begin{equation*}
+			\begin{split}
+				k &= \qty{8.62e-5}{\electronvolt\per\kelvin} \\
+				m_\mathrm{e}c^2 &= \qty{0.511}{\mega\electronvolt} \\
+				hc &= \qty{1.24e-6}{\electronvolt\meter} \\
+			\end{split}
+		\end{equation*}
+		
+	\clearpage
+		
+		Starting with the ratio on Earth at room temperature, $T \approx \qty{20}{\degreeCelsius} = \qty{293.15}{\kelvin}$. At a glance, this scenario will not produce a plasma because of the low temperature. To show that I will focus on the exponential term. $E_i$ is the average ionization energy of the given gas. For dry air, there is a well-known value for the average energy needed to form an electron-ion pair, $E = \qty{33.97}{\electronvolt\per ion \ pair}$. With this we can quickly show if the first guess was correct.
+		\[
+			\exp\left( -\frac{\qty{33.97}{\electronvolt}}{(\qty{86.2}{\micro\electronvolt\per\kelvin})(\qty{293.15}{\kelvin})} \right) = 0
+		\]
+		The exponential term will dominate and cause the whole expression to equal $0$. This means that there are no free electrons present in this scenario. \\
+		\par
+		%We need the number density $n$, number of atoms per unit volume.
+		%\[
+		%\frac{\rho_{water}}{\rho_{air}} \approx 1000  \Rightarrow  \rho_{air} \approx \qty{1e-3}{\gram\per\centi\meter\cubed}
+		%\]
+		%The composition of air is around $78 \%$ nitrogen and $21 \%$ oxygen. $m(N) = \qty{14.01}{\gram\per\mole}$, $m(O) = \qty{16}{\gram\per\mole}$. For simplicity, I will only consider nitrogen.
+		%\[
+		%	n = N_\mathrm{A} \cdot \text{mols} = N_\mathrm{A} \cdot \frac{\text{Mass}}{\text{Molar Mass}}
+		%\]
+		%\begin{equation*}
+		%	\begin{split}
+		%		n = \frac{(\kAvogadro)(\qty{1}{\milli\gram})}{\qty{14.01}{\gram\per\mole}} = \qty{4.2969e19}{atoms\per\centi\meter\cubed}
+		%	\end{split}
+		%\end{equation*}
+		\noindent Now for the magnetosphere, I will use the values given in the slides. $n \approx \qty{0.5}{atoms\per\centi\meter\cubed}$, $T \approx \qty{e4}{\kelvin}$. In this case, I will assume that the magnetosphere is mostly composed of hydrogen atoms. $E_i = \qty{13.6}{\electronvolt}$. Quick test with the exponential term.
+		\[
+			\exp\left( -\frac{\qty{13.6}{\electronvolt}}{(\qty{86.2}{\micro\electronvolt\per\kelvin})(\qty{e4}{\kelvin})} \right) = \num{1.4061e-7}
+		\]
+		\begin{equation*}
+			\begin{split}
+				\frac{x^2_i}{1 - x_i} &= \frac{1}{\qty{0.5e6}{atoms\per\meter\cubed}} \left[ \left( \frac{2\pi (\qty{0.511}{\mega\electronvolt})(\qty{8.62e-5}{\electronvolt\per\kelvin})(\qty{e4}{\kelvin})}{(\qty{1.24e-6}{\electronvolt\meter})^2} \right)^\frac{3}{2} \frac{2(1)}{(2)} (\num{1.4061e-7}) \right] = \num{6.7911e14} \\
+			\end{split}
+		\end{equation*}
+		Since the ratio is large, the $1$ minus will only flip the sign. The sign does not matter in ratios.
+		\[
+			\frac{x^2_i}{x_i} = x_i \approx \num{6.7911e14}
+		\]
+		Can be found quadratically.
+		\begin{equation*}
+			\begin{split}
+				x^2_i &+ \num{6.7911e14}x_i - \num{6.7911e14}  = 0 \\
+				x_i &= \frac{-(\num{6.7911e14}) \pm \sqrt{(\num{6.7911e14})^2 + (\num{2.71644e15})}}{2} \\
+				x^+_i &= 0 \qquad x^-_i = \num{-6.7911e14}
+			\end{split}
+		\end{equation*}
+		
+		
+	
+	
+	
+	\clearpage
+	
+	
+	
+	\section*{Problem 3: }
+	\begin{enumerate}
+		\item[(a)] Determine the Debye length in the solar corona with typical physical parameters.
+			\paragraph{Solution} Looking at the Debye length variables, we only need the temperature and the number density at the solar corona. Comparing values between slides and online gives, $T \approx \qty{e6}{\kelvin}$ and $n \approx \qty{e14}{atoms\per\meter\cubed}$ \\
+			\[
+				\lambda_D = \left( \frac{\epsilon_0 k_\mathrm{B}T}{ne^2} \right)^\frac{1}{2} = \left( \frac{(\qty{55.263}{e^2\per\electronvolt\micro\meter})(\qty{8.62e-5}{\electronvolt\per\kelvin})(\qty{e6}{\kelvin})}{(\qty{e14}{atoms\per\meter\cubed})e^2} \right)^\frac{1}{2} \approx \qty{6.90e-3}{\meter}
+			\]
+		
+		
+		
+		\item[(b)] Determine the electrostatic potential from a point charge of 5 nC at 0.01 m and 0.1 m in the ionosphere.		
+			\paragraph{Solution} Simple to do. \\
+			\[
+				\phi_\mathrm{C}(r) = \frac{Q}{4\pi \epsilon_0 r}
+			\]
+			\[
+				\phi_\mathrm{C}(\qty{0.01}{\meter}) = \frac{(\qty{5}{\nano\coulomb})}{4\pi (\kVacuumPermittivity) (\qty{0.01}{\meter})} = \qty{4496}{\volt}
+			\]
+			\[
+				\phi_\mathrm{C}(\qty{0.1}{\meter}) = \frac{(\qty{5}{\nano\coulomb})}{4\pi (\kVacuumPermittivity) (\qty{0.1}{\meter})} = \qty{449.6}{\volt}
+			\]
+		
+		\item[(c)] Plot the electric potential due to this point charge, with and without Debye shielding.
+			\paragraph{Solution} First we need to find the Debye length in the ionosphere with typical physical paramaters. From the slides: $T \approx \qty{500}{\kelvin}$ and $n \approx \qty{e11}{atoms\per\meter\cubed}$. \\
+			\[
+				\lambda_D = \left( \frac{\epsilon_0 k_\mathrm{B}T}{ne^2} \right)^\frac{1}{2} = \left( \frac{(\qty{55.263}{e^2\per\electronvolt\micro\meter})(\qty{8.62e-5}{\electronvolt\per\kelvin})(\qty{500}{\kelvin})}{(\qty{e11}{atoms\per\meter\cubed})e^2} \right)^\frac{1}{2} \approx \qty{4.88e-3}{\meter}
+			\]
+			The modified electric potential due to a point charge:
+			\[
+				\phi_\mathrm{C}(r) = \frac{Q}{4\pi \epsilon_0 r} \exp\left( -\frac{e}{\lambda_D} \right)
+			\]
+			I used desmos to plot the graph. \hyperlink{https://www.desmos.com/calculator/nslvejzedv}{https://www.desmos.com/calculator/nslvejzedv}
+			\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.3]{1.png}
+			\end{figure}
+		
+	\end{enumerate}
+	
+
+
+	\clearpage
+
+
+	
+	\section*{Problem 4: }
+	
+	Calculate the (typical) beta number for a plasma in the photosphere, in a solar coronal loop, in the solar wind, and in the Earth’s magnetosphere and ionosphere (look up the values that you need).
+		\paragraph{Solution} Only need to plug in the typical physical parameters for each scenario. \\
+		\[
+			\beta = \frac{P_\mathrm{pl}}{P_\mathrm{B}} = \frac{n k_\mathrm{B} T}{B^2 / 2\mu_0}
+		\]
+		Photosphere: $ T \approx \qty{5800}{\kelvin},\ n \approx \qty{e23}{atoms\per\meter\cubed},\ B \approx \qty{e-3}{\tesla} $. Complicated behavior across the surface of the sun, with differential rotation that causes magnetic field lines to intersect.
+		\[
+			\beta \approx \num{20137}
+		\]
+		Solar coronal loop: $ T \approx \qty{5e6}{\kelvin},\ n \approx \qty{e18}{atoms\per\meter\cubed},\ B \approx \qty{0.1}{\tesla} $. Charged particles flow through the loop.
+		\[
+			\beta \approx \num{1.7359e-2}
+		\]
+		Solar wind: $ T \approx \qty{5e5}{\kelvin},\ n \approx \qty{5e6}{atoms\per\meter\cubed},\ B \approx \qty{6}{\nano\tesla} $. Complicated behavior over large distances.
+		\[
+			\beta \approx \num{2.411}
+		\]
+		Magnetosphere: $ T \approx \qty{e4}{\kelvin},\ n \approx \qty{0.5e6}{atoms\per\meter\cubed},\ B \approx \qty{0.04}{\tesla} $. Charged particles follow the magnetic field lines.
+		\[
+			\beta \approx \num{1.08e-16} 
+		\]
+		Ionosphere: $ T \approx \qty{500}{\kelvin},\ n \approx \qty{e11}{atoms\per\meter\cubed},\ B \approx \qty{e-8}{\tesla} $. Complicated behavior across this section of the atmosphere. Many phenomena occur like the sporadic e-like layers.
+		\[
+			\beta \approx \num{17.4}
+		\]
+	
+	
+	
+	\clearpage
+	
+	
+	
+	\section*{Problem 5: }
+	\begin{enumerate}
+		\item[(a)] What is the gyro-frequency and the Larmor radius of an electron in a solar flare? Why does the plasma follow the magnetic field lines?.
+		\paragraph{Solution} Using the equations and understanding the conditions predicted by the $\beta$ value. For a solar flare: $ T \approx \num{e6} \sim \qty{e7}{\kelvin},\ n \approx \num{e16} \sim \qty{e20}{atoms\per\meter\cubed},\ B \approx \qty{0.1}{\tesla} $. \\
+		\[
+			\omega = \frac{q\norm{B}}{m} = \frac{(\qty{1.6e-19}{\coulomb})(\qty{0.1}{\tesla})}{(\kMassElectron)} = \boxed{\qty{1.7563e10}{\per\second}}
+		\]
+		\[
+			R_\mathrm{L} = \frac{v_\perp}{\omega}
+		\]
+		To find $v_\perp$ we use the equipartition principle. 
+		\begin{equation*}
+			\begin{split}
+				K &= K_\parallel + K_\perp = 3 \left( \frac{1}{2} k_\mathrm{B} T \right) \\
+				&= \frac{1}{2} m v^2_\parallel + \frac{1}{2} m v^2_\perp \\
+				&= 1 \left( \frac{1}{2} k_\mathrm{B} T \right) + 2 \left( \frac{1}{2} k_\mathrm{B} T \right) \\
+				\frac{1}{2} m v^2_\perp & = 2 \left( \frac{1}{2} k_\mathrm{B} T \right) \\
+				v_\perp &= \sqrt{ \frac{2 k_\mathrm{B} T}{m} } = \sqrt{ \frac{2 (\kBoltzmann)(\qty{5e6}{\kelvin})}{(\kMassElectron)} } = \qty{1.2308e7}{\meter\per\second}
+			\end{split}
+		\end{equation*}
+		\[
+			R_\mathrm{L} = \frac{\qty{1.2308e7}{\meter\per\second}}{\qty{1.7563e10}{\per\second}} = \boxed{\qty{7.0079e-4}{\meter}}
+		\]
+		In the previous problem, we found that $\beta \approx \num{1.7359e-2}$ for a solar loop/flare. For $\beta << 1$, the model predicts that the plasma magnetic pressure $P_\mathrm{B}$ dominates the plasma thermal pressure $P_\mathrm{pl}$ because the magnetic field strength is strong. This forces the plasma to follow the magnetic field lines.
+		
+		
+		\item[(b)] Taking the Earth’s magnetic field as a dipole (inverse cube dependence on radial distance), estimate the Larmor radii at a distance of $5R_\mathrm{E}$ in the equatorial plane, for protons and electrons with $\qty{1}{\kilo\electronvolt}$ energy, knowing the magnitude of $\bm{B}_\mathrm{E}$ on the equator at Earth’s surface $=\qty{3e-5}{\tesla}$.		
+		\paragraph{Solution} Similar steps to previous part. First to find the magnetic field strength at $5R_\mathrm{E}$. For temperature $T \approx \num{e5} \sim \qty{e6}{\kelvin}$ for average particle conditions around Earth. \\
+		\[
+			\text{We have } B_\mathrm{E}(a) \propto \frac{1}{r_a^3} \quad \Rightarrow \quad \frac{B_\mathrm{E}(a)}{B_\mathrm{E}(b)} = \left( \frac{r_b}{r_a} \right)^3
+		\]
+		\[
+			B(5R_\mathrm{E}) = B(R_\mathrm{E}) \left( \frac{R_\mathrm{E}}{5R_\mathrm{E}} \right)^3 = \frac{\qty{3e-5}{\tesla}}{125} = \qty{2.4e-7}{\tesla}
+		\]
+		Converting the energy to temperature.
+		\begin{equation*}
+			\begin{split}
+				K &= \frac{3}{2} k_\mathrm{B} T \\
+				T &= \frac{2K}{3k_\mathrm{B}} = \frac{2(\qty{e3}{\electronvolt})}{3(\qty{8.62e-5}{\electronvolt\per\kelvin})} = \qty{7.7340e6}{\kelvin}
+			\end{split}
+		\end{equation*}
+		\[
+			v_\perp(e) = \sqrt{ \frac{2 (\kBoltzmann)(\qty{7.7340e6}{\kelvin})}{(\kMassElectron)} } = \qty{1.5307e7}{\meter\per\second}
+		\]
+		\[
+			R_\mathrm{L}(e) = \frac{mv_\perp(e)}{q\norm{B}} = \frac{(\kMassElectron)(\qty{1.5307e7}{\meter\per\second})}{(\qty{1.60e-19}{\coulomb})(\qty{2.4e-7}{\tesla})} = \boxed{\qty{3.6314e2}{\meter}}
+		\]
+		\[
+			v_\perp(p) = \sqrt{ \frac{2 (\kBoltzmann)(\qty{7.7340e6}{\kelvin})}{(\kMassProton)} } = \qty{3.5752e5}{\meter\per\second}
+		\]
+		\[
+			R_\mathrm{L}(p) = \frac{mv_\perp(p)}{q\norm{B}} = \frac{(\kMassProton)(\qty{3.5752e5}{\meter\per\second})}{(\qty{1.60e-19}{\coulomb})(\qty{2.4e-7}{\tesla})} = \boxed{\qty{1.5548e4}{\meter}}
+		\]
+		Both particles have large larmor radii, indicating that they loosely spiral around the field lines, somewhere in the van allen radiation belt. This is largely because of the weak magnetic field strength at $5R_\mathrm{E}$.
+		
+		
+		
+	\end{enumerate}
+	
+	
+\end{document}

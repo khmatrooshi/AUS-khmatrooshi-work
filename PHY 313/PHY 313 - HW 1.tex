@@ -1,0 +1,314 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/6 - F23/preamble.tex}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={PHY 313 - HW 1},
+	pdfpagemode=FullScreen,
+}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		{\textbf { \large PHY 313 --- Satellites \& Space Science}}
+		\vspace{0.4cm}
+	\end{center}
+	{\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 13 Sep 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 1 \\
+		\hrule	
+
+	\section*{Problem 1: }
+	\boldmath
+	Knowing that the solar energy flux at Earth is $ 1.37 \; kW \, m^{-2} $, \\
+	\begin{enumerate}
+		\item[(a)] determine the average temperature on the Earth's surface;
+		\paragraph{Solution} We can use Stefan-Boltzmann's Law to find the effective temperature of the Earth's surface, in other words, the black-body temperature where the emissivity $e$ in the equation is equal to $1$. \unboldmath  		
+			\[
+				P = \sigma e A T^4 = \sigma A T_{\text{eff}}^4
+			\] \boldmath
+			Many factors contribute to the Earth's surface temperature, with the most important ones being the irradiance received from the Sun $S(r_E)$, and the irradiance radiated by the Earth itself $Q$. \unboldmath
+			\[
+				P = \sigma A_{\text{surface}} T_{\text{eff}}^4 = A_{\text{incident}} S(r_E) + A_{\text{surface}} Q
+			\]
+			\[
+				\sigma 4\pi R_E^2 T_{\text{eff}}^4 = \pi R_E^2 S(r_E) + 4\pi R_E^2 Q
+			\]
+			\[
+				T_{\text{eff}} = \left[ \frac{1}{4\sigma } \left(S(r_E) + 4Q\right) \right]^{1/4}	
+			\] \boldmath
+			The value for $Q$ is known to be around $0.06 \; kW m^{-2}$. While $S(r_E)$ is easily calculated by the following formula. \unboldmath
+			\[
+				S(r) = S_E \left( \frac{r_E}{r} \right)^2 (1 - A)
+			\]
+			\begin{equation*}
+				\begin{split}
+					S(r_E) &= ( 1.37 \cross 10^3 \; W m^{-2}) \left( \frac{1 \; AU}{1 \; AU} \right)^2 ( 1 - 0.30 ) \\
+					&= ( 1.37 \cross 10^3 \; W m^{-2}) ( 0.70 ) \\
+					S(r_E) &= 9.59 \cross 10^2 \; W m^{-2} \\
+				\end{split}
+			\end{equation*}
+			\[
+				T_{\text{eff}} = \left[ \frac{1}{4 (5.6703 \cross 10^{-8} \; Wm^{-2}K^{-4} ) } \left( (9.59 \cross 10^2 \; W m^{-2}) + 4(0.06 \cross 10^3 \; W m^{-2}) \right) \right]^{1/4}	
+			\]
+			\[
+				T_{\text{eff}} = \left[ \frac{1.20 \cross 10^3}{2.2681 \cross 10^{-7}} \right]^{1/4} \; K \approx 270 \; K
+			\]
+		\boldmath
+		\item[(b)] do the same for Mars, assuming it behaves the same as Earth in every regard.
+		\paragraph{Solution} The only difference for Mars would be the distance from the Sun $r_M$. The radius of Mars $R_M$ is not needed in this case as it cancels out when finding the $T_{\text{eff}}$, as shown above with $R_E$. The same $Q$ and albedo $A$ is used. \unboldmath
+			\[
+				T_{\text{eff}} = \left[ \frac{1}{4\sigma } \left(S(r_M) + 4Q\right) \right]^{1/4}	
+			\]
+			\begin{equation*}
+				\begin{split}
+					S(r_M) &= ( 1.37 \cross 10^3 \; W m^{-2}) \left( \frac{1 \; AU}{1.52 \; AU} \right)^2 ( 1 - 0.30 ) \\
+					S(r_M) &= 4.15 \cross 10^2 \; W m^{-2} \\
+				\end{split}
+			\end{equation*}
+			\[
+				T_{\text{eff}} = \left[ \frac{1}{4 (5.6703 \cross 10^{-8} \; Wm^{-2}K^{-4} ) } \left( (4.15 \cross 10^2 \; W m^{-2}) + 4(0.06 \cross 10^3 \; W m^{-2}) \right) \right]^{1/4}	
+			\]
+			\[
+				T_{\text{eff}} = \left[ \frac{6.55 \cross 10^2}{2.2681 \cross 10^{-7}} \right]^{1/4} \; K \approx 232 \; K
+			\]
+		
+	\end{enumerate}
+	
+	\section*{Problem 2: }
+	\boldmath
+	Derive the dependence of the acceleration of gravity on height/distance from Earth, and compare the “apparent weight” (in kg) of a $500 \; kg$ satellite and a $75 \; kg$ astronaut in space at altitudes of: \\
+	\begin{enumerate}
+		\item[(a)] $400 \; km$
+		\paragraph{Solution} First to derive the dependence of the acceleration of gravity on height/distance from Earth using Newton's Law of Universal Gravitation. \unboldmath 
+		\[
+			F_g = G \frac{m_1 m_2}{r^2}
+		\] \boldmath
+		For an object on the surface of the Earth, $m_1 = M_E$, $m_2 = m$, and $r = R_E$. \unboldmath
+		\[
+			ma = G \frac{M_Em}{R_E^2}
+		\]
+		\[
+			a = \frac{GM_E}{R_E^2} = \frac{(6.6743 \cross 10^{-11} \; Nm^2kg^{-2})(5.972 \cross 10^{24} \; kg)}{(6371 \cross 10^3 \; m)^2} = 9.82 \; ms^{-2} = g
+		\]
+		For an object a few kilometers off the surface of the Earth like a satellite or an astronaut, its as simple as adding the object's altitude in the denominator.
+		\[
+			mg = G \frac{M_Em}{(R_E + h)^2}
+		\]
+		\[
+			g(h) = G \frac{M_E}{(R_E + h)^2} = \frac{GM_E}{R_E^2} \frac{1}{(1 + \dfrac{h}{R_E})^2} = \frac{g}{(1 + \dfrac{h}{R_E})^2}
+		\]
+		Now to use the derived dependence to find the acceleration of gravity at each altitude and the apparent weight for a $500 \; kg$ satellite and a $75 \; kg$ astronaut. This assumes that they are both stationary and not in orbit around the Earth, so the only force acting on them is gravity.
+		\[
+			g(400 \; km) = \frac{9.82 \; ms^{-2}}{(1 + \dfrac{400 \cross 10^3 \; m}{6371 \cross 10^3 \; m})^2} = 8.69 \; ms^{-2}
+		\]
+		\[
+			\text{Satellite: } F = (500 \; kg)(8.69 \; ms^{-2}) = 4350 \; N
+		\]
+		\[
+			\text{Astronaut: } F = (75 \; kg)(8.69 \; ms^{-2}) = 652 \; N
+		\]
+		\boldmath
+		\item[(b)] $2000 \; km$
+		\paragraph{Solution} \unboldmath
+		\[
+			g(2000 \; km) = \frac{9.82 \; ms^{-2}}{(1 + \dfrac{2000 \cross 10^3 \; m}{6371 \cross 10^3 \; m})^2} = 5.69 \; ms^{-2}
+		\]
+		\[
+			\text{Satellite: } F = (500 \; kg)(5.69 \; ms^{-2}) = 2850 \; N
+		\]
+		\[
+			\text{Astronaut: } F = (75 \; kg)(5.69 \; ms^{-2}) = 427 \; N
+		\]
+		\boldmath
+		\item[(c)] $36000 \; km$
+		\paragraph{Solution} \unboldmath
+		\[
+			g(36000 \; km) = \frac{9.82 \; ms^{-2}}{(1 + \dfrac{36000 \cross 10^3 \; m}{6371 \cross 10^3 \; m})^2} = 0.22 \; ms^{-2}
+		\]
+		\[
+			\text{Satellite: } F = (500 \; kg)(0.22 \; ms^{-2}) = 110 \; N
+		\]
+		\[
+			\text{Astronaut: } F = (75 \; kg)(0.22 \; ms^{-2}) = 16.5 \; N
+		\]
+		
+	\end{enumerate}
+	\clearpage
+	\section*{Problem 3: }
+	\boldmath
+	Determine the escape velocities from:  \\
+	\begin{enumerate}
+		\item[(a)] the surface of the Moon;
+		\paragraph{Solution} In class we derived the escape velocity $v_{esc}$ using the work-kinetic energy theorem. One step back from this is to start from Newton's Law of Universal Gravitation $F_g$, and calculating the potential energy function $U$ integrated from the surface of a celestial body to infinity.  \unboldmath 
+		\[
+			F_g = \frac{GMm}{r^2} \quad \quad U= - \int F \; ds
+		\]
+		
+		\begin{equation*}
+			\begin{split}
+				U_g &= - \int_{R}^{\infty} \frac{GMm}{r^2} \; dr = -GMm \left[ -\frac{1}{r} \right]_{R}^{\infty} = GMm \left[ \frac{1}{\infty} - \frac{1}{R} \right] \\
+				U_g &= \frac{GMm}{R}
+			\end{split}
+		\end{equation*}
+		For an object to escape the potential energy well of a celestial body, it must do work equal to said potential energy to an infinite distance away. Work here is the required kinetic energy.
+		\[
+			W = U_g
+		\]
+		\[
+			\frac{1}{2}m v^2 = \frac{GMm}{R}
+		\]
+		\[
+			v = \sqrt{\frac{2GM}{R}}
+		\]
+		\[
+			v_{esc}(Moon) = \sqrt{\frac{2(6.6743 \cross 10^{-11} \; Nm^2kg^{-2})(7.342 \cross 10^{22} \; kg)}{(1737.4 \cross 10^3 \; m)}} = 2.375 \cross 10^3 \; m s^{-1}
+		\]
+		\boldmath
+		\item[(b)] the surface of Mars
+		\paragraph{Solution} \unboldmath
+		\[
+			v_{esc}(Mars) = \sqrt{\frac{2(6.6743 \cross 10^{-11} \; Nm^2kg^{-2})(6.4171 \cross 10^{23} \; kg)}{(3389.5 \cross 10^3 \; m)}} = 5.0271 \cross 10^3 \; m s^{-1}
+		\]
+		
+	\end{enumerate}
+	
+	\section*{Problem 4: }
+	\boldmath
+	Consider a probe/satellite in a circular low Mars orbit, $200 \; km$ above the planet’s surface. \\
+	\begin{enumerate}
+		\item[(a)] What is the orbital velocity of the satellite?
+		\paragraph{Solution} It is fairly easy to derive the formula for the orbital velocity of a satellite. \unboldmath
+		\[
+			F_g = a_c
+		\]
+		\[
+			\frac{GMm}{(R + h)^2} = \frac{mv^2}{(R + h)}
+		\]
+		\[
+			v = \sqrt{\frac{GM}{(R + h)}}
+		\]
+		\[
+			v(200 \; km) = \sqrt{\frac{(6.6743 \cross 10^{-11} \; Nm^2kg^{-2})(6.4171 \cross 10^{23} \; kg)}{((3389.5 \cross 10^3 \; m) + (200 \cross 10^3 \; m))}} = 3.45 \cross 10^3 \; m s^{-1}
+		\]
+		\boldmath
+		\item[(b)] What is the probe’s period in this low Mars orbit?
+		\paragraph{Solution} Due to the circular orbit, we can assume that $v = \frac{2\pi r}{T}$ can be applied in this case. \unboldmath
+		\[
+			v(200 \; km) = \frac{2 \pi (R + h)}{T}
+		\]
+		\[
+			T = \frac{2 \pi (3589.5 \cross 10^3 \; m)}{(3.45 \cross 10^3 \; m s^{-1})} = 6.54 \cross 10^3 \; s = 109 \; mins
+		\]
+		\clearpage
+		\boldmath
+		\item[(c)] What is the altitude (measured from the surface) of a satellite around Mars if it is to be in a synchronous orbit? 
+		\paragraph{Solution} A synchronous orbit is one where a satellite orbits in the same period and direction as the rotation of the celestial body. For a satellite to achieve a synchronous orbit around Mars, it's time period must equal to one rotational period of Mars, in other words, a Martian day. Find that and then use Kepler's Law of Periods.  \unboldmath
+		\[
+			T_{Mars} = 1477 \; mins = 8.862 \cross 10^4 \; s
+		\]
+		\[
+			T^2 = \frac{4\pi^2}{GM} a^3
+		\]
+		\[
+			a = \left[\frac{GM}{4\pi^2} T^2\right]^{1/3}
+		\]
+		\[
+			a = \left[\frac{(6.6743 \cross 10^{-11} \; Nm^2kg^{-2})(6.4171 \cross 10^{23} \; kg)}{4\pi^2} (8.862 \cross 10^4 \; s)^2\right]^{1/3} = 2.04 \cross 10^7 \; m
+		\]
+	
+		
+	\end{enumerate}
+	
+	\section*{Problem 5: }
+	\boldmath
+	Starting from gravitation/pressure balance in the atmosphere, derive the dependence of pressure and density on height and determine the scale height: \\
+	\begin{enumerate}
+		\item[(a)] assuming the temperature is constant;
+		\paragraph{Solution} One model for Earth's lower atmosphere starts from hydrostatic equilibirum between the bunched up particles near the surface and the particles attracted by gravity ontop. This create a pressure differential that pushes outwards, which translates to a net force. \unboldmath  
+		
+		\[
+			dm = \rho(h) \; dV
+		\]
+		\[
+			F_{net} \Rightarrow -dm \; g = \rho(h) \; A \; dh \; g
+		\]
+		\[
+			-dF = -dP \; A = \rho(h) \; A \; dh \; g
+		\]
+		\[
+			dP = - \rho(h) \; g \; dh
+		\]
+		Because we assume that the temperature is constant, the following formula allows us to easily find the pressure.
+		\[
+			PV = n k T =  \left( \frac{M}{\mu m_{u}} \right) \; k T
+		\]
+		\[
+			P = \left( \frac{\rho(h)}{\mu m_{u}} \right) \; k T
+		\]
+		Dividing this equation into the hydrostatic equilibrim equation.
+		\[
+			\frac{dP}{P} = -\left( \frac{g \mu m_u}{kT} \right) \; dh
+		\]
+		Integrating.
+		\[
+			\int_{P_0}^{P} \frac{dP}{P} = \int_{0}^{h} -\left( \frac{g \mu m_u}{kT} \right) \; dh
+		\]
+		\[
+			\ln(P) - \ln(P_0) = -\left( \frac{g \mu m_u}{kT} \right) \; h
+		\]
+		\[
+			\ln(\frac{P}{P_0}) = -\left( \frac{g \mu m_u}{kT} \right) h
+		\]
+		We can now define the scale height of Earth' atmosphere as $H_p = \left( \dfrac{kT}{g \mu m_u} \right)$
+		\[
+			P(h) = P_0 \; \exp(-\frac{g \mu m_u}{kT} h) = P_0 \; \exp(-\frac{h}{H_p})
+		\]
+		Pressure and density are related by Boyle's Law $P \propto \rho \Rightarrow P = \rho RT$, the following equation is valid.
+		\[
+			\rho(h) = \rho_0 \; \exp(-\frac{h}{H_p})
+		\]
+		\clearpage
+		\boldmath
+		\item[(b)] assuming the system is adiabatic.
+		\paragraph{Solution} For an adiabatic process, the pressure and temperature are related in the following way: $ T \propto P^{1 - \dfrac{1}{\gamma}} $. \unboldmath
+		\[
+			\frac{dT}{T} = \frac{\gamma - 1}{\gamma} \frac{dP}{P}
+		\]
+		\[
+			\frac{\gamma}{\gamma - 1} \frac{dT}{T} =  -\left( \frac{g \mu m_u}{kT} \right) \; dh
+		\]
+		\[
+			\int_{T_0}^{T} dT = \int_{0}^{h} -\left( \frac{g \mu m_u}{k} \right) \left( \frac{\gamma - 1}{\gamma} \right) \; dh
+		\]
+		\[
+			T - T_0 = -\left( \frac{g \mu m_u}{k} \right) \left( \frac{\gamma - 1}{\gamma} \right) \; h
+		\]
+		\[
+			T = T_0 - \left( \frac{g \mu m_u}{k} \frac{\gamma - 1}{\gamma} \right) h
+		\]
+		\[
+			T = T_0 \left[ 1 - \left( \frac{g \mu m_u}{kT_0} \frac{\gamma - 1}{\gamma} \right) h \right]
+		\]
+		Let $H_T = \dfrac{kT_0}{g \mu m_u}$
+		\[
+			T = T_0 \left[ 1 - \left( \frac{h}{H_T} \frac{\gamma - 1}{\gamma} \right)  \right]
+		\]
+		Since $P \propto T^{\dfrac{\gamma}{\gamma - 1}}$
+		\[
+			P(h) = P_0 \left[ 1 - \left( \frac{\gamma - 1}{\gamma} \frac{h}{H_T} \right)  \right]^{\dfrac{\gamma}{\gamma - 1}}
+		\]
+		\[
+			\rho(h) = \rho_0 \left[ 1 - \left( \frac{\gamma - 1}{\gamma} \frac{h}{H_T} \right)  \right]^{\dfrac{\gamma}{\gamma - 1}}
+		\]
+		The value for $\gamma$ is the ratio of specific heats of the atmosphere, which is typically taken as $1.4$. If $\gamma = 1$, we get the equation for if the temperature is constant, meaning an isothermal atmosphere. An approximation can be taken where $\gamma \rightarrow 1$, which reduces the equation to the same format as the previous part's answer.
+		
+		
+	\end{enumerate}
+	
+	
+\end{document}

@@ -1,0 +1,349 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/6 - F23/preamble.tex}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={PHY 313 - HW 3},
+	pdfpagemode=FullScreen,
+}
+
+\usepackage[shortconst]{physconst}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		{\textbf { \large PHY 313 --- Satellites \& Space Science}}
+		\vspace{0.4cm}
+	\end{center}
+	{\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 11 Oct 2023 \\
+		{ \bd{Student Number:}} \ @00090847 \hspace{\fill} \bd{Assignment:} HW 3 \\
+		\hrule	
+
+	\section*{Problem 1: }
+	A rocket with structure $\num{6.0} \, \unit{tons}$ in mass needs to take a payload of $\num{500} \, \unit{\kilogram}$ to an altitude of $\num{36000} \, \unit{\kilo\meter}$ above Earth and place it in orbit. \\
+	\begin{enumerate}
+		\item[(a)] Calculate the minimum amount of fuel needed to do this in a single-stage process if the propulsion has an $I_\mathrm{sp}$ of $\num{450} \, \unit{\second}$.
+		\paragraph{Solution} The altitude of the orbit suggests that it is a geosynchronous orbit. We need to first find the $\Delta V$ needed to reach that orbit.
+		
+		\[
+			\Delta V = C \ln \left( \frac{m_{\mathrm{i}}}{m_{\mathrm{f}}} \right) \Rightarrow m_\mathrm{i} = m_\mathrm{f} \exp \left( \frac{\Delta V}{C} \right) \qquad I_\mathrm{sp} = \frac{C}{g}
+		\]
+		
+		\[
+			\Delta \vec{V}_{\mathrm{total}} = \Delta \vec{V}_{\mathrm{orbit}} + \Delta \vec{V}_{\mathrm{gravity}} + \Delta \vec{V}_{\mathrm{tangential}}
+		\]
+		
+		\begin{equation*}
+			\begin{aligned}
+				&\Delta V_{\mathrm{orbit}} : & \frac{mv^2}{r} &= \frac{GMm}{r^2} \\
+				~ & ~ & v &= \sqrt{\frac{GM}{r}} \\
+				~ & ~ & \Delta V_{orbit} &= \sqrt{\frac{(\kGravity)(\kMassEarth)}{(\num{36000e3} \, \unit{\meter}) + (\kRadiusEarth)}} \\
+				~ & ~ & \Delta V_{orbit} &= \num{3.07e3} \, \unit{\meter\per\second} \\
+				~ \\
+				&\Delta V_{\mathrm{gravity}} : & K_\mathrm{i} + U_\mathrm{i} &= K_\mathrm{f} + U_\mathrm{f} \\
+				~ & ~ & \frac{1}{2} m v^2 - \frac{GMm}{R_\mathrm{E}} &= 0 - \frac{GMm}{R_\mathrm{E} + h} \\
+				~ & ~ & v &= \sqrt{ 2GM \left( \frac{1}{R_\mathrm{E}} - \frac{1}{R_\mathrm{E} + h} \right) } \\
+				~ & ~ & \Delta V_{\mathrm{gravity}} &= \sqrt{ 2(\kGravity)(\kMassEarth) \left( \frac{1}{\kRadiusEarth} - \frac{1}{\num{42.37e6} \, \unit{\meter}} \right) } \\
+				~ & ~ & \Delta V_{\mathrm{gravity}} &= \num{1.03e4} \, \unit{\meter\per\second} \\
+				~ \\
+				&\Delta V_{\mathrm{tangential}} : & v &= \omega r \qquad r = R_\mathrm{E} \cos (L) \\
+				~ & ~ & \Delta V_{\mathrm{tangential}} &= \omega_\mathrm{E} R_\mathrm{E} \cos (L) \\
+				~ \\
+				\noalign{\centering For geosynchronous orbits, it is optimal to launch closer to the equator. \\
+					Therefore we can assume that we launch from the equator for the minimum amount of fuel. \\
+					If launched from any other latitude, more fuel will be needed for compensation midflight \\
+					to reach the fundamental plane.}
+				~ & ~ & \Delta V_{\mathrm{tangential}} &= \left( \frac{2\pi}{\num{86400} \, \unit{\second}} \right) (\kRadiusEarth) \cos (\ang{0}) = \num{4.63e2} \, \unit{\meter\per\second} \\
+			\end{aligned}
+		\end{equation*}
+	
+		\[
+			\Delta V_{\mathrm{total}} = \num{3.07e3} \, \unit{\meter\per\second} + \num{1.03e4} \, \unit{\meter\per\second} - \num{4.63e2} \, \unit{\meter\per\second} = \num{1.29e4} \, \unit{\meter\per\second}
+		\]
+		\centering The directions are aligned for simplicity.		
+		\[
+			m_\mathrm{i} = (\num{6500} \, \unit{\kilogram}) \exp\left( \frac{\num{1.29e4} \, \unit{\meter\per\second}}{(\num{450} \, \unit{\second})(\num{9.81} \, \unit{\meter\per\second\squared})} \right) = \num{120782} \, \unit{\kilogram}
+		\]
+		\[
+			m_\mathrm{fuel} = \num{120782} \, \unit{\kilogram} - \num{6500} \, \unit{\kilogram} = \num{114282} \, \unit{\kilogram}
+		\]
+		
+		\clearpage
+		
+		\item[(b)] Now recalling that multi-staging saves fuel, calculate how much fuel will be needed if we divide the process into $2$ stages and $3$ stages, each time discarding the empty tank/compartment/stage. Assume the same $I_{sp}$ applies to all stages. \\ 
+		\begin{enumerate}
+			\item[i.] 2 stages;
+			\paragraph{Solution} We still need the same $\Delta V$ to reach the target orbit. We can assume equal proportion in fuel and structure for each stage.
+			
+			\[
+				\Delta V = \Delta V_1 + \Delta V_2
+			\]
+			
+			\[
+				\Delta V_1 = (\num{4414.5} \, \unit{\meter\per\second}) \ln \left( \frac{6000 + 500 + 114282}{6000 + 500 + 57140} \right) = \num{2.83e3} \, \unit{\meter\per\second}
+			\]
+			\[
+				\Delta V_2 = \num{1.29e4} \, \unit{\meter\per\second} - \num{2.83e3} \, \unit{\meter\per\second} = \num{1.007e4} \, \unit{\meter\per\second}
+			\]
+			\[
+				m_\mathrm{f} = (3000 + 500 + 57140) \exp \left( -\frac{\num{1.007e4} \, \unit{\meter\per\second}}{\num{4414.5} \, \unit{\meter\per\second}} \right) = \num{6196} \, \unit{\kilogram}
+			\]
+			\[
+				\text{Mass of fuel left} = 6196 - 3500 = \num{2696} \, \unit{\kilogram}
+			\]
+			\[
+				\text{Required fuel compared to single stage} = 114282 - 2696 = \num{111586} \, \unit{\kilogram}
+			\]
+			
+			%\[
+			%	\Delta V = \Delta V_1 + \Delta V_2 = \frac{\Delta V}{2} + \frac{\Delta V}{2}
+			%\]
+			%How the $\Delta V$ is split between the two stages will affect the mass of each stage. The simplest one to do is $\frac{\Delta V}{2}$, which would mean that both stages will equal each other.
+			%\[
+			%	C \ln \left( \frac{6000 + 500 + m_\mathrm{fuel}}{6000 + 500 + \alpha m_\mathrm{fuel}} \right) = C \ln \left( \frac{3000 + 500 + \alpha m_\mathrm{fuel}}{3000 + 500} \right)
+			%\]
+			%\[
+			%	\frac{6500 + m_\mathrm{fuel}}{6500 + \alpha m_\mathrm{fuel}} = \frac{3500 + \alpha m_\mathrm{fuel}}{3500}
+			%\]
+			%Note that $\alpha$ would depend on the proportion of the fuel, I assume that $\alpha = 0.5$ in accordance with equal proportionality.
+			%\[
+			%	22750000 + 3500 m_\mathrm{fuel} = (3500 + \frac{1}{2} m_\mathrm{fuel}) (6500 + \frac{1}{2} m_\mathrm{fuel})
+			%\]
+			%\[
+			%	22750000 + 3500 m_\mathrm{fuel} = \frac{1}{4} (1750 + m_\mathrm{fuel}) (3250 + m_\mathrm{fuel})
+			%\]
+			%\[
+			%	91000000 + 14000 m_\mathrm{fuel} = 56875000 + 1750 m_\mathrm{fuel} + 3250 m_\mathrm{fuel} + m^2_\mathrm{fuel}
+			%\]
+			%\[
+			%	m^2_\mathrm{fuel} - 9000 m_\mathrm{fuel} - 34125000 = 0
+			%\]
+			%\[
+			%	m_\mathrm{fuel} = \num{11874} \, \unit{\kilogram}
+			%\]
+			
+			
+			%\begin{equation*}
+			%	\begin{split}
+			%		\Delta V &= \Delta V_1 + \Delta V_2 = \num{1.29e4} \, \unit{\meter\per\second} \\
+			%		\num{1.29e4} \, \unit{\meter\per\second} &= C \ln \left( \frac{6000 + 500 + m_\mathrm{fuel}}{m_\mathrm{f_1}} \right) + C \ln \left( \frac{m_\mathrm{f_1} - 3000}{3000 + 500} \right) \\
+			%		\frac{\num{1.29e4} \, \unit{\meter\per\second}}{C} &= \ln \left( \frac{6000 + 500 + m_\mathrm{fuel}}{m_\mathrm{f_1}} \cdot \frac{m_\mathrm{f_1} - 3000}{3000 + 500} \right) \\
+			%		\exp \left( \frac{\num{1.29e4} \, \unit{\meter\per\second}}{(\num{450} \, \unit{\second})(\num{9.81} \, \unit{\meter\per\second\squared})} \right) &= \frac{(6500 + m_\mathrm{fuel})(m_\mathrm{f_1} - 3000)}{3500 m_\mathrm{f_1}} \\
+			%		18.6 &= \frac{6500m_\mathrm{f_1} - 22750000 + m_\mathrm{fuel} m_\mathrm{f_1} - 3000m_\mathrm{fuel} }{3500 m_\mathrm{f_1}} \\
+			%		120900 m_\mathrm{f_1} &= 6500m_\mathrm{f_1} - 22750000 + m_\mathrm{fuel} m_\mathrm{f_1} - 3000m_\mathrm{fuel} \\
+			%		114400 m_\mathrm{f_1} &= -22750000 + m_\mathrm{fuel} m_\mathrm{f_1} - 3000m_\mathrm{fuel} \\
+			%	\end{split}
+			%\end{equation*}
+			
+			%\[
+			%	\Delta V = \Delta V_1 + \Delta V_2 = \num{1.29e4} \, \unit{\meter\per\second}
+			%\]
+			%\begin{equation*}
+			%	\begin{split}
+			%		\num{1.29e4} \, \unit{\meter\per\second} &= C \ln \left( \frac{6000 + 500 + m_\mathrm{fuel}}{6000 + 500 + \alpha m_\mathrm{fuel}} \right) + C \ln \left( \frac{3000 + 500 + \alpha m_\mathrm{fuel}}{3000 + 500} \right) \\
+			%		\frac{\num{1.29e4} \, \unit{\meter\per\second}}{(\num{450} \, \unit{\second})(\num{9.81} \, \unit{\meter\per\second\squared})} &= \ln \left( \frac{6500 + m_\mathrm{fuel}}{6500 + \alpha m_\mathrm{fuel}} \cdot \frac{3500 + \alpha m_\mathrm{fuel}}{3500} \right) \\
+			%		\exp \left( \frac{\num{1.29e4} \, \unit{\meter\per\second}}{(\num{450} \, \unit{\second})(\num{9.81} \, \unit{\meter\per\second\squared})} \right) &= \frac{22750000 + 6500\alpha m_\mathrm{fuel} + 3500m_\mathrm{fuel} + \alpha m^2_\mathrm{fuel}}{22750000 + 3500\alpha m_\mathrm{fuel}} \\
+			%		18.6 &= \frac{22750000 + 6500\alpha m_\mathrm{fuel} + 3500m_\mathrm{fuel} + \alpha m^2_\mathrm{fuel}}{22750000 + 3500\alpha m_\mathrm{fuel}} \\
+			%		423150000 + 65100 \alpha m_\mathrm{fuel} &= 22750000 + 6500\alpha m_\mathrm{fuel} + 3500m_\mathrm{fuel} + \alpha m^2_\mathrm{fuel} \\
+			%		400400000 + 58600 \alpha m_\mathrm{fuel} &= 3500m_\mathrm{fuel} + \alpha m^2_\mathrm{fuel} \\
+			%	\end{split}
+			%\end{equation*}
+			
+			\item[ii.] 3 stages,
+			\paragraph{Solution} Similar reasoning to previous part.
+			
+			\[
+				\Delta V = \Delta V_1 + \Delta V_2 + \Delta V_3
+			\]
+			
+			\[
+				\Delta V_1 = (\num{4414.5} \, \unit{\meter\per\second}) \ln \left( \frac{6000 + 500 + 114282}{6000 + 500 + 76187} \right) = \num{1.67e3} \, \unit{\meter\per\second}
+			\]
+			\[
+				\Delta V_2 = (\num{4414.5} \, \unit{\meter\per\second}) \ln \left( \frac{4000 + 500 + 76187}{4000 + 500 + 38093} \right) = \num{2.82e3} \, \unit{\meter\per\second}
+			\]
+			\[
+				\Delta V_3 = \num{1.29e4} \, \unit{\meter\per\second} - (\num{1.67e3} \, \unit{\meter\per\second} + \num{2.82e3} \, \unit{\meter\per\second}) = \num{8.41e3} \, \unit{\meter\per\second}
+			\]
+			\[
+				m_\mathrm{f} = (2000 + 500 + 38093) \exp \left( -\frac{\num{8.41e3} \, \unit{\meter\per\second}}{\num{4414.5} \, \unit{\meter\per\second}} \right) = \num{6041} \, \unit{\kilogram}
+			\]
+			\[
+				\text{Mass of fuel left} = 6041 - 2500 = \num{3541} \, \unit{\kilogram}
+			\]
+			\[
+				\text{Required fuel compared to single stage} = 114282 - 3541 = \num{110741} \, \unit{\kilogram}
+			\] 
+			
+		\clearpage
+		
+ 		\end{enumerate}
+ 		\item[(c)] Calculate how much energy (in Joules and in equivalent gasoline liters) will be needed in each case ($1$ stage, $2$ stages, $3$ stages). \\
+
+		\paragraph{Solution} Conservation of Energy will work with all cases. We can find the energy needed to reach the target altitude, and the energy to place the satellite into orbit. Starting with one stage.
+		\[
+			E_\mathrm{total} = K_\mathrm{altitude} + K_\mathrm{orbit} 
+		\]
+		\[
+			\text{Energy density of gasoline } = \num{34.2e6} \, \unit{\joule\per\liter}
+		\] \\
+		\begin{equation*}
+			\begin{split}
+				K_\mathrm{altitude} - \frac{GMm}{R_\mathrm{E}} &= 0 - \frac{GMm}{R_\mathrm{E} + h} \\
+				K_\mathrm{altitude} &= GMm \left(\frac{1}{R_\mathrm{E}} - \frac{1}{R_\mathrm{E} + h}\right) \\
+				&= (GM)(\num{120780} \, \unit{\kilogram})\left(\frac{1}{\kRadiusEarth} - \frac{1}{\kRadiusEarth + \num{36000e3} \, \unit{\meter}}\right) \\
+				&= \num{6.42e12} \, \unit{\joule}
+			\end{split}
+		\end{equation*}
+		This assumes that the mass is constant, but this is not true as the propellant is used up to the target altitude. Comparing with a rocket that only has the structure and payload.
+		\begin{equation*}
+			\begin{split}
+				K_\mathrm{altitude} &= (GM)(\num{6500} \, \unit{\kilogram})\left(\frac{1}{\kRadiusEarth} - \frac{1}{\kRadiusEarth + \num{36000e3} \, \unit{\meter}}\right) \\
+				&= \num{3.45e11} \, \unit{\joule}
+			\end{split}
+		\end{equation*}
+		There is an order of magnitude of difference, which is practically significant.
+		Now when the satellite reaches the target altitude, it needs energy to enter the orbit. It would still need some of the fuel, but the proportion of that is dependent on the mission itself. Lets assume we still have all the fuel.
+		\begin{equation*}
+			\begin{split}
+				v &= \sqrt{\frac{GM}{R_\mathrm{E} + h}} \\
+				K_\mathrm{orbit} = \frac{1}{2}m v^2 &= \frac{GMm}{2(R_\mathrm{E} + h)} = \frac{GM(\num{120780} \, \unit{\kilogram})}{2(\kRadiusEarth + \num{36000e3} \, \unit{\meter})} \\
+				&= \num{5.68e11} \, \unit{\joule}
+			\end{split}
+		\end{equation*}
+		Comparing with rocket that only has the structure and payload.
+		\begin{equation*}
+			\begin{split}
+				K_\mathrm{orbit} &= \frac{GM(\num{6500} \, \unit{\kilogram})}{2(\kRadiusEarth + \num{36000e3} \, \unit{\meter})} \\
+				&= \num{3.05e10} \, \unit{\joule}
+			\end{split}
+		\end{equation*}
+		Also an order of magnitude of difference.
+		\[
+			\text{Dry rocket: } E_\mathrm{total} = \num{3.45e11} \, \unit{\joule} + \num{3.05e10} \, \unit{\joule} = \num{3.76e11} \, \unit{\joule} = \num{1.10e4} \, \unit{\text{Gasoline liters}}
+		\]
+		\[
+			\text{1 stage rocket: } E_\mathrm{total} = \num{6.42e12} \, \unit{\joule} + \num{5.68e11} \, \unit{\joule} = \num{6.99e12} \, \unit{\joule} = \num{2.04e5} \, \unit{\text{Gasoline liters}}
+		\]
+		For further stages, I found that the initial mass of the rocket is lower, but it would have no practical effect because of the small difference. The only significant difference is that mass would be expended at each stage at a certain altitude, so the energy from reaching the altitude is split into stages with different masses and distances similar to the rocket equation. This would eventually lead to a smaller $K_\mathrm{altitude}$. I can safely say that for further stages the following inequality applies.
+		\[
+			\num{3.76e11} \, \unit{\joule} \leq E_\mathrm{total} \leq \num{6.99e12} \, \unit{\joule}
+		\]
+		\[
+			\num{1.10e4} \, \unit{\text{Gasoline liters}} \leq E_\mathrm{total} \leq \num{2.04e5} \, \unit{\text{Gasoline liters}}
+		\]
+ 			
+ 
+ 		
+ 		
+ 			
+		
+	\end{enumerate}
+	
+	\clearpage
+	
+	\section*{Problem 2: }
+	Consider a satellite orbiting at $\num{500} \, \unit{\kilo\meter}$, carrying solar arrays of $20 \%$ efficiency, which decrease by $2.5 \%$ each year, and non-rechargeable batteries to operate during eclipses only. The satellite needs a continuous supply of $\num{1.25} \, \unit{\kilo\watt}$ of power. \\
+	\begin{enumerate}
+		\item[(a)] Determine the energy needed from the batteries. \\
+		\paragraph{Solution} To get the total energy needed from the batteries during the eclipse, we need to find how long the satellite is eclipsed by the Earth.
+		
+		\[
+			\theta = \arcsin(\frac{R_\mathrm{E}}{R_\mathrm{E} + h}) = \arcsin(\frac{\kRadiusEarth}{(\kRadiusEarth) + (\num{500e3} \, \unit{\meter})}) = \ang{68}
+		\]
+		\[
+			\text{Time spent eclipsed} = \frac{2\theta}{\ang{360}} \cdot T_\mathrm{orbit}
+		\]
+		\[
+			T_\mathrm{orbit} = \sqrt{ \frac{4\pi^2}{GM} a^3 } = \sqrt{\frac{4\pi^2}{GM} (\num{6871e3} \, \unit{\meter})^3} = \num{5670} \, \unit{\second}
+		\]
+		\[
+			\text{Time spent eclipsed} = \frac{2(\ang{68})}{\ang{360}} \cdot (\num{5670} \, \unit{\second}) = \num{2142} \, \unit{\second}
+		\]
+		\[
+			\text{Energy needed during eclipse } = P \cdot t = (\num{1.25} \, \unit{\kilo\watt})(\num{2142} \, \unit{\second}) = \num{2.68e6} \, \unit{\joule}
+		\] \\
+		
+		\item[(b)] Determine the total area needed for the solar arrays, if they make (on average) an angle of $\ang{30}$ with the sun. \\
+		\paragraph{Solution} Simple equation.
+		\[
+			P = S_\mathrm{E} \cdot A \cdot e \cdot \cos \theta
+		\]
+		\[
+			A = \frac{P}{S_\mathrm{E} \cdot e \cdot \cos \theta} = \frac{\num{1.25} \, \unit{\kilo\watt}}{(\num{1.37} \, \unit{\kilo\watt\per\meter\squared})(0.2)(\cos \ang{30})} = \num{5.27} \, \unit{\meter\squared}
+		\]
+		
+		\item[(c)] How long will the solar arrays last? \\
+		\paragraph{Solution} Arithmetic series.
+		
+		\[
+			0.2 - 0.025n = 0
+		\]
+		\[
+			n = \num{8} \, \unit{\y}
+		\]
+		As the solar array degrades, a larger area would be needed to maintain the continuous supply power. Therefore it is beneficial to choose a solar array area that would last the whole lifetime.
+		\[
+			A(7) = \frac{\num{1.25} \, \unit{\kilo\watt}}{(\num{1.37} \, \unit{\kilo\watt\per\meter\squared})(0.2 - 0.025(7))(\cos \ang{30})} = \num{42.1} \, \unit{\meter\squared}
+		\]
+		\[
+			A(7.5) = \num{84.3} \, \unit{\meter\squared} \qquad A(7.9) = \num{421} \, \unit{\meter\squared}
+		\]
+		
+		
+		
+	\end{enumerate}
+	
+	\clearpage
+	
+	\section*{Problem 3: }
+	A remote-sensing satellite orbiting at $\num{250} \, \unit{\kilo\meter}$ above Earth’s surface is tasked with imaging a forest fire with an area of $\unit{40000} \, \unit{\meter\squared}$. The temperature of that fire is $\approx \num{800} \, \unit{^\circ C}$. \\
+	\begin{enumerate}
+		\item[(a)] Determine the most appropriate wavelength of imaging. \\
+		\paragraph{Solution} Wien's Law.
+		
+		\[
+			\lambda_\mathrm{peak} T = \num{2.898e-3} \, \unit{\meter\kelvin}
+		\]
+		\[
+			\lambda_\mathrm{peak} = \frac{\num{2.898e-3} \, \unit{\meter\kelvin}}{800 + 273.15} = \num{2.7e-6} \, \unit{\meter}
+		\]
+		
+		
+		
+		\item[(b)] If the detector is a PbSe CCD of $\num{1024} \cross \num{1024}$ pixels and has a radius of $\num{1} \, \unit{\centi\meter}$, determine: the minimal linear resolution; the swath width; the focal length; the field of view; and the minimum sensor aperture to achieve the required resolution. \\
+		\paragraph{Solution} Assume that the fire covers a square area for simplicity. Therefore the minimal linear resolution would be $\num{200} \, \unit{\meter}$, meaning that at least one pixel can resolve the square area. Also, small angle approximations apply here.
+		
+		The swath width is the total width of the area imaged on the ground, so with $\num{1024}$ pixels.
+		\[
+			\text{Swath width} = \num{1024} \cdot \num{200} \, \unit{\meter} = \num{204.8} \, \unit{\kilo\meter}
+		\]
+		\[
+			\text{Angular Resolution: } \tan \theta \approx \theta = \frac{\text{Res}/2}{h} = \frac{(\num{200} \, \unit{\meter})/2}{\num{250e3} \, \unit{\meter}} = \num{4e-4} \, \unit{\radian}
+		\]
+		\[
+			\text{Field of View} = 2\theta = 2(\num{4e-4} \, \unit{\radian}) = \num{8e-4} \, \unit{\radian}
+		\]
+		\begin{equation*}
+			\begin{split}
+				\text{Focal length: } FOV &= 2\arctan \left( \frac{r_d}{fl} \right) = 2\theta \\
+				fl &= \frac{r_d}{\tan \theta} = \frac{\num{1e-2} \, \unit{\meter}}{\tan (\num{4e-4} \, \unit{\radian}) } = \num{25} \, \unit{\meter} \\
+			\end{split}
+		\end{equation*}
+		\[
+			\text{Sensor Aperture, D} = \frac{1.22 \lambda}{\theta} = \frac{1.22(\num{2.7e-6} \, \unit{\meter})}{\num{4e-4} \, \unit{\radian}} = \num{8.235e-3} \, \unit{\meter}
+		\]
+		
+		
+		
+	\end{enumerate}
+	
+	
+	
+	
+\end{document}
