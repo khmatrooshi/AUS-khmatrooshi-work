@@ -1,0 +1,361 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+%\usepackage{newtx}
+\usepackage{microtype}
+\usepackage{physconst}
+%\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\hypersetup{
+	pdftitle={PHY 350 - Assignment 4},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\setlist[enumerate]{itemsep=12pt, topsep=12pt, partopsep=0pt}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		\textbf { \Large PHY 350 --- Quantum Mechanics}
+		\vspace{0.4cm}
+	\end{center}
+		\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 24 May 2024 \\
+		\bd{Student Number:} \ @00090847 \hspace{\fill} \bd{Assignment:} 4 \\
+		\hrule	
+	
+	\section{Problem 1: Exercise 6.2}
+	
+	A particle of mass $m$ moves in the $xy$ plane in the potential
+	\begin{equation}
+		V(x,y) = \begin{cases}
+			\frac{1}{2} m\omega^2 x^2,  &  \text{for all } $y$ \text{ and } 0 < x < a \\
+			+\infty,  &  \text{elsewhere}
+		\end{cases}
+	\end{equation}
+	\begin{enumerate}
+		\item[(a)] Write down the time-independent Schrödinger equation for this particle and reduce it to a set of familiar one-dimensional equations.
+		\paragraph{Solution} The particle is in an infinite square well potential bounded in the $x$-direction from $0$ to $a$, and unbounded in the $y$-direction. The particle also experiences a harmonic oscillator potential $\frac{1}{2} m\omega^2 x^2$ in this region. To reduce it to a set of familiar one-dimensional equations, we have to first assume a separable solution, $\psi(x,y) = X(x)Y(y)$.
+		\begin{align}
+			-\frac{\hbar^2}{2m} \left( \frac{\partial^2 }{\partial x^2} + \frac{\partial^2 }{\partial y^2} \right) \psi(x,y) + V(x,y)\psi(x,y) &= E\psi(x,y), \\
+			-\frac{\hbar^2}{2m} \left( Y\frac{\partial^2 }{\partial x^2} X + X\frac{\partial^2 }{\partial y^2} Y \right) + \left( \frac{1}{2} m\omega^2 x^2 \right)XY &= EXY, \\
+			-\frac{\hbar^2}{2m} \left( \frac{1}{X}\frac{\partial^2 }{\partial x^2} X + \frac{1}{Y}\frac{\partial^2 }{\partial y^2} Y \right) + \left( \frac{1}{2} m\omega^2 x^2 \right) &= E, \\
+			\left[ -\frac{\hbar^2}{2m}\frac{1}{X}\frac{\partial^2 }{\partial x^2} X + \frac{1}{2} m\omega^2 x^2 \right] + \left[ -\frac{\hbar^2}{2m}\frac{1}{Y}\frac{\partial^2 }{\partial y^2} Y \right] &= E.
+		\end{align}
+		We now have a separation constant, $E = E_x + E_y$.
+		\begin{align}
+			\Aboxed{-\frac{\hbar^2}{2m}\frac{d^2}{d x^2} X + \frac{1}{2} m\omega^2 x^2 X &= E_xX}, \\
+			\mathcal{H}_x X &= E_xX,
+		\end{align}
+		where $\mathcal{H}_x = -\dfrac{\hbar^2}{2m}\dfrac{d^2}{d x^2} + \dfrac{1}{2} m\omega^2 x^2$.
+		\begin{align}
+			\Aboxed{-\frac{\hbar^2}{2m}\frac{d^2}{d y^2} Y &= E_yY}, \\
+			\mathcal{H}_y Y &= E_yY,
+		\end{align}
+		where $\mathcal{H}_y = -\dfrac{\hbar^2}{2m}\dfrac{d^2}{d y^2}$.
+				
+\clearpage
+				
+		\item[(b)] Find the normalized eigenfunctions and eigenenergies.
+		\paragraph{Solution} The eigenfunctions $X$ and $Y$ correspond to the one dimensional harmonic oscillator and the free particle wave functions, respectively. Similarly, with the eigenenergies $E_x$ and $E_y$. $X$ is bounded in the $x$-direction, so we have to find the normalization constant in this case. Rearranging the full equation.
+        \begin{align}
+            \frac{d^2 X}{dx^2} + \left[ \frac{2mE}{\hbar^2} - \left( \frac{m\omega}{\hbar} \right)^2 x^2 \right]X = 0
+        \end{align}
+        A helpful substitution is $\alpha = \sqrt{m\omega/\hbar} \ x$.
+        \begin{align}
+            \frac{d}{dx} &= \frac{d\alpha}{dx} \frac{d}{d\alpha} = \sqrt{\frac{m\omega}{\hbar}} \frac{d}{d\alpha} \\
+             \frac{dX}{dx} &= \sqrt{\frac{m\omega}{\hbar}} \frac{dX}{d\alpha} \\
+             \frac{d}{dx} \left( \frac{dX}{dx} \right) &= \sqrt{\frac{m\omega}{\hbar}} \frac{d}{dx} \left( \frac{dX}{d\alpha} \right) = \frac{m\omega}{\hbar} \frac{d^2X}{d\alpha^2}
+        \end{align}
+        \begin{align}
+            \frac{m\omega}{\hbar} \frac{d^2X}{d\alpha^2} + \left[ \frac{2mE_x}{\hbar^2} - \frac{m\omega}{\hbar} \alpha^2 \right]X &= 0 \\
+            \frac{d^2X}{d\alpha^2} + \left[ \frac{2E_x}{\hbar\omega} - \alpha^2 \right]X &= 0
+        \end{align}
+        We attempt a Gaussian type solution of the form: $X(\alpha) = f(\alpha) e^{-\alpha^2/2}$.
+        \begin{align}
+            \frac{dX}{d\alpha} &= -\alpha e^{-\alpha^2/2} f(\alpha) + e^{-\alpha^2/2} f^\prime(\alpha) \\
+                               &= (f^\prime - \alpha f) e^{-\alpha^2/2} \\
+            \frac{d^2X}{d\alpha^2} &= (f^{\prime\prime} - f - \alpha f^\prime) e^{-\alpha^2/2} + (f^\prime - \alpha f) (-\alpha e^{-\alpha^2/2}) \\
+            &= \left[ f^{\prime\prime} -2\alpha f^\prime + (\alpha^2 - 1)f \right] e^{-\alpha^2/2}
+        \end{align}
+        \begin{equation}
+            \left[ f^{\prime\prime} -2\alpha f^\prime + (\alpha^2 - 1)f \right] e^{-\alpha^2/2} + \frac{2E_x}{\hbar\omega} f e^{-\alpha^2/2} - \alpha^2 f e^{-\alpha^2/2} = 0 
+        \end{equation}
+        \begin{equation}
+            f^{\prime\prime} -2\alpha f^\prime + \left( \frac{2E_x}{\hbar\omega} - 1 \right)f = 0
+        \end{equation}
+        This is Hermite's differential equation, $y^{\prime\prime} -2xy^\prime + 2\lambda y = 0$, where $\lambda$ is typically a non-negative integer. Now we can find the eigenenergies.
+        \begin{align}
+            \frac{2E_x}{\hbar\omega} - 1 &= 2n_x \\
+            \Aboxed{E_x &= \hbar\omega \left( n_x + \frac{1}{2} \right)}
+        \end{align}
+        For the eigenfunction, since we have found the system to follow Hermite's differential equation, $f(\alpha)$ takes the form $H_n(\alpha)$, with it already being quantized.
+        \begin{align}
+            X_n(\alpha) = e^{-\alpha^2/2} f_n(\alpha) = e^{-\alpha^2/2} H_n(\alpha)
+            \intertext{Tracing back to $\alpha = \sqrt{m\omega/\hbar} \ x$, let $x_0 = \sqrt{\hbar/m\omega}$, so $\alpha = x/x_0$.} 
+            X_n(x) = e^{-x^2/2x_0^2} H_n(x/x_0)
+        \end{align}
+        We have to normalize the wave function within the bounds, so introduce an overall multiplicative constant $N$ associated with $X_n(x)$.
+        \begin{align}
+            1 &= \int_{0}^{a} \abs{N}^2 \left[ e^{-x^2/2x_0^2} \right]^2 \left[ H_n(x/x_0) \right]^2 \ dx, \qquad \begin{cases}
+                u &= x/x_0   \\
+                du  &=  dx/x_0
+            \end{cases} \\
+            1 &= \abs{N}^2 x_0 \int_{0}^{a/x_0}   e^{-u^2} \left[ H_n(u) \right]^2 \ du
+        \end{align}
+        The orthonormality condition of Hermite polynomials over $(-\infty,\infty)$ does not directly translate to normalization over finite intervals, so numerical methods must be used. Let's examine the ground state $X_0(x)$.
+        \begin{align}
+            X_0(x) &= Ne^{-x^2/2x_0^2} H_0(x/x_0) = Ne^{-x^2/2x_0^2} \\
+            \abs{X_0(x)}^2 &= \int_{0}^{a} \abs{N}^2 e^{-x^2/x_0^2} \ dx = 1, \qquad \begin{cases}
+                u &= x/x_0   \\
+                du  &=  dx/x_0
+            \end{cases} \\
+            1 &= \abs{N}^2 x_0 \int_{0}^{a/x_0} e^{-u^2} \ du
+        \end{align}
+        This integral is the error function $\erf(z) = \frac{2}{\sqrt{\pi}} \int_{0}^{z} e^{-t^2} \ dt$.
+        \begin{align}
+            1 &= \abs{N}^2 x_0 \frac{\sqrt{\pi}}{2} \erf(a/x_0) \\
+            N &= \sqrt{\frac{2}{\sqrt{\pi} x_0 \erf(a/x_0)}} \\
+            X_0(x) &= \sqrt{\frac{2}{\sqrt{\pi} x_0 \erf(a/x_0)}} e^{-x^2/2x_0^2}
+        \end{align}
+        This normalization constant is specific to the ground state wave function. To find the wave function of any excited state we apply the creation operator $a^\dagger$ on the ground state $n$ times.
+        \begin{align}
+            X_n(x) &= \braket{x}{n} = \frac{1}{\sqrt{n!}} \bra{x}\left( a^\dagger \right)^n\ket{0} = \frac{1}{\sqrt{n!}} \left( \frac{1}{\sqrt{2} x_0} \right)^n \left( x - x_0^2 \frac{d}{dx} \right)^n X_0(x) \\
+            X_n(x) &= \frac{1}{\sqrt{n!}} \left( \frac{1}{\sqrt{2} x_0} \right)^n \left( x - x_0^2 \frac{d}{dx} \right)^n \sqrt{\frac{2}{\sqrt{\pi} x_0 \erf(a/x_0)}} e^{-x^2/2x_0^2} \\
+            &= \sqrt{\frac{2}{\sqrt{\pi} 2^n n! \erf(a/x_0)}} \frac{1}{x^{n+1/2}_0} \left( x - x_0^2 \frac{d}{dx} \right)^n e^{-x^2/2x_0^2} \\
+            \Aboxed{X_n(x) &= \sqrt{\frac{2}{\sqrt{\pi} 2^n n!x_0 \erf(a/x_0)}} e^{-x^2/2x_0^2} H_n\left( \frac{x}{x_0} \right)}
+        \end{align}
+        Now for $Y$ and $E_y$, a free particle as it is unbounded in the $y$-direction.
+        \begin{align}
+            \frac{d^2Y}{d y^2} + \frac{2mE}{\hbar^2}Y &= 0 \\
+            \frac{d^2Y}{d y^2} + k^2Y &= 0
+        \end{align}
+        \begin{align}
+            Y(y) &= Ae^{iky} + Be^{-iky} \\
+             \Aboxed{E_y &= \frac{\hbar^2 k^2}{2m}}
+        \end{align}
+        To normalize the free particle we consider a single plane wave, instead of a superposition, for simplicity. This forces the momentum to travel in one direction. In this case, we use delta function normalization.
+        \begin{align}
+            \int_{-\infty}^{\infty} Y(y) Y^\star(y^\prime) \ dy &= \delta(y-y^\prime) \\
+            \int_{-\infty}^{\infty} Ae^{iky} A^\star e^{-iky^\prime} \ dy &= \delta(y-y^\prime) \\
+            \abs{A}^2 \int_{-\infty}^{\infty} e^{ik(y-y^\prime)} \ dy &= \delta(y-y^\prime) \\
+            \intertext{Using the Fourier transform of $\delta(x)$ in Appendix A.}
+            \abs{A}^2 \left[ 2\pi \delta(y-y^\prime) \right] &= \delta(y-y^\prime) \\
+            A &= \frac{1}{\sqrt{2\pi}}
+        \end{align}
+        \begin{equation}
+            \boxed{Y(y) = \frac{1}{\sqrt{2\pi}}e^{iky}}
+        \end{equation}
+        
+	\end{enumerate}
+	
+\clearpage
+
+	\section{Problem 2: Exercise 6.8}
+	
+	Consider a muonic atom which consists of a nucleus that has $Z$ protons (no neutrons) and a negative muon moving around it; the muon's charge is $-e$ and its mass is $207$ times the mass of the electron, $m_{\mu^-} = 207m_e$. For a muonic atom with $Z=6$, calculate
+	\begin{enumerate}
+		\item[(a)] the radius of the first Bohr orbit,
+		\paragraph{Solution} Starting with a Hydrogen atom, we can easily derive the radius of the Bohr orbits with two assumptions: the electron orbits the nucles, the angular momentum of the electron is quantized.
+        
+        \begin{minipage}{0.45\textwidth}
+            \begin{align}
+                m_e \frac{v^2}{r} &= \frac{1}{4\pi\epsilon_0} \frac{e^2}{r^2} \\
+                                r &= \frac{1}{4\pi\epsilon_0} \frac{e^2}{m_e} \frac{m_e^2 r^2}{n^2 \hbar^2} \\
+                              r_n &= \left( \frac{4\pi\epsilon_0 \hbar^2}{m_e e^2} \right) n^2 = a_0 n^2 \\
+                              a_0 &= \frac{4\pi\epsilon_0 \hbar^2}{m_e e^2} \approx \qty{0.52918}{\AA}
+            \end{align}
+        \end{minipage}
+        \begin{minipage}{0.45\textwidth}
+            \begin{align}
+                L = m_e vr &= n\hbar \\
+                 m_e v_n^2 &= \frac{n^2 \hbar^2}{m_e r_n^2} \\
+                 m_e v_n^2 &= \frac{n^2 \hbar^2}{m_e} \left(  \frac{m_e e^2}{4\pi\epsilon_0 \hbar^2} \right)^2 \frac{1}{n^4} \\
+                 m_e v_n^2 &= \frac{m_e}{\hbar^2} \left(  \frac{e^2}{4\pi\epsilon_0} \right)^2 \frac{1}{n^2}
+            \end{align}
+        \end{minipage}
+        
+        \begin{align}
+            E &= K + U \\
+              &= \frac{1}{2} m_e v_n^2 - \frac{1}{4\pi \epsilon_0} \frac{e^2}{r_n} \\
+              &= \frac{1}{2} \frac{m_e}{\hbar^2} \left(  \frac{e^2}{4\pi\epsilon_0} \right)^2 \frac{1}{n^2} - \frac{1}{4\pi \epsilon_0} e^2 \left( \frac{m_e e^2}{4\pi\epsilon_0 \hbar^2} \right) \frac{1}{n^2} \\
+              &= \frac{1}{2} \frac{m_e}{\hbar^2} \left(  \frac{e^2}{4\pi\epsilon_0} \right)^2 \frac{1}{n^2} - \frac{m_e}{\hbar^2} \left(  \frac{e^2}{4\pi\epsilon_0} \right)^2 \frac{1}{n^2} \\
+          E_n &= - \frac{m_e}{2\hbar^2} \left(  \frac{e^2}{4\pi\epsilon_0} \right)^2 \frac{1}{n^2} = -\frac{\mathcal{R}}{n^2} \approx -\frac{\qty{13.606}{\electronvolt}}{n^2}
+        \end{align}
+        where $\mathcal{R}$ is the Rydberg constant:
+        \begin{equation}
+            \mathcal{R} = \frac{m_e}{2\hbar^2} \left(  \frac{e^2}{4\pi\epsilon_0} \right)^2 \approx \qty{13.606}{\electronvolt}
+        \end{equation}
+        For a hydrogen-like atom, we introduce two assumptions: include the mass of the protons $M$ with the reduced mass $\mu$, replace $e^2$ by $Ze^2$ where $Z$ is the number of protons.
+        \begin{align}
+            \mu = \frac{M m_e}{M + m_e} = \frac{m_e}{1 + m_e/M}
+        \end{align}
+        \begin{align}
+            r_n = \left( \frac{4\pi\epsilon_0 \hbar^2}{\mu Ze^2} \right) n^2 = \left( 1 + m_e/M \right) \frac{a_0}{Z}n^2
+        \end{align}
+        \begin{align}
+            E_n = - \frac{\mu}{2\hbar^2} \left(  \frac{Ze^2}{4\pi\epsilon_0} \right)^2 \frac{1}{n^2} = - \frac{Z^2}{1 + m_e/M} \frac{\mathcal{R}}{n^2}
+        \end{align}
+        In this case, we have $Z=6$ and a muon instead of an electron where $m_{\mu^-} = 207m_e$. Therefore the reduced mass $\mu$ becomes
+        \begin{equation}
+            \mu = 1 + \frac{207 m_e}{6 m_p} = 1 + \frac{207 \times \qty{9.1094e-31}{\kilogram}}{6 \times \qty{1.6726e-27}{\kilogram}} = \num{1.0188}.
+        \end{equation}
+        This is not a negligible ratio so we have to keep it in the calculation.
+        \begin{align}
+            r_1 = \num{1.0188} \times \frac{\qty{0.52918}{\AA}}{6} = \boxed{\qty{0.089855}{\AA}}
+        \end{align}
+        
+\clearpage
+        
+		\item[(b)] the energy of the ground, first, and second excited states, and
+		\paragraph{Solution}
+        \begin{align}
+            E_1 &= - \frac{6^2}{\num{1.0188}} \times \frac{\qty{13.606}{\electronvolt}}{1^2} = \boxed{\qty{-480.78}{\electronvolt}} \\
+            E_2 &= - \frac{6^2}{\num{1.0188}} \times \frac{\qty{13.606}{\electronvolt}}{2^2} = \boxed{\qty{-120.19}{\electronvolt}} \\
+            E_3 &= - \frac{6^2}{\num{1.0188}} \times \frac{\qty{13.606}{\electronvolt}}{3^2} = \boxed{\qty{-53.420}{\electronvolt}} \\
+        \end{align}
+		
+		\item[(c)] the frequency associated with the transitions $n_i = 2 \to n_f = 1$, $n_i = 3 \to n_f = 1$, and $n_i = 3 \to n_f = 2$.
+		\paragraph{Solution} $hf = \Delta E = E_f - E_i$.
+        \begin{align}
+            f_{2\to1} &= \frac{E_2 - E_1}{h} = \frac{\qty{-120.19}{\electronvolt} - (\qty{-480.78}{\electronvolt})}{\qty{4.1357e-15}{\electronvolt\per\hertz}} = \boxed{\qty{87.190e15}{\hertz}} \\
+            f_{3\to1} &= \frac{E_3 - E_1}{h} = \frac{\qty{-53.420}{\electronvolt} - (\qty{-480.78}{\electronvolt})}{\qty{4.1357e-15}{\electronvolt\per\hertz}} = \boxed{\qty{103.33e15}{\hertz}} \\
+            f_{3\to2} &= \frac{E_3 - E_2}{h} = \frac{\qty{-53.420}{\electronvolt} - (\qty{-120.19}{\electronvolt})}{\qty{4.1357e-15}{\electronvolt\per\hertz}} = \boxed{\qty{16.145e15}{\hertz}}
+        \end{align}
+		
+	\end{enumerate}
+	
+\clearpage
+	
+	\section{Problem 3: Exercise 6.13}
+	
+	The wave function of an electron in a hydrogen atom is given by
+	\begin{equation}
+		\psi_{2,1,m_l,m_s}(r,\theta,\varphi) = R_{2,1} \left[ \frac{1}{\sqrt{3}} Y_{1,0}(\theta,\varphi) \ket{\frac{1}{2}, \frac{1}{2}} + \sqrt{\frac{2}{3}} Y_{1,1}(\theta,\varphi) \ket{\frac{1}{2}, -\frac{1}{2}} \right],
+	\end{equation}
+	where $\ket{\frac{1}{2} , \pm\frac{1}{2}}$ are the spin state vectors.
+	\begin{enumerate}
+		\item[(a)] Is this wave function an eigenfunction of $\hat{J}_z$ the $z$-component of the electron’s total angular momentum? If yes, find the eigenvalue. (\textit{Hint}: For this, you need to calculate $\hat{J}_z \psi_{2,1,m_l,m_s}$) 
+		\paragraph{Solution} The total angular momentum $\hat{J}$ is the sum of the orbital angular momentum $\hat{L}$ and the spin angular momentum $\hat{S}$, so $\hat{J} = \hat{L} + \hat{S}$. Therefore the $z$-component, $\hat{J}_z = \hat{L}_z + \hat{S}_z$. For ease of computation, Let $\alpha$ and $\beta$ correspond to the two terms inside the square bracket, where $\ket{2,1,m_l,m_s} = R_{2,1} \left[ \alpha + \beta \right]$
+		%\begin{align}
+		%	\hat{J}_z\ket{2,1,m_l,m_s} &= \hat{L}_z\ket{2,1,m_l,m_s} + \hat{S}_z\ket{2,1,m_l,m_s} \\
+		%	&= m_l \hbar\ket{2,1,m_l,m_s} + m_s \hbar\ket{2,1,m_l,m_s}
+		%\end{align}
+		%\begin{align}
+		%	\hat{L}_z\ket{2,1,m_l,m_s} &= R_{2,1} \left[ \frac{1}{\sqrt{3}} (0 \times \hbar) Y_{1,0} \ket{\frac{1}{2}, \frac{1}{2}} + \sqrt{\frac{2}{3}} (1 \times \hbar) Y_{1,1} \ket{\frac{1}{2}, -\frac{1}{2}} \right] \\
+		%	&= \hbar R_{2,1} \left[ \sqrt{\frac{2}{3}} Y_{1,1} \ket{\frac{1}{2}, -\frac{1}{2}} \right] = \hbar R_{2,1} \beta
+		%\end{align}
+		%\begin{align}
+		%	\hat{S}_z\ket{2,1,m_l,m_s} &= R_{2,1} \left[ \frac{1}{\sqrt{3}} Y_{1,0} (\tfrac{1}{2} \times \hbar) \ket{\frac{1}{2}, \frac{1}{2}} + \sqrt{\frac{2}{3}} Y_{1,1} (-\tfrac{1}{2} \times \hbar) \ket{\frac{1}{2}, -\frac{1}{2}} \right] \\
+		%	&= \frac{\hbar}{2} R_{2,1} \left[ \frac{1}{\sqrt{3}} Y_{1,0}(\theta,\varphi) \ket{\frac{1}{2}, \frac{1}{2}} - \sqrt{\frac{2}{3}} Y_{1,1}(\theta,\varphi) \ket{\frac{1}{2}, -\frac{1}{2}} \right]
+		%\end{align}
+		%\begin{align}
+		%	\hat{J}_z\ket{2,1,m_l,m_s} = 
+		%\end{align}
+		\begin{align}
+			\hat{J}_z\ket{2,1,m_l,m_s} &= \hat{L}_z\ket{2,1,m_l,m_s} + \hat{S}_z\ket{2,1,m_l,m_s} \\
+                                       &= m_l \hbar\ket{2,1,m_l,m_s} + m_s \hbar\ket{2,1,m_l,m_s}
+		\end{align}
+		\begin{align}
+			\hat{L}_z\ket{2,1,m_l,m_s} &= R_{2,1} \left[ (0 \times \hbar) \alpha + (1 \times \hbar) \beta \right] \\
+                                       &= \hbar R_{2,1} \beta
+		\end{align}
+		\begin{align}
+			\hat{S}_z\ket{2,1,m_l,m_s} &= R_{2,1} \left[ (\tfrac{1}{2} \times \hbar) \alpha + (-\tfrac{1}{2} \times \hbar) \beta \right] \\
+                                       &= \frac{\hbar}{2} R_{2,1} \left[ \alpha - \beta \right]
+		\end{align}
+		\begin{align}
+			\hat{J}_z\ket{2,1,m_l,m_s} &= \hbar R_{2,1} \beta + \frac{\hbar}{2} R_{2,1} \left[ \alpha - \beta \right] \\
+                                       &= \frac{\hbar}{2} R_{2,1} \left[ \alpha + \beta \right] \\
+                                       &= \boxed{\frac{\hbar}{2} \ket{2,1,m_l,m_s}}
+		\end{align}
+		
+		\item[(b)] If you measure the $z$-component of the electron’s spin angular momentum, what values will you obtain? What are the corresponding probabilities? 
+		\paragraph{Solution} From the previous part, we know that the values we obtain are $\hbar/2$ or $-\hbar/2$, with probabilities $P_{\hbar/2}$ and $P_{-\hbar/2}$.
+        \begin{align}
+            P_{\hbar/2} &= \abs{ \bra{\tfrac{1}{2}, \tfrac{1}{2}} \ket{\psi} }^2 = \boxed{\frac{1}{3}} \\
+            P_{\hbar/2} &= \abs{ \bra{\tfrac{1}{2}, -\tfrac{1}{2}} \ket{\psi} }^2 = \boxed{\frac{2}{3}}
+        \end{align}
+		
+		\item[(c)]  If you measure $\hat{J}_z^2$, what values will you obtain? What are the corresponding probabilities? 
+		\paragraph{Solution} $\hat{J}_z^2 = ( \hat{L}_z + \hat{S}_z )^2 = \hat{L}^2_z + \hat{L}_z\hat{S}_z + \hat{S}_z\hat{L}_z + \hat{S}^2_z$
+		\begin{align}
+            \hat{L}^2_z \ket{2,1,m_l,m_s} &= \hat{L}_z \left[ \hbar R_{2,1} \beta \right] = \hbar^2 R_{2,1} \beta \\
+            \hat{L}_z\hat{S}_z \ket{2,1,m_l,m_s} &= \hat{L}_z \left[ \tfrac{\hbar}{2} R_{2,1} \left( \alpha - \beta \right) \right] = - \tfrac{\hbar}{2} R_{2,1} \beta \\
+            \hat{S}_z\hat{L}_z\ket{2,1,m_l,m_s} &= \hat{S}_z \left[ \hbar R_{2,1} \beta \right] = - \tfrac{\hbar}{2} R_{2,1} \beta \\
+            \hat{S}^2_z \ket{2,1,m_l,m_s} &= \hat{S}_z \left[ \frac{\hbar}{2} R_{2,1} \left[ \alpha - \beta \right] \right] = \frac{\hbar^2}{4} R_{2,1} \left[ \alpha + \beta \right]
+        \end{align}
+        \begin{align}
+            \hat{J}_z^2 \ket{2,1,m_l,m_s} &= \hbar^2 R_{2,1} \beta - \tfrac{\hbar}{2} R_{2,1} \beta - \tfrac{\hbar}{2} R_{2,1} \beta + \frac{\hbar^2}{4} R_{2,1} \left[ \alpha + \beta \right] \\
+                                          %&= \frac{\hbar^2}{4} R_{2,1} \left[ \alpha + \beta \right] \\
+                                          &= \frac{\hbar^2}{4} \ket{2,1,m_l,m_s}
+        \end{align}
+        Only one value, $\boxed{\text{$\hbar^2 /4$ with $100\%$ probability}}$.
+        
+        
+	\end{enumerate}
+
+\clearpage
+
+	\section{Problem 4: Exercise 6.20}
+	
+	The wave function of a hydrogen-like atom at time $t=0$ is
+	\begin{equation}
+		\Psi(\vec{r},0) = \frac{1}{\sqrt{11}} \left[ \sqrt{3} \psi_{2,1,-1} (\vec{r}) - \psi_{2,1,0} (\vec{r}) + \sqrt{5} \psi_{2,1,1} (\vec{r}) + \sqrt{2} \psi_{3,1,1} (\vec{r}) \right],
+	\end{equation}
+	where $\psi_{nlm}(\vec{r})$ is a normalized eigenfunction (i.e. $\psi_{nlm}(\vec{r}) = R_{nl} Y_{lm}(\theta,\varphi)$).
+	\begin{enumerate}
+		\item[(a)] What is the time-dependent wave function?
+		\paragraph{Solution} The wave function at time $t$ is described by $\Psi(\vec{r},t) = \psi(\vec{r})\exp(-\frac{i}{\hbar} E_n t)$. The energy of the hydrogen atom only depends on the principal quantum number $n$. Therefore, I expect this atom to have the sum of two energies, as we have $n=2,3$.
+		\begin{equation}
+            \Psi(\vec{r},t) = \frac{1}{\sqrt{11}} \left[ e^{-iE_2t/\hbar} \left(\sqrt{3} \psi_{2,1,-1} (\vec{r}) - \psi_{2,1,0} (\vec{r}) + \sqrt{5} \psi_{2,1,1} (\vec{r})\right) + e^{-iE_3t/\hbar} \left(\sqrt{2} \psi_{3,1,1} (\vec{r})\right) \right],
+        \end{equation}        
+        
+		\item[(b)] If a measurement of energy is made, what values could be found and with what probabilities?
+		\paragraph{Solution} By inspection, two values for energy are found, $E_2$ and $E_3$. With probabilities $P_{n,l,m}$.
+        \begin{align}
+            P_{2,1,-1} &= \abs{ \bra{2,1,-1} \ket{\Psi} }^2 = \abs{\sqrt{\frac{3}{11}} e^{-iE_2t/\hbar} \braket{2,1,-1}}^2 = \frac{3}{11} \\
+            \intertext{Using the same logic with the rest.}
+            P_{2,1,0} &= \abs{ \bra{2,1,0} \ket{\Psi} }^2 = \frac{1}{11} \\
+            P_{2,1,1} &= \abs{ \bra{2,1,1} \ket{\Psi} }^2 = \frac{5}{11} \\
+            P_{3,1,1} &= \abs{ \bra{3,1,1} \ket{\Psi} }^2 = \frac{2}{11} \\
+        \end{align}
+        Therefore, $\boxed{\text{the probability $E_2$ is measured equals $9/11$. The probability $E_3$ is measured equals $2/11$}}$.
+		
+		\item[(c)] What is the probability for a measurement of $\hat{L}_z$ which yields $-\hbar$?
+		\paragraph{Solution}
+		\begin{align}
+            \hat{L}_z \Psi(\vec{r},0) = \frac{1}{\sqrt{11}} \left[ \sqrt{3} (-1 \times \hbar) \psi_{2,1,-1} (\vec{r}) - (0 \times \hbar) \psi_{2,1,0} (\vec{r}) + \sqrt{5} (1 \times \hbar) \psi_{2,1,1} (\vec{r}) + \sqrt{2} (1 \times \hbar) \psi_{3,1,1} (\vec{r}) \right]
+        \end{align}
+        \begin{align}
+            P_{-\hbar} = \abs{ \bra{2,1,-1}\ket{\Psi} }^2 = \boxed{\frac{3}{11}}
+        \end{align}
+        
+        
+	\end{enumerate}
+	
+\end{document}

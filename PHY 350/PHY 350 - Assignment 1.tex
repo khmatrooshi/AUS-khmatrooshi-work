@@ -1,0 +1,964 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={PHY 350 - Assignment 1},
+	pdfpagemode=FullScreen,
+}
+
+
+\usepackage[shortconst]{physconst}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		\textbf { \Large PHY 350 --- Quantum Mechanics}
+		\vspace{0.4cm}
+	\end{center}
+		\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 18 Feb 2023 \\
+		\bd{Student Number:} \ @00090847 \hspace{\fill} \bd{Assignment:} 1 \\
+		\hrule	
+	
+	\section*{Problem 1: Exercise 2.2}
+	Consider two states $\ket{\psi_1} = \ket{\phi_1} + 4i\ket{\phi_2} + 5\ket{\phi_3}$ and $\ket{\psi_2} = b\ket{\phi_1} + 4\ket{\phi_2} - 3i\ket{\phi_3}$, where $\ket{\phi_1}$, $\ket{\phi_2}$, and $\ket{\phi_3}$ are orthonormal kets, and where $b$ is constant. Find the value of $b$ so that $\ket{\psi_1}$ and $\ket{\psi_2}$ are orthogonal. 
+		\paragraph{Solution} Wave functions are said to be orthogonal when the scalar product is equal to 0, $\braket{\psi_m}{\psi_n} = 0$. 
+		
+		\begin{align*}
+			\braket{\psi_1}{\psi_2} = b + 16i - 15i &= 0 \\
+			\Aboxed{b &= -i}
+		\end{align*}
+		
+		
+	\section*{Problem 2: Exercise 2.6}
+	Consider a state which is given in terms of three orthonormal vectors $\ket{\phi_1}$, $\ket{\phi_2}$, and $\ket{\phi_3}$ as follows:
+	\[
+		\ket{\psi} = \frac{1}{\sqrt{15}} \ket{\phi_1} + \frac{1}{\sqrt{3}} \ket{\phi_2} + \frac{1}{\sqrt{5}} \ket{\phi_3}
+	\]
+	where $\ket{\phi_n}$, are eigenstates to an operator $\hat{B}$ such that: $\hat{B}\ket{\phi_n} = \left( 3n^2 - 1 \right)\ket{\phi_n}$ with $n=1,2,3$.
+	\begin{enumerate}
+		\item[(a)] Find the norm of the state $\ket{\psi}$.
+		\paragraph{Solution} We need to find the vector norm of $\ket{\psi}$ in Hilbert space.
+		\begin{align*}
+			\norm{\psi} = \sqrt{\braket{\psi}{\psi}} = \sqrt{\frac{1}{15} + \frac{1}{3} + \frac{1}{5}} = \Aboxed{\sqrt{\frac{3}{5}}}
+		\end{align*}
+		Before proceeding, it is recommended to normalize the state vector.
+		\[
+			\braket{\psi}{\psi} = k^2 \left( \frac{1}{15} + \frac{1}{3} + \frac{1}{5} \right) = 1 \qquad \Rightarrow \qquad k = \sqrt{\frac{5}{3}}
+		\]
+		\[
+			\ket{\psi} = \frac{1}{3} \ket{\phi_1} + \frac{\sqrt{5}}{3} \ket{\phi_2} + \frac{\sqrt{3}}{3} \ket{\phi_3}
+		\]
+		
+		\item[(b)] Find the expectation value $\hat{B}$ for the state $\ket{\psi}$.
+		\paragraph{Solution} By normalizing, we set the denominator in the expectation value formula $\hat{B} = \frac{\bra{\psi}\hat{B}\ket{\psi}}{\braket{\psi}{\psi}}$ to $1$, allowing easy computation.
+		\begin{align*}
+			<\hat{B}> &= \bra{\psi}\hat{B}\ket{\psi} \\
+			&= \left( \frac{1}{3} \ket{\phi_1} + \frac{\sqrt{5}}{3} \ket{\phi_2} + \frac{\sqrt{3}}{3} \ket{\phi_3} \right) \left( \frac{2}{3} \ket{\phi_1} + \frac{11\sqrt{5}}{3} \ket{\phi_2} + \frac{26\sqrt{3}}{3} \ket{\phi_3} \right) \\
+			&= \left( \frac{2}{9} + \frac{55}{9} + \frac{26}{4} \right) = \boxed{\frac{77}{6}}
+		\end{align*}
+		
+		\item[(c)] Find the expectation value $\hat{B}^2$ for the state $\ket{\psi}$.
+		\paragraph{Solution}
+		\begin{align*}
+			<\hat{B}^2> &= \bra{\psi}\hat{B}^2\ket{\psi} \\
+			&= \left( \frac{1}{3} \ket{\phi_1} + \frac{\sqrt{5}}{3} \ket{\phi_2} + \frac{\sqrt{3}}{3} \ket{\phi_3} \right) \left( \frac{4}{3} \ket{\phi_1} + \frac{121\sqrt{5}}{3} \ket{\phi_2} + \frac{676\sqrt{3}}{3} \ket{\phi_3} \right) \\
+			&= \left( \frac{4}{9} + \frac{605}{9} + \frac{676}{3} \right) = \boxed{293}
+		\end{align*}
+		
+	\end{enumerate}
+			
+\clearpage
+	
+	\section*{Problem 3: Exercise 2.9}
+	Are the following set of vectors linearly independent or dependent over the complex field?
+	\begin{enumerate}
+		\item[(a)]
+		$\begin{pmatrix} 2 & -3 & 0 \end{pmatrix}$,
+		$\begin{pmatrix} 0 & 0 & 1 \end{pmatrix}$,
+		$\begin{pmatrix} 2i & i & -i \end{pmatrix}$
+		\paragraph{Solution} The complex field refers to the set of complex numbers, which can be written in the form $a+bi$, where $a$ and $b$ are real numbers, and $i$ is the imaginary unit with property $i^2 = -1$.
+		\[
+			a \left( 2, -3, 0 \right) + b \left( 0, 0, 1 \right) + c \left( 2i, i, -i \right) = \vec{0}
+		\]
+		\begin{equation*}
+			\begin{split}
+				\sysdelim..\systeme{
+				2a + 2ci = 0,
+				-3a + ci = 0,
+				b - ci = 0
+			}
+			\end{split}
+			\quad \xRightarrow{c=-bi} \quad 
+			\begin{split}
+				\sysdelim..\systeme{
+				2a + 2b = 0,
+				-3a + b = 0
+			}
+			\end{split}
+			\quad \xRightarrow{b=3a} \quad 
+			\begin{split}
+				2a + 6a = 0
+			\end{split}
+		\end{equation*}
+		We have $a=0$, $b=0$, and $c=0$, meaning that the set of vectors are \boxed{\text{linearly independent}}.
+		
+		\item[(b)]
+		$\begin{pmatrix} 0 & 4 & 0 \end{pmatrix}$,
+		$\begin{pmatrix} i & -3i & i \end{pmatrix}$,
+		$\begin{pmatrix} 2 & 0 & 1 \end{pmatrix}$
+		\paragraph{Solution}
+		\[
+		a \left( 0, 4, 0\right) + b \left( i, -3i, i \right) + c \left( 2, 0, 1 \right) = \vec{0}
+		\]
+		\begin{equation*}
+			\begin{split}
+				\sysdelim..\systeme{
+					bi + 2c = 0,
+					4a  - 3bi = 0,
+					bi + c = 0
+				}
+			\end{split}
+		\end{equation*}
+		From the first and third equations, we can see that $c=-bi$ and $2c = -bi$, implying that $b=0$, $c=0$, and $a=0$, meaning that the set of vectors are \boxed{\text{linearly independent}}.
+		
+		\item[(c)] 
+		$\begin{pmatrix} i & 1 & 2 \end{pmatrix}$,
+		$\begin{pmatrix} 3 & i & -1 \end{pmatrix}$,
+		$\begin{pmatrix} -i & 3i & 5i \end{pmatrix}$
+		\paragraph{Solution} Another way to check for linear independence is to take the determinant of the square matrix formed by the set of vectors as its columns or rows. If the determinant of the matrix is non-zero then the set of vectors are linearly independent.
+		\begin{align*}
+			\begin{vmatrix}
+				i & 3 & -i \\
+				1 & i & 3i \\
+				2 & -1 & 5i 
+			\end{vmatrix}
+			&= i(-5 + 3i) - 3(5i - 6i) - i(-1 - 2i) = -5i -3 - 15i + 18i + i - 2 = \boxed{-5-i}
+		\end{align*}
+		Since the determinant is non-zero, the set of vectors are \boxed{\text{linearly independent}}.
+		
+	\end{enumerate}
+	
+\clearpage
+	
+	\section*{Problem 4: Exercise 2.16}
+	Is the matrix
+	$ \begin{pmatrix}
+		\cos \theta & \sin \theta \\
+		-\sin \theta & \cos \theta 
+	\end{pmatrix} $ unitary? Find its eigenvalues and the corresponding normalized eigenvectors.
+	\paragraph{Solution} A unitary matrix is defined by $UU^{\dagger} = \hat{I}$. This $2 \cross 2$ matrix is real and the transpose is easily found.
+
+	\begin{align*}
+ 		\begin{pmatrix}
+ 			\cos \theta & \sin \theta \\
+ 			-\sin \theta & \cos \theta 
+ 		\end{pmatrix}
+ 		\begin{pmatrix}
+ 			\cos \theta & -\sin \theta \\
+ 			\sin \theta & \cos \theta 
+ 		\end{pmatrix}
+ 		&= \begin{pmatrix}
+ 			\cos^2 \theta + \sin^2 \theta & -\sin \theta \cos \theta + \sin \theta \cos \theta \\
+ 			-\sin \theta \cos \theta + \sin \theta \cos \theta & \cos^2 \theta + \sin^2 \theta 
+ 		\end{pmatrix} \\
+ 		&= \begin{pmatrix}
+ 			1 & 0 \\
+ 			0 & 1 
+ 		\end{pmatrix} = \hat{I}_2
+	\end{align*}
+	Now the eigenvalues and the eigenvectors are found by $det(U-\lambda\hat{I}) = 0$.
+	\begin{align*}
+		\begin{vmatrix}
+			\cos \theta - \lambda & \sin \theta \\
+			-\sin \theta & \cos \theta - \lambda
+		\end{vmatrix}
+		&= (\cos \theta - \lambda)^2 - (-\sin \theta)(\sin \theta) = 0 \\
+		\cos^2 \theta - 2\lambda\cos\theta + \lambda^2 + \sin^2 \theta &= 0 \\
+		\lambda^2 - 2\lambda\cos\theta + 1 &= 0 \\
+		\lambda &= \frac{2\cos\theta \pm \sqrt{4\cos^2\theta - (4\cdot1\cdot1)}}{2} \\
+		&= \cos\theta \pm \sqrt{\cos^2\theta -1} \\
+		&= \cos\theta \pm i\sin\theta \\
+		\Aboxed{\ket{\lambda_{1,2}} &= e^{\pm i\theta}}
+	\end{align*}
+	With the eigenvalues we input them back into the initial equation to get the eigenvectors.
+	\begin{align*}
+		\ket{\lambda_1} = \cos \theta + i \sin \theta \quad : \quad
+		\begin{pmatrix}
+			-i\sin \theta & \sin \theta \\
+			-\sin \theta & -i\sin \theta 
+		\end{pmatrix}
+		\begin{pmatrix}
+			a \\
+			b
+		\end{pmatrix}
+		= \begin{pmatrix}
+			0 \\
+			0
+		\end{pmatrix}
+	\end{align*}
+	\begin{equation*}
+		\sysdelim..\systeme{
+			-ai\sin\theta + b\sin\theta = 0,
+			-a\sin\theta - bi\sin\theta = 0
+		}
+	\end{equation*}
+	\begin{equation*}
+		\sysdelim..\systeme{
+			b - ai = 0,
+			a + bi = 0
+		}
+	\end{equation*}
+	We can set $b=ai$ which gives us an arbitrary $a$, we can set $a=1$.
+	\begin{equation*}
+		\begin{split}
+			\ket{\lambda_1} &= A \begin{pmatrix}
+				a \\
+				ai
+			\end{pmatrix}
+			= A \begin{pmatrix}
+				1 \\
+				i
+			\end{pmatrix} \\
+			\Aboxed{\ket{\lambda_1} &= \frac{1}{\sqrt{2}} \begin{pmatrix}
+				1 \\
+				i
+			\end{pmatrix}}
+		\end{split}
+		\qquad \Rightarrow \qquad
+		\begin{split}
+			\braket{\lambda_1}{\lambda_1} = A^2 \begin{pmatrix}
+				1 & -i 
+			\end{pmatrix}
+			\begin{pmatrix}
+			1 \\
+			i
+			\end{pmatrix} &= 1 \\
+			A^2 \left( 1 - i^2 \right) &= 1 \\
+			A &= \frac{1}{\sqrt{2}}
+		\end{split}
+	\end{equation*}
+	
+	\begin{align*}
+		\ket{\lambda_2} = \cos \theta - i \sin \theta \quad : \quad
+		\begin{pmatrix}
+			i\sin \theta & \sin \theta \\
+			-\sin \theta & i\sin \theta 
+		\end{pmatrix}
+		\begin{pmatrix}
+			a \\
+			b
+		\end{pmatrix}
+		= \begin{pmatrix}
+			0 \\
+			0
+		\end{pmatrix}
+	\end{align*}
+	\begin{equation*}
+		\sysdelim..\systeme{
+			ai\sin\theta + b\sin\theta = 0,
+			-a\sin\theta + bi\sin\theta = 0
+		}
+	\end{equation*}
+	\begin{equation*}
+		\sysdelim..\systeme{
+			b + ai = 0,
+			-a + bi = 0
+		}
+	\end{equation*}
+	We can set $b=-ai$ which gives us an arbitrary $a$, we can set $a=1$.
+	\begin{equation*}
+		\begin{split}
+			\ket{\lambda_2} &= A \begin{pmatrix}
+				a \\
+				-ai
+			\end{pmatrix}
+			= A \begin{pmatrix}
+				1 \\
+				-i
+			\end{pmatrix} \\
+			\Aboxed{\ket{\lambda_2} &= \frac{1}{\sqrt{2}} \begin{pmatrix}
+				1 \\
+				-i
+			\end{pmatrix}}
+		\end{split}
+		\qquad \Rightarrow \qquad
+		\begin{split}
+			\braket{\lambda_2}{\lambda_2} = A^2 \begin{pmatrix}
+				1 & i 
+			\end{pmatrix}
+			\begin{pmatrix}
+				1 \\
+				-i
+			\end{pmatrix} &= 1 \\
+			A^2 \left( 1 - i^2 \right) &= 1 \\
+			A &= \frac{1}{\sqrt{2}}
+		\end{split}
+	\end{equation*}	
+	
+\clearpage	
+	
+	\section*{Problem 5: Exercise 2.24}
+	Consider two operators $\hat{A}$ and $\hat{B}$ whose matrices are:
+	\[
+		\hat{A} =
+		\begin{pmatrix}
+			1 & 3 & 0 \\
+			1 & 0 & 1 \\
+			0 & -1 & 1 
+		\end{pmatrix}
+		\quad \text{and} \quad
+		\hat{B} =
+		\begin{pmatrix}
+			1 & 0 & -2 \\
+			0 & 0 & 0 \\
+			-2 & 0 & 4 
+		\end{pmatrix}
+	\]
+	\begin{enumerate}
+		\item[(a)] Are $\hat{A}$ and $\hat{B}$ Hermitian?
+		\paragraph{Solution} A Hermitian operator satisfies the following condition: $\hat{A} = \hat{A}^\dagger$
+		\[
+		\hat{A}^\dagger =
+		\begin{pmatrix}
+			1 & 1 & 0 \\
+			3 & 0 & -1 \\
+			0 & 1 & 1 
+		\end{pmatrix}
+		\quad \boxed{\hat{A}^\dagger \neq \hat{A}}
+		\]
+		\[
+		\hat{B}^\dagger =
+		\begin{pmatrix}
+			1 & 0 & -2 \\
+			0 & 0 & 0 \\
+			-2 & 0 & 4
+		\end{pmatrix}
+		\quad \boxed{\hat{B}^\dagger = \hat{B}}
+		\]
+		
+		\item[(b)] Do $\hat{A}$ and $\hat{B}$ commute?
+		\paragraph{Solution} The commutator of two variables $[A, B] = AB - BA = 0$, If $A$ and $B$ commute; so $AB = BA$.
+		\begin{align*}
+			[\hat{A}, \hat{B}] &= \begin{pmatrix}
+				1 & 1 & 0 \\
+				3 & 0 & -1 \\
+				0 & 1 & 1 
+			\end{pmatrix}
+			\begin{pmatrix}
+				1 & 0 & -2 \\
+				0 & 0 & 0 \\
+				-2 & 0 & 4
+			\end{pmatrix}
+			- \begin{pmatrix}
+				1 & 0 & -2 \\
+				0 & 0 & 0 \\
+				-2 & 0 & 4
+			\end{pmatrix}
+			\begin{pmatrix}
+				1 & 1 & 0 \\
+				3 & 0 & -1 \\
+				0 & 1 & 1 
+			\end{pmatrix} \\
+			&= \begin{pmatrix}
+				1 & 0 & -2 \\
+				-1 & 0 & 2 \\
+				-2 & 0 & 4
+			\end{pmatrix}
+			- \begin{pmatrix}
+				1 & 5 & -2 \\
+				0 & 0 & 0 \\
+				-2 & -10 & 4
+			\end{pmatrix} \neq 0 \qquad \boxed{\hat{A} \text{ and } \hat{B} \text{ do not commute.}}
+		\end{align*}
+		
+		\item[(c)] Find the eigenvalues and eigenvectors of $\hat{A}$ and $\hat{B}$?
+		\paragraph{Solution} Following similar steps as problem 2. Starting with $\hat{A}$.
+		\begin{align*}
+			det(\hat{A} - \lambda\hat{I}) = \begin{vmatrix}
+				1 - \lambda & 3 & 0 \\
+				1 & -\lambda & 1 \\
+				0 & -1 & 1 - \lambda
+			\end{vmatrix}
+			&= (1 - \lambda) (-\lambda + \lambda^2 + 1) - 3(1 - \lambda) = 0 \\
+			-\lambda^3 + 2\lambda^2 + \lambda - 2 &= 0 \\
+			\ket{\lambda_{1,2,3}} &= \pm 1, 2
+		\end{align*}
+		With the eigenvalues we input them back into the initial equation to get the eigenvectors.
+		\begin{align*}
+			\ket{\lambda_1} = 1 \quad : \quad
+			\begin{pmatrix}
+				0 & 3 & 0 \\
+				1 & -1 & 1 \\
+				0 & -1 & 0
+			\end{pmatrix}
+			\begin{pmatrix}
+				a \\
+				b \\
+				c
+			\end{pmatrix}
+			= \begin{pmatrix}
+				0 \\
+				0 \\
+				0
+			\end{pmatrix}
+		\end{align*}
+		\begin{equation*}
+			\sysdelim..\systeme{
+				3b = 0,
+				a - b + c = 0,
+				-b = 0
+			}
+		\end{equation*}
+		Clearly $b=0$ and $a = -c$, making $c$ arbitrary, we can set $c=1$.
+		\begin{equation*}
+			\begin{split}
+				\ket{\lambda_1} &= A \begin{pmatrix}
+					-c \\
+					0 \\
+					c
+				\end{pmatrix}
+				= A \begin{pmatrix}
+					-1 \\
+					0 \\
+					1
+				\end{pmatrix} \\
+				\Aboxed{\ket{\lambda_1} &= \frac{1}{\sqrt{2}} \begin{pmatrix}
+						-1 \\
+						0 \\
+						1
+				\end{pmatrix}}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_1}{\lambda_1} = A^2 \begin{pmatrix}
+					-1 & 0 & 1
+				\end{pmatrix}
+				\begin{pmatrix}
+					-1 \\
+					0 \\
+					1
+				\end{pmatrix} &= 1 \\
+				A^2 \left( 1 + 0 + 1 \right) &= 1 \\
+				A &= \frac{1}{\sqrt{2}}
+			\end{split}
+		\end{equation*}
+		
+\clearpage
+		
+		\begin{align*}
+			\ket{\lambda_2} = -1 \quad : \quad
+			\begin{pmatrix}
+				2 & 3 & 0 \\
+				1 & 1 & 1 \\
+				0 & -1 & 2
+			\end{pmatrix}
+			\begin{pmatrix}
+				a \\
+				b \\
+				c
+			\end{pmatrix}
+			= \begin{pmatrix}
+				0 \\
+				0 \\
+				0
+			\end{pmatrix}
+		\end{align*}
+		\begin{equation*}
+			\sysdelim..\systeme{
+				2a + 3b = 0,
+				a + b + c = 0,
+				-b + 2c = 0
+			}
+		\end{equation*}
+		We have $a = -\frac{3}{2}b$ and $c = \frac{1}{2}b$, making $b$ arbitrary, set $b=2$.
+		\begin{equation*}
+			\begin{split}
+				\ket{\lambda_2} &= A \begin{pmatrix}
+					-\frac{3}{2}b \\
+					b \\
+					\frac{1}{2}b
+				\end{pmatrix}
+				= A \begin{pmatrix}
+					-3 \\
+					2 \\
+					1
+				\end{pmatrix} \\
+				\Aboxed{\ket{\lambda_2} &= \frac{1}{\sqrt{14}} \begin{pmatrix}
+						-3 \\
+						2 \\
+						1
+				\end{pmatrix}}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_2}{\lambda_2} = A^2 \begin{pmatrix}
+					-3 & 2 & 1
+				\end{pmatrix}
+				\begin{pmatrix}
+					-3 \\
+					2 \\
+					1
+				\end{pmatrix} &= 1 \\
+				A^2 \left( 9 + 4 + 1 \right) &= 1 \\
+				A &= \frac{1}{\sqrt{14}}
+			\end{split}
+		\end{equation*}
+		
+		\noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil
+		
+		\begin{align*}
+			\ket{\lambda_3} = 2 \quad : \quad
+			\begin{pmatrix}
+				-1 & 3 & 0 \\
+				1 & -2 & 1 \\
+				0 & -1 & -1
+			\end{pmatrix}
+			\begin{pmatrix}
+				a \\
+				b \\
+				c
+			\end{pmatrix}
+			= \begin{pmatrix}
+				0 \\
+				0 \\
+				0
+			\end{pmatrix}
+		\end{align*}
+		\begin{equation*}
+			\sysdelim..\systeme{
+				-a + 3b = 0,
+				a - 2b + c = 0,
+				-b - c = 0
+			}
+		\end{equation*}
+		We have $a = 3b$ and $c=-b$, making $b$ arbitrary, set $b=1$.
+		\begin{equation*}
+			\begin{split}
+				\ket{\lambda_3} &= A \begin{pmatrix}
+					3b \\
+					b \\
+					-b
+				\end{pmatrix}
+				= A \begin{pmatrix}
+					3 \\
+					1 \\
+					-1
+				\end{pmatrix} \\
+				\Aboxed{\ket{\lambda_3} &= \frac{1}{\sqrt{11}} \begin{pmatrix}
+						3 \\
+						1 \\
+						-1
+				\end{pmatrix}}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_3}{\lambda_3} = A^2 \begin{pmatrix}
+					3 & 1 & -1
+				\end{pmatrix}
+				\begin{pmatrix}
+					3 \\
+					1 \\
+					-1
+				\end{pmatrix} &= 1 \\
+				A^2 \left( 9 + 1 + 1 \right) &= 1 \\
+				A &= \frac{1}{\sqrt{11}}
+			\end{split}
+		\end{equation*}
+		
+\clearpage
+
+		Now to find the eigenvalues and eigenvectors of $\hat{B}$.
+		\begin{align*}
+			det(\hat{B} - \lambda\hat{I}) = \begin{vmatrix}
+				1 - \lambda & 0 & -2 \\
+				0 & -\lambda & 0 \\
+				-2 & 0 & 4 - \lambda
+			\end{vmatrix}
+			&= (1 - \lambda)(-4\lambda + \lambda^2) + (-2)(-2\lambda) = 0 \\
+			-\lambda^3 + 5\lambda^2 &= 0 \\
+			\ket{\lambda_{1,2,3}} &= 0,0,5
+		\end{align*}
+		With the eigenvalues we input them back into the initial equation to get the eigenvectors.
+		\begin{align*}
+			\ket{\lambda_{1,2}} = 0 \quad : \quad
+			\begin{pmatrix}
+				1 & 0 & -2 \\
+				0 & 0 & 0 \\
+				-2 & 0 & 4
+			\end{pmatrix}
+			\begin{pmatrix}
+				a \\
+				b \\
+				c
+			\end{pmatrix}
+			= \begin{pmatrix}
+				0 \\
+				0 \\
+				0
+			\end{pmatrix}
+		\end{align*}
+		\begin{equation*}
+			\sysdelim..\systeme{
+				a - 2c = 0,
+				-2a + 4c = 0
+			}
+		\end{equation*}
+		We have $a = 2c$, and $b$ can be any number, so now $b$ and $c$ are arbitrary, making a solution set. Set $b=c=1$.
+		\[
+			\ket{\lambda_{1,2}} = A \begin{pmatrix}
+				2c \\
+				b \\
+				c
+			\end{pmatrix}
+			= A \begin{pmatrix}
+				2c \\
+				0 \\
+				c
+			\end{pmatrix} + B \begin{pmatrix}
+				0 \\
+				b \\
+				0
+			\end{pmatrix}
+			= A \begin{pmatrix}
+				2 \\
+				0 \\
+				1
+			\end{pmatrix} + B \begin{pmatrix}
+				0 \\
+				1 \\
+				0
+			\end{pmatrix}
+		\]
+		\begin{equation*}
+			\begin{split}
+				\ket{\lambda_1} &= A \begin{pmatrix}
+					2 \\
+					0 \\
+					1
+				\end{pmatrix} \\
+				\Aboxed{\ket{\lambda_1} &= \frac{1}{\sqrt{5}} \begin{pmatrix}
+						2 \\
+						0 \\
+						1
+				\end{pmatrix}}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_1}{\lambda_1} = A^2 \begin{pmatrix}
+					2 & 0 & 1
+				\end{pmatrix}
+				\begin{pmatrix}
+					2 \\
+					0 \\
+					1
+				\end{pmatrix} &= 1 \\
+				A^2 \left( 4 + 0 + 1 \right) &= 5 \\
+				A &= \frac{1}{\sqrt{5}}
+			\end{split}
+		\end{equation*}
+		\noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil \\
+		\begin{equation*}
+			\begin{split}
+				\ket{\lambda_2} &= B \begin{pmatrix}
+					0 \\
+					1 \\
+					0
+				\end{pmatrix} \\
+				\Aboxed{\ket{\lambda_2} &= \begin{pmatrix}
+						0 \\
+						1 \\
+						0
+				\end{pmatrix}}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_2}{\lambda_2} = B^2 \begin{pmatrix}
+					0 & 1 & 0
+				\end{pmatrix}
+				\begin{pmatrix}
+					0 \\
+					1 \\
+					0
+				\end{pmatrix} &= 1 \\
+				B^2 \left( 0 + 1 + 0 \right) &= 1 \\
+				B &= 1
+			\end{split}
+		\end{equation*}
+		
+		\noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil
+		
+		\begin{align*}
+			\ket{\lambda_3} = 5 \quad : \quad
+			\begin{pmatrix}
+				-4 & 0 & -2 \\
+				0 & -5 & 0 \\
+				-2 & 0 & -1
+			\end{pmatrix}
+			\begin{pmatrix}
+				a \\
+				b \\
+				c
+			\end{pmatrix}
+			= \begin{pmatrix}
+				0 \\
+				0 \\
+				0
+			\end{pmatrix}
+		\end{align*}
+		\begin{equation*}
+			\sysdelim..\systeme{
+				-4a - 2c = 0,
+				-5b = 0,
+				-2a -c = 0
+			}
+		\end{equation*}
+		We have $a=-\frac{1}{2}c$ and $b=0$, making $c$ arbitrary, set $c=1$.
+		\begin{equation*}
+			\begin{split}
+				\ket{\lambda_3} &= A \begin{pmatrix}
+					-\frac{1}{2}c \\
+					0 \\
+					c
+				\end{pmatrix} = \begin{pmatrix}
+					-\frac{1}{2} \\
+					0 \\
+					1
+				\end{pmatrix} \\
+				\Aboxed{\ket{\lambda_3} &=
+				\sqrt{\frac{4}{5}} \begin{pmatrix}
+					-\frac{1}{2} \\
+					0 \\
+					1
+				\end{pmatrix}}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_3}{\lambda_3} = A^2 \begin{pmatrix}
+					-\frac{1}{2} & 0 & 1
+				\end{pmatrix}
+				\begin{pmatrix}
+					-\frac{1}{2} \\
+					0 \\
+					1
+				\end{pmatrix} &= 1 \\
+				A^2 \left( \frac{1}{4} + 0 + 1 \right) &= 1 \\
+				A &= \sqrt{\frac{4}{5}}
+			\end{split}
+		\end{equation*}
+		
+\clearpage
+		
+		\item[(d)] Are the eigenvectors of each operator orthonormal? 
+		\paragraph{Solution} Orthogonality is checked by taking the scalar product of each pair of distinct normalized eigenvector $\braket{\phi_m}{\phi_n} = \delta_{mn}$ . If the result is $0$ for all pairs where $m \neq n$, then the eigenvectors are orthogonal. A check for normality is done by verifying that the norm of each normalized eigenvector is $1$, $\norm{\braket{\phi}{\phi}} = 1$. I have already normalized the eigenvectors of $\hat{A}$ and $\hat{B}$ so i would expect the normality check to equal $1$ for all eigenvectors. For orthogonality, I would have to check for the eigenvectors of $\hat{A}$ but for $\hat{B}$, because it is a hermitian matrix, the eigenvectors must be orthogonal. Starting with the eigenvectors of $\hat{A}$.
+		\begin{equation*}
+			\begin{split}
+				\braket{\lambda_1}{\lambda_2} &= \frac{1}{\sqrt{28}}
+				\begin{pmatrix} -1 & 0 & 1 \end{pmatrix}
+				\begin{pmatrix} -3 \\ 2 \\ 1 \end{pmatrix}
+				= \frac{4}{\sqrt{28}} \\
+				\braket{\lambda_1}{\lambda_3} &= \frac{1}{\sqrt{22}}
+				\begin{pmatrix} -1 & 0 & 1 \end{pmatrix}
+				\begin{pmatrix} 3 \\ 1 \\ -1 \end{pmatrix}
+				= \frac{-4}{\sqrt{22}} \\
+				\braket{\lambda_2}{\lambda_3} &= \frac{1}{\sqrt{154}}
+				\begin{pmatrix} -3 & 2 & 1 \end{pmatrix}
+				\begin{pmatrix} 3 \\ 1 \\ -1 \end{pmatrix}
+				= \frac{-8}{\sqrt{154}}
+			\end{split}
+			\qquad
+			\begin{split}
+				\norm{\lambda_1} &= \sqrt{\braket{\lambda_1}{\lambda_1}} = \sqrt{\frac{1 + 0 + 1}{2}} = 1 \\
+				\norm{\lambda_2} &= \sqrt{\braket{\lambda_2}{\lambda_2}} = \sqrt{\frac{9 + 4 + 1}{14}} = 1 \\
+				\norm{\lambda_3} &= \sqrt{\braket{\lambda_3}{\lambda_3}} = \sqrt{\frac{9 + 1 + 1}{11}} = 1
+			\end{split}
+		\end{equation*}
+		Now for the eigenvectors of $\hat{B}$.
+		\begin{equation*}
+			\begin{split}
+				\braket{\lambda_1}{\lambda_2} &= \frac{1}{\sqrt{5}}
+				\begin{pmatrix} 2 & 0 & 1 \end{pmatrix}
+				\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}
+				= 0 \\
+				\braket{\lambda_1}{\lambda_3} &= \sqrt{\frac{4}{5}}
+				\begin{pmatrix} 2 & 0 & 1 \end{pmatrix}
+				\begin{pmatrix} \frac{-1}{2} \\ 0 \\ 1 \end{pmatrix}
+				= 0 \\
+				\braket{\lambda_2}{\lambda_3} &= \frac{2}{5}
+				\begin{pmatrix} 0 & 1 & 0 \end{pmatrix}
+				\begin{pmatrix} \frac{-1}{2} \\ 0 \\ 1 \end{pmatrix}
+				= 0
+			\end{split}
+			\qquad
+			\begin{split}
+				\norm{\lambda_1} &= \sqrt{\braket{\lambda_1}{\lambda_1}} = \sqrt{\frac{4 + 0 + 1}{5}} = 1 \\
+				\norm{\lambda_2} &= \sqrt{\braket{\lambda_2}{\lambda_2}} = \sqrt{\frac{0 + 1 + 0}{1}} = 1 \\
+				\norm{\lambda_3} &= \sqrt{\braket{\lambda_3}{\lambda_3}} = \sqrt{\frac{\frac{1}{4} + 0 + 1}{4 / 5}} = 1
+			\end{split}
+		\end{equation*}
+		
+		\item[(e)] Verify that $\hat{U}^\dagger \hat{B} \hat{U}$ is diagonal, $\hat{U}$ being the matrix of the normalized eigenvectors of $\hat{B}$.
+		\paragraph{Solution}
+		\begin{align*}
+			\hat{U}^\dagger \hat{B} \hat{U} &= 
+			\begin{pmatrix}
+				\frac{2}{\sqrt{5}} & 0 & \frac{1}{\sqrt{5}} \\
+				0 & 1 & 0 \\
+				\frac{-\sqrt{5}}{5} & 0 & \frac{2\sqrt{5}}{5}
+			\end{pmatrix}
+			\begin{pmatrix}
+				1 & 0 & -2 \\
+				0 & 0 & 0 \\
+				-2 & 0 & 4
+			\end{pmatrix}
+			\begin{pmatrix}
+				\frac{2}{\sqrt{5}} & 0 & \frac{-\sqrt{5}}{5} \\
+				0 & 1 & 0 \\
+				\frac{1}{\sqrt{5}} & 0 & \frac{2\sqrt{5}}{5}
+			\end{pmatrix} \\
+			&=
+			\begin{pmatrix}
+				\frac{2}{\sqrt{5}} & 0 & \frac{1}{\sqrt{5}} \\
+				0 & 1 & 0 \\
+				\frac{-\sqrt{5}}{5} & 0 & \frac{2\sqrt{5}}{5}
+			\end{pmatrix}
+			\begin{pmatrix}
+				0 & 0 & -\sqrt{5} \\
+				0 & 0 & 0 \\
+				0 & 0 & 2\sqrt{5}
+			\end{pmatrix} \\
+			&=
+			\begin{pmatrix}
+				0 & 0 & 0 \\
+				0 & 0 & 0 \\
+				0 & 0 & 5
+			\end{pmatrix}
+		\end{align*}
+		The result is a diagonal matrix where the diagonal terms provide the orthonormal eigenvalues of the matrix $\hat{B}$.
+		
+		
+		\item[(f)] Verify that $\hat{U}^{-1} = \hat{U}^\dagger$ 
+		\paragraph{Solution} Multiplying the identity by $\hat{U}$ from the left gives $\hat{U}\hat{U}^\dagger = \hat{I}$.
+		\begin{align*}
+			\hat{U}\hat{U}^\dagger &=
+			\begin{pmatrix}
+				\frac{2}{\sqrt{5}} & 0 & \frac{-\sqrt{5}}{5} \\
+				0 & 1 & 0 \\
+				\frac{1}{\sqrt{5}} & 0 & \frac{2\sqrt{5}}{5}
+			\end{pmatrix}
+			\begin{pmatrix}
+				\frac{2}{\sqrt{5}} & 0 & \frac{1}{\sqrt{5}} \\
+				0 & 1 & 0 \\
+				\frac{-\sqrt{5}}{5} & 0 & \frac{2\sqrt{5}}{5}
+			\end{pmatrix}
+			=
+			\begin{pmatrix}
+				1 & 0 & 0 \\
+				0 & 1 & 0 \\
+				0 & 0 & 1
+			\end{pmatrix}
+			= \hat{I}_3
+		\end{align*}
+		
+	\end{enumerate}
+	
+\clearpage	
+	
+	\section*{Problem 6: Exercise 2.45}
+	Use the relations listed in Appendix A to evaluate the following expressions: 
+	\begin{enumerate}
+		\item[(a)] $ \int_{0}^{5} \left( 3x^2 + 2 \right) \delta\left( x - 1 \right) \ dx $
+		\paragraph{Solution}
+		\[
+			\int_{a}^{b} f(x) \delta(x-x_0) \ dx = \begin{cases}
+				f(x_0) &, \text{ if } a < x_o < b \\
+				0 &, \text{ elsewhere}
+			\end{cases}
+		\]
+		\begin{align*}
+			\int_{0}^{5} \left( 3x^2 + 2 \right) \delta\left( x - 1 \right) \ dx &= f(1) \\
+			&= 3(1)^2 + 2 = \boxed{5}
+		\end{align*}
+		
+		\item[(b)] $ \left( 2x^5 - 4x^3 + 1 \right) \delta\left( x + 2 \right) $
+		\paragraph{Solution}
+		\[
+			f(x)\delta(x-a) = f(a)\delta(x-a)
+		\]
+		\begin{align*}
+			\left( 2x^5 - 4x^3 + 1 \right) \delta\left( x + 2 \right) \ dx &= f(-2)\delta(x + 2) \\
+			&= (2(-2)^5 - 4(-2)^3 + 1)\delta(x + 2) = \boxed{-31\delta(x + 2)}
+		\end{align*}
+		
+		\item[(c)] $ \int_{0}^{\infty} \left( 5x^3 - 7x^2 - 3 \right) \delta\left( x^2 - 4 \right) \ dx $
+		\paragraph{Solution}
+		\[
+			\delta(x^2 - a^2) = \frac{1}{2\abs{a}} \left[ \delta(x - a) + \delta(x + a) \right]
+		\]
+		\begin{align*}
+			\int_{0}^{\infty} \left( 5x^3 - 7x^2 - 3 \right) \delta\left( x^2 - 4 \right) \ dx &= \frac{1}{4} \int_{0}^{\infty} \left( 5x^3 - 7x^2 - 3 \right) \delta\left( x - 2 \right) \ dx + \frac{1}{4} \int_{0}^{\infty} \left( 5x^3 - 7x^2 - 3 \right) \delta\left( x + 2 \right) \ dx \\
+			&= \frac{1}{4} f(2) + \frac{1}{4} f(-2) \\
+			&= \frac{1}{4} (5(2)^3 - 7(2)^2 - 3) + \frac{1}{4} (5(-2)^3 - 7(-2)^2 - 3) \\
+			&= \boxed{-\frac{31}{2}}
+		\end{align*}
+		
+	\end{enumerate}
+	
+\clearpage
+	
+	\section*{Problem 7: Exercise 2.52}
+	\begin{enumerate}
+		\item[(a)] Is the state $\psi\left( \theta, \phi \right) = e^{-3i\phi} \cos \theta$ an eigenfunction of $\hat{A}_\phi = \frac{\partial}{\partial \phi}$ or $\hat{B}_\theta = \frac{\partial}{\partial \theta}$?
+		\paragraph{Solution} For it to be an eigenfunction, applying the operators on it should yield multiples of the same eigenfunction, $\hat{A}\psi = a\psi$.
+		\[
+			\hat{A}\psi = \frac{\partial}{\partial \phi}\left[ e^{-3i\phi} \cos \theta \right] = -3i e^{-3i\phi} \cos \theta = -3i \psi
+		\]
+		\[
+			\hat{B}\psi = \frac{\partial}{\partial \theta}\left[ e^{-3i\phi} \cos \theta \right] = -\sin \theta e^{-3i\phi}
+		\]
+		The state $\psi$ is an eigenfunction of $\hat{A}$.
+		
+		\item[(b)] Are $\hat{A}_\phi$ and $\hat{B}_\theta$ Hermitian?
+		\paragraph{Solution} A hermitian operator satisfies the following property, $\hat{A}\psi = (\hat{A}\psi)^\dagger$.
+		\begin{align*}
+			\hat{A}\psi &= -3i e^{-3i\phi} \cos \theta \\
+			(\hat{A}\psi)^\dagger &= 3i e^{3i\phi} \cos \theta \\
+			\Aboxed{\hat{A}\psi &\neq (\hat{A}\psi)^\dagger} \\\\
+			\hat{B}\psi &= -\sin \theta e^{-3i\phi} \\
+			(\hat{B}\psi)^\dagger &= -\sin \theta e^{3i\phi} \\
+			\Aboxed{\hat{B}\psi &\neq (\hat{B}\psi)^\dagger}
+		\end{align*}
+		
+		\item[(c)] Evaluate the expressions $ \bra{\psi}\hat{A}_\phi\ket{\psi} $ and $ \bra{\psi}\hat{B}_\theta\ket{\psi} $.
+		\paragraph{Solution}
+		\begin{align*}
+			\bra{\psi}\hat{A}_\phi\ket{\psi} &= \left( e^{3i\phi} \cos \theta \right) \frac{\partial}{\partial \phi} \left( e^{-3i\phi} \cos \theta \right) \\
+			&= \left( e^{3i\phi} \cos \theta \right) \left( -3ie^{-3i\phi} \cos \theta \right) \\
+			&= \boxed{-3i \cos^2 \theta}
+		\end{align*}
+		\begin{align*}
+			\bra{\psi}\hat{B}_\theta\ket{\psi} &= \left( e^{3i\phi} \cos \theta \right) \frac{\partial}{\partial \theta} \left( e^{-3i\phi} \cos \theta \right) \\
+			&= \left( e^{3i\phi} \cos \theta \right) \left( -e^{-3i\phi} \sin \theta \right) \\
+			&= \boxed{-\sin \theta \cos \theta}
+		\end{align*}
+		
+		\item[(d)] Find the commutator $ \left[ \hat{A}_\phi, \hat{B}_\theta \right] $.
+		\paragraph{Solution} 
+		\begin{align*}
+			\left[ \hat{A}_\phi, \hat{B}_\theta \right]\psi &= \frac{\partial}{\partial \phi} \frac{\partial}{\partial \theta} \left[ e^{-3i\phi} \cos \theta \right] - \frac{\partial}{\partial \theta} \frac{\partial}{\partial \phi} \left[ e^{-3i\phi} \cos \theta \right] \\
+			&= \frac{\partial}{\partial \phi} \left[ -e^{-3i\phi} \sin \theta \right] - \frac{\partial}{\partial \theta} \left[ -3i e^{-3i\phi} \cos \theta \right] \\
+			&= \left[ 3ie^{-3i\phi} \sin \theta \right] - \left[ 3i e^{-3i\phi} \sin \theta \right] \\
+			&= \boxed{0, \quad \hat{A} \text{ and } \hat{B} \text{ commute.}}
+		\end{align*}
+		
+		
+	\end{enumerate}
+	
+	
+	
+\end{document}

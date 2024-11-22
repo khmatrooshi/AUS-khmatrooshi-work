@@ -1,0 +1,863 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+%\usepackage{newtx}
+\usepackage{microtype}
+\usepackage[shortconst]{physconst}
+%\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\hypersetup{
+	pdftitle={PHY 350 - Assignment 3},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\setlist[enumerate]{itemsep=12pt, topsep=12pt, partopsep=0pt}
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		\textbf { \Large PHY 350 --- Quantum Mechanics}
+		\vspace{0.4cm}
+	\end{center}
+		\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 23 April 2024 \\
+		\bd{Student Number:} \ @00090847 \hspace{\fill} \bd{Assignment:} 3 \\
+		\hrule	
+	
+	\section*{Problem 1: Exercise 5.3 \& 5.4}
+	
+	If $\hat{L}_\pm$ and $\hat{E}_\pm$ are defined by $\hat{L}_\pm = \hat{L}_x \pm i\hat{L}_y$ and $\hat{R}_\pm = \hat{X}_x \pm i\hat{Y}_y$, prove the following commutators:
+	\begin{enumerate}
+		\item[(a)] $[\hat{L}_\pm, \hat{R}_\pm] = \pm 2\hbar \hat{Z}$,
+		\paragraph{Solution} The book seems to be wrong for the first two parts.
+		\begin{align}
+			[\hat{L}_\pm, \hat{R}_\pm] &= [\hat{L}_x \pm i\hat{L}_y, \hat{X}_x \pm i\hat{Y}_y] \\
+									   &= [\hat{L}_x,\hat{X}_x] \pm [\hat{L}_x,i\hat{Y}_y] \pm [i\hat{L}_y,\hat{X}_x] \pm [i\hat{L}_y,i\hat{Y}_y] \\
+									   &= [\hat{L}_x,\hat{X}_x] \pm i[\hat{L}_x,\hat{Y}_y] \pm i[\hat{L}_y,\hat{X}_x] \mp [\hat{L}_y,\hat{Y}_y] \\
+									   &= 0 \pm i(i\hbar\hat{Z}_z) \pm i(-i\hbar\hat{Z}_z) \mp 0 \\
+									   &= \pm i^2\hbar\hat{Z}_z \mp i^2\hbar\hat{Z}_z \\
+									   &= \boxed{0}
+		\end{align}	
+		
+		\item[(b)] $[\hat{L}_\pm, \hat{R}_\mp] = 0$,
+		\paragraph{Solution}
+		\begin{align}
+			[\hat{L}_\pm, \hat{R}_\mp] &= [\hat{L}_x \pm i\hat{L}_y, \hat{X}_x \mp i\hat{Y}_y] \\
+									   &= [\hat{L}_x,\hat{X}_x] \mp [\hat{L}_x,i\hat{Y}_y] \pm [i\hat{L}_y,\hat{X}_x] \mp [i\hat{L}_y,i\hat{Y}_y] \\
+									   &= [\hat{L}_x,\hat{X}_x] \mp i[\hat{L}_x,\hat{Y}_y] \pm i[\hat{L}_y,\hat{X}_x] \pm [\hat{L}_y,\hat{Y}_y] \\
+									   &= 0 \mp i(i\hbar\hat{Z}_z) \pm i(-i\hbar\hat{Z}_z) \pm 0 \\
+									   &= \mp i^2\hbar\hat{Z}_z \mp i^2\hbar\hat{Z}_z \\
+									   &= \boxed{\pm 2\hbar\hat{Z}_z}
+		\end{align}
+		
+		\item[(c)] $[\hat{L}_z, \hat{R}_\pm] = \pm \hbar \hat{R}_\pm$,
+		\paragraph{Solution} 
+		\begin{align}
+			[\hat{L}_z, \hat{R}_\pm] &= [\hat{L}_z, \hat{X}_x \pm i\hat{Y}_y] \\
+									 &= [\hat{L}_z,\hat{X}_x] \pm [\hat{L}_z,i\hat{Y}_y] \\
+									 &= (i\hbar\hat{Y}_y) \pm i(-i\hbar\hat{X}_x) \\
+									 &= \pm \hbar\hat{X}_x + i\hbar\hat{Y}_y \\
+									 \intertext{We can factor put the $\pm\hbar$, factoring out the $\pm$ from the second term causes it turn to $\pm$.}
+									 &= \pm \hbar ( \hat{X}_x \pm i\hat{Y}_y ) \\
+									 &= \boxed{\pm \hbar \hat{R}_\pm}
+		\end{align}
+		
+		
+		
+		\item[(d)] $[\hat{L}_z, \hat{Z}] = 0$,
+		\paragraph{Solution} sol
+		\begin{align}
+			[\hat{L}_z, \hat{Z}] &= [\hat{X} \hat{P}_y - \hat{Y} \hat{P}_x, \hat{Z}] \\
+								 &= [\hat{X} \hat{P}_y, \hat{Z}] - [\hat{Y} \hat{P}_x, \hat{Z}] \\
+								 &= \hat{X}[\hat{P}_y, \hat{Z}] - \hat{Y}[\hat{P}_x, \hat{Z}] \\
+								 &= \boxed{0}
+		\end{align}
+		
+	\end{enumerate}	
+	
+\clearpage
+	
+	\section*{Problem 2: Exercise 5.11}
+	
+	Consider the wave function
+	\begin{equation} \label{eq:1}
+		\Psi(\theta, \phi) = 3\sin \theta \cos \theta e^{i\phi} - 2\left( 1 - \cos^2 \theta \right) e^{2i\phi}. 
+	\end{equation}
+	\begin{enumerate}
+		\item[(a)] Write $\Psi(\theta, \phi)$ in terms of the spherical harmonics.
+		\paragraph{Solution} We can find the spherical harmonics in the book, by looking at our wave function, I single out the relevant equations. 
+		\begin{align}
+			Y_{2,\pm1} (\theta, \phi) &= \mp \sqrt{\frac{15}{8\pi}} e^{\pm i\phi} \sin \theta \cos \theta \\
+			Y_{2,\pm2} (\theta, \phi) &= \sqrt{\frac{15}{32\pi}} e^{\pm 2i\phi} \sin^2 \theta
+		\end{align}
+		\begin{equation}
+			\begin{aligned}[b]
+				\Psi(\theta, \phi) &= 3\sin \theta \cos \theta e^{i\phi} - 2\sin^2 \theta e^{2i\phi} \\
+								   &= \boxed{-3 \sqrt{\frac{8\pi}{15}} Y_{2,1} (\theta, \phi) - 2 \sqrt{\frac{32\pi}{15}} Y_{2,2} (\theta, \phi)}
+			\end{aligned}
+		\end{equation}
+		
+		\item[(b)] Is $\Psi(\theta, \phi)$ an eigenstate of $\hat{L}^2$ or $\hat{L}_z$?
+		\paragraph{Solution} A wave function is an eigenstate of an operator if it satisfies $\hat{A} \Psi = \lambda \Psi$, where $\lambda$ is a constant. $\hat{L}^2\ket{l,m} = \hbar^2 l(l+1)\ket{l,m}$, $\hat{L}_z\ket{l,m} = m\hbar\ket{l,m}$ 
+		\begin{equation}
+			\begin{aligned}[b]
+				\hat{L}^2 \Psi(\theta, \phi) &= -3 \sqrt{\frac{8\pi}{15}} \left[ 2(2+1)\hbar^2 \right] Y_{2,1} - 2 \sqrt{\frac{32\pi}{15}} \left[ 2(2+1)\hbar^2 \right] Y_{2,2} \\
+											 &= 6\hbar^2 \Psi(\theta,\phi) \quad \boxed{\text{Eigenstate}}
+			\end{aligned}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\hat{L}_z \Psi(\theta, \phi) &= -3 \sqrt{\frac{8\pi}{15}} \left[ 1 \times \hbar \right] Y_{2,1} - 2 \sqrt{\frac{32\pi}{15}} \left[ 2 \times \hbar \right] Y_{2,2} \\
+										   	 &\neq \lambda \Psi(\theta,\phi) \quad \boxed{\text{Not an eigenstate}}
+			\end{aligned}
+		\end{equation}
+		
+		\item[(b)] Find the probability of measuring $2\hbar$ for the $z$-component of the orbital angular momentum. 
+		\paragraph{Solution} The only state with $2\hbar$ is $Y_{2,2}$.
+		\begin{equation}
+			\begin{aligned}[b]
+				P_2 &= \abs{ \braket{2,2}{\Psi} }^2 \\
+					&= \abs{ -3 \sqrt{\frac{8\pi}{15}} \braket{2,2}{2,1} - 2 \sqrt{\frac{32\pi}{15}} \braket{2,2}{2,2} }^2 \\
+					&= \abs{-2 \sqrt{\frac{32\pi}{15}}}^2 \\
+					&= \boxed{\frac{128\pi}{15}}
+			\end{aligned}
+		\end{equation}
+	\end{enumerate}
+	
+\clearpage
+	
+	\section*{Problem 3: Exercise 5.16}
+	
+	Consider a system which is described by the state
+	\begin{equation} \label{eq:2}
+		\Psi(\theta, \phi) = \sqrt{\frac{3}{8}} Y_{1,1}(\theta, \phi) + \sqrt{\frac{1}{8}} Y_{1,0}(\theta, \phi) + A Y_{1,-1}(\theta, \phi), 
+	\end{equation}
+	where $A$ is a real constant.
+	\begin{enumerate}
+		\item[(a)] Calculate $A$ so that $\ket{\Psi}$ is normalized.
+		\paragraph{Solution}
+		\begin{equation}
+			\begin{aligned}[b]
+				\braket{\Psi}{\Psi} = \frac{3}{8} + \frac{1}{8} + A^2 &= 1 \\
+																	A &= \sqrt{\frac{1}{2}}
+			\end{aligned}
+		\end{equation}
+		
+		\item[(b)] Find $\hat{L}_+ \Psi(\theta, \phi)$.
+		\paragraph{Solution} $\hat{L}_{\pm}\ket{l,m} = \hbar \sqrt{l(l+1)-m(m \pm 1)} \ket{l,m \pm 1}$.
+		\begin{equation}
+			\begin{aligned}[b]
+				\hat{L}_+ \Psi(\theta, \phi) &= \sqrt{\frac{3}{8}} \hat{L}_+ \ket{1,1} + \sqrt{\frac{1}{8}} \hat{L}_+ \ket{1,0} + \sqrt{\frac{1}{2}} \hat{L}_+ \ket{1,-1} \\
+											 &= \sqrt{\frac{3}{8}} \hbar \sqrt{ 1(1+1) - 1(1+1) } \ket{1,2} \\
+											 &\quad + \sqrt{\frac{1}{8}} \hbar \sqrt{ 1(1+1) - 0(0+1) } \ket{1,1} \\
+											 &\quad + \sqrt{\frac{1}{2}} \hbar \sqrt{ 1(1+1) + 1(-1+1) } \ket{1,0} \\
+											 &= 0 + \frac{\hbar}{2} \ket{1,1} + \hbar \ket{1,0} \\
+											 &= \boxed{\hbar \left(\frac{1}{2} \ket{1,1} + \ket{1,0}\right)}
+			\end{aligned}
+		\end{equation}
+		
+		\item[(c)] Calculate the expectation values of $\hat{L}_x$ and $\hat{L}^2$ in the state $\ket{\Psi}$.
+		\paragraph{Solution}
+		
+		\begin{equation}
+			\begin{split}
+				\hat{L}_\pm = \hat{L}_x \pm i\hat{l}_y \quad \Rightarrow \quad \hat{L}_x = \frac{1}{2} \left[ \hat{L}_+ + \hat{L}_- \right]
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{aligned}[b]
+				\expval{\hat{L}_+} &= \left[ \sqrt{\frac{3}{8}} \ket{1,1} + \sqrt{\frac{1}{8}} \ket{1,0} + \sqrt{\frac{1}{2}} \ket{1,-1} \right] \left[ \sqrt{\frac{3}{8}} (0) \ket{1,2} + \sqrt{\frac{1}{8}} \sqrt{2}\hbar \ket{1,1} + \sqrt{\frac{1}{2}} \sqrt{2}\hbar \ket{1,0} \right] \\
+								   &= \hbar \left[ \sqrt{\frac{3}{8} \times \frac{1}{8} \times 2} + \sqrt{\frac{1}{8} \times \frac{1}{2} \times 2} \right] \\
+								   &= \frac{\sqrt{6} + 2\sqrt{2}}{8} \hbar
+			\end{aligned}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{aligned}[b]
+				\expval{\hat{L}_-} &= \left[ \sqrt{\frac{3}{8}} \ket{1,1} + \sqrt{\frac{1}{8}} \ket{1,0} + \sqrt{\frac{1}{2}} \ket{1,-1} \right] \left[ \sqrt{\frac{3}{8}} \sqrt{2}\hbar \ket{1,0} + \sqrt{\frac{1}{8}} \sqrt{2}\hbar \ket{1,-1} + \sqrt{\frac{1}{2}} (0) \ket{1,-2} \right] \\
+								   &= \hbar \left[ \sqrt{\frac{1}{8} \times \frac{3}{8} \times 2} + \sqrt{\frac{1}{2} \times \frac{1}{8} \times 2} \right] \\
+								   &= \frac{\sqrt{6} + 2\sqrt{2}}{8} \hbar
+			\end{aligned}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{aligned}[b]
+				\hat{L}_x &= \frac{1}{2} \left[ \frac{\sqrt{6} + 2\sqrt{2}}{8} \hbar + \frac{\sqrt{6} + 2\sqrt{2}}{8} \hbar \right] \\
+						  &= \boxed{\frac{\sqrt{6} + 2\sqrt{2}}{8} \hbar} \\
+			\end{aligned}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{aligned}[b]
+				\expval{\hat{L}^2} &= \left[ \sqrt{\frac{3}{8}} \ket{1,1} + \sqrt{\frac{1}{8}} \ket{1,0} + \sqrt{\frac{1}{2}} \ket{1,-1} \right] \left[ \sqrt{\frac{3}{8}} \hat{L}^2 \ket{1,1} + \sqrt{\frac{1}{8}} \hat{L}^2 \ket{1,0} + \sqrt{\frac{1}{2}} \hat{L}^2 \ket{1,-1} \right] \\
+								   &= \left[ \sqrt{\frac{3}{8}} \ket{1,1} + \sqrt{\frac{1}{8}} \ket{1,0} + \sqrt{\frac{1}{2}} \ket{1,-1} \right] \left[ \sqrt{\frac{3}{8}} 2\hbar^2 \ket{1,1} + \sqrt{\frac{1}{8}} 2\hbar^2 \ket{1,0} + \sqrt{\frac{1}{2}} 2\hbar^2 \ket{1,-1} \right] \\
+								   &= 2\hbar^2 \left[ \frac{3}{8} + \frac{1}{8} + \frac{1}{2} \right] \\
+								   &= \boxed{2\hbar^2} 
+			\end{aligned}
+		\end{equation}
+		
+		\item[(d)] Find the probability associated with a measurement that gives zero for the $z$-component of the angular momentum.
+		\paragraph{Solution}
+		
+		\begin{equation}
+			\begin{aligned}[b]
+				\hat{L}_z \Psi = \sqrt{\frac{3}{8}} (1 \times \hbar) \ket{1,1} + \sqrt{\frac{1}{8}} (0 \times \hbar) \ket{1,0} + \sqrt{\frac{1}{2}} (-1 \times \hbar) \ket{1,-1}
+			\end{aligned}
+		\end{equation}
+		The only state with $0$ is $Y_{1,0}$.
+		\begin{equation}
+			\begin{aligned}[b]
+				P_0 &= \abs{ \braket{1,0}{\Psi} }^2 \\
+					&= \abs{ \sqrt{\frac{3}{8}} \bra{1,0}\ket{1,1} + \sqrt{\frac{1}{8}} \bra{1,0}\ket{1,0} + \sqrt{\frac{1}{2}} \bra{1,0}\ket{1,-1} }^2 \\
+					&= \abs{ \sqrt{\frac{1}{8}} }^2 \\
+					&= \boxed{\frac{1}{8}}
+			\end{aligned}
+		\end{equation}
+		
+		\item[(e)] Calculate $\bra{\Phi}\hat{L}_z \ket{\Psi}$ and $\bra{\Phi}\hat{L}_- \ket{\Psi}$ where
+		\begin{equation} \label{eq:3}
+			\Phi(\theta, \phi) = \sqrt{\frac{8}{15}} Y_{1,1}(\theta, \phi) + \sqrt{\frac{4}{15}} Y_{1,0}(\theta, \phi) + \sqrt{\frac{3}{15}} Y_{2,-1}(\theta, \phi). 
+		\end{equation}
+		\paragraph{Solution}
+		\begin{equation}
+			\begin{aligned}[b]
+				\bra{\Phi}\hat{L}_z \ket{\Psi} &= \left[ \sqrt{\frac{8}{15}} \ket{1,1} + \sqrt{\frac{4}{15}} \ket{1,0} + \sqrt{\frac{3}{15}} \ket{2,-1} \right] \left[ \sqrt{\frac{3}{8}} \hbar \ket{1,1} - \sqrt{\frac{1}{2}} \hbar \ket{1,-1} \right] \\
+											   &= \hbar \left[ \sqrt{\frac{8}{15}} \times \sqrt{\frac{3}{8}} \right] \\
+											   &= \boxed{\frac{\sqrt{5}}{5}\hbar}
+			\end{aligned}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\bra{\Phi}\hat{L}_- \ket{\Psi} &= \left[ \sqrt{\frac{8}{15}} \ket{1,1} + \sqrt{\frac{4}{15}} \ket{1,0} + \sqrt{\frac{3}{15}} \ket{2,-1} \right] \left[ \sqrt{\frac{3}{8}} \sqrt{2}\hbar \ket{1,0} + \sqrt{\frac{1}{8}} \sqrt{2}\hbar \ket{1,-1} \right] \\
+											   &= \hbar \left[ \sqrt{\frac{4}{15}} \times \sqrt{\frac{3}{8}} \times \sqrt{2} \right] \\
+											   &= \boxed{\frac{\sqrt{5}}{5}\hbar}
+			\end{aligned}
+		\end{equation}
+	\end{enumerate}
+	
+\clearpage
+
+	\section*{Problem 4: Exercise 5.28}
+	
+	Consider a system which is given in the following angular momentum eigenstates $\ket{l,m}$:
+	\begin{equation} \label{eq:4}
+		\ket{\Psi} = \sqrt{\frac{1}{7}} \ket{1,-1} + A\ket{1,0} + \sqrt{\frac{2}{7}} \ket{1,1}, 
+	\end{equation}
+	where $A$ is a real constant.
+	\begin{enumerate}
+		\item[(a)] Calculate $A$ so that $\ket{\Psi}$ is normalized.
+		\paragraph{Solution}
+		\begin{equation}
+			\begin{aligned}[b]
+				\braket{\Psi}{\Psi} = \frac{1}{7} + A^2 + \frac{2}{7} &= 1 \\
+																	A &= \sqrt{\frac{4}{7}}
+			\end{aligned}
+		\end{equation}
+		
+		\item[(b)] Calculate the expectation values of $\hat{L}_x$, $\hat{L}_y$, $\hat{L}_z$, and $\hat{L}^2$ in the state $\ket{\Psi}$.
+		\paragraph{Solution}
+		
+		\begin{equation}
+			\begin{aligned}[b]
+				\expval{\hat{L}^2} &= \left[ \sqrt{\frac{1}{7}} \ket{1,-1} + \sqrt{\frac{4}{7}} \ket{1,0} + \sqrt{\frac{5}{7}} \ket{1,1} \right] \left[ 2\hbar^2 \sqrt{\frac{1}{7}} \ket{1,-1} + 2\hbar^2 \sqrt{\frac{4}{7}} \ket{1,0} + 2\hbar^2 \sqrt{\frac{2}{7}} \ket{1,1} \right] \\
+								   &= 2\hbar^2 \left[ \frac{1}{7} + \frac{4}{7} + \frac{2}{7} \right] \\
+								   &= \boxed{2\hbar^2} 
+			\end{aligned}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\expval{\hat{L}_z} &= \left[ \sqrt{\frac{1}{7}} \ket{1,-1} + \sqrt{\frac{4}{7}} \ket{1,0} + \sqrt{\frac{5}{7}} \ket{1,1} \right] \left[ \sqrt{\frac{1}{7}} (-1 \times \hbar) \ket{1,-1} + \sqrt{\frac{4}{7}} (0 \times \hbar) \ket{1,0} + \sqrt{\frac{2}{7}} (1 \times \hbar) \ket{1,1} \right] \\
+								   &= \hbar \left[ \frac{1}{7} + \frac{2}{7} \right] \\
+								   &= \boxed{\frac{3}{7} \hbar}
+			\end{aligned}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\expval{\hat{L}_+} &= \left[ \sqrt{\frac{1}{7}} \ket{1,-1} + \sqrt{\frac{4}{7}} \ket{1,0} + \sqrt{\frac{5}{7}} \ket{1,1} \right] \left[ \sqrt{\frac{1}{7}} \sqrt{2}\hbar \ket{1,0} + \sqrt{\frac{4}{7}} \sqrt{2}\hbar \ket{1,1} + \sqrt{\frac{5}{7}} (0) \ket{1,2} \right] \\
+								   &= \hbar \left[ \sqrt{\frac{4}{7} \times \frac{1}{7} \times 2} + \sqrt{\frac{5}{7} \times \frac{4}{7} \times 2} \right] \\
+								   &= \boxed{\frac{2\sqrt{10} + 2\sqrt{2}}{7} \hbar}
+			\end{aligned}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\expval{\hat{L}_-} &= \left[ \sqrt{\frac{1}{7}} \ket{1,-1} + \sqrt{\frac{4}{7}} \ket{1,0} + \sqrt{\frac{5}{7}} \ket{1,1} \right] \left[ \sqrt{\frac{1}{7}} (0) \ket{1,-2} + \sqrt{\frac{4}{7}} \sqrt{2}\hbar \ket{1,-1} + \sqrt{\frac{5}{7}} \sqrt{2}\hbar \ket{1,0} \right] \\
+								   &= \hbar \left[ \sqrt{\frac{1}{7} \times \frac{4}{7} \times 2} + \sqrt{\frac{4}{7} \times \frac{5}{7} \times 2} \right] \\
+								   &= \boxed{\frac{2\sqrt{10} + 2\sqrt{2}}{7} \hbar}
+			\end{aligned}
+		\end{equation}
+		
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\expval{\hat{L}_x} &= \frac{1}{2} \left[ \frac{2\sqrt{10} + 2\sqrt{2}}{7} \hbar + \frac{2\sqrt{10} + 2\sqrt{2}}{7} \hbar \right] \\
+									   &= \boxed{\frac{2\sqrt{10} + 2\sqrt{2}}{7} \hbar}
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\expval{\hat{L}_y} &= \frac{1}{2} \left[ \frac{2\sqrt{10} + 2\sqrt{2}}{7} \hbar - \frac{2\sqrt{10} + 2\sqrt{2}}{7} \hbar \right] \\
+									   &= \boxed{0}
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		
+		\item[(c)] Find the probability associated with a measurement that gives $1\hbar$ for the $z$-component of the angular momentum.
+		\paragraph{Solution} The only state with $1\hbar$ is $Y_{1,1}$.
+		\begin{equation}
+			\begin{aligned}[b]
+				P_1 &= \abs{ \braket{1,1}{\Psi} }^2 \\
+					&= \abs{ \sqrt{\frac{1}{7}} \bra{1,1}\ket{1,-1} + \sqrt{\frac{4}{7}} \bra{1,1}\ket{1,0} + \sqrt{\frac{5}{7}} \bra{1,1}\ket{1,1} }^2 \\
+					&= \abs{ \sqrt{\frac{5}{7}} }^2 \\
+					&= \boxed{\frac{5}{7}}
+			\end{aligned}
+		\end{equation}
+		
+		\item[(d)] Calculate $\bra{1,m}\hat{L}^2_+ \ket{\Psi}$ and $\bra{1,m}\hat{L}^2_- \ket{\Psi}$.
+		\paragraph{Solution} We need to apply the operators twice, then multiply by the bra.
+		\begin{equation}
+			\begin{split}
+				\hat{L}_+ \ket{\Psi} &= \sqrt{\frac{1}{7}} \sqrt{2}\hbar \ket{1,0} + \sqrt{\frac{4}{7}} \sqrt{2}\hbar \ket{1,1}
+			\end{split}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\hat{L}^2_+ \ket{\Psi} &= \sqrt{\frac{1}{7}} \sqrt{2}\hbar \sqrt{2}\hbar \ket{1,1} + \sqrt{\frac{4}{7}} \sqrt{2}\hbar (0) \ket{1,2} \\
+				&= \sqrt{\frac{1}{7}} 2\hbar^2 \ket{1,1}
+			\end{aligned}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\bra{1,m}\hat{L}^2_+ \ket{\Psi} &= \sqrt{\frac{4}{7}} \hbar^2 \bra{1,m}\ket{1,1} \\
+												&= \boxed{\sqrt{\frac{4}{7}} \hbar^2 \delta_{m,1}}
+			\end{aligned}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				\hat{L}_- \ket{\Psi} &= \sqrt{\frac{4}{7}} \sqrt{2}\hbar \ket{1,-1} + \sqrt{\frac{5}{7}} \sqrt{2}\hbar \ket{1,0}
+			\end{split}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\hat{L}^2_- \ket{\Psi} &= \sqrt{\frac{4}{7}} \sqrt{2}\hbar (0) \ket{1,-2} + \sqrt{\frac{5}{7}} \sqrt{2}\hbar \sqrt{2}\hbar \ket{1,-1} \\
+				&= \sqrt{\frac{5}{7}} 2\hbar^2 \ket{1,-1}
+			\end{aligned}
+		\end{equation}
+		\begin{equation}
+			\begin{aligned}[b]
+				\bra{1,m}\hat{L}^2_- \ket{\Psi} &= \sqrt{\frac{20}{7}} \hbar^2 \bra{1,m}\ket{1,-1} \\
+				&= \sqrt{\frac{20}{7}} \hbar^2 \delta_{m,-1}
+			\end{aligned}
+		\end{equation}
+	\end{enumerate}
+	
+	
+\clearpage
+
+	\section*{Problem 5: Exercise 5.31}
+	
+	Consider a spin $\frac{3}{2}$ particle whose Hamiltonian is given by
+	\begin{equation} \label{eq:5}
+		\hat{H} = \frac{\varepsilon_0}{\hbar^2} ( \hat{S}^2_x - \hat{S}^2_y ) - \frac{\varepsilon_0}{\hbar^2} ( \hat{S}^2_z ) 
+	\end{equation}
+	where $\epsilon_0$ is a constant having the dimensions of energy.
+	\begin{enumerate}
+		\item[(a)] Find the matrix of the Hamiltonian and diagonalize it to find the energy levels.
+		\paragraph{Solution} Need to find the matrix for $\hat{S}_x, \hat{S}_y,$ and $\hat{S}_z$. For long matrix calculations I used \href{https://matrixcalc.org/}{https://matrixcalc.org/}.
+		
+		\begingroup
+		\renewcommand*{\arraystretch}{1.5}
+		\begin{equation}
+			\hat{S}_z =
+			\begin{bmatrix}
+				\bra{\frac{3}{2},\frac{3}{2}} \frac{3}{2}\hbar \ket{\frac{3}{2},\frac{3}{2}} & \bra{\frac{3}{2},\frac{3}{2}} \frac{1}{2}\hbar \ket{\frac{3}{2},\frac{1}{2}} &
+				\bra{\frac{3}{2},\frac{3}{2}} \frac{-1}{2}\hbar \ket{\frac{3}{2},\frac{-1}{2}} & \bra{\frac{3}{2},\frac{3}{2}} \frac{-3}{2}\hbar \ket{\frac{3}{2},\frac{-3}{2}} \\
+				\bra{\frac{3}{2},\frac{1}{2}} \frac{3}{2}\hbar \ket{\frac{3}{2},\frac{3}{2}} & \bra{\frac{3}{2},\frac{1}{2}} \frac{1}{2}\hbar \ket{\frac{3}{2},\frac{1}{2}} &
+				\bra{\frac{3}{2},\frac{1}{2}} \frac{-1}{2}\hbar \ket{\frac{3}{2},\frac{-1}{2}} & \bra{\frac{3}{2},\frac{1}{2}} \frac{-3}{2}\hbar \ket{\frac{3}{2},\frac{-3}{2}} \\
+				\bra{\frac{3}{2},\frac{-1}{2}} \frac{3}{2}\hbar \ket{\frac{3}{2},\frac{3}{2}} & \bra{\frac{3}{2},\frac{-1}{2}} \frac{1}{2}\hbar \ket{\frac{3}{2},\frac{1}{2}} &
+				\bra{\frac{3}{2},\frac{-1}{2}} \frac{-1}{2}\hbar \ket{\frac{3}{2},\frac{-1}{2}} & \bra{\frac{3}{2},\frac{-1}{2}} \frac{-3}{2}\hbar \ket{\frac{3}{2},\frac{-3}{2}} \\
+				\bra{\frac{3}{2},\frac{-3}{2}} \frac{3}{2}\hbar \ket{\frac{3}{2},\frac{3}{2}} & \bra{\frac{3}{2},\frac{-3}{2}} \frac{1}{2}\hbar \ket{\frac{3}{2},\frac{1}{2}} &
+				\bra{\frac{3}{2},\frac{-3}{2}} \frac{-1}{2}\hbar \ket{\frac{3}{2},\frac{-1}{2}} & \bra{\frac{3}{2},\frac{-3}{2}} \frac{-3}{2}\hbar \ket{\frac{3}{2},\frac{-3}{2}} \\
+			\end{bmatrix}
+		\end{equation}
+		Applying the orthogonality condition, only the diagonal terms will survive.
+		\begin{equation}
+			\hat{S}_z = \frac{\hbar}{2}
+			\begin{bmatrix}
+				3 & 0 & 0 & 0 \\
+				0 & 1 & 0 & 0 \\
+				0 & 0 &	-1 & 0 \\
+				0 & 0 & 0 & -3 \\
+			\end{bmatrix}
+		\end{equation}
+		\begin{equation}
+			\hat{S}_z = \frac{\hbar^2}{4}
+			\begin{bmatrix}
+				9 & 0 & 0 & 0 \\
+				0 & 1 & 0 & 0 \\
+				0 & 0 &	1 & 0 \\
+				0 & 0 & 0 & 9 \\
+			\end{bmatrix}
+		\end{equation}
+		For $\hat{S}_x$ and $\hat{S}_y$, the ladder operators $\hat{S}_\pm$ need to be found first. I will skip adding the $s$ quantum number in the matrix for simplicity. Also the $a_{mn}$ denotes the constant from $\hat{S}_\pm$.
+		\begin{align}
+			\hat{S}_+ &=
+			\begin{bmatrix}
+				\bra{\frac{3}{2}} \hat{S}_+ \ket{\frac{3}{2}} & \bra{\frac{3}{2}} \hat{S}_+ \ket{\frac{1}{2}} &
+				\bra{\frac{3}{2}} \hat{S}_+ \ket{\frac{-1}{2}} & \bra{\frac{3}{2}} \hat{S}_+ \ket{\frac{-3}{2}} \\
+				\bra{\frac{1}{2}} \hat{S}_+ \ket{\frac{3}{2}} & \bra{\frac{1}{2}} \hat{S}_+ \ket{\frac{1}{2}} &
+				\bra{\frac{1}{2}} \hat{S}_+ \ket{\frac{-1}{2}} & \bra{\frac{1}{2}} \hat{S}_+ \ket{\frac{-3}{2}} \\
+				\bra{\frac{-1}{2}} \hat{S}_+ \ket{\frac{3}{2}} & \bra{\frac{-1}{2}} \hat{S}_+ \ket{\frac{1}{2}} &
+				\bra{\frac{-1}{2}} \hat{S}_+ \ket{\frac{-1}{2}} & \bra{\frac{-1}{2}} \hat{S}_+ \ket{\frac{-3}{2}} \\
+				\bra{\frac{-3}{2}} \hat{S}_+ \ket{\frac{3}{2}} & \bra{\frac{-3}{2}} \hat{S}_+ \ket{\frac{1}{2}} &
+				\bra{\frac{-3}{2}} \hat{S}_+ \ket{\frac{-1}{2}} & \bra{\frac{-3}{2}} \hat{S}_+ \ket{\frac{-3}{2}} \\
+			\end{bmatrix} \\
+			&=
+			\begin{bmatrix}
+				\bra{\frac{3}{2}} a_{11} \ket{\frac{5}{2}} & \bra{\frac{3}{2}} a_{12} \ket{\frac{3}{2}} &
+				\bra{\frac{3}{2}} a_{13} \ket{\frac{1}{2}} & \bra{\frac{3}{2}} a_{14} \ket{\frac{-1}{2}} \\
+				\bra{\frac{1}{2}} a_{21} \ket{\frac{5}{2}} & \bra{\frac{1}{2}} a_{22} \ket{\frac{3}{2}} &
+				\bra{\frac{1}{2}} a_{23} \ket{\frac{1}{2}} & \bra{\frac{1}{2}} a_{24} \ket{\frac{-1}{2}} \\
+				\bra{\frac{-1}{2}} a_{31} \ket{\frac{5}{2}} & \bra{\frac{-1}{2}} a_{32} \ket{\frac{3}{2}} &
+				\bra{\frac{-1}{2}} a_{33} \ket{\frac{1}{2}} & \bra{\frac{-1}{2}} a_{34} \ket{\frac{-1}{2}} \\
+				\bra{\frac{-3}{2}} a_{41} \ket{\frac{5}{2}} & \bra{\frac{-3}{2}} a_{42} \ket{\frac{3}{2}} &
+				\bra{\frac{-3}{2}} a_{43} \ket{\frac{1}{2}} & \bra{\frac{-3}{2}} a_{44} \ket{\frac{-1}{2}} \\
+			\end{bmatrix} \\
+			&=
+			\begin{bmatrix}
+				0 & \bra{\frac{3}{2}} a_{12} \ket{\frac{3}{2}} & 0 & 0 \\
+				0 & 0 & \bra{\frac{1}{2}} a_{23} \ket{\frac{1}{2}} & 0 \\
+				0 & 0 & 0 & \bra{\frac{-1}{2}} a_{34} \ket{\frac{-1}{2}} \\
+				0 & 0 & 0 & 0 \\
+			\end{bmatrix} \\
+			\hat{S}_+ &= \frac{\hbar}{2}
+			\begin{bmatrix}
+				0 & \sqrt{3} & 0 & 0 \\
+				0 & 0 & 2 & 0 \\
+				0 & 0 & 0 & \sqrt{3} \\
+				0 & 0 & 0 & 0 \\
+			\end{bmatrix}
+		\end{align}
+		
+		\begin{align}
+			\hat{S}_- &=
+			\begin{bmatrix}
+				\bra{\frac{3}{2}} \hat{S}_- \ket{\frac{3}{2}} & \bra{\frac{3}{2}} \hat{S}_- \ket{\frac{1}{2}} &
+				\bra{\frac{3}{2}} \hat{S}_- \ket{\frac{-1}{2}} & \bra{\frac{3}{2}} \hat{S}_- \ket{\frac{-3}{2}} \\
+				\bra{\frac{1}{2}} \hat{S}_- \ket{\frac{3}{2}} & \bra{\frac{1}{2}} \hat{S}_- \ket{\frac{1}{2}} &
+				\bra{\frac{1}{2}} \hat{S}_- \ket{\frac{-1}{2}} & \bra{\frac{1}{2}} \hat{S}_- \ket{\frac{-3}{2}} \\
+				\bra{\frac{-1}{2}} \hat{S}_- \ket{\frac{3}{2}} & \bra{\frac{-1}{2}} \hat{S}_- \ket{\frac{1}{2}} &
+				\bra{\frac{-1}{2}} \hat{S}_- \ket{\frac{-1}{2}} & \bra{\frac{-1}{2}} \hat{S}_- \ket{\frac{-3}{2}} \\
+				\bra{\frac{-3}{2}} \hat{S}_- \ket{\frac{3}{2}} & \bra{\frac{-3}{2}} \hat{S}_- \ket{\frac{1}{2}} &
+				\bra{\frac{-3}{2}} \hat{S}_- \ket{\frac{-1}{2}} & \bra{\frac{-3}{2}} \hat{S}_- \ket{\frac{-3}{2}} \\
+			\end{bmatrix} \\
+			&=
+			\begin{bmatrix}
+				\bra{\frac{3}{2}} a_{11} \ket{\frac{1}{2}} & \bra{\frac{3}{2}} a_{12} \ket{\frac{-1}{2}} &
+				\bra{\frac{3}{2}} a_{13} \ket{\frac{-3}{2}} & \bra{\frac{3}{2}} a_{14} \ket{\frac{-5}{2}} \\
+				\bra{\frac{1}{2}} a_{21} \ket{\frac{1}{2}} & \bra{\frac{1}{2}} a_{22} \ket{\frac{-1}{2}} &
+				\bra{\frac{1}{2}} a_{23} \ket{\frac{-3}{2}} & \bra{\frac{1}{2}} a_{24} \ket{\frac{-5}{2}} \\
+				\bra{\frac{-1}{2}} a_{31} \ket{\frac{1}{2}} & \bra{\frac{-1}{2}} a_{32} \ket{\frac{-1}{2}} &
+				\bra{\frac{-1}{2}} a_{33} \ket{\frac{-3}{2}} & \bra{\frac{-1}{2}} a_{34} \ket{\frac{-5}{2}} \\
+				\bra{\frac{-3}{2}} a_{41} \ket{\frac{1}{2}} & \bra{\frac{-3}{2}} a_{42} \ket{\frac{-1}{2}} &
+				\bra{\frac{-3}{2}} a_{43} \ket{\frac{-3}{2}} & \bra{\frac{-3}{2}} a_{44} \ket{\frac{-5}{2}} \\
+			\end{bmatrix} \\
+			&=
+			\begin{bmatrix}
+				0 & 0 & 0 & 0 \\
+				\bra{\frac{1}{2}} a_{21} \ket{\frac{1}{2}} & 0 & 0 & 0 \\
+				0 & \bra{\frac{-1}{2}} a_{32} \ket{\frac{-1}{2}} & 0 & 0 \\
+				0 & 0 & \bra{\frac{-3}{2}} a_{43} \ket{\frac{-3}{2}} & 0 \\
+			\end{bmatrix} \\
+			\hat{S}_- &= \frac{\hbar}{2}
+			\begin{bmatrix}
+				0 & 0 & 0 & 0 \\
+				\sqrt{3} & 0 & 0 & 0 \\
+				0 & 2 & 0 & 0 \\
+				0 & 0 & \sqrt{3} & 0 \\
+			\end{bmatrix}
+		\end{align}
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\hat{S}_x = \frac{\hbar}{2}
+				\begin{bmatrix}
+					0 & \sqrt{3} & 0 & 0 \\
+					\sqrt{3} & 0 & 2 & 0 \\
+					0 & 2 & 0 & \sqrt{3} \\
+					0 & 0 & \sqrt{3} & 0 \\
+				\end{bmatrix}
+			\end{equation}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\hat{S}_y = \frac{i\hbar}{2}
+				\begin{bmatrix}
+					0 & -\sqrt{3} & 0 & 0 \\
+					\sqrt{3} & 0 & -2 & 0 \\
+					0 & 2 & 0 & -\sqrt{3} \\
+					0 & 0 & \sqrt{3} & 0 \\
+				\end{bmatrix}
+			\end{equation}
+		\end{minipage}
+		
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\hat{S}^2_x = \frac{\hbar^2}{4}
+				\begin{bmatrix}
+					3 & 0 & 2\sqrt{3} & 0 \\
+					0 & 7 & 0 & 2\sqrt{3} \\
+					2\sqrt{3} & 0 & 7 & 0 \\
+					0 & 2\sqrt{3} & 0 & 3 \\
+				\end{bmatrix}
+			\end{equation}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\hat{S}^2_y = \frac{-\hbar^2}{4}
+				\begin{bmatrix}
+					-3 & 0 & 2\sqrt{3} & 0 \\
+					0 & -7 & 0 & 2\sqrt{3} \\
+					2\sqrt{3} & 0 & -7 & 0 \\
+					0 & 2\sqrt{3} & 0 & -3 \\
+				\end{bmatrix}
+			\end{equation}
+		\end{minipage}
+		\begin{align}
+			\hat{H} &= \frac{\varepsilon_0}{4}
+			\begin{bmatrix}
+				0 & 0 & 4\sqrt{3} & 0 \\
+				0 & 0 & 0 & 4\sqrt{3} \\
+				4\sqrt{3} & 0 & 0 & 0 \\
+				0 & 4\sqrt{3} & 0 & 0
+			\end{bmatrix} - \frac{\varepsilon_0}{4}
+			\begin{bmatrix}
+				9 & 0 & 0 & 0 \\
+				0 & 1 & 0 & 0 \\
+				0 & 0 &	1 & 0 \\
+				0 & 0 & 0 & 9
+			\end{bmatrix} \\
+			\hat{H} &= \varepsilon_0
+			\begin{bmatrix}
+				-9 & 0 & 4\sqrt{3} & 0 \\
+				0 & -1 & 0 & 4\sqrt{3} \\
+				4\sqrt{3} & 0 & -1 & 0 \\
+				0 & 4\sqrt{3} & 0 & -9
+			\end{bmatrix} 	
+		\end{align}
+		\endgroup
+\clearpage
+	
+		Now to diagonalize the Hamiltonian, the eigenvalues and the eigenvectors need to be found according to $\hat{H} = PDP^{-1}$, where $P$ is the matrix fo the eigenvectors, and $D$ is a diagonal matrix of the eigenvalues. To find the eigenvalues we find $det(\hat{H} - \lambda \hat{I}) = 0$.
+		\begin{align}
+			det(\hat{H} - \lambda \hat{I}) &=
+			\begin{vmatrix}
+				-9 - \lambda & 0 & 4\sqrt{3} & 0 \\
+				0 & -1 - \lambda & 0 & 4\sqrt{3} \\
+				4\sqrt{3} & 0 & -1 - \lambda & 0 \\
+				0 & 4\sqrt{3} & 0 & -9 - \lambda
+			\end{vmatrix} = 0 \\
+			\intertext{Expanding along the first row.}
+			0 &= (-9 - \lambda)
+			\begin{vmatrix}
+				-1 - \lambda & 0 & 4\sqrt{3} \\
+				0 & -1 - \lambda & 0 \\
+				4\sqrt{3} & 0 & -9 - \lambda
+			\end{vmatrix}
+			+ (4\sqrt{3})
+			\begin{vmatrix}
+				0 & -1 - \lambda & 4\sqrt{3} \\
+				4\sqrt{3} & 0 & 0 \\
+				0 & 4\sqrt{3} & -9 - \lambda
+			\end{vmatrix}
+			\intertext{For the first determinant, expand along the second row. The second determinant, along the second row.}
+			0 &= (-9 - \lambda) \left[ (-1 - \lambda) \left[ (-1 - \lambda)(-9 - \lambda) - (4\sqrt{3})(4\sqrt{3}) \right] \right] \nonumber \\
+			&\quad -(4\sqrt{3})\left[ (4\sqrt{3}) \left[ (-1 - \lambda)(-9 - \lambda) - (4\sqrt{3})(4\sqrt{3}) \right] \right] \\
+			0 &= (-9 - \lambda) \left[ (-1 - \lambda) \left[ \lambda^2 + 10\lambda + 9 - 48 \right] \right] \nonumber \\
+			&\quad -(4\sqrt{3})\left[ (4\sqrt{3}) \left[ \lambda^2 + 10\lambda + 9 - 48 \right] \right] \\
+			0 &= (\lambda^2 + 10\lambda - 39)^2 \\
+			0 &= (\lambda - 3)^2(\lambda + 13)^2 \\
+			\lambda &= 3, 3, -13, -13
+		\end{align}
+		With the eigenvalues, we input them back into the original equation $\hat{H} - \lambda \hat{I} = 0$ to find the eigenvectors.
+		\begin{align}
+			\ket{\lambda_{1,2}} = 3 \quad : \quad
+			\begin{pmatrix}
+				-12 & 0 & 4\sqrt{3} & 0 \\
+				0 & -4 & 0 & 4\sqrt{3} \\
+				4\sqrt{3} & 0 & -4 & 0 \\
+				0 & 4\sqrt{3} & 0 & -12
+			\end{pmatrix}
+			\begin{pmatrix}
+				a \\
+				b \\
+				c \\
+				d
+			\end{pmatrix}
+			= \begin{pmatrix}
+				0 \\
+				0 \\
+				0 \\
+				0
+			\end{pmatrix}
+		\end{align}
+		\begin{equation}
+			\sysdelim..\systeme{
+				-12a + 4\sqrt{3}c = 0,
+				-4b + 4\sqrt{3}d = 0,
+				4\sqrt{3}a - 4c = 0,
+				4\sqrt{3}b - 12d = 0
+			}
+		\end{equation}
+		We have $c = \sqrt{3}a$ and $d = \frac{\sqrt{3}}{3}b$, $a$ and $b$ are arbitrary, making a solution set. Set $a=b=1$.
+		\begin{equation}
+			\ket{\lambda_{1,2}} = A \begin{pmatrix}
+				a \\
+				b \\
+				\sqrt{3}a \\
+				\frac{\sqrt{3}}{3}b
+			\end{pmatrix}
+			= A_1 \begin{pmatrix}
+				1 \\
+				0 \\
+				\sqrt{3} \\
+				0
+			\end{pmatrix} + A_2 \begin{pmatrix}
+				0 \\
+				1 \\
+				0 \\
+				\frac{\sqrt{3}}{3}
+			\end{pmatrix}
+		\end{equation}
+		\begin{equation}
+			\begin{split}
+				\ket{\lambda_1} &= A_1 \begin{pmatrix}
+					1 \\
+					0 \\
+					\sqrt{3} \\
+					0
+				\end{pmatrix} \\
+				\ket{\lambda_1} &= \frac{1}{2} \begin{pmatrix}
+						2 \\
+						0 \\
+						1
+				\end{pmatrix}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_1}{\lambda_1} = A_1^2 \begin{pmatrix}
+					1 & 0 & \sqrt{3} & 0
+				\end{pmatrix}
+				\begin{pmatrix}
+					1 \\
+					0 \\
+					\sqrt{3} \\
+					0
+				\end{pmatrix} &= 1 \\
+				A_1^2 \left( 1 + 0 + 3 + 0 \right) &= 1 \\
+				A_1 &= \frac{1}{2}
+			\end{split}
+		\end{equation}
+		\noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil \\
+		\begin{equation}
+			\begin{split}
+				\ket{\lambda_2} &= A_2 \begin{pmatrix}
+					0 \\
+					1 \\
+					0 \\
+					\frac{\sqrt{3}}{3}
+				\end{pmatrix} \\
+				\ket{\lambda_2} &= \frac{\sqrt{3}}{2} \begin{pmatrix}
+					0 \\
+					1 \\
+					0 \\
+					\frac{\sqrt{3}}{3}
+				\end{pmatrix}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_2}{\lambda_2} = A_2^2 \begin{pmatrix}
+					0 & 1 & 0 & 0 \frac{\sqrt{3}}{3}
+				\end{pmatrix}
+				\begin{pmatrix}
+					0 \\
+					1 \\
+					0 \\
+					\frac{\sqrt{3}}{3}
+				\end{pmatrix} &= 1 \\
+				A_2^2 \left( 0 + 1 + 0 + \frac{1}{3} \right) &= 1 \\
+				A_2 &= \frac{\sqrt{3}}{2}
+			\end{split}
+		\end{equation}
+		\begin{equation}
+			\ket{\lambda_{1,2}} = \frac{1}{2}
+			\begin{pmatrix}
+				1 \\
+				0 \\
+				\sqrt{3} \\
+				0
+			\end{pmatrix} + \frac{\sqrt{3}}{2} \begin{pmatrix}
+				0 \\
+				1 \\
+				0 \\
+				\frac{\sqrt{3}}{3}
+			\end{pmatrix}
+		\end{equation}
+		
+		\begin{align}
+			\ket{\lambda_{3,4}} = -13 \quad : \quad
+			\begin{pmatrix}
+				4 & 0 & 4\sqrt{3} & 0 \\
+				0 & 12 & 0 & 4\sqrt{3} \\
+				4\sqrt{3} & 0 & 12 & 0 \\
+				0 & 4\sqrt{3} & 0 & -4
+			\end{pmatrix}
+			\begin{pmatrix}
+				a \\
+				b \\
+				c \\
+				d
+			\end{pmatrix}
+			= \begin{pmatrix}
+				0 \\
+				0 \\
+				0 \\
+				0
+			\end{pmatrix}
+		\end{align}
+		\begin{equation}
+			\sysdelim..\systeme{
+				4a + 4\sqrt{3}c = 0,
+				12b + 4\sqrt{3}d = 0,
+				4\sqrt{3}a + 12c = 0,
+				4\sqrt{3}b + 4d = 0
+			}
+		\end{equation}
+		We have $c = -\frac{\sqrt{3}}{3}a$ and $d = -\sqrt{3}b$, $a$ and $b$ are arbitrary, making a solution set. Set $a=b=1$.
+		\begin{equation}
+			\ket{\lambda_{3,4}} = A \begin{pmatrix}
+				a \\
+				b \\
+				-\frac{\sqrt{3}}{3}a \\
+				-\sqrt{3}b
+			\end{pmatrix}
+			= A_1 \begin{pmatrix}
+				1 \\
+				0 \\
+				-\frac{\sqrt{3}}{3} \\
+				0
+			\end{pmatrix} + A_2 \begin{pmatrix}
+				0 \\
+				1 \\
+				0 \\
+				-\sqrt{3}
+			\end{pmatrix}
+		\end{equation}
+		\begin{equation}
+			\begin{split}
+				\ket{\lambda_3} &= A_1 \begin{pmatrix}
+					1 \\
+					0 \\
+					-\frac{\sqrt{3}}{3} \\
+					0
+				\end{pmatrix} \\
+				\ket{\lambda_3} &= \frac{\sqrt{3}}{2} \begin{pmatrix}
+					1 \\
+					0 \\
+					-\frac{\sqrt{3}}{3} \\
+					0
+				\end{pmatrix}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_3}{\lambda_3} = A_1^2 \begin{pmatrix}
+					1 & 0 & -\frac{\sqrt{3}}{3} & 0
+				\end{pmatrix}
+				\begin{pmatrix}
+					1 \\
+					0 \\
+					-\frac{\sqrt{3}}{3} \\
+					0
+				\end{pmatrix} &= 1 \\
+				A_1^2 \left( 1 + 0 + \frac{1}{3} + 0 \right) &= 1 \\
+				A_1 &= \frac{\sqrt{3}}{2}
+			\end{split}
+		\end{equation}
+		\noindent\hfil\rule{0.5\textwidth}{.4pt}\hfil \\
+		\begin{equation}
+			\begin{split}
+				\ket{\lambda_4} &= A_2 \begin{pmatrix}
+					0 \\
+					1 \\
+					0 \\
+					-\sqrt{3}
+				\end{pmatrix} \\
+				\ket{\lambda_4} &= \frac{1}{2} \begin{pmatrix}
+					0 \\
+					1 \\
+					0 \\
+					-\sqrt{3}
+				\end{pmatrix}
+			\end{split}
+			\qquad \Rightarrow \qquad
+			\begin{split}
+				\braket{\lambda_4}{\lambda_4} = A_2^2 \begin{pmatrix}
+					0 & 1 & 0 & 0 -\sqrt{3}
+				\end{pmatrix}
+				\begin{pmatrix}
+					0 \\
+					1 \\
+					0 \\
+					-\sqrt{3}
+				\end{pmatrix} &= 1 \\
+				A_2^2 \left( 0 + 1 + 0 + 3 \right) &= 1 \\
+				A_2 &= \frac{1}{2}
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\ket{\lambda_{3,4}} = \frac{\sqrt{3}}{2} \begin{pmatrix}
+				1 \\
+				0 \\
+				-\frac{\sqrt{3}}{3} \\
+				0
+			\end{pmatrix} + \frac{1}{2} \begin{pmatrix}
+				0 \\
+				1 \\
+				0 \\
+				-\sqrt{3}
+			\end{pmatrix}
+		\end{equation}
+		
+		\item[(b)] Find the eigenvectors and verify that the energy levels are doubly degenerate.
+		\paragraph{Solution} From part (a) the eigenvectors were found, and the fact that each eigenvalue produces two eigenvectors points to the energy levels being doubly degenerate. Explicitly shown in $\hat{H} \Psi = E \Psi$, where $E$ corresponds to the $\lambda$'s that I found.
+	\end{enumerate}
+	
+	
+	
+
+\end{document}

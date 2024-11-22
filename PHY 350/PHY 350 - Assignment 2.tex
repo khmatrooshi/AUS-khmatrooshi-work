@@ -1,0 +1,498 @@
+\documentclass{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+%\usepackage{newtx}
+\usepackage{microtype}
+\usepackage[shortconst]{physconst}
+%\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\hypersetup{
+	pdftitle={PHY 350 - Assignment 2},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+
+\begin{document}
+	
+	\begin{center}
+		\hrule
+		\vspace{0.4cm}
+		\textbf { \Large PHY 350 --- Quantum Mechanics}
+		\vspace{0.4cm}
+	\end{center}
+		\bd{Name:} \ Khalifa Salem Almatrooshi \hspace{\fill} \bd{Due Date:} 28 Mar 2024 \\
+		\bd{Student Number:} \ @00090847 \hspace{\fill} \bd{Assignment:} 2 \\
+		\hrule	
+	
+	\section*{Problem 1: Exercise 4.2}
+	
+	Consider a system whose wave function at $t=0$ is
+	\begin{equation}
+		\psi(x,0) = \frac{3}{\sqrt{30}} \phi_0 (x) + \frac{4}{\sqrt{30}} \phi_1 (x) + \frac{1}{\sqrt{6}} \phi_4 (x) \label{eq:1}
+	\end{equation}
+	where $\phi_n(x)$ is the wave function of the $n\text{th}$ excited state of an infinite square well potential of width $a$ and whose energy $E_n = \pi^2 \hbar^2 n^2 / \left( 2ma^2 \right)$.
+	\begin{enumerate}
+		\item[(a)] Find the average energy of this system.
+		\paragraph{Solution} The average energy is the expectation value of the energy $\expval{E} = \sum_{n} E_n P_n$. The probability of each state corresponds to $\braket{\phi_n}{\psi}$. First to check if it its normalized. $\braket{\phi_i}{\phi_j} = \delta_{ij}$
+		
+		\begin{equation}
+			\begin{split}
+				\braket{\psi}{\psi} = \frac{9}{30} + \frac{16}{30} + \frac{1}{6} = 1
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				\expval{E} = \sum_{n} E_n P_n &= E_0 P_0 + E_1 P_1 + E_4 P_4 \\
+				&= \left( \frac{\pi^2 \hbar^2 0^2}{2ma^2} \right) \left| \braket{\phi_0}{\psi} \right|^2 + \left( \frac{\pi^2 \hbar^2 1^2}{2ma^2} \right) \left| \braket{\phi_1}{\psi} \right|^2 + \left( \frac{\pi^2 \hbar^2 4^2}{2ma^2} \right) \left| \braket{\phi_4}{\psi} \right|^2 \\
+				&= \frac{\pi^2 \hbar^2}{2ma^2} \left[ 0 + 1 \cdot \left| \frac{4}{\sqrt{30}} \right|^2 + 16 \cdot \left| \frac{1}{\sqrt{6}} \right|^2 \right] = \frac{16}{5} E_1 \\
+				\Aboxed{\expval{E} &= \frac{8 \pi^2 \hbar^2}{5ma^2}}
+			\end{split}
+		\end{equation}
+		
+		\item[(b)] Find the state $\psi(x,t)$ at a later time $t$ and the average value of the energy. Compare the result with the value obtained in (a). 
+		\paragraph{Solution} The wave function solution is built upon a solution using separation of variables $\psi(x,t) = X(x) \cdot T(t)$, where $\psi(x,0) = X(x) \cdot T(0) = X(x)$. Therefore to get the wave function in the form $\psi(x,t)$ we have to multiply by the function $T(t)$, which we know to be equal to $e^{-i E_n t/\hbar}$ for each state. 
+		
+		\begin{equation}
+			\psi(x,t) = \frac{3}{\sqrt{30}} \phi_0 (x) e^{-i E_0 t/\hbar} + \frac{4}{\sqrt{30}} \phi_1 (x) e^{-i E_1 t/\hbar} + \frac{1}{\sqrt{6}} \phi_4 (x) e^{-i E_4 t/\hbar}
+		\end{equation}
+		
+		The Hamiltonian in the infinite square well is time-independent, and we know that the energy levels of the system are quantized and stationary. Therefore I would expect the average energy to remain constant over time, the same as (a). The exponential term because of the complex conjugate switching the sign of $i$. 
+		
+		\begin{equation}
+			\begin{split}
+				\expval{E} = \sum_{n} E_n P_n &= E_0 P_0 + E_1 P_1 + E_4 P_4 \\
+				&= \left( \frac{\pi^2 \hbar^2 0^2}{2ma^2} \right) \left| \braket{\phi_0}{\psi} \right|^2 + \left( \frac{\pi^2 \hbar^2 1^2}{2ma^2} \right) \left| \braket{\phi_1}{\psi} \right|^2 + \left( \frac{\pi^2 \hbar^2 4^2}{2ma^2} \right) \left| \braket{\phi_4}{\psi} \right|^2 \\
+				&= \frac{\pi^2 \hbar^2}{2ma^2} \left[ 0 + 1 \cdot \left| \frac{4}{\sqrt{30}} \right|^2 + 16 \cdot \left| \frac{1}{\sqrt{6}} \right|^2 \right] = \frac{16}{5} E_1 \\
+				\Aboxed{\expval{E} &= \frac{8 \pi^2 \hbar^2}{5ma^2}}
+			\end{split}
+		\end{equation}
+		
+	\end{enumerate}
+				
+\clearpage	
+		
+	\section*{Problem 2: Exercise 4.7}
+	
+	A particle of mass $m$ is moving in an infinite potential well
+	\begin{equation}
+		V(x) = \begin{cases}
+			V_0, & 0 < x < a \\
+			\infty, & elsewhere
+		\end{cases} \label{eq:2}
+	\end{equation}
+	\begin{enumerate}
+		\item[(a)] Solve the Schrödinger equation and find the energy levels and the corresponding normalized wave functions.
+		\paragraph{Solution} We did this in lecture but now there is a potential in the well.
+		
+		\begin{equation}
+			\begin{split}
+				-\frac{\hbar^2}{2m} \frac{\partial^2 \psi}{\partial x^2} + V_0 \psi &= E\psi \\
+				\frac{\partial^2 \psi}{\partial x^2} + \frac{2m(E-V_0)}{\hbar^2} \psi &= 0 \\
+				\frac{\partial^2 \psi}{\partial x^2} + k^2 \psi &= 0 \\
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				\psi(0) &= A = 0 \\
+				\psi(a) &= \begin{aligned}[t] 
+					B \sin ka &= 0 \\
+					\sin ka &= 0 \\
+					k &= \frac{n\pi}{a} = \frac{\sqrt{2m(E-V_0)}}{\hbar} \\
+					\Aboxed{E &= \frac{\pi^2 \hbar^2}{2ma^2}n^2 + V_0}
+				\end{aligned}
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				\psi(x) &= B \sin kx \\
+				\braket{\psi}{\psi} &= B^2 \int_{0}^{a} \sin^2 kx \ dx = 1 \\
+				1 &= B^2 \int_{0}^{a} \frac{1}{2} - \frac{1}{2} \cos 2kx \ dx \\
+				1 &= B^2 \left[ \frac{x}{2} - \frac{1}{4k} \sin 2kx \right]^a_0 = B^2 \left[ \frac{a}{2} - \frac{1}{4k} \sin 2n\pi \right] = B^2 \frac{a}{2} \\
+				B &= \sqrt{\frac{2}{a}} \\
+				\Aboxed{\psi(x) &= \sqrt{\frac{2}{a}} \sin kx} \\
+			\end{split}
+		\end{equation}
+		
+\clearpage
+
+		%\item[(b)] Calculate $\expval{\hat{X}}_5$, $\expval{\hat{P}}_5$, $\expval{\hat{X}^2}$, and $\expval{\hat{P}^2}$ for the fourth excited state and infer the value $\Delta x \Delta p$.
+		\item[(b)] Calculate $\langle\hat{X}\rangle_5$, $\langle\hat{P}\rangle_5$, $\langle\hat{X}^2\rangle$, and $\langle\hat{P}^2\rangle$ for the fourth excited state and infer the value $\Delta x \Delta p$.
+		\paragraph{Solution} I will first find them in general then apply $n=5$. The wave function is already normalized from the previous part, so $\braket{\psi}{\psi}=1$.
+		
+		\begin{equation}
+			\begin{split}
+				\hat{\expval{X}} = \frac{\bra{\psi}\hat{X}\ket{\psi}}{\braket{\psi}{\psi}} &= \bra{\psi}\hat{X}\ket{\psi} \\
+				&= \int_{0}^{a} \left( \sqrt{\frac{2}{a}} \sin kx \right) (x) \left( \sqrt{\frac{2}{a}} \sin kx \right) \ dx \\
+				&= \frac{2}{a} \int_{0}^{a} x \sin^2 kx \ dx \\
+				&= \frac{2}{a} \int_{0}^{a} \frac{x}{2} - \frac{x}{2} \cos 2kx \ dx \\
+				&= \frac{2}{a} \left[ \frac{x^2}{4} - \frac{x}{4k} \sin 2kx - \frac{1}{8k^2} \cos 2kx \right]^a_0 \\
+				&= \frac{2}{a} \left[ \frac{a^2}{4} - 0 - \frac{1}{8k^2} - 0 + 0 + \frac{1}{8k^2} \right] \\
+				\Aboxed{\hat{\expval{X}} &= \frac{a}{2} = \hat{\expval{X}}_5}
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				\hat{\expval{X^2}} = \frac{\bra{\psi}\hat{X^2}\ket{\psi}}{\braket{\psi}{\psi}} &= \bra{\psi}\hat{X^2}\ket{\psi} \\
+				&= \int_{0}^{a} \left( \sqrt{\frac{2}{a}} \sin kx \right) (x^2) \left( \sqrt{\frac{2}{a}} \sin kx \right) \ dx \\
+				&= \frac{2}{a} \int_{0}^{a} x^2 \sin^2 kx \ dx \\
+				&= \frac{2}{a} \int_{0}^{a} \frac{x^2}{2} - \frac{x^2}{2} \cos 2kx \ dx \\
+				&= \frac{2}{a} \left[ \frac{x^3}{6} - \frac{x^2}{2k} \sin 2kx - \frac{x}{2k^2} \cos 2kx + \frac{1}{4k^2} \sin 2kx \right]^a_0 \\
+				&= \frac{2}{a} \left[ \frac{a^3}{6} - 0 - \frac{a}{2k^2} + 0 - 0 + 0 + 0 - 0 \right] \\
+				&= \frac{a^2}{3} - \frac{1}{k^2} \\
+				\hat{\expval{X^2}}_n &= \frac{a^2}{3} - \frac{a^2}{n^2\pi^2} \\
+				\Aboxed{\hat{\expval{X^2}}_5 &= \frac{a^2}{3} - \frac{a^2}{25\pi^2}}
+			\end{split}
+		\end{equation}
+		
+\clearpage
+		
+		\begin{equation}
+			\begin{split}
+				\hat{\expval{P}} = \frac{\bra{\psi}\hat{P}\ket{\psi}}{\braket{\psi}{\psi}} &= \bra{\psi}\hat{P}\ket{\psi} \\
+				&= \int_{0}^{a} \left( \sqrt{\frac{2}{a}} \sin kx \right) (-i\hbar \partial_x) \left( \sqrt{\frac{2}{a}} \sin kx \right) \ dx \\
+				&= -i\hbar \frac{2k}{a} \int_{0}^{a} \sin kx \cos kx \ dx \quad \Rightarrow \quad \begin{cases}
+					u &= \sin kx \\
+					du &= k \cos kx \ dx
+				\end{cases} \\
+				&= -i\hbar \frac{2k}{a} \int_{0}^{\sin ka} u \cos kx \ \frac{du}{k \cos kx} \\
+				&= -i\hbar \frac{2}{a} \int_{0}^{\sin ka} u \ du \\
+				&= -i\hbar \frac{2}{a} \left[ \frac{1}{2} \sin^2 ka - 0 \right] = -i\hbar \frac{1}{a} \sin^2 n\pi \\
+				\Aboxed{\hat{\expval{P}}_n &= 0 = \hat{\expval{P}}_5}
+			\end{split}
+		\end{equation}
+		
+		\begin{equation}
+			\begin{split}
+				\hat{\expval{P^2}} = \frac{\bra{\psi}\hat{P}^2\ket{\psi}}{\braket{\psi}{\psi}} &= \bra{\psi}\hat{P}^2\ket{\psi} \\
+				&= \int_{0}^{a} \left( \sqrt{\frac{2}{a}} \sin kx \right) (-\hbar^2 \partial^2_x) \left( \sqrt{\frac{2}{a}} \sin kx \right) \ dx \\
+				&= \frac{2\hbar^2 k^2}{a} \int_{0}^{a} \sin^2 kx \ dx \\
+				&= \frac{2\hbar^2 k^2}{a} \int_{0}^{a} \frac{1}{2} - \frac{1}{2} \cos 2kx \ dx \\
+				&= \frac{2\hbar^2 k^2}{a} \left[ \frac{x}{2} - \frac{1}{4k} \sin 2kx \right]^a_0 \\
+				&= \frac{2\hbar^2 k^2}{a} \left[ \frac{a}{2} - 0 - 0 + 0 \right] \\
+				\hat{\expval{P^2}}_n &= \hbar^2 k^2 = \frac{n^2 \hbar^2 \pi^2}{a^2} \\
+				\Aboxed{\hat{\expval{P^2}}_5 &= \frac{25 \hbar^2 \pi^2}{a^2}}
+			\end{split}
+		\end{equation}
+		
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\Delta x &= \sqrt{ \hat{\expval{X^2}} - \hat{\expval{X}}^2} \\
+					&= \sqrt{ \left( \frac{a^2}{3} - \frac{a^2}{n^2 \pi^2} \right) - \frac{a^2}{4} } \\
+					&= a \sqrt{ \frac{1}{12} - \frac{1}{n^2 \pi^2} }
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\Delta p &= \sqrt{ \hat{\expval{P^2}} - \hat{\expval{P}}^2} \\
+					&= \sqrt{ \frac{n^2 \hbar^2 \pi^2}{a^2} - 0 } \\
+					&= \frac{n \hbar \pi}{a}
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		
+		\begin{equation}
+			\begin{split}
+				\left( \Delta x \Delta p \right)_n &= n \hbar \pi \sqrt{ \frac{1}{12} - \frac{1}{n^2 \pi^2} } \\
+				\Aboxed{\left( \Delta x \Delta p \right)_5 &= 5\hbar \pi \sqrt{ \frac{1}{12} - \frac{1}{25 \pi^2} }}
+			\end{split}
+		\end{equation}
+		
+	\end{enumerate}
+	
+\clearpage
+	
+	\section*{Problem 3: Exercise 4.9}
+	
+	Consider a system whose wave function at time $t=0$ is given by
+	\begin{equation}
+		\psi(x,0) = \frac{5}{\sqrt{50}} \phi_0 (x) + \frac{4}{\sqrt{50}} \phi_1 (x) + \frac{3}{\sqrt{50}} \phi_2 (x) \label{eq:3}
+	\end{equation}
+	where $\phi_n (x)$ is the wave function of the $n\text{th}$ excited state for a harmonic oscillator of energy $E_n = \hbar\omega\left( n + \frac{1}{2} \right)$.
+	\begin{enumerate}
+		\item[(a)] Find the average energy of this system.
+		\paragraph{Solution} sol
+		
+		\begin{equation}
+			\begin{split}
+				\expval{E} = \sum_{n} E_n P_n &= E_0 P_0 + E_1 P_1 + E_2 P_2 \\
+				&= \hbar\omega \left[ \frac{1}{2} \frac{25}{50} + \frac{3}{2} \frac{16}{50} + \frac{5}{2} \frac{9}{50} \right] \\
+				\Aboxed{\expval{E} &= \frac{59}{50}\hbar\omega}
+			\end{split}
+		\end{equation}
+		
+		\item[(b)] Find the state $\psi(x,t)$ at a later time $t$ and the average value of the energy. Compare the result with the value obtained in (a). 
+		\paragraph{Solution} Similar reasoning to 1b.
+		
+		\begin{equation}
+			\begin{split}
+				\psi(x,t) &= \frac{5}{\sqrt{50}} \phi_0 (x) e^{-i E_0 t/\hbar} + \frac{4}{\sqrt{50}} \phi_1 (x) e^{-i E_1 t/\hbar} + \frac{3}{\sqrt{50}} \phi_2 (x) e^{-i E_2 t/\hbar} \\
+				\expval{E} &= \frac{59}{50}\hbar\omega
+			\end{split}
+		\end{equation}
+		
+		\item[(c)] Find the expectation value of the operator $\hat{X}$ with respect to the state $\psi(x,t)$ (i.e., find $ \expval{\hat{X}}{\psi(x,t)}$).
+		\paragraph{Solution} Using $\hat{X} = \sqrt{\frac{\hbar}{2m\omega}} \left( \hat{a} + \hat{a}^\dagger \right)$. The wave function is already normalized, $\braket{\psi(x,t)}{\psi(x,t)} = \frac{25}{50} + \frac{16}{50} + \frac{9}{50} = 1$. The following identitites will be used to compute the final result: $\bra{m}\hat{a}\ket{n} = \sqrt{n} \ \delta_{m,n-1}$, $\bra{m}\hat{a}^\dagger\ket{n} = \sqrt{n+1} \ \delta_{m,n+1}$
+		
+		\begin{equation}
+			\begin{split}
+				\hat{\expval{X}} &= \frac{\expval{\hat{X}}{\psi(x,t)}}{\braket{\psi(x,t)}{\psi(x,t)}} = \sqrt{\frac{\hbar}{2m\omega}} \expval{\left( \hat{a} + \hat{a}^\dagger \right)}{\psi} \\
+				&= \sqrt{\frac{\hbar}{2m\omega}} \expval{\left( \hat{a} + \hat{a}^\dagger \right)}{\psi_0 + \psi_1 + \psi_2} \\
+				&= \sqrt{\frac{\hbar}{2m\omega}} \left[\begin{array}{cccccc}
+					\bra{\psi_0}\hat{a}\ket{\psi_0} + \bra{\psi_0}\hat{a}^\dagger\ket{\psi_0} & + & \bra{\psi_0}\hat{a}\ket{\psi_1} + \bra{\psi_0}\hat{a}^\dagger\ket{\psi_1} & + & \bra{\psi_0}\hat{a}\ket{\psi_2} + \bra{\psi_0}\hat{a}^\dagger\ket{\psi_2} & + \\
+					\bra{\psi_1}\hat{a}\ket{\psi_0} + \bra{\psi_1}\hat{a}^\dagger\ket{\psi_0} & + & \bra{\psi_1}\hat{a}\ket{\psi_1} + \bra{\psi_1}\hat{a}^\dagger\ket{\psi_1} & + & \bra{\psi_1}\hat{a}\ket{\psi_2} + \bra{\psi_1}\hat{a}^\dagger\ket{\psi_2} & + \\
+					\bra{\psi_2}\hat{a}\ket{\psi_0} + \bra{\psi_2}\hat{a}^\dagger\ket{\psi_0} & + & \bra{\psi_2}\hat{a}\ket{\psi_1} + \bra{\psi_2}\hat{a}^\dagger\ket{\psi_1} & + & \bra{\psi_2}\hat{a}\ket{\psi_2} + \bra{\psi_2}\hat{a}^\dagger\ket{\psi_2} & 
+				\end{array}\right] \\
+				&= \sqrt{\frac{\hbar}{2m\omega}} \left[\begin{array}{cccccc}
+					0 + 0 & + & \bra{\psi_0}\hat{a}\ket{\psi_1} + 0 & + & 0 + 0 & + \\
+					0 + \bra{\psi_1}\hat{a}^\dagger\ket{\psi_0} & + & 0 + 0 & + & \bra{\psi_1}\hat{a}\ket{\psi_2} + 0 & + \\
+					0 + 0 & + & 0 + \bra{\psi_2}\hat{a}^\dagger\ket{\psi_1} & + & 0 + 0 & 
+				\end{array}\right] \\
+				&= \sqrt{\frac{\hbar}{2m\omega}} \left[ \sqrt{1} + \sqrt{0+1} + \sqrt{2} + \sqrt{1+1} \right] \\
+				\Aboxed{\hat{\expval{X}} &= (2+2\sqrt{2})\sqrt{\frac{\hbar}{2m\omega}}}
+			\end{split}
+		\end{equation}
+		
+		
+	\end{enumerate}
+	
+\clearpage
+
+	\section*{Problem 4: Exercise 4.15}
+	
+	Find the number of bound states and the corresponding energies for the finite square well potential when
+	\begin{enumerate}
+		\item[(a)] $R = 7$,
+		\paragraph{Solution} I used Desmos to make the graphs for both parts. \href{https://www.desmos.com/calculator/6ngbvi5fka}{https://www.desmos.com/calculator/6ngbvi5fka}. Graphically, we can see 3 even and 2 odd solutions. Numerical solutions are easily found from $R^2 \cos^2 \alpha = \alpha^2$ for even solutions, and $R^2 \sin^2 \alpha = \alpha^2$ for odd solutions. $\alpha^2 = (ka/2)^2 = ma^2 E / 2\hbar^2$, $E = 2\alpha^2 \hbar^2 / ma^2$.
+		
+		\begin{minipage}{0.55\textwidth}
+				\centering
+				\includegraphics[width=\textwidth]{R=7.png}
+		\end{minipage}
+		\begin{minipage}{0.35\textwidth}
+			\begin{equation}
+				\begin{split}
+					\alpha_1 = 1.373 &\Rightarrow E_1 = \frac{3.77\hbar^2}{ma^2} \\
+					\alpha_2 = 2.739 &\Rightarrow E_2 = \frac{15\hbar^2}{ma^2} \\
+					\alpha_3 = 4.089 &\Rightarrow E_3 = \frac{33.44\hbar^2}{ma^2} \\
+					\alpha_4 = 5.402 &\Rightarrow E_4 = \frac{58.36\hbar^2}{ma^2} \\
+					\alpha_5 = 6.616 &\Rightarrow E_5 = \frac{87.54\hbar^2}{ma^2} \\
+				\end{split}
+			\end{equation}
+		\end{minipage}		
+		
+		\item[(b)] $R = 3\pi$.
+		\paragraph{Solution} \href{https://www.desmos.com/calculator/krkfby8evs}{https://www.desmos.com/calculator/krkfby8evs} Graphically, we can see 3 even and 3 odd solutions. We ignore the one at $3\pi$, as that means $E \propto \alpha = 0$.
+		
+		\begin{minipage}{0.55\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{R=3pi.png}
+		\end{minipage}
+		\begin{minipage}{0.35\textwidth}
+			\begin{equation}
+				\begin{split}
+					\alpha_1 = 1.42 &\Rightarrow E_1 = \frac{4.033\hbar^2}{ma^2} \\
+					\alpha_2 = 2.836 &\Rightarrow E_2 = \frac{16.09\hbar^2}{ma^2} \\
+					\alpha_3 = 4.245 &\Rightarrow E_3 = \frac{36.04\hbar^2}{ma^2} \\
+					\alpha_4 = 5.641 &\Rightarrow E_4 = \frac{63.64\hbar^2}{ma^2} \\
+					\alpha_5 = 7.015 &\Rightarrow E_5 = \frac{98.42\hbar^2}{ma^2} \\
+					\alpha_6 = 8.339 &\Rightarrow E_6 = \frac{139.08\hbar^2}{ma^2} \\
+				\end{split}
+			\end{equation}
+		\end{minipage}		
+		
+		
+	\end{enumerate}
+
+\clearpage
+	
+	\section*{Problem 5: Exercise 4.17}
+	
+	Consider a particle of mass $m$ moving in a one-dimensional harmonic oscillator potential, with
+	\begin{equation}
+		\hat{X} = \sqrt{\frac{\hbar}{2m\omega}} \left( \hat{a} + \hat{a}^\dagger \right) \text{ and } \hat{P} = i \sqrt{\frac{m\hbar\omega}{2}} \left( \hat{a}^\dagger - \hat{a} \right) \label{eq:4}
+	\end{equation}
+	\begin{enumerate}
+		\item[(a)] Calculate the product of the uncertainties in position and momentum for the particle in the fifth excited state, i.e., $(\Delta X \Delta P)_5$.
+		\paragraph{Solution} I will first find it in general.
+		
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\expval{X}_n &= \sqrt{\frac{\hbar}{2m\omega}} \expval{(\hat{a} + \hat{a}^\dagger)}{n} \\
+					&= \sqrt{\frac{\hbar}{2m\omega}} \left[ \expval{\hat{a}}{n} + \expval{\hat{a}^\dagger}{n} \right] \\
+					\Aboxed{\expval{X}_n &= 0}
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\expval{P}_n &= i\sqrt{\frac{m\hbar\omega}{2}} \expval{(\hat{a}^\dagger - \hat{a})}{n} \\
+					\Aboxed{\expval{P}_n &= 0}
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\expval{X^2}_n &= \frac{\hbar}{2m\omega} \expval{(\hat{a} + \hat{a}^\dagger)^2}{n} \\
+					&= \frac{\hbar}{2m\omega} \expval{\hat{a}^2 + \hat{a}^{\dagger^2} + \hat{a}\hat{a}^\dagger + \hat{a}^\dagger\hat{a}}{n} \\
+					&= \frac{\hbar}{2m\omega} \left[ \expval{2\hat{a}^\dagger\hat{a}}{n} + \expval{1}{n} \right] \\
+					&= \frac{\hbar}{2m\omega} \left[ 2\sqrt{n}\bra{n}\hat{a}^\dagger\ket{n-1} + 1 \right] \\
+					&= \frac{\hbar}{2m\omega} \left[ 2\sqrt{n}\sqrt{(n-1)+1}\braket{n}{n} + 1 \right] \\
+					\Aboxed{\expval{X^2}_n &= \frac{\hbar}{2m\omega} \left[ 2n + 1 \right]}
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\expval{P^2}_n &= -\frac{m\hbar\omega}{2} \expval{(\hat{a}^\dagger - \hat{a})^2}{n} \\
+					&= -\frac{m\hbar\omega}{2} \expval{\hat{a}^{\dagger^2} + \hat{a}^2 - \hat{a}\hat{a}^\dagger - \hat{a}^\dagger\hat{a}}{n} \\
+					&= -\frac{m\hbar\omega}{2} \left[ -\expval{2\hat{a}^\dagger\hat{a}}{n} - \expval{1}{n} \right] \\
+					&= \frac{m\hbar\omega}{2} \left[ 2\sqrt{n}\bra{n}\hat{a}^\dagger\ket{n-1} + 1 \right] \\
+					&= \frac{m\hbar\omega}{2} \left[ 2\sqrt{n}\sqrt{(n-1)+1}\braket{n}{n} + 1 \right] \\
+					\Aboxed{\expval{P^2}_n &= \frac{m\hbar\omega}{2} \left[ 2n + 1 \right]}
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\Delta X_n &= \sqrt{\expval{X^2} - \expval{X}^2} \\
+					&= \sqrt{ \frac{\hbar}{2m\omega} \left[ 2n + 1 \right] }
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		\begin{minipage}{0.45\textwidth}
+			\begin{equation}
+				\begin{split}
+					\Delta P_n &= \sqrt{\expval{P^2} - \expval{P}^2} \\
+					&= \sqrt{ \frac{m\hbar\omega}{2} \left[ 2n + 1 \right] }
+				\end{split}
+			\end{equation}
+		\end{minipage}
+		
+		\begin{equation}
+			\begin{split}
+				\left( \Delta X \Delta P \right)_n &= \sqrt{ \frac{\hbar^2}{4} \left[ 2n + 1 \right]^2 } = \frac{\hbar}{2} \left[ 2n + 1 \right] \\
+				\left( \Delta X \Delta P \right)_n &= \hbar \left[ n + \frac{1}{2} \right] \\
+				\Aboxed{ \left( \Delta X \Delta P \right)_5 &= \frac{11\hbar}{2} }
+			\end{split}
+		\end{equation}
+		
+		
+		
+		\item[(b)]  Compare the result of (a) with the uncertainty product when the particle is in its lowest energy state. Explain why the two uncertainty products are different.
+		\paragraph{Solution} The uncertainty in both position and momentum increasing with the energy level of the state. The particle can be found over a wider range of positions and momenta. It is also consistent with the Heisenberg uncertainty principle, $\Delta x \Delta p \geq \frac{\hbar}{2}$
+		
+		\begin{equation}
+			\begin{split}
+				\left( \Delta X \Delta P \right)_0 &= \frac{\hbar}{2} \geq \frac{\hbar}{2}
+			\end{split}
+		\end{equation}
+		
+		
+		
+	\end{enumerate}
+
+\clearpage	
+	
+	\section*{Problem 6: Exercise 4.23}
+	
+	A particle of mass $m$ is subject to a repulsive delta potential $V(x) = V_0 \delta(x)$, where $V_0 > 0$ ($V_0$ has the dimensions of Energy $\times$ Distance). Find the reflection and transmission coefficients, $R$ and $T$.
+	\paragraph{Solution} The attractive delta potential we did in lecture corresponds to an infinite potential well with an infinitesimally small width. This case, a repulsive delta potential, is an infinite potential barrier with an infinitesimally small width. I expect the reflection and transmission to occur in the $E>0$ case, as with tunneling, so I will start there; following similar steps as in lecture. The reflection and transmission coefficients in this case are defined as:
+	
+	\begin{minipage}{0.45\textwidth}
+		\begin{equation}
+			\begin{split}
+				R \equiv \abs{\frac{j_{reflected}}{j_{incident}}} = \frac{\abs{B}^2}{\abs{A}^2}
+			\end{split}
+		\end{equation}
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\begin{equation}
+			\begin{split}
+				T \equiv \abs{\frac{j_{transmitted}}{j_{incident}}} = \frac{\abs{C}^2}{\abs{A}^2}
+			\end{split}
+		\end{equation}
+	\end{minipage}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.8\textwidth]{p6.jpg}
+	\end{figure}
+	
+	\begin{align}
+		-\frac{\hbar^2}{2m} \frac{\partial^2 \psi(x)}{\partial x^2} + V_0 \delta(x)\psi(x) &= E\psi(x) \\
+		\intertext{For $x\neq0$, we have $V(x)=V_0 \delta(x)=0$.}
+		\frac{\partial^2 \psi(x)}{\partial x^2} +  \frac{2mE}{\hbar^2}\psi(x) &= 0 \\
+		\psi^{\prime\prime}(x) + k^2 \psi(x) &= 0 \nonumber \\ 
+		\psi_I(x) &= Ae^{ikx} + Be^{-ikx} \\
+		\psi_{II}(x) &= Ce^{ikx} + De^{-ikx} = Ce^{ikx}
+	\end{align}
+	For region I, the first term travels right to the wall, the second term can be interpreted as the reflection that will travel left towards infinity. For region II, we only want the transmitted wave that is traveling right so we drop the second term. The two conditions for a solution to the Schrodinger equation is that the wave function and its derivative are continuous. The infinity at the origin causes the wave function to be discontinuous, so we have to force it to be continuous by:
+	\begin{align}
+		\psi_I(0) &= \psi_{II}(0) \nonumber \\
+		A + B &= C \equiv \psi(0)
+	\end{align}
+	The derivative is also discontinuous because of the sharp turn at the origin. Schrodinger found a way to resolve this by integrating over a small interval $\Delta \epsilon$. As $\Delta \epsilon \to 0$ the integral over the wave function will also approach zero.
+	\begin{align}
+		\lim_{\epsilon\to0} \int_{-\epsilon}^{\epsilon} \left[ -\frac{\hbar^2}{2m} \frac{\partial^2 \psi(x)}{\partial x^2} + V_0 \delta(x)\psi(x) \right] \ dx &= \lim_{\epsilon\to0} \int_{-\epsilon}^{\epsilon} E\psi(x) \ dx \\
+		\lim_{\epsilon\to0}  \left[ \int_{-\epsilon}^{\epsilon} \frac{\partial^2 \psi(x)}{\partial x^2} \ dx - \int_{-\epsilon}^{\epsilon} \frac{2mV_0}{\hbar^2} \delta(x)\psi(x) \ dx \right] &= 0 \nonumber \\
+		\lim_{\epsilon\to0} \left[ \psi^{\prime}|_\epsilon - \psi^{\prime}|_{-\epsilon} \right] &= \frac{2mV_0}{\hbar^2} \psi(0) \nonumber \\
+		\lim_{\epsilon\to0} \left[ ikCe^{ikx} - \left( ikAe^{ikx} - ikBe^{-ikx} \right) \right] &= \frac{2mV_0}{\hbar^2} \psi(0) \nonumber \\
+		C + B - A &= -i\frac{2mV_0}{k\hbar^2} \left( A + B \right) \nonumber \\
+		B &= -i\frac{mV_0}{k\hbar^2} \left( A + B \right) \qquad \beta = \frac{mV_0}{k\hbar^2} \nonumber \\
+		B &= \frac{-i\beta}{1 + i\beta} A \\
+		A &= \frac{1 + i\beta}{-i\beta} B \\
+		C &= A + \frac{-i\beta}{1 + i\beta} A = \left( 1 - \frac{i\beta}{1 + i\beta} \right) A = \left( \frac{1 + i\beta - i\beta}{1 + i\beta} \right) A \nonumber \\
+		C &= \left( \frac{1}{1 + i\beta} \right) A \\
+	\end{align}
+	Now to compute $R$ and $T$. We will need $\abs{1 + i\beta}^2 = \left[ \left( 1 - i\beta \right) \left( 1 + i\beta \right) \right] = 1 + i\beta - i\beta + \beta^2 = 1 + \beta^2$. Also, $k^2 = \frac{2mE}{\hbar^2}$. \\
+	\begin{minipage}{0.45\textwidth}
+		\begin{equation}
+			\begin{split}
+				R &= \frac{1}{\abs{A}^2} \abs{ \frac{-i\beta}{1 + i\beta} A }^2 \\
+				&= \frac{\beta^2}{1 + \beta^2} \\
+				&= \frac{1}{1 + 1/\beta^2} \\
+				&= \frac{1}{1 + \dfrac{k^2 \hbar^4}{m^2 V^2_0}} \\
+				\Aboxed{R &= \frac{1}{1 + \dfrac{2\hbar^2 E}{m V^2_0}}}
+			\end{split}
+		\end{equation}
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\begin{equation}
+			\begin{split}
+				T &= \frac{1}{\abs{A}^2} \abs{ \frac{1}{1 + i\beta} A }^2 \\
+				&= \frac{1}{1 + \beta^2} \\
+				&= \frac{1}{1 + \dfrac{m^2V^2_0}{k^2\hbar^4}} \\
+				\Aboxed{T &= \frac{1}{1 + \dfrac{mV^2_0}{2\hbar^2 E}}}
+			\end{split}
+		\end{equation}
+	\end{minipage}
+	
+\end{document}
