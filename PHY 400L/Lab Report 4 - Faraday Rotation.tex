@@ -1,0 +1,268 @@
+\documentclass[11pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7_S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\doublespacing
+
+\usepackage[shortconst]{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\setlist[itemize]{leftmargin=*, labelindent=\parindent, noitemsep, topsep=0pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\hypersetup{
+	pdftitle={Faraday Rotation},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,
+	bookmarksopen=true,
+	bookmarksopenlevel=1,
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,
+	%urlcolor=cyan,
+	pdfstartview=Fit,
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{Faraday Rotation} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			This study explores the Faraday rotation effect, a fundamental magneto-optical phenomenon, through an experimental investigation aimed at determining the Verdet constant of a sample material. The experiment involved aligning optical components, applying varying magnetic field strengths, and measuring the rotation angles of polarized light passing through the material. Despite challenges such as data scattering and potential systematic errors, a linear relationship between the rotation angle and the magnetic field strength was observed, consistent with theoretical predictions. The calculated Verdet constant provides insights into the magneto-optic properties of the material.
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{Faraday rotation, Verdet constant, magneto-optics, polarization}
+	\end{titlepage}
+
+\clearpage
+
+	\section{Introduction}
+
+	Faraday rotation, discovered by Michael Faraday in 1845, is a phenomenon in the field of magneto-optics. It refers to the rotation of the plane of polarization of linearly polarized light as it passes through a material in the presence of a magnetic field parallel to the direction of light propagation. This effect is a product of the interaction between light and magnetic fields, providing insights into the electronic structure of materials and the nature of EM waves.
+
+	The theoretical basis for Faraday rotation lies in the different propagation speeds of right-handed and left-handed circularly polarized light components in a magnetic field. This difference, induced by the magnetic field, leads to a phase shift between the components, resulting in the rotation of the polarization plane. The extent of rotation is described by the Verdet constant, a material-specific parameter that quantifies the strength of the Faraday effect.
+
+	\begin{figure}[htbp]
+		\centering
+		\caption{Resultant Propagation}
+		\includegraphics[width=\textwidth]{propagation.jpg}
+	\end{figure}
+
+	The rotation of the polarization plane is described by the equation:
+
+	\begin{equation}
+		\theta = VBL = V \int_{0}^{L} B \ dl \label{eq:1}
+	\end{equation}
+
+	where \(\theta\) is the angle of rotation of the plane of polarization, \(\V\) is the Verdet constant of the material, \(B\) is the magnetic field strength, and \(L\) is the length of the material through which the light passes through.
+
+	Faraday rotation has significant implications in both fundamental physics and practical applications. It serves as a tool for probing the electronic and magnetic properties of materials, including semiconductors, insulators, and magnetic materials. In technology, the Faraday effect is harnessed in devices such as optical isolators and circulators, which are essential components in optical communication systems and laser technology.
+
+	The objectives of our experiment are to observe Faraday rotation in a selected material and to determine its Verdet constant. By analyzing the relationship between the angle of rotation and the magnetic field strength, we aim to deepen our understanding of the magneto-optic interactions and the material's characteristics.
+
+\clearpage
+
+	\section{Experimental Details}
+
+	This section details the procedure for this method and the expected results according to the lab manuals and the relevant equations.
+	\par
+	Apparatus used:
+	\begin{itemize}
+		\item Electromagnet/Coil with Main unit
+		\item Optics Track
+		\item Polarizers
+		\item Diode Laser with Laser power meter
+		\item Photo-detector
+		\item Sample
+	\end{itemize}
+	\begin{figure}[!h]
+		\centering
+		\caption{Setup}
+		\label{Apparatus}
+		\includegraphics[width=0.6\textwidth]{setup.jpg}
+	\end{figure}
+	Refer to the lambdasys manual to setup the apparatus, make sure to focus on: aligning all the apparatus on the track, adjustment of the optics with the coil. If the coil magnetic field strength is not provided, use a teslameter to find the magnetic field strength at increasing current and plot a graph to extrapolate if needed. Now to take the actual measurements.
+	\begin{enumerate}
+		\item Rotate the analyzer until the optical power meter reading is minimum. Record the angular position of the analyzer.
+		\item Increase the current to the electromagnet to 0.5 A. Observe the change in the power meter reading.
+		\item Rotate the analyzer to minimize the power meter reading again. Record the new angular position. The difference in angular positions is the Faraday rotation angle ($\alpha_F$). Use a Teslameter to measure the magnetic field ($B$) at the sample location.
+		\item Gradually reduce the current to zero, avoiding sudden power off to prevent remanence effects. Rotate the analyzer to minimize the power meter reading, and record the repetitive error.
+		\item Repeat steps 2 to 4 three times to obtain averaged data.
+		\item Increase the current in 0.5 A intervals and repeat steps 2 to 5. Plot the measured $\theta$ ~ $B$ curve.
+	\end{enumerate}
+
+
+\clearpage
+
+	\section{Results and Discussion}
+
+	The following section contains our results for each method that includes tables and graphs. This is accompanied by a discussion that includes interpretations of the results and error analysis.
+
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Coil Magnetic Field Strength vs Current}
+		\begin{tabular}{cccc}
+			\toprule
+			& \multicolumn{3}{c}{B (T)} \\
+			\cmidrule{2-4}    I (A) & Trial 1 & Trial 2 & Mean \\
+			\midrule
+			0.5 & 1.82E-02 & 1.86E-02 & 1.84E-02 \\
+			1 & 3.75E-02 & 3.72E-02 & 3.74E-02 \\
+			1.5 & 5.63E-02 & 5.70E-02 & 5.67E-02 \\
+			1.77 & 6.70E-02 & 6.68E-02 & 6.69E-02 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:calibration}%
+	\end{table}%
+
+	\begin{figure}[htbp]
+		\centering
+		\caption{Coil Magnetic Field Strength vs Current}
+		\includegraphics[width=0.7\textwidth]{calibration.jpg}
+	\end{figure}
+	This equation of the line is used to find the required values for the magnetic field strength. With an $R^2$ value of 1, this indicated that the linear regression model perfectly fits the data, therefore error is minimized in this area.
+
+\clearpage
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Results}
+		\begin{tabular}{cccccccccc}
+			\toprule
+			&   & \multicolumn{8}{c}{Angle Deviation from $\theta_0 = \qty{127}{\degree}$} \\
+			\cmidrule{3-10}    $I (\unit{\ampere})$ & $B (\unit{\tesla})$ & Trial 1 & Trial 2 & Trial 3 & Trial 4 & Trial 5 & Mean & $\Delta \theta$ & $\unit{\radian}$ \\
+			\midrule
+			0.5 & 1.83E-02 & 129 & 130 & 129 & 129 & 130 & 129.4 & 2.4 & 0.042 \\
+			1 & 3.75E-02 & 133 & 134 & 134 & 133 & 133 & 133.4 & 6.4 & 0.112 \\
+			1.5 & 5.66E-02 & 135 & 135 & 136 & 135 & 136 & 135.4 & 8.4 & 0.147 \\
+			2 & 7.57E-02 & 138 & 137 & 138 & 137 & 138 & 137.6 & 10.6 & 0.185 \\
+			2.5 & 9.48E-02 & 143 & 143 & 144 & 143 & 143 & 143.2 & 16.2 & 0.283 \\
+			3 & 1.14E-01 & 147 & 146 & 146 & 146 & 147 & 146.4 & 19.4 & 0.339 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:results}%
+	\end{table}%
+
+	\begin{figure}[htbp]
+		\centering
+		\caption{$\theta$ vs $B$}
+		\includegraphics[width=0.8\textwidth]{resultsinrad.jpg}
+	\end{figure}
+
+	From the graph, the slope is equivalent to $\dfrac{\theta}{B} = VL$, so
+	\[
+		V = \dfrac{slope}{L} = \dfrac{\qty{3.0407}{\radian\per\tesla}}{\qty{30e-3}{\meter}} = \qty{101.36}{\radian\per\tesla\per\meter}
+	\]
+	The sample provided was not named explicitly so browsing online I found some relevant Verdet constant values and I include the percent error.
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Sample Verdet Constant with Percent Error}
+		\begin{tabular}{cccc}
+			\toprule
+			Sample & V (\unit{\radian\per\tesla\per\meter}) & $\lambda$ ($\unit{\meter}$) & \% error \\
+			\midrule
+			Air & 1.39E-03 & 634.8 nm & 7291688\% \\
+			SiO2 & 4.88 & 635 nm & 1977\% \\
+			MR3-2 & 96 & 632.8 nm & 6\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:addlabel}%
+	\end{table}%
+
+	There clearly was a sample in the coil from the high percentage error for air, and the closest I was able to find is MR3-2. Even without knowing the sample composition, we can still see that there is some error from the resultant graph.
+
+	The graph of the measured rotation angle ($\theta$) versus the magnetic field strength (B) is expected to be linear, according to the relationship $\theta = VBL$. The $R^2$ value of $0.9784$ shows that the linear regression model is a suitable fit for this relationship, meaning that it is close to linear. Deviations from linearity in the graph can indicate sources of error in the experiment. There is minimal scattering of data points which means minimal random errors in the procedure. The y-intercept indicates the presence of systematic errors in the procedure. A nonlinear graph suggests magnetic field inhomogeneity or temperature fluctuations. Additionally, the slope of the graph gives the product of the Verdet constant and the sample length (VL), so any errors in the measurement of the sample length or in the determination of the slope can lead to inaccuracies in the calculated Verdet constant.
+
+	In the Faraday rotation experiment, there are several sources of error that can impact the accuracy of the measurements and the resulting analysis. Alignment issues are a common source of error, as any misalignment of the optical components, including the light source, polarizer, sample, and analyzer, can lead to inaccurate measurements of the rotation angle. Additionally, magnetic field inhomogeneity can result in uneven Faraday rotation across the sample, leading to errors in the determination of the Verdet constant. Temperature fluctuations can also affect the properties of the material and the magnetic field, potentially altering the Faraday rotation angle. Imperfections in the polarizer and analyzer can introduce errors in the measurement of the light intensity and the rotation angle, while the sensitivity and linearity of the optical power meter can impact the accuracy of the light intensity measurements. The repetitive error, which is the difference in the analyzer angle when the current is reduced to zero, can indicate systematic errors in the setup or measurements.
+
+
+\clearpage
+
+	\section{Applications}
+
+	The Faraday rotation effect has various applications across different fields, including:
+
+	\begin{itemize}
+		\item \textbf{Optical Isolators}: Used in optical systems to prevent back reflections from damaging laser sources.
+		\item \textbf{Optical Modulators}: Employed in optical modulators to control the intensity and phase of light in communication systems.
+		\begin{figure}[htbp]
+			\centering
+			\begin{minipage}{0.45\textwidth}
+				\centering
+				\includegraphics[width=\linewidth]{isolator.jpg}
+				\label{fig:image1}
+			\end{minipage}\hfill
+			\begin{minipage}{0.45\textwidth}
+				\centering
+				\includegraphics[width=\linewidth]{Modulator.jpg}
+				\label{fig:image2}
+			\end{minipage}
+		\end{figure}
+		\item \textbf{Magnetic Field Sensors}: Utilized to measure magnetic fields, as the rotation angle is directly proportional to the magnetic field strength.
+		\item \textbf{Current Sensors}: Applied in electrical power systems to measure electric current by detecting the magnetic field around a conductor.
+		\item \textbf{Optical Circulators}: Used to separate signals traveling in different directions in an optical fiber, often employing Faraday rotators for non-reciprocal light propagation.
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{circulator.jpg}
+		\end{figure}
+		\item \textbf{Quantum Cryptography}: Faraday mirrors, combining a Faraday rotator with a mirror, are used in quantum key distribution systems to preserve the polarization state of photons.
+	\end{itemize}
+
+
+\clearpage
+
+	\section{Conclusion}
+
+	In conclusion, our Faraday rotation experiment aimed to explore the magneto-optic effect of Faraday rotation and determine the Verdet constant of the sample material. Throughout the experiment, we carefully aligned the optical components, applied varying magnetic field strengths, and measured the resulting rotation angles of the polarized light.
+
+	Despite encountering challenges such as scattering of data points and potential systematic errors, as indicated by the non-zero y-intercept in our graph, we were able to observe a linear relationship between the rotation angle and the magnetic field strength. This observation is consistent with the theoretical principles underlying Faraday rotation.	The calculated Verdet constant, derived from the slope of our graph, provides valuable information about the magneto-optic properties of the sample material.
+
+	Overall, this experiment has deepened our understanding of the Faraday effect and its applications for optics and material characteristics
+
+\clearpage
+
+	\section{References}
+	\begin{itemize}
+		\item Lab Manual and Specifications. \href{http://lambdasys.com/products/detail/53}{http://lambdasys.com/products/detail/53}
+		\item $\text{SiO}_2$ Verdet constant. Li, Changsheng \& Song, Ningfang \& Zhang, Chunxi. (2015). Verdet constant measurements of $\beta$-barium borate and lead molybdate crystals. Optical Materials Express. 5. 1991. 10.1364/OME.5.001991.
+		\item MR3-2 Verdet constant. \href{https://www.xaot.com/product/type-mr3-2-paramagnetism-faraday-rotator-glass/}{https://www.xaot.com/product/type-mr3-2-paramagnetism-faraday-rotator-glass/}
+		\item Air Verdet constant. Chia-Yu Chang, Likarn Wang, Jow-Tsong Shy, Chu-En Lin, Chien Chou; Sensitive Faraday rotation measurement with auto-balanced photodetection. Rev. Sci. Instrum. 1 June 2011; 82 (6): 063112. \href{https://doi.org/10.1063/1.3602927}{https://doi.org/10.1063/1.3602927}
+		\item Other materials. \href{https://www.researchgate.net/figure/Verdet-constants-of-various-MO-materials\_tbl1\_325751003}{https://www.researchgate.net/figure/Verdet-constants-of-various-MO-materials\_tbl1\_325751003}
+	\end{itemize}
+
+\end{document}

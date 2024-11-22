@@ -1,0 +1,369 @@
+\documentclass[11pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\doublespacing
+
+\usepackage[shortconst]{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+\setlist[itemize]{leftmargin=*, labelindent=\parindent, noitemsep, topsep=0pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt}
+
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\hypersetup{
+	pdftitle={Zeeman Effect},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{Zeeman Effect} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			This study focuses on the experimental observation of the Zeeman effect, a quantum mechanical phenomenon that demonstrates the splitting of spectral lines of atoms in the presence of a magnetic field. Using a Fabry-Perot interferometer, we aimed to measure the splitting of the $\qty{546.1}{\nano\meter}$ green line in mercury and analyze the impact of magnetic fields on atomic energy levels. Despite achieving qualitative confirmation of the Zeeman effect, the experiment encountered a $20\%$ percent error in the quantitative measurement of line splitting. Sources of error were identified, including magnetic field inhomogeneity, alignment issues, and instrumental limitations. The appearance of bands instead of distinct rings in the interference pattern highlighted the need for improved optical resolution and alignment.
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{Zeeman effect, Fabry-Perot interferometer, spectral line splitting, magnetic field}
+	\end{titlepage}
+	
+\clearpage
+	
+	\section{Introduction}
+	
+	The Zeeman effect, discovered by Dutch physicist Pieter Zeeman in 1896, is a fundamental phenomenon in quantum mechanics that demonstrates the splitting of spectral lines of atoms and ions in the presence of a magnetic field. This effect provides crucial insights into the interaction between magnetic fields and atomic electrons, serving as a key piece of evidence for the quantization of angular momentum in atomic physics.
+	
+	The angular momentum of an electron in an atom is a combination of its orbital angular momentum (\(l\)) and its spin angular momentum (\(s\)). The total angular momentum (\(J\)) is given by the vector sum of these two components:
+	\begin{equation}
+		J = l + s \label{eq:1}
+	\end{equation}
+	The theoretical foundation of the Zeeman effect lies in the interaction between the magnetic moment associated with the angular momentum of electrons and the external magnetic field. The energy levels of an electron in an atom are split into multiple sub-levels in the presence of a magnetic field, leading to the splitting of spectral lines. This can be described by the equation:
+	\begin{equation}
+		\Delta E = M_\mathrm{z} g_\mathrm{L} \mu_\mathrm{B} B \label{eq:2}
+	\end{equation}
+	where \(\Delta E\) is the energy difference between the split levels, \(g_\mathrm{L}\) is the Landé g-factor, \(\mu_B\) is the Bohr magneton, \(B\) is the magnetic field strength, and \(M_\mathrm{z}\) is the magnetic quantum number.
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Energy Shift}
+		\includegraphics[width=0.6\textwidth]{Split.jpg}
+	\end{figure}
+	
+	The Landé g-factor is a dimensionless quantity that accounts for the relative contributions of the orbital and spin angular momenta to the magnetic moment of the atom. It is given by:
+	\begin{equation}
+		g = 1 + \frac{J(J + 1) + s(s + 1) - l(l + 1)}{2J(J + 1)} \label{eq:3}
+	\end{equation}
+	The Zeeman effect is classified into two types: the normal Zeeman effect, where the splitting is solely due to the orbital angular momentum and the g-factor is equal to 1, and the anomalous Zeeman effect, which involves contributions from both orbital and spin angular momenta and results in more complex splitting patterns with g-factors different from 1.
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Energy Levels for $\qty{546.1}{\nano\meter}$ Hg Spectral Line}
+		\includegraphics[width=0.7\textwidth]{Zee Energy Levels.jpg}
+	\end{figure}
+	
+	For this experiment we focus on the green spectral line at 546.1 nm in mercury, which originates from a transition between the 3S1(6s7s) and 3P2(6s6p) energy levels. The notation (6s7s) indicates that mercury has two valence electrons, one in the 6s orbital and another in the 7s orbital. The orbital angular momentum quantum number (L) is 0 for an S state and 1 for a P state. Mercury's two valence electrons couple to produce a spin quantum number (S) of 1, forming triplet states denoted by the superscript 3. Consequently, the total angular momentum quantum numbers (J) for these states are 1 and 2, respectively, as indicated by the subscripts.
+	
+	In a magnetic field, each level splits into $2J+1$ closely spaced sub-levels. According to selection rules, transitions are allowed between states with $\Delta M_\mathrm{z} = +1, 0, -1$. Transitions with $\Delta M_\mathrm{z} = 0$ yield photons polarized parallel to the magnetic field axis and result in more intense lines, making them ideal for measurement. Transitions with $\Delta M_\mathrm{z} = +1 \text{ or } -1$ produce photons polarized perpendicular to the field axis.
+	
+	The apparatus used is the Fabry-Perot interferometer, a vital optical instrument used in the study of the Zeeman effect to achieve high-resolution spectroscopy. It consists of two parallel, highly reflective mirrors separated by a small distance (etanol), creating a resonant cavity for light waves. When light enters the cavity, it undergoes multiple reflections between the mirrors, resulting in the interference of the transmitted or reflected light beams.
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{EX-5562 Zeeman Effect/EX-5562 Images/Fabrey perot geometry.jpg}
+			\caption{Fabry-Perot Geometry}
+			\label{fig:image1}
+		\end{minipage}\hfill
+		\begin{minipage}{0.45\textwidth}
+			\centering
+			\includegraphics[width=\linewidth]{EX-5562 Zeeman Effect/EX-5562 Images/Image Radius.jpg}
+			\caption{Camera Geometry}
+			\label{fig:image2}
+		\end{minipage}
+	\end{figure}
+	
+	Through some elaborate geometrical analysis, we arrive at the two relevant equations to this experiment.
+	\begin{equation}
+		\mu_\mathrm{B} = \frac{hcC_0}{2Bd} \left( R^2_{\mathrm{k+}} - R^2_{\mathrm{k-}} \right) \label{eq:4}
+	\end{equation}
+	where \(h\) is Planck's constant, \(c\) is the speed of light, \(B\) is the applied magnetic field strength, \(d\) is the spacing between the etanol plates, \(R\) is the ring radius, and \(C_0\) is determined experimentally by the following equation:
+	\begin{equation}
+		\frac{d}{f^2 \lambda} = C_0 = \frac{k}{R^2_\mathrm{k} - R^2_0} \label{eq:5}
+	\end{equation}
+	where \(f\) is the camera focal length, \(\lambda\) is the wavelength, and \(k\) is the order of the interference.
+	
+	\begin{figure}[ht]
+		\centering
+		\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=\linewidth]{EX-5562 Zeeman Effect/EX-5562 Images/No Polarizer.PNG}
+			\caption{No Polarizer}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=\linewidth]{EX-5562 Zeeman Effect/EX-5562 Images/B=0.PNG}
+			\caption{$B=0$}
+		\end{minipage}
+		\hfill
+		\begin{minipage}{0.3\textwidth}
+			\includegraphics[width=\linewidth]{EX-5562 Zeeman Effect/EX-5562 Images/BnotZero.PNG}
+			\caption{$B\neq0$}
+		\end{minipage}
+	\end{figure}
+	
+	The objectives of this experiment are to experimentally verify the Zeeman effect by observing the splitting of spectral lines in a magnetic field and to enhance our understanding of orbital physics by analyzing the behavior of electrons under the influence of magnetic fields.
+
+\clearpage
+
+	\section{Experimental Details}
+	
+	This section details the procedure for this method and the expected results according to the lab manuals and the relevant equations.
+	\par
+	Apparatus used:
+	\begin{itemize}
+		\item Electromagnet
+		\item Tunable DC Power Supply
+		\item Optics Track
+		\item Lens/Polarizer Assembly
+		\item Filter/Interferometer Assembly (Fabry-Perot)
+		\item CMOS USB Camera and Lens
+	\end{itemize}
+	\begin{figure}[!h]
+		\centering
+		\caption{Setup}
+		\label{Apparatus}
+		\includegraphics[width=0.6\textwidth]{EX-5562 Zeeman Effect/EX-5562 Images/TotalSetupwithPowerSupply.jpg}
+	\end{figure}
+	Refer to the PASCO manual to setup the apparatus, make sure to focus on: aligning all the apparatus on the track, adjustment of the optics with the interferometer, the green circular pattern. If the electromagnet magnetic field strength is not provided, use a teslameter to find the magnetic field strength at increasing current and plot a graph to extrapolate if needed. Now to take the actual measurements.
+	\begin{enumerate}
+		\item Make sure the polarizer is at $\qty{90}{\degree}$ to filter out the $\Delta M_\mathrm{z} = +1 \text{ and } -1$ transitions perpendicular to the magnetic field axis.
+		\item Record a video or take a picture at $\qty{0}{\ampere}$.
+		\item With a video/picture analysis tool, measure the ring radius for each mode, at least 6 modes.
+		\item Find mean $C_0$ using \eqref{eq:5} along with standard deviation.
+		\item Repeat steps 2 to 3 but this time with increasing current at equal intervals for both the inner and outer ring and at least 4 modes.
+		\item Find mean $\mu_\mathrm{B}$ using \eqref{eq:4} along with standard deviation. Perform error analysis.
+	\end{enumerate}
+
+\clearpage
+
+	\section{Results and Discussion}
+
+	The following section contains our results for this method that includes tables and graphs. This is accompanied by a discussion that includes interpretations of the results and error analysis.
+	
+	We conducted 2 trials for both $\qty{3}{\ampere}$ and $\qty{4}{\ampere}$, but only one for $\qty{5}{\ampere}$ due to time constraints. A teslameter was used to find the electromagnet's characteristic magnetic field strength vs current. $\qty{3}{\ampere}$ to $\qty{5}{\ampere}$ then $\qty{5}{\ampere}$ down to $\qty{3}{\ampere}$, 2 times due to hysteresis.
+	
+	% Table generated by Excel2LaTeX from sheet 'Sheet1'
+	\begin{table}[htbp]
+		\centering
+		\caption{Electromagnet Magnetic Field Strength vs Current}
+		\begin{tabular}{cccccc}
+			\toprule
+			& \multicolumn{5}{c}{Teslameter ($\unit{\tesla}$)} \\
+			\cmidrule{2-6}    I ($\unit{\ampere}$) & Trial 1 & Trial 2 & Trial 3 & Trial 4 & Mean \\
+			\midrule
+			3 & 0.931 & 0.93 & 0.934 & 0.938 & 0.93 \\
+			4 & 1.038 & 1.038 & 1.041 & 1.043 & 1.04 \\
+			5 & 1.121 & 1.122 & 1.124 & 1.128 & 1.12 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:Electromagnet}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Solenoid Magnetic Field Strength vs Current}
+		\includegraphics[width=0.7\textwidth]{magneticfieldstrength.jpg}
+	\end{figure}
+	 
+\clearpage
+
+	I find the mean and stdev for each trial to form box plots for error analysis. The experimental $\mu_\mathrm{B}$ is the average of all trials along with the stdev. The real value for the Bohr magneton is $\qty{9.27e-24}{\joule\per\tesla}$.
+	
+	\begin{table}[htbp]
+		\centering
+		\ra{1.2}
+		\caption{Experimental Results}
+		\begin{tabular}{cccccccc}
+			\toprule
+			& \multicolumn{3}{c}{Trial 1} &   & \multicolumn{3}{c}{Trial 2} \\
+			\cmidrule{2-4}\cmidrule{6-8}      & \multicolumn{2}{c}{Ring Radius (m)} &   &   & \multicolumn{2}{c}{Ring Radius (m)} &  \\
+			\cmidrule{2-3}\cmidrule{6-7}     k & $\mathrm{R}_+$ & $\mathrm{R}_-$ & $\mu_\mathrm{B}$ &   & $\mathrm{R}_+$ & $\mathrm{R}_-$ & $\mu_\mathrm{B}$ \\
+			\midrule
+			\multicolumn{8}{l}{\quad $\mathrm{I} = \qty{3}{\ampere}$} \\
+			0 & 0.347 & 0.315 & 7.37E-24 &   & 0.346 & 0.312 & 7.78E-24 \\
+			1 & 0.523 & 0.501 & 7.84E-24 &   & 0.519 & 0.501 & 6.39E-24 \\
+			2 & 0.653 & 0.636 & 7.62E-24 &   & 0.652 & 0.635 & 7.61E-24 \\
+			3 & 0.762 & 0.742 & 1.05E-23 &   & 0.76 & 0.745 & 7.85E-24 \\
+			4 & 0.855 & 0.842 & 7.68E-24 &   & 0.859 & 0.841 & 1.06E-23 \\
+			&   & Mean & 8.20E-24 &   &   & Mean & 8.06E-24 \\
+			&   & Std. Dev. & 1.15E-24 &   &   & Std. Dev. & 1.40E-24 \\
+			\multicolumn{8}{l}{\quad $\mathrm{I} = \qty{4}{\ampere}$} \\
+			0 & 0.347 & 0.313 & 7.01E-24 &   & 0.345 & 0.308 & 7.54E-24 \\
+			1 & 0.524 & 0.501 & 7.36E-24 &   & 0.52 & 0.497 & 7.30E-24 \\
+			2 & 0.655 & 0.636 & 7.66E-24 &   & 0.651 & 0.63 & 8.40E-24 \\
+			3 & 0.762 & 0.745 & 8.00E-24 &   & 0.759 & 0.743 & 7.50E-24 \\
+			4 & 0.855 & 0.844 & 5.84E-24 &   & 0.855 & 0.84 & 7.94E-24 \\
+			&   & Mean & 7.17E-24 &   &   & Mean & 7.74E-24 \\
+			&   & Std. Dev. & 7.44E-25 &   &   & Std. Dev. & 3.90E-25 \\
+			\multicolumn{8}{l}{\quad $\mathrm{I} = \qty{5}{\ampere}$} \\
+			0 & 0.34 & 0.305 & 6.52E-24 &   &   &   &  \\
+			1 & 0.518 & 0.497 & 6.16E-24 &   &   & \multicolumn{2}{c}{Experimental $\mu_\mathrm{B}$}  \\
+			\cmidrule{7-8} 2 & 0.647 & 0.632 & 5.54E-24 &   &   & Mean & 7.43E-24 \\
+			3 & 0.758 & 0.742 & 6.94E-24 &   &   & Std. Dev. & 8.81E-25 \\
+			4 & 0.851 & 0.841 & 4.89E-24 &   &   & \% Error & 20\% \\
+			&   & Mean & 6.01E-24 &   &   &   &  \\
+			&   & Std. Dev. & 7.23E-25 &   &   &   &  \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:results}%
+	\end{table}%
+	
+\clearpage
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Box Plots for each Trial}
+		\includegraphics[width=0.7\textwidth]{boxplot.jpg}
+	\end{figure}
+	
+	The percent error is found to be $20\%$. This indicates some major sources of error. From the box plots, we can see that as the current increases, the accuracy of the measurements decrease too, showing that at higher currents the real value is not even in the range of the measurements.
+	
+	One significant source of error could be the inhomogeneity of the magnetic field. Despite our efforts to ensure a uniform magnetic field, slight variations in field strength across the observation region could have led to inconsistent splitting of the spectral lines, thereby affecting the accuracy of our measurements.
+	
+	Another factor to consider is the alignment of the optical components. Misalignment of the lenses, mirrors, and the Fabry-Perot interferometer could have resulted in poor resolution and imprecise measurements of the spectral line splitting. Ensuring precise alignment and focusing of the optical components is crucial for obtaining accurate results in such experiments. Also as observed by the images in the appendix, there was stray light throughout the procedure which can affect the signal to noise ratio of the desired light.
+	
+	Thermal effects might also have played a role in the observed percent error. Fluctuations in temperature can cause expansion or contraction of the experimental apparatus, leading to misalignment and instability. Maintaining a controlled temperature environment could help minimize this source of error.
+	
+	Instrumental limitations, such as imperfections in the optical components or electrical noise in the power supply, could have introduced additional errors. Using high-quality, well-maintained equipment and ensuring stable electrical connections can help reduce these types of errors.
+	
+	Human error would come from the video analysis tool which required precise measurements of the ring radius by constructing circles with multiple points. At some points, we observed that the rings appeared more like bands because of alignment issues, so to minimize error we made sure to set the points in the middle of each ring band. We also observed that at higher orders, the ring bands become thinner which made it easier to form a circle. This could be due to lower energy waves dissipating as the incident waves reflect in the interferometer.
+	
+	
+	
+\clearpage	
+
+	\section{Applications}
+	
+	The Zeeman effect has several important applications in various fields of science and technology:
+	
+	\begin{itemize}
+		\item \textbf{Spectroscopy}: Used in spectroscopic techniques to analyze the composition and properties of substances.
+		\item \textbf{Astrophysics}: Applied to study the magnetic fields of celestial bodies by observing spectral line splitting. Magnetic field in sunpots.
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{Sunspots.jpg}
+		\end{figure}
+		\item \textbf{Nuclear Magnetic Resonance (NMR)}: Plays a role in NMR spectroscopy for determining molecular structure.
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{NMR.png}
+		\end{figure}
+		\item \textbf{Magnetic Resonance Imaging (MRI)}: Principles applied in MRI technology for medical imaging.
+		\item \textbf{Atomic Clocks}: Used in the operation of atomic clocks for highly accurate timekeeping.
+		\item \textbf{Plasma Diagnostics}: Utilized in plasma physics to diagnose properties of plasmas.
+		\item \textbf{Quantum Computing}: Employed in certain approaches to quantum computing for manipulating qubits.
+	\end{itemize}
+	
+	
+\clearpage
+
+	\section{Conclusion}
+	
+	In conclusion, our experiment aimed to observe the Zeeman effect and measure the splitting of spectral lines in a magnetic field. Despite encountering some challenges, including a $20\%$ percent error in our measurements and the appearance of bands instead of distinct rings in the interference pattern, we were able to gather valuable data and insights into the behavior of electrons in a magnetic field.
+	
+	The sources of error identified, such as magnetic field inhomogeneity, alignment issues, thermal effects, instrumental limitations, and human error, provide important considerations for future experiments. Addressing these factors will be crucial for improving the accuracy and precision of our measurements. The observation of bands instead of distinct rings highlights the importance of optimizing the experimental setup, including the resolution of optical components, the uniformity of the magnetic field, and the sensitivity of the detection system.
+	
+	Overall, this experiment has deepened our understanding of the Zeeman effect and its applications for atomic and quantum physics.
+
+\clearpage
+
+	\section{Appendix}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{$\qty{4}{\ampere}$ at $\qty{0}{\degree}$}
+		\includegraphics[width=0.7\textwidth]{0deg_4A.png}
+	\end{figure}
+	This shows the transitions which correspond to the selection rule $\Delta M_\mathrm{z} = +1 \text{ and } -1$
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{$\qty{4}{\ampere}$ at $\qty{45}{\degree}$}
+		\includegraphics[width=0.7\textwidth]{45deg_4A.png}
+	\end{figure}
+	This shows all the transitions, $\Delta M_\mathrm{z} = +1, 0, \text{ and } -1$.
+	
+\clearpage
+
+	\begin{figure}[htbp]
+		\centering
+		\caption{$\qty{4}{\ampere}$ at $\qty{90}{\degree}$}
+		\includegraphics[width=0.7\textwidth]{90deg_4A.png}
+	\end{figure}
+	This shows the transitions which correspond to the selection rule $\Delta M_\mathrm{z} = 0$
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{$B=0$}
+		\includegraphics[width=0.7\textwidth]{noB.png}
+	\end{figure}
+	This shows the transitions without an applied magnetic field, so no Zeeman effect.
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Radial Direction - Perpendicular to $B$}
+		\includegraphics[width=0.7\textwidth]{Radial_perptoB.png}
+	\end{figure}
+	
+\clearpage
+	
+	\section{References}
+	\begin{itemize}
+		\item PASCO Website \href{https://www.pasco.com/products/complete-experiments/quantum/ex-5562}{https://www.pasco.com/products/complete-experiments/quantum/ex-5562}
+		\item David J. Griffiths, Darrell F. Schroeter - Introduction to Quantum Mechanics (2018)
+	\end{itemize}	
+	
+\end{document}

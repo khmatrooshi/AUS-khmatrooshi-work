@@ -1,0 +1,341 @@
+\documentclass[11pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\doublespacing
+
+\usepackage[shortconst]{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\setlist[itemize]{leftmargin=*, labelindent=\parindent, noitemsep, topsep=0pt, partopsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt, partopsep=0pt}
+
+\hypersetup{
+	pdftitle={Electron Spin Resonance},
+	pdfauthor={Khalifa Salem Almatrooshi},
+	%pdfsubject={Your subject here},
+	%pdfkeywords={keyword1, keyword2},
+	bookmarksnumbered=true,     
+	bookmarksopen=true,         
+	bookmarksopenlevel=1,       
+	colorlinks=true,
+	allcolors=blue,
+	%linkcolor=blue,
+	%filecolor=magenta,      
+	%urlcolor=cyan,            
+	pdfstartview=Fit,           
+	pdfpagemode=UseOutlines,
+	pdfpagelayout=TwoPageRight
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{Electron Spin Resonance} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			This study investigates the principles of Electron Spin Resonance (EPR) spectroscopy through an experimental examination of a 2,2-diphenyl-1-picrylhydrazyl (DPPH) sample. The primary objectives were to understand the interaction of unpaired electrons with an external magnetic field, measure the Landé g-factor, and explore the use of microwave devices within the EPR system. The experiment demonstrated a high degree of precision, with a percentage difference of less than 1\% for each reading and a average $g$-factor of $2.0140$, indicating reliable and accurate measurements. Sources of error, including instrumental calibration, sample placement, and temperature control, were identified.
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{Electron Spin Resonance, DPPH, Landé g-factor, microwave devices}
+	\end{titlepage}
+	
+	\clearpage
+	
+	\section{Introduction}
+	
+	Electron Spin Resonance (ESR), also known as Electron Paramagnetic Resonance (EPR), is a powerful spectroscopic technique that provides insights into the electronic structure of materials with unpaired electrons. Since its discovery by Zavoisky in 1944, ESR has become an indispensable tool in various fields such as chemistry, physics, and biology, for studying paramagnetic substances and their magnetic properties.
+	
+	At the heart of ESR is the interaction between an external magnetic field and the magnetic moments of electrons, a phenomenon described by the Zeeman effect. The Zeeman effect explains the splitting of energy levels of an electron in a magnetic field. When a sample with unpaired electrons is placed in a magnetic field and exposed to microwave radiation, resonance absorption occurs at a specific frequency.
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Energy Shift}
+		\includegraphics[width=0.9\textwidth]{Split.jpg}
+	\end{figure}
+	
+	This frequency is related to the strength of the magnetic field and the intrinsic magnetic moment of the electron, characterized by the Landé g-factor.
+	
+	The magnetic moment $\mu_j$ of an electron is related to its angular momentum $J$ by the equation:
+	\begin{equation}
+		\mu_j = -g \frac{e}{2m_e} J = -g \frac{\mu_\mathrm{B}}{\hbar} J = \gamma J \label{eq:1}
+	\end{equation}
+	where $g$ is the Landé g-factor, $e$ is the elementary charge, $m_e$ is the electron mass, $\mu_\mathrm{B}$ is the Bohr Magneton, and $J$ is the total angular momentum of the electron, which can be expressed as the sum of its orbital angular momentum $L$ and spin angular momentum $S$ in the case of LS coupling: $J = L + S$.
+	
+	The Landé g-factor is a dimensionless quantity that accounts for the relative contributions of the orbital and spin angular momenta to the magnetic moment of the atom. It is given by:
+	\begin{equation}
+		g = 1 + \frac{J(J + 1) + s(s + 1) - l(l + 1)}{2J(J + 1)} \label{eq:2}
+	\end{equation}
+	
+	The angular momentum $J$ and the magnetic moment $\mu_j$ are quantized in an external magnetic field and their projection components are taken in the direction of the external magnetic field.
+	\begin{equation}
+		\begin{split}
+			J &= m\hbar \\
+			\mu_j &= \gamma m \hbar
+		\end{split} \label{eq:3}
+	\end{equation}
+	where $m$ is the magnetic quantum number ($m = -j, \cdots, 0, \cdots, j$)
+	
+	If a paramagnetic substance with a non-zero magnetic moment is placed in a constant external magnetic field $B$, the interaction energy is found to be discrete:
+	\begin{equation}
+		E = - \mu_j B = -\gamma m \hbar B = -mg \mu_\mathrm{B} B \label{eq:4}
+	\end{equation}
+	The energy separation between adjacent magnetic energy levels is related to a frequency.
+	\begin{equation}
+		\Delta E = g \mu_\mathrm{B} B = h \omega \label{eq:5}
+	\end{equation}
+	This is the resonance condition in ESR. For a paramagnetic sample in a given magnetic field $B$, there is a frequency $\omega$ that corresponds to the energy separation $\Delta E$ of the magnetic energy levels.
+	
+	For this experiment, we will use the \href{https://lambdasys.com/products/detail/185}{Lamdasys} apparatus to determine the Landé g-factor for 2,2-Diphenyl-1-picrylhydrazyl (DPPH), which has a real value of $2.0036$. By analyzing the ESR spectrum and applying this equation, one can determine the Landé g-factor, which provides valuable information about the electronic structure of the material under study. The study of ESR and the Zeeman effect together enhances our understanding of the magnetic properties of materials and the behavior of electrons in a magnetic field.
+	
+	\clearpage
+	
+	\section{Experimental Details}
+	
+	This section details the procedure for each method and the expected results according to the lab manuals and the relevant equations.
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Lambdasys Apparatus}
+		\includegraphics[width=0.7\textwidth]{Apparatus.jpg}
+	\end{figure}
+	
+	\begin{enumerate}
+		\item[1.] \textbf{Preparation:} Turn the variable attenuator clockwise to the maximum before powering up the device. Set the main unit’s “Magnet” and “Sweep” counterclockwise to a minimum. Power on the main unit and preheat it for 20 minutes.
+		\item[2.] \textbf{System Activation:} After preheating, keep the “Magnet” at the minimum position and turn the “Sweep” clockwise to the maximum, then press down the "Sweep/Detect" button. The system is now in detection mode, and the detected signal will be shown on the indication meter.
+		\item[3.] \textbf{Sample Placement:} Place the sample in the center of the magnetic field (around the 91 mm position on the scale).
+		\item[4.] \textbf{Tuner Adjustment:} Turn the single stub tuner clockwise to the scale "0".
+		\item[5.] \textbf{Signal Source Setting:} The signal source operates in equal-amplitude mode ("Equal-A"). Adjust the variable attenuator and the "Detect Sen." knob to set the indicator on the indication meter above 2/3 of the full scale.
+		\item[6.] \textbf{Microwave Frequency Setting:} Set the output frequency of the microwave signal source to around 9370 MHz by adjusting the micrometer of the oscillator. Refer to the Oscillator Frequency-Micrometer Scale (\ref{fig:Oscillator}) for other frequencies.
+		\item[7.] \textbf{Frequency Measurement:} Use the wavemeter to measure the frequency of the microwave signal. Refer to the frequency-scale table of the wavelength meter, adjust the micrometer slowly and carefully to find the absorption point of the signal, where it decreases sharply.
+		\item[8.] \textbf{Resonant Cavity Adjustment:} Adjust the piston of the sample cavity until the indication meter reads minimum, indicating that a standing wave distribution is achieved in the sample cavity.
+		\item[9.] \textbf{Sensitivity Enhancement:} If necessary, reduce the attenuation of the variable attenuator to increase system sensitivity. Then finely adjust the piston of the sample cavity and the single stub tuner in the two arms of the magic tee to minimize the meter reading. Increase sensitivity using the "Detect Sen." knob if needed.
+		\item[10.] \textbf{Oscilloscope Display:} Release the "Sweep/Detect" button to display the relative value of the sweeping field current on the indication meter. The detected signal is now amplified at the "Y" port connected to the oscilloscope's "Y" channel.
+		\item[11.] \textbf{Magnetic Field Adjustment:} Increase the magnetic field current by turning the "Magnet" knob clockwise to around 2.0 A (between 1.8 and 2.2 A). The electron resonance signal appears on the oscilloscope, as shown in the schematic and actual experimental results in the figures.
+		\item[12.] \textbf{Signal Quality Improvement:} If the resonant waveform peak is too low or the waveform quality is poor, reduce the attenuation, increase the sweeping field current, enhance the oscilloscope's sensitivity, or adjust the microwave signal source to improve the microwave output power.
+		\item[13.] \textbf{Resonance Waveform Tuning:} If the resonance waveform is asymmetric, adjust the single stub tuner or change the sample location in the magnetic field and finely tune the sample cavity to achieve a satisfactory resonance waveform.
+		\item[14.] \textbf{Phase Adjustment:} Use the "Phase" knob to position the resonance peaks correctly. Refer to \ref{fig:Reading2Optimization} and \ref{fig:Reading2Waveform} for ideal optimization and waveform.
+		\item[15.] \textbf{g-factor Calculation:} Use a Teslameter to recalibrate the magnetic field B and use the given equation \ref{eq:5} to calculate the g-factor (expected to be between 1.95 and 2.05).
+		
+		
+		
+		
+		
+	\end{enumerate}
+	
+	\clearpage
+	
+	\section{Results and Discussion}
+	
+	The following section contains our results for each method that includes tables and graphs. This is accompanied by a discussion that includes interpretations of the results and error analysis.
+	
+	Where applicable, I find the percentage difference between the experimental and the real $g$-factor with the following formula.
+	\[
+	\% \text{ Difference} = \frac{\left| X_1 - X_2 \right|}{\frac{X_1 + X_2}{2}} \times 100
+	\]
+	The main reason is that the real $g$-factor for DPPH is an experimental value itself rather than a theoretical one, so an error indicates experimental errors from ideal conditions.
+	
+	First we had to find the calibration curve of the magnetic field withe applied current. The manual provided us with the necessary measurements. The table is in the appendix (\ref{tab:Calibration}).
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Calibration Curve of the Magnetic Field $B$ with the Applied Current $I$}
+		\includegraphics[width=0.5\textwidth]{Calibration.jpg}
+	\end{figure}
+	
+	This equation will be used to find the magnetic field strength $B$ corresponding to a measured current $I$ for each reading. We conducted three readings, each with different microwave frequencies. The following table shows our results for the experimental $g$-factor for DPPH, found using $\ref{eq:5}$.
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Results}
+		\begin{tabular}{ccccccccc}
+			\toprule
+			Readings & Oscillator & $\omega$ & Wavemeter & Actual $\omega$ & $I$ & $B$ & Exp. $g$ & \% diff \\
+			~ & ($\unit{\milli\meter}$) & ($\unit{\hertz}$) & ($\unit{\milli\meter}$) & ($\unit{\hertz}$) & ($\unit{\ampere}$) & ($\unit{\tesla}$) & ~ & ~ \\
+			\midrule
+			1 & 2.96 & 9.00E+09 & 8.19 & 8.992E+09 & 1.844 & 0.319 & 2.0112 & 0.376\% \\
+			2 & 3.39 & 9.20E+09 & 6.26 & 9.206E+09 & 1.881 & 0.326 & 2.0188 & 0.757\% \\
+			3 & 3.815 & 9.37E+09 & 5.01 & 9.368E+09 & 1.921 & 0.333 & 2.0119 & 0.413\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:Results}%
+	\end{table}%
+	
+	The expected value for DPPH Landé $g$-factor was between $1.95$ and $2.05$. The percentage difference for each reading is less than $1\%$ meaning that the experiment is extremely precise. The average value is $2.0140$ with a percentage difference of $0.518\%$. This indicates minimal sources of error and deviations from ideal conditions.
+	
+\clearpage
+	
+	Common sources of error in this experiment include:
+	\begin{itemize}
+		\item Instrumental Calibration: Calibration errors of the magnetic field and microwave frequency. Especially human error in handling the various micrometers and dials to optimize the waveform.
+		\item Sample Placement: Incorrect placement within the resonant cavity leading to non-uniform exposure. This can be seen when optimizing the waveform.
+		\item Temperature Control: Sensitivity of EPR signals to temperature changes affecting relaxation times and linewidths. This is highlighted in the variability of EPR signal.
+		\item Magnetic Field Homogeneity: Inhomogeneity causing broadening of EPR signal on the oscilloscope.
+		\item Signal-to-Noise Ratio: Issues with microwave power, detector sensitivity, or environmental noise. All add up to variability in the EPR signal.
+	\end{itemize}
+	
+	
+	
+	\clearpage	
+	
+	\section{Applications}
+	
+	\begin{enumerate}
+		\item Quantum Electrodynamics: Precision measurements in electron's magnetic moment crucial for testing quantum electrodynamics theories.
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.5\textwidth]{QED.jpg}
+			\label{fig:QED}
+		\end{figure}
+		\item Condensed-Matter Physics: Studying properties and dynamics of systems with unpaired electrons.
+		\item Chemistry and Biochemistry: Understanding compound structures and reactions involving free radicals.
+		\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.5\textwidth]{Bio.png}
+		\label{fig:Bio}
+		\end{figure}
+		\item Medicine: Applications in tumor detection and biological free radical studies.
+		\item Environmental Science: Analysis of pollution and environmental free radicals.
+		\item Nanomedicine and Polymers: Investigation of nanomaterials and polymers.
+	\end{enumerate}
+	
+	
+	\clearpage
+	
+	\section{Conclusion}
+	
+	In conclusion, our ESR experiment has successfully illuminated the principles underlying the interaction of unpaired electrons with an external magnetic field. By carefully conducting EPR spectroscopy on a DPPH sample and navigating through the challenges posed by various sources of error, we have gained insights into the electronic structure and dynamics of the sample.
+	
+	The precise measurements obtained, indicated by the average value of $2.0140$ with a percentage difference of $0.518\%$, reflect the reliability of our experimental setup and the robustness of EPR as a spectroscopic technique. Our results correspond with the established values of the Landé g-factor, affirming the accuracy of our equipment and the validity of the techniques employed.
+	
+	However, as with any empirical study, recognizing the potential sources of error is crucial for future improvements. Instrumental calibration, sample placement, and temperature stability are among the factors that require careful attention to refine the experimental conditions and achieve even greater precision.
+	
+	\clearpage
+	
+	\section{Appendix}
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Table for Calibration Curve of the Magnetic Field $B$ with the Applied Current $I$}
+		\begin{tabular}{cc}
+			\toprule
+			$I$ ($\unit{\ampere}$) & $B$ ($\unit{\tesla}$) \\
+			\midrule
+			0 & 0 \\
+			0.1 & 0.018 \\
+			0.2 & 0.035 \\
+			0.3 & 0.053 \\
+			0.4 & 0.07 \\
+			0.5 & 0.088 \\
+			0.6 & 0.105 \\
+			0.7 & 0.123 \\
+			0.8 & 0.14 \\
+			0.9 & 0.158 \\
+			1 & 0.176 \\
+			1.1 & 0.194 \\
+			1.2 & 0.211 \\
+			1.3 & 0.229 \\
+			1.4 & 0.246 \\
+			1.5 & 0.262 \\
+			1.6 & 0.279 \\
+			1.7 & 0.296 \\
+			1.8 & 0.313 \\
+			1.9 & 0.33 \\
+			2 & 0.346 \\
+			2.1 & 0.363 \\
+			2.2 & 0.38 \\
+			2.3 & 0.396 \\
+			2.4 & 0.412 \\
+			2.5 & 0.428 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:Calibration}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Oscillator Frequency-Micrometer Scale}
+		\includegraphics[width=\textwidth, angle=270]{Oscillator Frequency-Micrometer Scale.jpg}
+		\label{fig:Oscillator}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Wavemeter Frequency-Micrometer Scale 1}
+		\includegraphics[width=\textwidth, angle=270]{Wavemeter Frequency-Micrometer Scale 1.jpg}
+		\label{fig:Wavemeter1}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Wavemeter Frequency-Micrometer Scale 2}
+		\includegraphics[width=\textwidth, angle=270]{Wavemeter Frequency-Micrometer Scale 2.jpg}
+		\label{fig:Wavemeter2}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Reading 2 Optimization}
+		\includegraphics[width=\textwidth]{Reading 2 Optimization.jpg}
+		\label{fig:Reading2Optimization}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Reading 2 Waveform}
+		\includegraphics[width=\textwidth]{Reading 2 Waveform.jpg}
+		\label{fig:Reading2Waveform}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Reading 3 Optimization}
+		\includegraphics[width=\textwidth]{Reading 3 Optimization.jpg}
+		\label{fig:Reading3Optimization}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Reading 3 Waveform}
+		\includegraphics[width=\textwidth]{Reading 3 Waveform.jpg}
+		\label{fig:Reading3Waveform}
+	\end{figure}
+	
+	
+	\clearpage
+	
+	\section{References}
+	\begin{itemize}
+		\item \href{https://lambdasys.com/products/detail/185}{https://lambdasys.com/products/detail/185}
+		\item \href{https://pubs.aip.org/aip/jcp/article-abstract/36/6/1676/205850/Electron-Spin-Resonance-Studies-of-DPPH-Solutions?redirectedFrom=fulltext}{DPPH real g-factor}
+		\item David J. Griffiths, Darrell F. Schroeter - Introduction to Quantum Mechanics (2018)
+	\end{itemize}	
+	
+\end{document}

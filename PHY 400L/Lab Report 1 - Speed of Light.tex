@@ -1,0 +1,455 @@
+\documentclass[12pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\doublespacing
+
+\usepackage{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=black,
+	citecolor=black,
+	pdftitle={Speed of Light - Khalifa Almatrooshi},
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{Speed of Light} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			This report deals with measuring the speed of light using different methods. These methods include the Phase Shift method and the Foucault method. The Phase Shift method looks at the linear relationship between displacement and the phase shift, which we verify by keeping each one constant. The Foucault method involves mechanical apparatus and relates the deflection of an image point to the speed of light through geometrical means and thin-lens theory. I perform error analysis on both methods to find the precision and accuracy and compare with the expected errors.
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{Speed of Light, Wave, Phase Shift, Mirror}
+	\end{titlepage}
+	
+\clearpage
+	
+	\section{Introduction}
+	
+	The speed of light, a fundamental constant of nature, has intrigued scientists for centuries. Historically, the quest to measure light's velocity has led to the development of various experimental methods, each refining our understanding and accuracy. The speed of light is a cornerstone in the fields of physics, astronomy, and a critical parameter in classical mechanics and quantum mechanics.
+	
+	This experiment aims to measure the speed of light using three distinct methods: the phase shift method with equal displacement, the phase shift method with equal phase delay, and Foucault's method. The phase shift methods involve modulating a light wave to easily measure the wave group as normal light waves have a frequency of $\qty{e14}{\hertz}$, the modulated light wave here is $\qty{100e6}{\hertz}$.
+	
+	\begin{figure}[!h]
+		\centering
+		\caption{Beat frequency example from General Physics book}
+		\label{ModulatedWave}
+		\includegraphics[width=\textwidth]{./data/ModulatedWave.png}
+	\end{figure}
+	
+	The equal displacement method measures the phase delay caused by a change in displacement, while the equal phase delay method measures the displacement caused by a change in phase. Foucault's method, a time-honored technique, utilizes a rotating mirror to measure the time light takes to travel to a distant mirror and back, offering insights from a historical perspective. With a beautiful equation: $ \frac{\Delta \theta}{\omega} = \frac{2D}{c} $.
+	
+	\begin{figure}[!h]
+		\centering
+		\caption{Virtual Images from $L_2$}
+		\label{FocaultGeometry}
+		\includegraphics[width=\textwidth]{./data/FocaultGeometry.jpg}
+	\end{figure}
+	
+	The purpose of conducting this experiment using these three methods is to explore the nuances and potential discrepancies between them. By employing both phase shift methods and Foucault's technique, this study aims to understand the precision and accuracy of each approach. This comparative analysis will also deepen our understanding of the factors influencing the measurement of the speed of light. Also, the phase shift methods, with their reliance on modern electronics and precise timing, represent a contemporary approach. In contrast, Foucault's method, grounded in mechanical motion and optical principles, offers a historical perspective. This allows for a multifaceted exploration of experimental physics, bridging past methodologies with present-day technological advances.
+	
+
+\clearpage
+
+	\section{Experimental Details}
+	
+	This section details the procedure for each method and the expected results according to the lab manuals and the relevant equations.
+	
+	\subsection{Phase Shift Method With Equal Displacement}
+	Apparatus used:
+	\begin{itemize}
+		\item Oscilloscope
+		\item LEOI-24 Apparatus for Measuring Speed of Light 
+	\end{itemize}
+	\begin{figure}[!h]
+		\centering
+		\caption{Structure of Apparatus from Manual}
+		\label{PhaseShiftApparatus}
+		\includegraphics[width=\textwidth]{./data/PhaseShiftApparatus.jpg}
+	\end{figure}
+	\begin{enumerate}
+		\item Setup the apparatus with the oscilloscope, follow the manual to adjust the signals for the type of oscilloscope.
+		\item Take a set of points $D$ with equal displacement on the rail, record the phase $\phi$ on the oscilloscope for each point. The relationship in between $D$ and $\phi$ is: $\frac{\phi}{2\pi} = \frac{2D}{\lambda}$.
+		\item Repeat for 5 trials and average out the measurements.
+		\item Plot a graph between $D$ and $\phi$, note that the slope is: $\frac{D}{\phi} = \frac{\lambda}{4\pi}$. Utilize $c = \lambda f$ to find the experimental speed of light.
+	\end{enumerate}
+	
+\clearpage
+	
+	\subsection{Phase Shift Method With Equal Phase Delay}
+	Apparatus used:
+	\begin{itemize}
+		\item Oscilloscope
+		\item LEOI-24 Apparatus for Measuring Speed of Light 
+	\end{itemize}
+	\begin{enumerate}
+		\item Setup the apparatus with the oscilloscope, follow the manual to adjust the signals for the type of oscilloscope.
+		\item Choose an interval for a set of equal phase points; preferably between 0.1 to 0.5 rad because of the short rail. \item Start at the start of the rail and move the carrier until the interval is passed, record the displacement.
+		\item Now repeat the interval and the record the displacement until the carrier reaches the end.
+		\item Repeat for 5 trials and average out the measurements.
+		\item Plot a graph between $D$ and $\phi$, note that the slope is: $\frac{D}{\phi} = \frac{\lambda}{4\pi}$. Utilize $c = \lambda f$ to find the experimental speed of light.
+	\end{enumerate}
+	
+\clearpage
+	
+	\subsection{Foucault's Method}
+	Apparatus used:
+	\begin{itemize}
+		\item PASCO OS-9261 Complete Speed of
+		Light Apparatus
+	\end{itemize}
+	\begin{figure}[!h]
+		\centering
+		\caption{Equipment Alignment from Manual}
+		\label{FoucaultBench}
+		\includegraphics[width=\textwidth]{./data/FocaultBench.jpg}
+	\end{figure}
+	\begin{enumerate}
+		\item Follow the manual to setup and align the apparatus for best results.
+		\item Start rotating mirror controller at 750 rev/sec in the clockwise direction and fix the cross hair on the image point, remember how the image looks.
+		\item Increase to 1500 rev/sec and when the image point stabilizes replicate the same image from the previous step by moving the micrometer and record the measurement.
+		\item Repeat steps 2-3 but in the anticlockwise direction.
+		\item Repeat for 5 trials and average out the measurements for $s^\prime_{cw}$ and $s^\prime_{ccw}$.
+		\item Use the following formula to find the experimental speed of light.
+		\[
+		c = \frac{8 \pi A D^2 \left( Rev/sec_{cw} + Rev/sec_{ccw} \right)}{\left( D + B \right)\left( s^\prime_{cw} - s^\prime_{ccw} \right)}
+		\]
+	\end{enumerate}
+
+\clearpage
+
+	\section{Results and Discussion}
+
+	The following section contains our results for each method that includes tables and graphs. This is accompanied by a discussion that includes interpretations of the results and error analysis.
+	
+	For each method, I find the percentage error between the experimental and the real speed of light with the following formula.
+	\[
+	\% \, Error = \left| \frac{X_{exp}-X_{real}}{X_{real}} \right| \times 100
+	\]
+	
+	% Equal Displacement
+	
+	\subsection{Phase Shift Method With Equal Displacement}
+	
+	The following table contains the data for D and the average $\phi$. The average $\phi$ (Trials in appendix) is first found in nanoseconds, then is converted to radians according to the time period of the measured wave. The time period of the wave is found to be $\qty{2.16e-6}{\second}$. For example converting the average $\phi$ for $D=0.25$:
+	\[
+		\phi(radians) = \left( \qty{204e-9}{\second} \right) \left( \frac{2\pi}{\qty{2.16e-6}{\second}} \right) = \qty{0.593}{\radian}
+	\]
+
+	\begin{table}[!h]
+		\centering
+		\caption{D vs $\phi$ With Equal Displacement Results}
+		\label{DvsPhi_EqualDisplacementResults}
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline
+			\textbf{D (m)} & \textbf{mean (ns)} & \textbf{stdev (ns)} & \textbf{mean (radians)} & \textbf{stdev (radians)} \\
+			\hline
+			0 & 0 & 0 & 0 & 0 \\
+			\hline
+			0.05 & 76 & 16.73 & 0.221 & 0.0487 \\
+			\hline
+			0.1 & 132 & 17.89 & 0.384 & 0.0520 \\
+			\hline
+			0.15 & 204  & 16.73 & 0.593 & 0.0487 \\
+			\hline
+			0.2 & 260 & 14.14 & 0.756 & 0.0411 \\
+			\hline
+			0.25 & 332 & 22.80 & 0.966 & 0.0663 \\
+			\hline
+			0.3 & 392 & 22.80 & 1.140 & 0.0663 \\
+			\hline
+			0.35 & 464 & 29.66 & 1.350 & 0.0863 \\
+			\hline
+			0.4 & 536 & 16.73 & 1.559 & 0.0487 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{minipage}{.5\textwidth}
+		The box plots here were generated using RStudio and modified code from another course (STA 401). Box plots help with visualizing the distribution, central tendency, and variability of a dataset, along with identifying outliers.
+	\end{minipage}
+	\hspace{.5cm}
+	\begin{minipage}{.5\textwidth}
+		\includegraphics[scale=0.5]{./data/BoxPlotForEachDisplacement.jpeg}
+	\end{minipage}
+	The data skewness in each trial suggests a systematic error, likely from the oscilloscope's resolution and human error in measuring phase delay, with the cursor jumping in 20 ns increments (apparent in the trials). This error deviates from the expected normal distribution of real-world phenomena. Minimal outliers and small standard deviation relative to the average phase delay indicate environmental factors have negligible impact on the measurements.
+	
+	\begin{figure}[!h]
+		\centering
+		\caption{D vs $\phi$ With Equal Displacement Graph}
+		\label{DvsPhi_EqualDisplacementGraph}
+		\includegraphics[width=\textwidth]{./data/DvsPhi_equalD.jpg}
+	\end{figure}
+	
+	Figure 1 shows that there is a linear relationship between displacement and phase delay. There is minimal scattering of the data points which means that there is minimal random error in the experiment. The y-intercept indicates a systematic error but it is small compared to the y values.
+	
+	Now the experimental speed of light is found using the slope and the properties of the wave. From the relationship $ \frac{\phi}{2\pi} = \frac{2D}{\lambda} $, the slope is found to be equal to $\frac{\lambda}{4\pi}$. Utilizing $c=\lambda \cdot f$.
+	\[
+		c = Slope \cdot 4\pi \cdot f = \qty{0.2605}{\meter\per\radian} \cdot 4\pi \cdot \qty{e8}{\per\second} = \qty{3.27e8}{unit}
+	\]
+	\begin{table}[!h]
+		\centering
+		\caption{D vs $\phi$ With Equal Displacement Calculations}
+		\label{DvsPhi_EqualDisplacementCalculations}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{f (Hz)} & 1.00E+08 \\
+			\hline
+			\textbf{T (s)} & 2.16E-06 \\
+			\hline
+			\textbf{rad/T (rad/s)} & 2.91E+06 \\
+			\hline
+			\textbf{Slope (m/rad)} & 0.2605 \\
+			\hline
+		\end{tabular}
+		\hfill
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Experimental c} & $\qty{3.27e8}{\meter\per\second}$ \\
+			\hline
+			\textbf{Real c} & $\qty{2.998e8}{\meter\per\second}$ \\
+			\hline
+			\textbf{\% error} & 9.20\% \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	A percentage error under 10 \% is acceptable, meaning that the phase shift with equal displacement method is accurate. The main source of error comes from human error in manipulating the cursor to similar points of the wave and the resolution of the oscilloscope.
+	
+\clearpage
+	
+	% Equal Phase Delay
+	
+	\subsection{Phase Shift Method With Equal Phase Delay}
+	
+	The following table contains the data for $\phi$ and the measured displacement D. We chose to do equal phase delays of 0.1 rad and we started the measurements 0.4 rad into a full wave from peak to peak, taking into account that the time period of a full wave is $\qty{2.16e-6}{\second}$.
+
+	\begin{table}[!h]
+		\centering
+		\caption{D vs $\phi$ With Equal Phase Delay Results}
+		\label{DvsPhi_EqualPhiResults}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{$\phi$ (rad)} & \textbf{D (m)} \\
+			\hline
+			0.4 & 0.376 \\
+			\hline
+			0.5 & 0.414 \\
+			\hline
+			0.6 & 0.431 \\
+			\hline
+			0.7 & 0.45 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{figure}[!h]
+		\centering
+		\caption{D vs $\phi$ With Equal Phase Delay Graph}
+		\label{DvsPhi_EqualPhiGraph}
+		\includegraphics[width=\textwidth]{./data/DvsPhi_equalPhi.jpg}
+	\end{figure}
+	Figure 3 shows that there is a linear relationship between phase delay and displacement. There is some scattering of the data points which means that there is random error in the experiment. The y-intercept indicates a systematic error too.
+
+\clearpage
+
+	\begin{table}[!h]
+		\centering
+		\caption{D vs $\phi$ With Equal Phase Delay Table}
+		\label{DvsPhi_EqualPhiTable}
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Slope (m/rad)} & 0.239 \\
+			\hline
+			\textbf{Experimental c} & $\qty{3.003e8}{\meter\per\second}$ \\
+			\hline
+			\textbf{Real c} & $\qty{2.998e8}{\meter\per\second}$ \\
+			\hline
+			\textbf{\% error} & 0.18\% \\
+			\hline
+		\end{tabular}
+	\end{table}
+
+	A percentage error under 10 \% is acceptable, meaning that the phase shift with equal phase delay method is accurate. In this case it is more accurate than the equal displacement method. This is because of the more precise measurement scale with the carrier bench ruler than the oscilloscope cursor with the 20 ns increments. Even so, the graph does indicate some errors which would have come from environment factors like temperature fluctuations which affect the electronic unit. To improve upon this we should have done more trials even if the initial percentage error is small.
+	
+	% Focault Method
+	
+	\subsection{Foucault's Method}
+	
+	The following table contains the data for the deflection of the image point in clockwise and counterclockwise rotation of the rotating mirror. The relevant measurements for calculating the experimental speed of light are in the appendix and the following equation.
+	\[
+		c = \frac{8 \pi A D^2 \left( Rev/sec_{cw} + Rev/sec_{ccw} \right)}{\left( D + B \right)\left( s^\prime_{cw} - s^\prime_{ccw} \right)}
+	\]
+	\begin{figure}[!h]
+		\centering
+		\caption{Measurements for the deflection of the image point}
+		\label{FocaultTrials}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\multirow{2}{*}{\textbf{Trials}} & \multicolumn{2}{c|}{\textbf{Deflection (mm)}} \\
+			\cline{2-3}
+			~ & $\bm{s^\prime_{cw}}$ & $\bm{s^\prime_{ccw}}$ \\
+			\hline
+			1 & 8.74 & 9.48 \\
+			\hline
+			2 & 8.70 & 9.40 \\
+			\hline
+			3 & 8.72 & 9.42 \\
+			\hline
+			4 & 8.69 & 9.42 \\
+			\hline
+			5 & 8.70 & 9.42 \\
+			\hline
+			Average & 8.71 & 9.43 \\
+			\hline
+		\end{tabular}
+		\quad
+		\begin{tabular}{|c|c|}
+			\hline
+			\textbf{Experimental c} &  $\qty{3.089e8}{\meter\per\second}$ \\
+			\hline
+			\textbf{Real c} & $\qty{2.998e8}{\meter\per\second}$ \\
+			\hline
+			\textbf{\% error} & 3.05\% \\
+			\hline
+		\end{tabular}
+	\end{figure}
+	A percentage error under 10 \% is acceptable, meaning that Foucault's method is accurate. The main source of error is the alignment of the optical components and the careful measurements required. The manual mentions that "Typical sample data taken in our lab gives values for c that are within 1.5 - 2.5\% of accepted values." This means that our measurements did have some additional error than the apparatus is rated for. These errors would include human error mainly in alignment but also in measurement, especially with measuring the deflection using the microscope since it was difficult to replicate the pattern of 750 rev/sec at 1500 rec/sec using the micrometer and the cross-hair. The mirrors that come with the apparatus could have some manufacturing defects that can affect the reflected rays, decreasing the intensity and making it difficult to discern the image point in the microscope.
+
+	\section{Applications}
+	
+	The measurement of the speed of light underpins advancements in telecommunications and fiber optic technology, enabling high-speed data transmission and enhancing global communication networks. Precise knowledge of light's speed is essential for optimizing these systems, ensuring efficient signal propagation and synchronization, particularly in satellite communications where distance measurements are critical. Additionally, methods to measure the speed of light have profound applications in astronomy and space exploration, aiding in the accurate determination of celestial distances and supporting the validation of fundamental physical theories, such as relativity. These measurements not only contribute to our understanding of the universe but also play a crucial role in technologies like GPS navigation, where accuracy depends on the constant speed of light. Thus, the ongoing refinement of light speed measurement techniques is vital for both scientific discovery and the development of modern technology.
+
+\clearpage
+
+	\section{Conclusion}
+	
+	In this report, I investigated two different methods to measure the speed of light: the Phase Shift method, and Foucault's method. An error analysis was conducted for both approaches to assess their precision and accuracy, and the percentage errors were under 10 \% meaning that both methods are accurate. I verified that the in the phase shift method, displacement and phase shift have a linear relationship, as shown by the graph. Also, for Foucault's method, I verified the intial equation of $\frac{\Delta \theta}{\omega} = \frac{2D}{c}$.
+
+\clearpage
+
+	\section{Appendix}
+	
+	\begin{table}[!h]
+		\centering
+		\caption{Trial Data for D vs $\phi$ withe equal displacement}
+		\label{TrialsforDvsPhi_EqualDisplacement}
+		\vspace{0.05cm}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			\multirow{2}{*}{\textbf{D (m)}} & \multirow{2}{*}{\textbf{$\Delta$D (m)}} & \multicolumn{5}{c|}{\textbf{Trials for Phase Delay (ns)}} \\
+			\cline{3-7}
+			~ & ~ & 1 & 2 & 3 & 4 & 5 \\
+			\hline
+			0.1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+			\hline
+			0.15 & 0.05 & 80 & 100 & 60 & 80 & 60 \\
+			\hline
+			0.2 & 0.1 & 120 & 160 & 120 & 120 & 140 \\
+			\hline
+			0.25 & 0.15 & 220 & 220 & 200 & 180 & 200 \\
+			\hline
+			0.3 & 0.2 & 260 & 280 & 260 & 240 & 260 \\
+			\hline
+			0.35 & 0.25 & 340 & 360 & 340 & 300 & 320 \\
+			\hline
+			0.4 & 0.3 & 400 & 420 & 400 & 360 & 380 \\
+			\hline
+			0.45 & 0.35 & 480 & 500 & 460 & 420 & 460 \\
+			\hline
+			0.5 & 0.4 & 540 & 560 & 540 & 520 & 520 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[!h]
+		\centering
+		\caption{test}
+		\label{FocaultMeasurements}
+		\vspace{0.05cm}
+		\begin{tabular}{|c|c|}
+			\hline
+			\multicolumn{2}{|c|}{\textbf{Measurements}} \\
+			\hline
+			L1 & 0.616 m \\
+			\hline
+			f of L1 & 0.048 m \\
+			\hline
+			L2 & 0.930 m \\
+			\hline
+			f of L2 & 0.252 m \\
+			\hline
+			MR & 0.135 m \\
+			\hline
+			A & 0.266 m \\
+			\hline
+			B & 0.481 m \\
+			\hline
+			Average D & 11.521 m \\
+			\hline
+			RPM & 1500 rev/sec \\
+			\hline
+		\end{tabular}
+		\quad
+		\begin{tabular}{|c|}
+			\hline
+			\textbf{D (m)} \\
+			\hline
+			11.519 \\
+			\hline
+			11.525 \\
+			\hline
+			11.520 \\
+			\hline
+			11.523 \\
+			\hline
+			11.520 \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+\clearpage
+	
+	\section{References}
+	\begin{itemize}
+		\item General Physics book
+		\item LEOI-24 Measurement of Speed of Light Instructional Manual  
+		\item Instruction Manual and Experiment Guide for the PASCO scientific Model OS-9261A, 62 and 63A
+	\end{itemize}
+		
+	
+	
+\end{document}

@@ -1,0 +1,714 @@
+\documentclass[12pt]{article}
+\input{C:/Users/khali/OneDrive/AUS/Classes/7 - S24/preamble.tex}
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+%\usepackage{newtx}
+\usepackage{microtype}
+
+\doublespacing
+
+\usepackage[shortconst]{physconst}
+\usepackage{indentfirst}
+\usepackage[nottoc]{tocbibind}
+
+\usepackage{abstract}
+\renewcommand{\absnamepos}{flushleft}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalsize}
+\setlength{\absleftindent}{0pt}
+\setlength{\absrightindent}{0pt}
+
+\geometry{a4paper, top=1in, bottom=1in, left=1in, right=1in, twoside}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=black,
+	citecolor=black,
+	pdftitle={Spectroscopy - Khalifa Almatrooshi},
+}
+
+%\titleformat{\section}{\large\bfseries}{}{0pt}{}
+%\titleformat{\subsection}{\large\bfseries}{}{0pt}{}
+
+\newcommand{\citetemp}[1]{(#1)}
+
+\begin{document}
+	
+	\begin{titlepage}
+		\begin{center}
+			\begin{Large}
+				\textbf{Spectroscopy} \\
+			\end{Large}
+			\vspace{0.5cm}
+			Khalifa Salem Almatrooshi \\
+			\vspace{0.5cm}
+			Department of Physics, American University of Sharjah, Sharjah \\
+			United Arab Emirates, PO Box: 26666
+		\end{center}
+		\begin{abstract}
+			\noindent
+			In this study, we employed PASCO and OceanOptics spectrometers to investigate the first-order spectral lines of mercury, helium, hydrogen, sodium, and the vibrational spectrum of iodine vapor. The primary objective was to accurately determine and analyze these spectral lines, providing insights into the atomic and molecular structures of the elements under investigation. Our results demonstrated a strong correlation with theoretical predictions and existing literature for the first parts, the procedure was found to be inaccurate in determining the relevant parameters of an Iodine Molecule due to errors. Nevertheless, the majority of the result confirm the reliability of the spectroscopic techniques employed.
+		\end{abstract}
+		\paragraph{\textit{Keywords:}} \textit{Spectrometer, Transition, Emission, Absorption}
+	\end{titlepage}
+	
+\clearpage
+	
+	\section{Introduction}	
+
+	Spectroscopy is a fundamental analytical technique used to study the interaction between matter and electromagnetic radiation. At its core, spectroscopy involves the measurement of how different substances absorb, emit, or scatter light at various wavelengths, leading to the formation of unique spectral signatures. These spectral signatures, or spectral lines, are characteristic of the electronic and vibrational energy levels within atoms and molecules, namely the transitions.
+	
+	The study of spectroscopy dates back to the 17th century, with Isaac Newton's experiments on the dispersion of light through a prism. However, it was not until the 19th century that scientists like Joseph von Fraunhofer and Gustav Kirchhoff began to systematically catalog the spectral lines of various elements, laying the groundwork for modern spectroscopy. The advent of quantum mechanics in the early 20th century, particularly the contributions of Niels Bohr, further refined our understanding of spectral lines, linking them to quantized energy transitions within atoms.
+	
+	Spectral lines arise from the interaction of photons with the electronic and vibrational energy levels of atoms and molecules. When an atom absorbs a photon, an electron may be excited to a higher energy level. Conversely, when an electron transitions to a lower energy level, a photon is emitted. The energy difference between these levels corresponds to the wavelength of the absorbed or emitted photon, resulting in the characteristic spectral lines observed for each element
+	
+	\begin{figure}[!h]
+		\centering
+		\label{SpectralLines}
+		\includegraphics[width=0.6\textwidth]{gen1106.png}
+	\end{figure}
+	
+	Spectrometers, such as the PASCO and OceanOptics systems used in this experiment, are instrumental in measuring these spectral lines. They work by dispersing light into its constituent wavelengths and measuring the intensity of each wavelength. This allows for the identification and analysis of the spectral lines of different elements, providing insights into their electronic structure and chemical properties.
+	
+	A key component in Spectrometers are diffraction gratings, a crucial optical component widely used in spectroscopy to disperse light into its constituent wavelengths, allowing for the detailed analysis of spectral lines. It consists of a surface with a large number of closely spaced parallel grooves or slits, which diffract incident light into various directions depending on the wavelength. When light passes through or reflects off a grating, it interferes constructively and destructively, forming a spectrum that can be recorded and analyzed. The angle at which the light is diffracted is determined by the grating equation, which depends on the wavelength of the light, the spacing between the grooves, and the order of diffraction. Diffraction gratings are preferred over prisms in many spectroscopic applications due to their higher resolution and ability to disperse light over a wider range of wavelengths. They are essential components in various types of spectrometers and are used in a broad range of scientific and industrial fields, including astronomy, chemistry, material science, and telecommunications, for analyzing the spectral characteristics of light sources and materials.
+	
+	\begin{figure}[!h]
+		\centering
+		\label{Diffraction}
+		\includegraphics[width=0.6\textwidth]{gen993.jpg}
+	\end{figure}
+	
+	The objectives of this experiment are: first, to determine the first-order spectral lines of mercury, helium, and hydrogen using the PASCO spectroscopy system; and second, to analyze the spectral lines of mercury and sodium, as well as the vibrational spectrum of iodine vapor, using the OceanOptics spectrometers. These measurements will provide a deeper understanding of the atomic and molecular structures of these elements and their interactions with electromagnetic radiation.
+
+\clearpage
+
+	\section{Experimental Details}
+	
+	This section details the procedure for each method and the expected results according to the lab manuals and the relevant equations.
+	
+	\subsection{PASCO Spectrometer}
+	
+	Using the PASCO Spectrometer, we will observe the spectral lines of Mercury (Hg), Hydrogen (H), and Helium (He). With the experimental observation, a comparison will be made with real values.
+	
+	Apparatus used:
+	\begin{itemize}
+		\item PASCO Spectrometer Kit
+		\item Spectral Tubes
+		\item Rotary Motion Sensor
+		\item Grating (1/6000 lines per cm)
+	\end{itemize}
+	\begin{enumerate}
+		\item Setup the apparatus with the spectrometer, follow the manual to adjust the position of each part and connect it to Capstone.
+		\item Choose an element to start with.
+		\item Take note of the revolutions per degree of the rotary motion sensor ($\qty{60}{\degree}$) and create a calculation in the Capstone Calculator:
+		\[
+			\text{Table Angle} = \left[ \text{Angle, Ch P}2 (\unit{\degree}) \right]/60
+		\]
+		\item Plot a graph between light intensity and table angle with a sample rate of $\qty{25}{\hertz}$.
+		\item Position the sensor at the far end of the first order spectrum on either side and start the recording.
+		\item Slowly pan the sensor until you reach the same position you started at on the other side. Repeat this for multiple trials.
+		\begin{figure}[!h]
+			\centering
+			\label{ExampleSpectrum}
+			\includegraphics[width=\textwidth]{ExampleSpectrum.png}
+		\end{figure}
+		\item Using the delta tool, find the degree separation of each peak from the central maximum and find the average over all trials.
+		\item Convert the average angle to wavelength for each peak using $m\lambda = d \sin \theta$, where $m=1$.
+		\item Perform error analysis between the experimental wavelength and real wavelength.
+		\item Repeat the previous steps for the other elements.
+	\end{enumerate}
+	
+	\subsection{Ocean Optics Spectrometer}
+
+	Using the Ocean Optics Spectrometer, we will observe the spectral lines of Mercury (Hg) and Sodium (Na), and Helium (He). This spectrometer is expected to be more accurate because of the the fibre optic input, which will be apparent from the Hg spectral lines. With the experimental observation, a comparison will be made with real values.
+	
+	Apparatus used:
+	\begin{itemize}
+		\item Ocean Optics Spectrometer
+		\item Spectral Tubes
+	\end{itemize}
+	\begin{enumerate}
+		\item Setup the apparatus with the spectrometer, follow the manual to adjust the position of each part and connect it to the OceanView software.
+		\item Choose an element to start with.
+		\item Start the recording and adjust the angle and position of the fiber such that the peaks reach the maximum height.
+		\item Pause the spectrometer and record the wavelength of each peak.
+		\item Perform error analysis between the experimental wavelength and real wavelength.
+		\item Repeat the previous steps for the other element.
+	\end{enumerate}
+	
+	\subsection{Absorption Spectrum of Iodine Vapor}
+	
+	Using another Ocean Optics Spectrometer specific to vibrational spectra, we will observe the vibrational transition of Iodine.
+	Apparatus used:
+	\begin{itemize}
+		\item Ocean Optics Spectrometer (flameNIR)
+		\item Light Source
+		\item Cuvette Holder
+		\item Iodine Crystals
+	\end{itemize}
+	\begin{enumerate}
+		\item Setup the apparatus with the spectrometer, follow the manual to adjust the position of each part and connect it to the OceanView software.
+		\item Place an empty glass bottle in the holder, open the shutter and take a background reading. This will be eliminated by the software.
+		\item Place some iodine crystals in the glass bottle and heat it up evenly until it is filled with purple vapor.
+		\item Quickly place the bottle in the holder and take a snapshot of the resultant spectrum.
+		\item Using the software tools, find the wavelength of each transition. Alternatively, export the spectrum to a desired software and manually find the wavelengths.
+		\item With the wavelengths of each transition, find the transition energy by taking the reciprocal and setting $h=c=1$.
+		\item Plot a graph between the transition number plus half $\nu + \frac{1}{2}$ and the transition energy in $\unit{\per\centi\meter}$. Fit a second order polynomial, which should mirror the following equation:
+		\[
+			E(\nu) = -\chi \bar{\omega}\left( \nu + \frac{1}{2} \right)^2 + \omega \left( \nu +\frac{1}{2} \right) + T_0
+		\].
+		\item Using the following equations find the Spring constant $k$ and the Dissociation Energy $D_0$ for the ground state and the first excited state. The Anharmonicity parameter $\chi$ is found from the polynomial.
+		\begin{equation*}
+			\begin{split}
+				k = 4 \pi^2 \mu c^2 \Delta \bar{\omega}^2 \qquad D_0 = hc N_\mathrm{A} T_0
+			\end{split}
+		\end{equation*}
+		\item Perform error analysis between the experimental values and real values.
+		
+		
+	\end{enumerate}
+
+\clearpage
+
+	\section{Results and Discussion}
+
+	The following section contains our results for each method that includes tables and graphs. This is accompanied by a discussion that includes interpretations of the results and error analysis.
+	
+	Where applicable, I find the percentage difference between the experimental and the real wavelength with the following formula.
+	\[
+		\% \text{ Difference} = \frac{\left| X_1 - X_2 \right|}{\frac{X_1 + X_2}{2}} \times 100
+	\]
+	The main reason is that the real wavelength is an experimental value itself rather than a theoretical one, so an error indicates experimental errors from ideal conditions.
+	
+	\subsection{PASCO Spectrometer}
+	
+	% Spectrometer Mercury Spectral Lines
+	
+	The following tables contain the data for Hg, H, and He observed spectral lines along with the real wavelength from NIST and the percentage difference. For determining which real wavelength the experimental wavelength corresponded to, first I check the persistent line close to it, then the highest intensity line, then any closest line. NIST states that persistent lines are found by '...low concentrations of a particular element relative to other substances in the source, the number of observable lines of the element is found to decrease with decreasing concentration until only the most "persistent" or "sensitive" lines remain'. NIST does include both neutral and singly ionized spectral lines, which could give too much leeway in choosing the closest wavelength, however I believe that the priority list I used is sufficient for a valid error analysis.
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Spectrometer - Mercury Spectral Lines with Error Analysis}
+		\begin{tabular}{ccccc}
+			\toprule
+			&   & \multicolumn{2}{c}{Wavelength $\lambda$ $(\unit{\meter})$} &  \\
+			\cmidrule{3-4} Peaks & Avg $\theta$ $(\unit{\degree})$ & Experimental & Real & \% diff \\
+			\midrule
+			1 & 12.867 & 3.71E-07 & 3.65E-07 & 1.67\% \\
+			2 & 14.247 & 4.10E-07 & 4.05E-07 & 1.37\% \\
+			3 & 15.377 & 4.42E-07 & 4.36E-07 & 1.40\% \\
+			4 & 17.383 & 4.98E-07 & 5.13E-07 & 2.94\% \\
+			5 & 19.418 & 5.54E-07 & 5.46E-07 & 1.47\% \\
+			6 & 20.587 & 5.86E-07 & 5.79E-07 & 1.20\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:MercurySpectralLineswithErrorAnalysis}%
+	\end{table}%
+	
+	
+	% Spectrometer Hydrogen Spectral Lines
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Spectrometer - Hydrogen Spectral Lines with Error Analysis}
+		\begin{tabular}{ccccc}
+			\toprule
+			&   & \multicolumn{2}{c}{Wavelength $\lambda$ $(\unit{\meter})$} &  \\
+			\cmidrule{3-4} Peaks & Avg $\theta$ $(\unit{\degree})$ & Experimental & Real & \% diff \\
+			\midrule
+			1 & 15.18 & 4.36E-07 & 4.34E-07 & 0.56\% \\
+			2 & 17.15 & 4.91E-07 & 4.86E-07 & 1.10\% \\
+			3 & 23.508 & 6.65E-07 & 6.56E-07 & 1.30\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:HydrogenSpectralLineswithErrorAnalysis}%
+	\end{table}%
+	
+	% Spectrometer Helium Spectral Lines
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Spectrometer - Helium Spectral Lines with Error Analysis}
+		\begin{tabular}{ccccc}
+			\toprule
+			&   & \multicolumn{2}{c}{Wavelength $\lambda$ $(\unit{\meter})$} &  \\
+			\cmidrule{3-4} Peaks & Avg $\theta$ $(\unit{\degree})$ & Experimental & Real & \% diff \\
+			\midrule
+			1 & 11.95 & 3.45E-07 & 3.45E-07 & 0.10\% \\
+			2 & 13.512 & 3.89E-07 & 3.89E-07 & 0.16\% \\
+			3 & 15.158 & 4.36E-07 & 4.47E-07 & 2.57\% \\
+			4 & 17.214 & 4.93E-07 & 5.02E-07 & 1.68\% \\
+			5 & 19.354 & 5.52E-07 & 5.41E-07 & 2.06\% \\
+			6 & 20.38 & 5.80E-07 & 5.88E-07 & 1.21\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:HeliumSpectralLineswithErrorAnalysis}%
+	\end{table}%
+	
+	
+	
+\clearpage
+	
+	\subsection{Ocean Optics Spectrometer}
+	
+	The following tables contain the data for Hg and Na observed spectral lines along with the real wavelength from NIST and the percentage difference. The same reasoning for the real wavelength is applied here.
+	
+	% Ocean Optics Mercury Spectral Lines
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Ocean Optics - Mercury Spectral Lines with Error Analysis}
+		\begin{tabular}{cccc}
+			\toprule
+			& \multicolumn{2}{c}{Wavelength $\lambda$ $(\unit{\meter})$} &  \\
+			\cmidrule{2-3} Peaks & Experimental & Real & \% diff \\
+			\midrule
+			1 & 3.32298E-07 & 3.20817E-07 & 3.52\% \\
+			2 & 3.54061E-07 & 3.65015E-07 & 3.05\% \\
+			3 & 3.84753E-07 & 3.98393E-07 & 3.48\% \\
+			4 & 4.10334E-07 & 4.04656E-07 & 1.39\% \\
+			5 & 4.24279E-07 & 4.33922E-07 & 2.25\% \\
+			6 & 4.27170E-07 & 4.34749E-07 & 1.76\% \\
+			7 & 4.55000E-07 & 4.35833E-07 & 4.30\% \\
+			8 & 5.11108E-07 & 5.12844E-07 & 0.34\% \\
+			9 & 5.66851E-07 & 5.67711E-07 & 0.15\% \\
+			10 & 5.97023E-07 & 5.88894E-07 & 1.37\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:OceanViewMercurySpectralLineswithErrorAnalysis}%
+	\end{table}%	
+	
+	% OceanView Sodium Spectral Lines
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Ocean Optics - Sodium Spectral Lines with Error Analysis}
+		\begin{tabular}{cccc}
+			\toprule
+			& \multicolumn{2}{c}{Wavelength $\lambda$ $(\unit{\meter})$} &  \\
+			\cmidrule{2-3} Peaks & Experimental & Real & \% diff \\
+			\midrule
+			1 & 5.88090E-07 & 5.68821E-07 & 3.33\% \\
+			2 & 6.07800E-07 & 5.88995E-07 & 3.14\% \\
+			3 & 6.08600E-07 & 5.89592E-07 & 3.17\% \\
+			4 & 6.35282E-07 & 6.54404E-07 & 2.97\% \\
+			5 & 7.83675E-07 & 8.18326E-07 & 4.33\% \\
+			6 & 7.86688E-07 & 8.19479E-07 & 4.08\% \\
+			7 & 7.89700E-07 & 8.19482E-07 & 3.70\% \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:OceanViewSodiumSpectralLineswithErrorAnalysis}%
+	\end{table}%
+	
+	For both the PASCO and Ocean Optics spectrometer, there is a clear constant deviation in each spectrum of $1-4 \%$ which indicates an error. While there are some values at $0 \%$, this could be a byproduct of bias in selecting the real wavelength. This error could come from stray light or inadequate procedure and handling of equipment.
+	
+\clearpage
+	
+	\subsection{Absorption Spectrum of Iodine Vapor}
+	
+	The following tables contain the data for Iodine cold band ($v^{\prime\prime} = 0$) and hot band ($v^{\prime\prime} = 1$ and $v^{\prime\prime} = 2$) transitions. The graph use to find these wavelengths is in the appendix. I used RStudio to plot the graph. The transition energy $\omega$ is found by treating Planck's constant $h$ and the speed of light $c$ as being unity $h = c = 1$, which means $E = \frac{hc}{\lambda} = \frac{1}{\lambda}$. The reduced mass of an Iodine molecule is $\qty{1.05e-25}{\kilogram}$. The standard values are given in a provided lab document.
+	
+	% Iodine
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Iodine Ground State}
+		\begin{tabular}{ccc}
+			\toprule
+			Transition $(v^{\prime\prime} = 0)$ & Wavelength $\lambda$ $(\unit{nm})$ & Transition Energy $\omega$ $(\unit{\per\centi\meter})$ \\
+			\midrule
+			13 & 578.5 & 1.73E+04 \\
+			14 & 575.2 & 1.74E+04 \\
+			15 & 572.3 & 1.75E+04 \\
+			16 & 569 & 1.76E+04 \\
+			17 & 566 & 1.77E+04 \\
+			18 & 563.0 & 1.78E+04 \\
+			19 & 560.5 & 1.78E+04 \\
+			20 & 557.3 & 1.79E+04 \\
+			21 & 554.1 & 1.80E+04 \\
+			22 & 551.2 & 1.81E+04 \\
+			23 & 548.7 & 1.82E+04 \\
+			24 & 546.6 & 1.83E+04 \\
+			25 & 544.4 & 1.84E+04 \\
+			26 & 542.2 & 1.84E+04 \\
+			27 & 539.8 & 1.85E+04 \\
+			28 & 537.9 & 1.86E+04 \\
+			29 & 535.5 & 1.87E+04 \\
+			30 & 533.9 & 1.87E+04 \\
+			31 & 531.9 & 1.88E+04 \\
+			32 & 530.2 & 1.89E+04 \\
+			33 & 528.5 & 1.89E+04 \\
+			34 & 526.50 & 1.90E+04 \\
+			\cmidrule{2-3}      & $\bar{\omega}_0$ & 1.82E+04 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:IodineGroundState}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Iodine Ground State Transition Energy Graph}
+		\label{IodineGround}
+		\includegraphics[width=0.8\textwidth]{IodineGround.jpg}
+	\end{figure}
+	
+\clearpage
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Iodine First Excited State}
+		\begin{tabular}{ccc}
+			\toprule
+			Transition $(v^{\prime\prime} = 1)$ & Wavelength $\lambda$ $(\unit{nm})$ & Transition Energy $\omega$ $(\unit{\per\centi\meter})$ \\
+			\midrule
+			10 & 598.2 & 1.67E+04 \\
+			11 & 594.2 & 1.68E+04 \\
+			12 & 590.5 & 1.69E+04 \\
+			13 & 587.8 & 1.70E+04 \\
+			14 & 584.3 & 1.71E+04 \\
+			15 & 580.6 & 1.72E+04 \\
+			16 & 577.5 & 1.73E+04 \\
+			17 & 574.2 & 1.74E+04 \\
+			18 & 570.8 & 1.75E+04 \\
+			19 & 567.5 & 1.76E+04 \\
+			20 & 564.5 & 1.77E+04 \\
+			21 & 561.8 & 1.78E+04 \\
+			22 & 558.5 & 1.79E+04 \\
+			23 & 555.0 & 1.80E+04 \\
+			24 & 552.9 & 1.81E+04 \\
+			25 & 550.1 & 1.82E+04 \\
+			\cmidrule{2-3}
+			& $\bar{\omega}_1$ & 1.75E+04 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:IodineFirstExcitedState}%
+	\end{table}%
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Iodine First Excited State Transition Energy Graph}
+		\label{IodineFirst}
+		\includegraphics[width=0.8\textwidth]{IodineFirst.jpg}
+	\end{figure}
+	
+	Now with the ground and first excited state, we can find $\Delta \bar{\omega}_{1,0}$ by taking the difference between the overlapping transitions.
+	
+\clearpage	
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Energy Difference Between Ground and First Excited States}
+		\begin{tabular}{cc}
+			\toprule
+			Transition & $\Delta\omega (\unit{\per\centi\meter})$ \\
+			\midrule
+			13 & 2.73E+02 \\
+			14 & 2.71E+02 \\
+			15 & 2.50E+02 \\
+			16 & 2.59E+02 \\
+			17 & 2.52E+02 \\
+			18 & 2.43E+02 \\
+			19 & 2.20E+02 \\
+			20 & 2.29E+02 \\
+			21 & 2.47E+02 \\
+			22 & 2.37E+02 \\
+			23 & 2.07E+02 \\
+			24 & 2.08E+02 \\
+			25 & 1.90E+02 \\
+			\midrule
+			$\Delta \bar{\omega}_{1,0}$ & 2.37E+02 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:addlabel}%
+	\end{table}%
+		
+	\begin{table}[htbp]
+		\centering
+		\caption{Iodine Second Excited State}
+		\begin{tabular}{ccc}
+			\toprule
+			Transition $(v^{\prime\prime} = 2)$ & Wavelength $\lambda$ $(\unit{nm})$ & Transition Energy $\omega$ $(\unit{\per\centi\meter})$ \\
+			\midrule
+			13 & 596.5 & 1.68E+04 \\
+			14 & 592.5 & 1.69E+04 \\
+			15 & 589 & 1.70E+04 \\
+			16 & 585.8 & 1.71E+04 \\
+			17 & 582 & 1.72E+04 \\
+			18 & 578.5 & 1.73E+04 \\
+			19 & 575.2 & 1.74E+04 \\
+			20 & 572.4 & 1.75E+04 \\
+			21 & 569.3 & 1.76E+04 \\
+			\cmidrule{2-3}      & $\bar{\omega}_2$ & 1.72E+04 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:IodineSecondExcitedState}%
+	\end{table}%
+	
+\clearpage	
+	
+	Now with the first and second excited states, we can find $\Delta \bar{\omega}_{2,1}$ by taking the difference between the overlapping transitions.
+
+	\begin{table}[htbp]
+		\centering
+		\caption{Energy Difference Between First and Second Excited States}
+		\resizebox{3.5cm}{!}{
+			\begin{tabular}{cc}
+				\toprule
+				Transition & $\Delta\omega (\unit{\per\centi\meter})$ \\
+				\midrule
+				13 & 2.48E+02 \\
+				14 & 2.37E+02 \\
+				15 & 2.46E+02 \\
+				16 & 2.45E+02 \\
+				17 & 2.33E+02 \\
+				18 & 2.33E+02 \\
+				19 & 2.36E+02 \\
+				20 & 2.44E+02 \\
+				21 & 2.34E+02 \\
+				\midrule
+				$\Delta \bar{\omega}_{2,1}$ & 2.40E+02 \\
+				\bottomrule
+			\end{tabular}%
+		}
+		\label{tab:DeltaFirstSecondStates}%
+	\end{table}%
+	
+	Following "The Iodine Spectrum Revisited", we can find all the relevant parameters from the following simultaneous equations:
+	\begin{align*}
+		\qty{237}{\per\centi\meter} &= \bar{\omega} - 2\chi \bar{\omega} \\
+		\qty{240}{\per\centi\meter} &= \bar{\omega} - 4\chi \bar{\omega} \\
+		\bar{\omega} &= \qty{234}{\per\centi\meter} \\
+		\chi &= 0.0064103
+	\end{align*}
+	
+	Now to calculate the $k$ and $D_0$ for the ground state:
+	\begin{align*}
+		k &= 4 \pi^2 \left( \qty{1.05e-25}{\kilogram} \right) \left( \kSpeedLight \right)^2 \left( \qty{2.34e2}{\per\centi\meter} \times 10^2 \right)^2 \\
+		&= \qty{204.28}{\newton\per\meter} \\
+		\% \text{Error} &= \abs{\frac{204.28 - 170}{170}} \times 100 = 20.1 \%
+	\end{align*}
+	\begin{align*}
+		D_0 &= \left( \kPlanck \right) \left( \kSpeedLight \right) \left( \kAvogadro \right) \left( \qty{15671}{\per\centi\meter} \times 10^2 \right) \\
+		&= \qty{187.64e3}{\joule\per\mole} \\
+		\% \text{Error} &= \abs{\frac{\num{187.64e3} - \num{148e3}}{\num{148e3}}} \times 100 = 26.8 \%
+	\end{align*}
+	
+	For the first excited state, I was only able to calculate $D_0$.
+	\begin{align*}
+		D_0 &= \left( \kPlanck \right) \left( \kSpeedLight \right) \left( \kAvogadro \right) \left( \qty{15623}{\per\centi\meter} \times 10^2 \right) \\
+		&= \qty{187.07e3}{\joule\per\mole} \\
+		\% \text{Error} &= \abs{\frac{\num{187.07e3} - \num{190e3}}{\num{190e3}}} \times 100 = 1.54 \%
+	\end{align*}
+	
+	Overall, the results for Iodine are inaccurate to a large degree, meaning that the methodology was inadequate in both procedure and calculation. For procedure, the Iodine spectrum graph was not very clear, making it hard to make out different bands, which affected the transition energy for each band. For calculation, the documents provided do not have a clear path to calculate the first excited state parameters.
+
+\clearpage	
+
+	\section{Applications}
+	
+	Spectroscopy is a versatile analytical technique with a wide range of applications across various fields.
+	
+	\begin{itemize}
+		\item Astronomy: Spectroscopy is indispensable in astronomy for analyzing the light emitted, absorbed, or scattered by celestial objects. By studying the spectral lines in the light from stars, galaxies, and nebulae, astronomers can determine their chemical compositions, temperatures, and densities. Additionally, the Doppler shift of spectral lines provides information about the velocity of these objects, helping to measure their motion relative to Earth. This information is crucial for understanding the life cycle of stars, the structure of galaxies, and the expansion of the universe.
+		\item Chemical Analysis: In the realm of chemistry, spectroscopy is a fundamental tool for identifying and quantifying the constituents of a sample. It is extensively used in environmental monitoring to detect and measure pollutants in air, water, and soil. In the pharmaceutical industry, spectroscopy aids in the analysis of drugs, ensuring their purity and concentration. The food industry employs spectroscopy for quality control, determining the nutritional content and detecting contaminants in food products.
+		\item Medical Diagnostics: Spectroscopy has made significant contributions to medical diagnostics by offering non-invasive methods for examining biological tissues. Infrared spectroscopy, for example, is used to measure blood oxygen levels and assess respiratory function. Raman spectroscopy, on the other hand, is employed in cancer research to identify molecular changes in tissues, enabling early detection and diagnosis of diseases.
+		\item Material Science: The study of materials, from semiconductors to polymers and nanomaterials, heavily relies on spectroscopy. It provides insights into the electronic structure, bonding, and defects in materials, which are crucial for tailoring their properties for specific applications. Spectroscopy aids in the development of advanced materials for electronics, energy storage, and nanotechnology.
+		\item Atmospheric Studies: Spectroscopy plays a vital role in atmospheric science, helping to study the composition and dynamics of Earth's atmosphere. It is used to monitor air pollution, measure the concentration of greenhouse gases, and assess the impact of human activities on climate change. This information is essential for developing strategies to mitigate environmental problems and protect the planet.
+		\item Forensic Science: In forensic science, spectroscopy is a powerful tool for analyzing substances found at crime scenes, such as drugs, poisons, and explosives. It allows for the non-destructive identification and quantification of trace evidence, aiding in criminal investigations and legal proceedings.
+	\end{itemize}
+
+	\section{Conclusion}
+	
+	In conclusion, this study utilized PASCO and Ocean Optics spectrometers to analyze the first-order spectral lines of mercury, helium, hydrogen, sodium, and the vibrational spectrum of iodine vapor. Through experimentation and analysis, we observed and recorded the characteristic spectral lines for each element, somewhat aligning with theoretical predictions and existing literature. Our findings are accurate for everything except the vibrational spectrum of Iodine. Nevertheless, this research reinforces the foundational principles of spectroscopy and highlights its vast applications, from astronomy to Forensic Science. Future work could improve the procedure of the Iodine part, or even expand on this study by exploring higher-order spectral lines, and integrating advanced computational methods to improve spectral line identification and analysis.
+
+\clearpage
+
+	\section{Appendix}
+	
+	% Mercury Spectral Lines Trials
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Mercury Spectral Lines Trial 1}
+		\label{tab:MercurySpectralLinesTrial1}
+		\begin{tabular}{@{}cccc@{}}
+			\toprule
+			& \multicolumn{3}{c}{$\theta$ $(\unit{\degree})$}                             \\ \cmidrule(lr){2-4}
+			\multicolumn{1}{l}{Peaks} & Left Side     & Right Side     & \multicolumn{1}{l}{Average} \\ \midrule
+			1                         & 12.76         & 12.87          & 12.815                      \\
+			2                         & 14.17         & 14.24          & 14.205                      \\
+			3                         & 15.25         & 15.35          & 15.3                        \\
+			4                         & 17.24         & 17.37          & 17.305                      \\
+			5                         & 19.26         & 19.44          & 19.35                       \\
+			6                         & 20.42         & 20.66          & 20.54                       \\ \bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Mercury Spectral Lines Trial 2}
+		\begin{tabular}{cccc}
+			\toprule
+			& \multicolumn{3}{c}{$\theta$ $(\unit{\degree})$}  \\ \cmidrule{2-4}
+			Peaks & Left Side & Right Side & Average \\
+			\midrule
+			1 & 12.8 & 12.82 & 12.81 \\
+			2 & 14.2 & 14.28 & 14.24 \\
+			3 & 15.29 & 15.39 & 15.34 \\
+			4 & 17.24 & 17.46 & 17.35 \\
+			5 & 19.28 & 19.5 & 19.39 \\
+			6 & 20.48 & 20.65 & 20.565 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:MercurySpectralLinesTrial2}%
+	\end{table}
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Mercury Spectral Lines Trial 3}
+		\begin{tabular}{cccc}
+			\toprule
+			& \multicolumn{3}{c}{$\theta$ $(\unit{\degree})$}  \\ \cmidrule{2-4}
+			Peaks & Left Side & Right Side & Average \\
+			\midrule
+			1 & 13.01 & 13.06 & 13.035 \\
+			2 & 14.36 & 14.52 & 14.44 \\
+			3 & 15.49 & 15.6 & 15.545 \\
+			4 & 17.52 & 17.65 & 17.585 \\
+			5 & 19.56 & 19.75 & 19.655 \\
+			6 & 20.8 & 20.93 & 20.865 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:MercurySpectralLinesTrial3}%
+	\end{table}
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Mercury Spectral Lines Trial 4}
+		\begin{tabular}{cccc}
+			\toprule
+			& \multicolumn{3}{c}{$\theta$ $(\unit{\degree})$}  \\ \cmidrule{2-4}
+			Peaks & Left Side & Right Side & Average \\
+			\midrule
+			1 & 13 & 13.12 & 13.06 \\
+			2 & 14.4 & 14.23 & 14.315 \\
+			3 & 15.5 & 15.56 & 15.53 \\
+			4 & 17.42 & 17.48 & 17.45 \\
+			5 & 19.42 & 19.56 & 19.49 \\
+			6 & 20.58 & 20.51 & 20.545 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:MercurySpectralLinesTrial4}%
+	\end{table}
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Mercury Spectral Lines Trial 5}
+		\begin{tabular}{cccc}
+			\toprule
+			& \multicolumn{3}{c}{$\theta$ $(\unit{\degree})$}  \\ \cmidrule{2-4}
+			Peaks & Left Side & Right Side & Average \\
+			\midrule
+			1 & 12.65 & 12.58 & 12.615 \\
+			2 & 14.01 & 14.06 & 14.035 \\
+			3 & 15.19 & 15.15 & 15.17 \\
+			4 & 17.27 & 17.18 & 17.225 \\
+			5 & 19.15 & 19.26 & 19.205 \\
+			6 & 20.4 & 20.44 & 20.42 \\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:MercurySpectralLinesTrial5}%
+	\end{table}
+	
+	% Hydrogen Spectral Lines Trials
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Hydrogen Spectral Lines Trials}
+		\begin{tabular}{ccccccc}
+			\toprule
+			& \multicolumn{6}{c}{$\theta$ $(\unit{\degree})$} \\
+			\cmidrule{2-7}    Peaks & $T_1:$ R & $T_2:$ L & $T_3:$ R & $T_4:$ R & $T_5:$ L & Average \\
+			\midrule
+			1 & 14.79 & 15.1 & 15.21 & 15.22 & 15.58 & 15.18 \\
+			2 & 16.71 & 17.22 & 17.15 & 17.08 & 17.59 & 17.15 \\
+			3 & 23.3 & 23.4 & 23.32 & 23.2 & 24.32 & 23.508 \\
+			\bottomrule
+		\end{tabular}
+		\label{tab:HydrogenSpectralLinesTrials}
+	\end{table}
+	
+	% Helium Spectral Lines Trials
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{Helium Spectral Lines Trials}
+		\begin{tabular}{ccccccc}
+			\toprule
+			& \multicolumn{6}{c}{$\theta$ $(\unit{\degree})$} \\
+			\cmidrule{2-7}    Peaks & $T_1:$ R & $T_2:$ L & $T_3:$ R & $T_4:$ R & $T_5:$ R & Average \\
+			\midrule
+			1 & 12 & 11.82 & 11.78 & 12.04 & 12.11 & 11.95 \\
+			2 & 13.46 & 13.53 & 13.39 & 13.78 & 13.4 & 13.512 \\
+			3 & 15.6 & 15.48 & 14.03 & 15.34 & 15.34 & 15.158 \\
+			4 & 17.43 & 17.94 & 16.91 & 17.05 & 16.74 & 17.214 \\
+			5 & 19.53 & 19.2 & 19.13 & 19.18 & 19.73 & 19.354 \\
+			6 & 20.45 & 20.32 & 20.09 & 20.24 & 20.8 & 20.38 \\
+			\bottomrule
+		\end{tabular}
+		\label{tab:HeliumSpectralLinesTrials}
+	\end{table}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{OceanView - Mercury Spectrum}
+		\label{MercurySpectrum}
+		\includegraphics[width=\textwidth]{OceanViewMercury.png}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{OceanView - Sodium Spectrum}
+		\label{SodiumSpectrum}
+		\includegraphics[width=\textwidth]{OceanViewSodium.png}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Iodine Spectrum}
+		\label{IodineSpectrum}
+		\includegraphics[width=\textwidth]{Rplot.jpeg}
+	\end{figure}
+	
+	\begin{figure}[htbp]
+		\centering
+		\caption{Iodine Second Excited State Transition Energy Graph}
+		\label{IodineSecond}
+		\includegraphics[width=\textwidth]{IodineSecond.jpg}
+	\end{figure}
+	
+\clearpage
+	
+	\section{References}
+	\begin{itemize}
+		\item General Physics book
+		\item PASCO manual: \href{https://www.pasco.com/products/complete-experiments/quantum/ex-5546}{https://www.pasco.com/products/complete-experiments/quantum/ex-5546}
+		\item OceanOptics Manual: \href{https://www.oceaninsight.com/globalassets/catalog-blocks-and-images/manuals--instruction-old-logo/spectrometer/usb2000-operating-instructions1.pdf}{https://www.oceaninsight.com/globalassets/catalog-blocks-and-images/manuals--instruction-old-logo/spectrometer/usb2000-operating-instructions1.pdf}
+		\item \href{https://www.horiba.com/int/scientific/technologies/raman-imaging-and-spectroscopy/raman-spectroscopy}{https://www.horiba.com/int/scientific/technologies/raman-imaging-and-spectroscopy/raman-spectroscopy}
+		\item \href{https://physics.nist.gov/PhysRefData/Handbook/Tables/mercurytable2.htm}{Mercury Spectral Lines}
+		\item \href{https://physics.nist.gov/PhysRefData/Handbook/Tables/hydrogentable2.htm}{Hydrogen Spectral Lines}
+		\item \href{https://physics.nist.gov/PhysRefData/Handbook/Tables/heliumtable2.htm}{Helium Spectral Lines}
+		\item \href{https://physics.nist.gov/PhysRefData/Handbook/Tables/sodiumtable2.htm}{Sodium Spectral Lines}
+		\item \href{https://en.wikipedia.org/wiki/Reciprocal_length}{https://en.wikipedia.org/wiki/Reciprocal\_length}
+		\item \href{https://arxiv.org/pdf/1507.02600.pdf}{Iodine Reduced Mass}
+		\item \href{https://faculty.uca.edu/kdooley/i2_spectrum_mcnaught.pdf}{Iodine Reference}
+		\item Electronic Spectroscopy \& Heat of Sublimation of $I_2$ by Jacob
+		\item The Iodine Spectrum Revisited by R. B. Snadden
+	\end{itemize}
+		
+	
+	
+\end{document}
